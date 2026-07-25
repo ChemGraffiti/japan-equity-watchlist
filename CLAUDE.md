@@ -42,10 +42,11 @@ Any cited data, articles, or literature must always be presented with a link or 
 
 ## データ構成 / Data Layout
 
-- `japan_equity_sector_map_v2.html` — **ライブダッシュボード本体**。113銘柄の分類マップに加え、各行に株価/PER/PBR/信用倍率/次回決算日をミニバーチャート（前日比%バッジ付き、赤=上昇・緑=下落）で表示し、11業種タブは業種平均前日比のヒートマップで自動着色。ページ下部に📰デイリーニュースログ（`#newslog`セクション）を持つ。
-  - **2026-07-25にデータ駆動方式へ全面改修済み**。表の見た目はHTMLに直書きせず、ファイル末尾の`<script>`内にある2つのJSオブジェクトから毎回自動生成される（`renderFundCells()`/`renderHeatmap()`）。**この設計のおかげで日次更新はJSオブジェクトの中身を差し替えるだけで済み、HTML本体（テーブル行・nav等）は一切触らなくてよい。**
+- `japan_equity_sector_map_v2.html` — **ライブダッシュボード本体**。113銘柄の分類マップに加え、各行に株価/PER/PBR/信用倍率/次回決算日をミニバーチャート（前日比%バッジ付き、赤=上昇・緑=下落）で表示し、11業種タブは業種平均前日比のヒートマップで自動着色。ページ上部には🌍**世界情勢サマリー**（日本・米国・中国、日本株への影響度を赤=追い風/緑=逆風で色分け）、下部には📰デイリーニュースログ（`#newslog`セクション）を持つ。
+  - **2026-07-25にデータ駆動方式へ全面改修済み**。表の見た目はHTMLに直書きせず、ファイル末尾の`<script>`内にあるJSオブジェクトから毎回自動生成される（`renderFundCells()`/`renderHeatmap()`/`renderWorld()`）。**この設計のおかげで日次更新はJSオブジェクトの中身を差し替えるだけで済み、HTML本体（テーブル行・nav等）は一切触らなくてよい。**
     - `BASE`: 銘柄コード→{基準株価p, PER, PBR, 信用倍率cr, 決算文言dec, 大分類番号s, ...}。決算発表・株式分割など「事案（イベント）」があった銘柄のみ、該当コードのオブジェクトを更新する（他の銘柄は触らない）。
     - `DAILY`: 銘柄コード→[当日株価, 前日比%] のペア。**日次更新で書き換えるのはここだけ**。PER/PBRはBASE値×(DAILY株価/BASE株価)で自動換算され、11業種タブの色もDAILYの前日比%から自動計算される。
+    - `WORLD`: 地域キー（`japan`/`us`/`china`、必要に応じて追加可）→{summary(日本語), en(英語), score(-2〜+2で日本株への影響度), asOf, source}。旧「一週間の投資情報まとめ」プロジェクトで**週次のみ**行っていた世界情勢分析を、この日次カードとして本プロジェクトに統合したもの。日次更新のたびに`summary`/`en`/`score`/`asOf`を書き換える。
 - `fundamentals/raw/batchNN.md` — 初回フル調査（バッチ調査エージェント）の生データ
 - `fundamentals/raw/pricechg_batchN.md` — 株価・前日比%のみを取得する軽量バッチ調査の生データ（日次更新用）
 - `fundamentals/watchlist_fundamentals_{date}.md` — フル調査を統合したマスターデータベース（詳細出典URL付き）。BASEオブジェクトの一次情報源。
@@ -62,12 +63,27 @@ Any cited data, articles, or literature must always be presented with a link or 
 
 ## 自動化について / On Automation
 
-CronによるPC起動中のみの定時実行は、PCがスリープ中は発火しないため採用しない（[一週間の投資情報まとめ](../一週間の投資情報まとめ/CLAUDE.md)と同じ理由）。ユーザーが任意のタイミングで `/jp-daily-view` を実行する方式とする。
+ローカルPCのCronはPCがスリープ中は発火しないため採用しない（[一週間の投資情報まとめ](../一週間の投資情報まとめ/CLAUDE.md)と同じ理由）。代わりに**2026-07-25、クラウド側のスケジュール実行（`schedule`スキル／`RemoteTrigger`）を設定済み**。クラウドエージェントはローカルPCにアクセスできないため、このプロジェクトはGitHubリポジトリ経由で運用する。
 
-Time-based Cron automation is not used, since it doesn't fire while the PC is asleep (same reasoning as the weekly report project). The user runs `/jp-daily-view` on demand instead.
+- **GitHubリポジトリ**: https://github.com/ChemGraffiti/japan-equity-watchlist （プライベート）。ローカルの変更は都度 `git push origin main` してリポジトリに反映する。クラウド側の日次更新もこのリポジトリにpushされるため、ローカルで最新を見たい場合は `git pull` する。
+- **ルーティーンID**: `trig_01MHvJpzmYjM1hoS8RqtCuKS`（名前:「日本株ウォッチリスト 日次更新」）。管理・停止は https://claude.ai/code/routines から。
+- **実行タイミング**: 毎週月〜金曜 JST 6:00開始（cron: `0 21 * * 0-4` UTC）。7:00完了を目安に1時間のバッファを確保。
+- **毎朝の処理内容**（プロンプトはルーティーン本体に記載。ローカルの`.claude/commands/jp-daily-view.md`と同等の内容をクラウド実行版として保持）:
+  1. 113銘柄の株価前日比を調査し`DAILY`を更新
+  2. 市況調査（日本・米国・中国の世界情勢を含む）＋ニュースごとに関連するウォッチリスト銘柄を特定
+  3. `WORLD`オブジェクトを更新（世界情勢サマリーカード）
+  4. 主観/客観コメントを`daily/{date}.md`に生成（関連銘柄を併記）
+  5. `#newslog`に個別材料を追記
+  6. GitHubにコミット・push
+  7. Gmail下書きを作成（**自動送信ではなく下書きのみ**、Gmail連携にsend機能がないため）
+  8. Googleドライブの「日本株ウォッチリスト」フォルダに日次コメント・ダッシュボードHTMLを保存
+- ルーティーン本体を更新する際は、ローカルの`.claude/commands/jp-daily-view.md`を先に直してから、同じ変更内容を`RemoteTrigger`の`update`でルーティーンのプロンプトにも反映すること（2箇所が乖離しないように）。
+
+Local Cron is not used since it doesn't fire while the PC is asleep. Instead, a **cloud-scheduled routine** (via the `schedule` skill / `RemoteTrigger`) was set up on 2026-07-25. Since cloud agents can't reach the local PC, this project is operated through a GitHub repository (see above) that the cloud routine clones, updates, and pushes to every weekday morning (JST 6:00, targeting 7:00 completion). It also drafts a Gmail summary (draft only — the connector has no send capability) and saves snapshots to Google Drive.
 
 ## 実行方法 / How to Run
 
 - 初回・フル更新: ユーザーの指示に応じて、113銘柄を約12銘柄ずつ10バッチに分割し、並列エージェント（Opus使用可）で株価・PER・PBR・信用倍率・次回決算日・その他ファンダメンタル・IR・関連ニュースを調査し、`fundamentals/watchlist_fundamentals_{date}.md` に統合したうえで、その内容で`japan_equity_sector_map_v2.html`の`BASE`オブジェクトを更新する。
-- 日次: `/jp-daily-view` を実行すると、①113銘柄の株価・前日比%を軽量バッチ調査で取得して`DAILY`オブジェクトを差し替え（ダッシュボードのミニチャート・ヒートマップが自動更新）、②マスターDBと当日のニュースを踏まえた主観/客観コメントを`daily/{date}.md`に生成、③個別材料があれば`#newslog`に追記する。
+- 日次（ローカル手動）: `/jp-daily-view` を実行すると、①113銘柄の株価・前日比%を軽量バッチ調査で取得して`DAILY`オブジェクトを差し替え、②世界情勢を調査して`WORLD`オブジェクトを更新、③マスターDBと当日のニュースを踏まえた主観/客観コメント（関連銘柄併記）を`daily/{date}.md`に生成、④個別材料があれば`#newslog`に追記する。
+- 日次（クラウド自動）: 上記「自動化について」のクラウドルーティーンが平日毎朝自動実行する。ローカルで最新を見るには`git pull`が必要。
 - 自動投稿・自動売買は一切行わない。

@@ -109,6 +109,15 @@ table.xref .code{width:58px;color:var(--ivory)}
 .nl-macro{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--muted);background:rgba(139,160,180,.12);
   border:1px solid rgba(139,160,180,.4);padding:1px 5px;border-radius:2px;margin-right:6px;white-space:nowrap}
 
+/* World affairs summary */
+.world-sec{margin-bottom:34px}
+.world-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.world-card{border:1px solid;border-radius:6px;padding:14px 16px;transition:background .2s}
+.world-card .wc-label{font-weight:700;font-size:14px;margin-bottom:7px;letter-spacing:.02em}
+.world-card .wc-summary{font-size:13px;line-height:1.55}
+.world-card .wc-en{font-size:11px;opacity:.85;margin-top:7px;font-style:italic;line-height:1.4}
+.world-card .wc-date{font-size:10px;opacity:.7;margin-top:9px;font-family:ui-monospace,Menlo,monospace}
+
 @media (max-width:620px){
   .wrap{padding:20px 12px 60px}
   h1{font-size:23px}
@@ -117,6 +126,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   .name{white-space:normal;width:auto}
   th:nth-child(3),td:nth-child(3),th:nth-child(4),td:nth-child(4){display:none}
   .count{display:none}
+  .world-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -143,10 +153,20 @@ table.xref .code{width:58px;color:var(--ivory)}
     <span style="color:var(--new)">■金バー＝PBR1倍未満（割安シグナル）</span>
     <span><i class="chg up" style="position:static;width:auto">+1.7%</i>＝前日比プラス（赤）　<i class="chg down" style="position:static;width:auto">-4.9%</i>＝前日比マイナス（緑）</span>
     <span>下のセクタータブの色＝業種平均の前日比ヒートマップ（明るい赤=最も上昇、明るい緑=最も下落、基準日2026-07-24）</span>
+    <span>世界情勢カードの色＝日本株への影響度（明るい赤=追い風、明るい緑=逆風）</span>
   </div>
 </header>
 
+<section id="world" class="world-sec">
+  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
+    <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
+  </div>
+  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div class="world-grid" id="world-grid"></div>
+</section>
+
 <nav>
+  <a href="#world">🌍 世界情勢</a>
   <a href="#s1" class="heat" data-sector="1">1 半導体・AI</a>
   <a href="#s2" class="heat" data-sector="2">2 データセンター</a>
   <a href="#s3" class="heat" data-sector="3">3 IT・サイバー</a>
@@ -830,6 +850,24 @@ const DAILY = {
 "7951":[1203.5,-1.63],"1928":[3536,0.63],"3063":[1233,1.82]
 };
 
+/* ---------- 世界情勢サマリー / World affairs summary ----------
+   毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
+   Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
+const WORLD = {
+"japan":{label:"日本 / Japan", score:-1,
+  summary:"半導体・AI関連が全面安の一方、日銀の追加利上げ観測でメガバンク・商社は堅調。方向感が分かれる相場。",
+  en:"Semiconductor/AI names sold off broadly while megabanks and trading houses held up on BOJ rate-hike expectations — a mixed session.",
+  asOf:"7/24"},
+"us":{label:"米国 / US", score:-1,
+  summary:"中東の供給不安を背景にした原油高でインフレ・長期金利上昇懸念が強まり、ダウ・ナスダックとも続落。",
+  en:"Oil prices rose on Middle East supply concerns, fueling inflation and rising-yield worries; the Dow and Nasdaq both fell for a second day.",
+  asOf:"7/23"},
+"china":{label:"中国 / China", score:-1,
+  summary:"5月の小売売上高が3年5ヶ月ぶりに前年比マイナスに転化。2026年成長率は4.4%程度への減速が見込まれ、デフレ懸念下で当局の追加対応が焦点。資生堂・コーセー等インバウンド関連銘柄への逆風。",
+  en:"May retail sales turned negative year-on-year for the first time in 3.5 years; 2026 growth is expected to slow to around 4.4%. Deflation concerns keep the spotlight on possible policy support — a headwind for China-exposed names like Shiseido and Kose.",
+  asOf:"7/25", source:"https://media.rakuten-sec.net/articles/-/51004"}
+};
+
 /* ---------- レンダリング / Render ---------- */
 function fmtPrice(n){
   return n.toLocaleString('en-US',{maximumFractionDigits:1});
@@ -924,8 +962,32 @@ function renderHeatmap(){
   });
 }
 
+/* ---------- 世界情勢カード / World affairs cards ---------- */
+function renderWorld(){
+  var grid = document.getElementById('world-grid');
+  if(!grid) return;
+  var order = ['japan','us','china'];
+  var keys = order.concat(Object.keys(WORLD).filter(function(k){ return order.indexOf(k) < 0; }));
+  var html = '';
+  keys.forEach(function(k){
+    var w = WORLD[k];
+    if(!w) return;
+    var t = Math.max(0, Math.min(1, (w.score + 2) / 4));
+    var col = heatColor(t);
+    var textCol = (t > 0.72 || t < 0.28) ? '#0d1620' : 'var(--ivory)';
+    html += '<div class="world-card" style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
+      + '<div class="wc-label">'+w.label+'</div>'
+      + '<div class="wc-summary">'+w.summary+'</div>'
+      + (w.en ? '<div class="wc-en">'+w.en+'</div>' : '')
+      + '<div class="wc-date">基準日 '+(w.asOf||AS_OF)+'</div>'
+      + '</div>';
+  });
+  grid.innerHTML = html;
+}
+
 renderFundCells();
 renderHeatmap();
+renderWorld();
 </script>
 </body>
 </html>
