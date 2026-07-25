@@ -65,7 +65,8 @@ Any cited data, articles, or literature must always be presented with a link or 
 
 ローカルPCのCronはPCがスリープ中は発火しないため採用しない（[一週間の投資情報まとめ](../一週間の投資情報まとめ/CLAUDE.md)と同じ理由）。代わりに**2026-07-25、クラウド側のスケジュール実行（`schedule`スキル／`RemoteTrigger`）を設定済み**。クラウドエージェントはローカルPCにアクセスできないため、このプロジェクトはGitHubリポジトリ経由で運用する。
 
-- **GitHubリポジトリ**: https://github.com/ChemGraffiti/japan-equity-watchlist （プライベート）。ローカルの変更は都度 `git push origin main` してリポジトリに反映する。クラウド側の日次更新もこのリポジトリにpushされるため、ローカルで最新を見たい場合は `git pull` する。
+- **GitHubリポジトリ**: https://github.com/ChemGraffiti/japan-equity-watchlist （**2026-07-25にPublicへ変更**。理由: タブレット/スマホのOneDriveアプリのプレビューはJavaScriptを実行せず、数値・色が表示されないため、GitHub Pagesでブラウザから直接閲覧できるようにした）。ローカルの変更は都度 `git push origin main` してリポジトリに反映する。クラウド側の日次更新もこのリポジトリにpushされるため、ローカルで最新を見たい場合は `git pull` する。
+- **GitHub Pages（スマホ・タブレット閲覧用）**: https://chemgraffiti.github.io/japan-equity-watchlist/ （`main`ブランチ・ルートから配信。`index.html`は`japan_equity_sector_map_v2.html`へ即時リダイレクトするだけの薄いファイル）。クラウドルーティーンが`git push`するたびに数分でこのURLにも自動反映される。**リポジトリがPublicのため、ここに機密情報（パスワード・APIキー等）を絶対にコミットしないこと。**
 - **ルーティーンID**: `trig_01MHvJpzmYjM1hoS8RqtCuKS`（名前:「日本株ウォッチリスト 日次更新」）。管理・停止は https://claude.ai/code/routines から。
 - **実行タイミング**: 毎週月〜金曜 JST 6:00開始（cron: `0 21 * * 0-4` UTC）。7:00完了を目安に1時間のバッファを確保。
 - **毎朝の処理内容**（プロンプトはルーティーン本体に記載。ローカルの`.claude/commands/jp-daily-view.md`と同等の内容をクラウド実行版として保持）:
