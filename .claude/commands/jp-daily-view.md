@@ -32,9 +32,10 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
    - 当日または直近の重要な経済指標・金融政策イベント（日銀・FRB等）
    - 地政学リスクなど、日本株全体に影響しうるニュース
    - 中国の景気・消費・当局の政策動向（インバウンド関連銘柄への影響が大きいため）
+   - 韓国のKOSPI・サムスン電子・SKハイニックスの動向（半導体セクターが38銘柄とウォッチリスト最大のため、連れ高・連れ安の影響が大きい）
 
 3.5. **世界情勢サマリーの更新 / Update the World Affairs cards**
-   [japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の `<script>` 内 `WORLD` オブジェクト（`japan`/`us`/`china`の3地域、必要なら追加可）を、ステップ3の調査結果に基づいて更新する。各地域について:
+   [japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の `<script>` 内 `WORLD` オブジェクト（`japan`/`us`/`china`/`korea`の4地域、必要なら追加可）を、ステップ3の調査結果に基づいて更新する。各地域について:
    - `summary`（日本語）/`en`（英語、簡潔に）: 当日の状況を2〜3文で
    - `score`: 日本株への影響度を **-2（強い逆風）〜+2（強い追い風）** で判定（主観的判断だが、根拠は`summary`に書いた客観情報に基づくこと）
    - `asOf`: 情報の基準日

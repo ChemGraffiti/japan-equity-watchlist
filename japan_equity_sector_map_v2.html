@@ -161,7 +161,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
     <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
   </div>
-  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
   <div class="world-grid" id="world-grid"></div>
 </section>
 
@@ -858,6 +858,10 @@ const WORLD = {
   summary:"半導体・AI関連が全面安の一方、日銀の追加利上げ観測でメガバンク・商社は堅調。方向感が分かれる相場。",
   en:"Semiconductor/AI names sold off broadly while megabanks and trading houses held up on BOJ rate-hike expectations — a mixed session.",
   asOf:"7/24"},
+"korea":{label:"韓国 / South Korea", score:-2,
+  summary:"KOSPIは7/24に-5.72%(6,690.62pt)と急落。SKハイニックスの米ナスダックADR上場後の売り圧力、HBM(次世代高帯域メモリ)出荷懸念、2027〜28年のメモリ供給過剰懸念が重し。サムスン電子・SKハイニックス安は東京エレクトロン等、日本の半導体セクター（ウォッチリスト最大の38銘柄）にも直接連れ安をもたらしている。",
+  en:"KOSPI plunged 5.72% (to 6,690.62) on 7/24, hit by post-NASDAQ-ADR-listing selling in SK Hynix, HBM shipment concerns, and fears of a 2027-28 memory oversupply. The Samsung/SK Hynix slide has directly dragged down Japan's semiconductor sector — the watchlist's largest group at 38 names.",
+  asOf:"7/24", source:"https://www.tradingkey.com/jp/analysis/stocks/more/262051843-south-korea-sell-off-ikospi-plunge-sk-hynix-samsung-tradingkey"},
 "us":{label:"米国 / US", score:-1,
   summary:"中東の供給不安を背景にした原油高でインフレ・長期金利上昇懸念が強まり、ダウ・ナスダックとも続落。",
   en:"Oil prices rose on Middle East supply concerns, fueling inflation and rising-yield worries; the Dow and Nasdaq both fell for a second day.",
@@ -966,7 +970,7 @@ function renderHeatmap(){
 function renderWorld(){
   var grid = document.getElementById('world-grid');
   if(!grid) return;
-  var order = ['japan','us','china'];
+  var order = ['japan','us','china','korea'];
   var keys = order.concat(Object.keys(WORLD).filter(function(k){ return order.indexOf(k) < 0; }));
   var html = '';
   keys.forEach(function(k){

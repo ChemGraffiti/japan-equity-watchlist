@@ -46,7 +46,7 @@ Any cited data, articles, or literature must always be presented with a link or 
   - **2026-07-25にデータ駆動方式へ全面改修済み**。表の見た目はHTMLに直書きせず、ファイル末尾の`<script>`内にあるJSオブジェクトから毎回自動生成される（`renderFundCells()`/`renderHeatmap()`/`renderWorld()`）。**この設計のおかげで日次更新はJSオブジェクトの中身を差し替えるだけで済み、HTML本体（テーブル行・nav等）は一切触らなくてよい。**
     - `BASE`: 銘柄コード→{基準株価p, PER, PBR, 信用倍率cr, 決算文言dec, 大分類番号s, ...}。決算発表・株式分割など「事案（イベント）」があった銘柄のみ、該当コードのオブジェクトを更新する（他の銘柄は触らない）。
     - `DAILY`: 銘柄コード→[当日株価, 前日比%] のペア。**日次更新で書き換えるのはここだけ**。PER/PBRはBASE値×(DAILY株価/BASE株価)で自動換算され、11業種タブの色もDAILYの前日比%から自動計算される。
-    - `WORLD`: 地域キー（`japan`/`us`/`china`、必要に応じて追加可）→{summary(日本語), en(英語), score(-2〜+2で日本株への影響度), asOf, source}。旧「一週間の投資情報まとめ」プロジェクトで**週次のみ**行っていた世界情勢分析を、この日次カードとして本プロジェクトに統合したもの。日次更新のたびに`summary`/`en`/`score`/`asOf`を書き換える。
+    - `WORLD`: 地域キー（`japan`/`us`/`china`/`korea`、必要に応じて追加可）→{summary(日本語), en(英語), score(-2〜+2で日本株への影響度), asOf, source}。旧「一週間の投資情報まとめ」プロジェクトで**週次のみ**行っていた世界情勢分析を、この日次カードとして本プロジェクトに統合したもの。日次更新のたびに`summary`/`en`/`score`/`asOf`を書き換える。`korea`は半導体セクター（ウォッチリスト最大38銘柄）への連れ安・連れ高の影響が大きいため常設。
 - `fundamentals/raw/batchNN.md` — 初回フル調査（バッチ調査エージェント）の生データ
 - `fundamentals/raw/pricechg_batchN.md` — 株価・前日比%のみを取得する軽量バッチ調査の生データ（日次更新用）
 - `fundamentals/watchlist_fundamentals_{date}.md` — フル調査を統合したマスターデータベース（詳細出典URL付き）。BASEオブジェクトの一次情報源。
@@ -70,7 +70,7 @@ Any cited data, articles, or literature must always be presented with a link or 
 - **実行タイミング**: 毎週月〜金曜 JST 6:00開始（cron: `0 21 * * 0-4` UTC）。7:00完了を目安に1時間のバッファを確保。
 - **毎朝の処理内容**（プロンプトはルーティーン本体に記載。ローカルの`.claude/commands/jp-daily-view.md`と同等の内容をクラウド実行版として保持）:
   1. 113銘柄の株価前日比を調査し`DAILY`を更新
-  2. 市況調査（日本・米国・中国の世界情勢を含む）＋ニュースごとに関連するウォッチリスト銘柄を特定
+  2. 市況調査（日本・米国・中国・韓国の世界情勢を含む）＋ニュースごとに関連するウォッチリスト銘柄を特定
   3. `WORLD`オブジェクトを更新（世界情勢サマリーカード）
   4. 主観/客観コメントを`daily/{date}.md`に生成（関連銘柄を併記）
   5. `#newslog`に個別材料を追記
