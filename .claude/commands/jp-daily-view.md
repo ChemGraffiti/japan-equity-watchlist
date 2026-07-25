@@ -36,10 +36,11 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
    - ステップ1で洗い出した決算発表予定銘柄について、直近の材料・注目ポイントを一言添える。
    - ステップ2で更新した前日比%を踏まえ、ステップ3の市況ニュースがウォッチリストのどのセクター・銘柄に特に影響しそうかを、[japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の11分類（ヒートマップで可視化済み）に照らして紐付ける。
    - 個別に大きなニュース（決算・M&A・規制・事故等）が出ている銘柄があれば、WebSearchで補足調査し追記する。
+   - **ステップ3で拾った各ニュース項目について、関連するウォッチリスト銘柄（証券コード・銘柄名）を特定する。** 直接的な当事者銘柄だけでなく、同業種・サプライチェーン上の関連銘柄（例: 原油高→INPEX/ENEOS、米長期金利上昇→メガバンク3行、半導体安→東京エレクトロン等の半導体セクション）も拾う。関連銘柄がない場合は無理に紐付けず「関連銘柄なし」と明記する。
 
 5. **主観/客観に分けてまとめる / Write the subjective/objective summary**
    以下の構成で、日本語・英語を併記して記述する:
-   - **客観 (Objective)**: 前日までの市況データ、当日の先物・為替、決算発表予定、個別銘柄ニュース（すべて出典URL付き）
+   - **客観 (Objective)**: 前日までの市況データ、当日の先物・為替、決算発表予定、個別銘柄ニュース（すべて出典URL付き）。**各ニュース項目の末尾に「(関連銘柄: 8035 東京エレクトロン, 6857 アドバンテスト 等)」の形式で、ステップ4で特定した関連銘柄を必ず併記する。**
    - **主観 (Subjective)**: 上記を踏まえて、Claudeとして今日の相場がどう動きそうか、どのセクター・銘柄に注目すべきかの見解（推測であることを明示し、断定を避ける）
    - 専門用語（PER, PBR, 信用倍率, 先物, 板, 決算発表 等）が出た場合は簡潔な注釈を添える。
 
@@ -50,7 +51,7 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
    ユーザーがHTMLやPDFでの閲覧を希望した場合、[templates](../../一週間の投資情報まとめ/templates/report_template.html)相当のスタイル（`.objective`/`.subjective`のボックス分け）を用いて `daily/{date}.html` を作成し、[scripts/Convert-DailyViewToPdf.ps1](../scripts/Convert-DailyViewToPdf.ps1) を実行して `daily/{date}_日次相場観.pdf` を生成する。
 
 8. **ニュースログへの反映 / Update the news log**
-   生成したコメントの中で、個別銘柄に固有の材料（決算・ガバナンス問題・上方修正・M&A等）が含まれる場合は、[japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の `#newslog` セクションに新しい `.newslog-day` ブロックを**先頭に追加**し、`<span class="nl-code">コード</span>銘柄名: 内容` の形式で1〜2行程度にまとめて追記する。市況全体の話は `<span class="nl-macro">全体</span>` または `<span class="nl-macro">セクター</span>` タグを使う。件数が多くなりすぎる場合は、株価インパクトの大きい材料に絞る。
+   生成したコメントの中で、個別銘柄に固有の材料（決算・ガバナンス問題・上方修正・M&A等）が含まれる場合は、[japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の `#newslog` セクションに新しい `.newslog-day` ブロックを**先頭に追加**し、`<span class="nl-code">コード</span>銘柄名: 内容` の形式で1〜2行程度にまとめて追記する。市況全体の話は `<span class="nl-macro">全体</span>` または `<span class="nl-macro">セクター</span>` タグを使うが、**ステップ4で特定した関連銘柄がある場合は、文末に「→関連: 8035 東京エレクトロン, 6857 アドバンテスト」のように併記する**。件数が多くなりすぎる場合は、株価インパクトの大きい材料に絞る。
 
 ## 完了報告 / Completion report
 
