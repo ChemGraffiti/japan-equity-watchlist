@@ -650,6 +650,12 @@ table.xref .code{width:58px;color:var(--ivory)}
     <ul>
       <li><span class="nl-macro">全体</span>7/24の日経平均は前日比-838円で寄り付き、前場一時-1,700円まで下落。米国の原油高（WTI約93ドル）・長期金利上昇（10年債4.66%）が背景。半導体・AI関連が全面安の一方、メガバンク・商社は堅調（<a href="daily/2026-07-24.md">日次相場観コメント参照</a>）。</li>
       <li><span class="nl-code">全銘柄</span>ダッシュボード改良: 各行にPER/PBR/信用倍率のミニバーチャートを追加。7120（新光電気工業として登録）はコード不一致・上場廃止のためウォッチリストから除外（113銘柄に更新）。</li>
+      <li><span class="nl-macro">全体</span>7/24終値確定: 日経平均64,611.15円(-1,811.45円,-2.73%)、TOPIX 4,011.31(-42.57,-1.05%)。7/25(土)は東証休場のためDAILYは据え置き。大阪取引所夜間先物(9月限)は7/25朝時点でさらに-270円の64,290円で終了、来週月曜(7/27)はやや軟調な始まりが示唆される（<a href="daily/2026-07-25.md">日次相場観コメント参照</a>）。</li>
+      <li><span class="nl-macro">セクター</span>韓国KOSPIは6月高値から約25%下落、サムスン電子・SKハイニックスは高値比30%超安。KIS証券がHBM4出荷遅延を理由にSKハイニックスの4-6月期利益予想を下方修正、米メモリ株(マイクロン・サンディスク等)も連日安→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック, 285A キオクシアHD 等半導体セクション全般。</li>
+      <li><span class="nl-code">7203</span>トヨタ自動車: FY2026/3実績で純利益予想を前期比-44%の2.66兆円に下方修正。米関税影響は総額1.4兆円（車両1.0兆円・部品等0.4兆円）。世界生産計画は過去最高の1,000万台を維持。</li>
+      <li><span class="nl-code">9984</span>ソフトバンクグループ: OpenAIへの追加出資「第2弾」を7/1に実行済み。WIPO調査で生成AI特許出願数世界1位と7/14発表。</li>
+      <li><span class="nl-code">1605</span>INPEX: 中東情勢による原油高（WTI週間+約10%）を受け7/21に+4.35%→関連: 5020 ENEOS（原油高は川下の精製マージン圧迫要因として逆方向に作用しうる）。</li>
+      <li><span class="nl-macro">全体</span>来週(7/28〜31)は決算発表とBOJ・FOMCが重なる特に重い週。決算: 8035東京エレクトロン(7/30)、6857アドバンテスト(7/29確定)、6861キーエンス(7/28頃)、8316三井住友FG(7/31確定)、8411みずほFG(7/30)、6501日立(7/29予定)、6701NEC(7/29予定)、6702富士通(7/30予定)、8053住友商事(7/31確定)ほか計20銘柄超が集中。金融政策: FOMC(7/28-29、政策金利3.50-3.75%据え置き観測)、日銀金融政策決定会合(7/30-31、6/16に1.0%へ利上げ後の次回判断)。</li>
     </ul>
   </div>
 
@@ -855,21 +861,21 @@ const DAILY = {
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
 "japan":{label:"日本 / Japan", score:-1,
-  summary:"半導体・AI関連が全面安の一方、日銀の追加利上げ観測でメガバンク・商社は堅調。方向感が分かれる相場。",
-  en:"Semiconductor/AI names sold off broadly while megabanks and trading houses held up on BOJ rate-hike expectations — a mixed session.",
-  asOf:"7/24"},
+  summary:"日経平均は7/24終値64,611.15円（前日比-1,811.45円、-2.73%）、TOPIXも4,011.31（-42.57、-1.05%）と続落。7/25(土)は東証休場のため新規約定はないが、大阪取引所の夜間先物（9月限）は7/25朝時点でさらに-270円の64,290円引け。半導体・AI関連の調整と韓国株急落の連れ安が重しで、来週月曜(7/27)もやや軟調な始まりが示唆される。",
+  en:"The Nikkei 225 closed 7/24 at 64,611.15 (-1,811.45pt, -2.73%); TOPIX closed at 4,011.31 (-42.57, -1.05%). Tokyo is closed 7/25 (Saturday), but Osaka Exchange overnight futures (Sep contract) settled a further -270pt at 64,290 as of the morning of 7/25 — a mildly soft signal for Monday 7/27's open, driven by continued semiconductor/AI unwind and Korea market spillover.",
+  asOf:"7/24（夜間先物は7/25朝時点）", source:"https://news.yahoo.co.jp/articles/0398dd6398d86fddd37853ff7671b7a842049b44"},
 "korea":{label:"韓国 / South Korea", score:-2,
-  summary:"KOSPIは7/24に-5.72%(6,690.62pt)と急落。SKハイニックスの米ナスダックADR上場後の売り圧力、HBM(次世代高帯域メモリ)出荷懸念、2027〜28年のメモリ供給過剰懸念が重し。サムスン電子・SKハイニックス安は東京エレクトロン等、日本の半導体セクター（ウォッチリスト最大の38銘柄）にも直接連れ安をもたらしている。",
-  en:"KOSPI plunged 5.72% (to 6,690.62) on 7/24, hit by post-NASDAQ-ADR-listing selling in SK Hynix, HBM shipment concerns, and fears of a 2027-28 memory oversupply. The Samsung/SK Hynix slide has directly dragged down Japan's semiconductor sector — the watchlist's largest group at 38 names.",
-  asOf:"7/24", source:"https://www.tradingkey.com/jp/analysis/stocks/more/262051843-south-korea-sell-off-ikospi-plunge-sk-hynix-samsung-tradingkey"},
+  summary:"KOSPIは6月高値から約25%下落し時価総額で約1兆ドル規模が失われたとの報道。サムスン電子・SKハイニックスは高値から30%超下落し両社でKOSPI時価総額の約半分を占める。韓国系証券(KIS)はHBM4出荷の遅れを理由にSKハイニックスの4-6月期利益予想を市場予想比約8%下方修正。米メモリ関連(マイクロン・サンディスク・WD)も連日安。サムスン電子・SKハイニックス安は東京エレクトロン等、日本の半導体セクター（ウォッチリスト最大の38銘柄）にも直接連れ安をもたらしている。",
+  en:"KOSPI is down roughly 25% from its June peak (~$1tn in market cap erased); Samsung Electronics and SK Hynix are each down more than 30% from highs and together now account for roughly half of KOSPI's weight. Korean broker KIS cut its SK Hynix Q2 profit estimate ~8% below consensus, citing delayed HBM4 shipments; US memory peers (Micron, SanDisk, Western Digital) have fallen in sympathy on multiple days. The Samsung/SK Hynix slide continues to directly drag down Japan's semiconductor sector — the watchlist's largest group at 38 names.",
+  asOf:"7/24", source:"https://fortune.com/2026/07/19/korea-ai-stocks-sk-hynix-samsung-kospi-index-global-markets/"},
 "us":{label:"米国 / US", score:-1,
-  summary:"中東の供給不安を背景にした原油高でインフレ・長期金利上昇懸念が強まり、ダウ・ナスダックとも続落。",
-  en:"Oil prices rose on Middle East supply concerns, fueling inflation and rising-yield worries; the Dow and Nasdaq both fell for a second day.",
-  asOf:"7/23"},
+  summary:"7/24終値はS&P500が7,411.98（+0.05%）、NYダウが51,947.25（+235.60、+0.46%）とほぼ横ばい〜小幅高だった一方、ナスダック総合は24,975.82（-0.64%）と続落。週間ではナスダックが約2%安と主要3指数の中で最も弱く、メモリ半導体（サンディスク-11%等）の急落が重し。中東情勢による原油高（WTI週間+10%程度）と米長期金利上昇（10年債利回り約4.68〜4.69%）もインフレ・金利懸念として意識された。",
+  en:"On 7/24, the S&P 500 closed roughly flat at 7,411.98 (+0.05%) and the Dow rose 235.60pt (+0.46%) to 51,947.25, but the Nasdaq Composite fell -0.64% to 24,975.82. For the week, the Nasdaq was the weakest of the three, down ~2%, hit by a memory-chip rout (SanDisk -11% on the week). Middle East-driven oil gains (WTI +~10% w/w) and rising long-term yields (10Y ~4.68-4.69%) kept inflation/rate concerns in focus.",
+  asOf:"7/24", source:"https://www.thestreet.com/stock-market-today/stock-market-today-july-24-2026-dow-futures-rebound-as-oil-retreats-after-market-sell-off"},
 "china":{label:"中国 / China", score:-1,
-  summary:"5月の小売売上高が3年5ヶ月ぶりに前年比マイナスに転化。2026年成長率は4.4%程度への減速が見込まれ、デフレ懸念下で当局の追加対応が焦点。資生堂・コーセー等インバウンド関連銘柄への逆風。",
-  en:"May retail sales turned negative year-on-year for the first time in 3.5 years; 2026 growth is expected to slow to around 4.4%. Deflation concerns keep the spotlight on possible policy support — a headwind for China-exposed names like Shiseido and Kose.",
-  asOf:"7/25", source:"https://media.rakuten-sec.net/articles/-/51004"}
+  summary:"観光庁発表の2026年4-6月期データで、訪日中国人の消費額が前年比-48.8%と急減し、中国は首位から陥落（4位、シェア10.3%）。1-6月累計でも中国人観光客の構成比は2003年以来の低水準。資生堂・コーセー等インバウンド関連銘柄への構造的な逆風が続くが、資生堂株は「対中懸念の後退」を材料に4月に約1年半ぶり高値を付けるなど、市場は最悪期の織り込み一巡を示唆する動きも見られる。",
+  en:"Japan Tourism Agency data for Apr-Jun 2026 showed Chinese visitor spending down -48.8% year-on-year, dropping China out of the #1 spender spot to 4th place (10.3% share); for Jan-Jun 2026, China's share of inbound visitors was the lowest since 2003. This remains a structural headwind for inbound-tourism names like Shiseido and Kose, though Shiseido shares hit an ~18-month high in April on receding fears of a China backlash — a sign the market may already be pricing through the worst of the China-demand story for that name specifically.",
+  asOf:"7/16(観光庁データ公表日)", source:"https://www.travelvoice.jp/20260716-160185"}
 };
 
 /* ---------- レンダリング / Render ---------- */
