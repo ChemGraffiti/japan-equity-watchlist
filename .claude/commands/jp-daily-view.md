@@ -1,5 +1,5 @@
 ---
-description: 日本株ウォッチリスト（113銘柄）の株価を更新し、今日の相場観を主観/客観に分けてまとめる日次ルーティーン
+description: 日本株ウォッチリスト（113銘柄＋対応米国銘柄113社）の株価を更新し、今日の相場観を主観/客観に分けてまとめる日次ルーティーン
 ---
 
 # 日次相場観コメント / Daily Market View
@@ -22,6 +22,7 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
    [japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) 内の113銘柄（コード一覧は`<script>`内の`BASE`オブジェクトのキー）について、直近取引日の終値と前日比%を軽量調査する。114件近くあるため4バッチ程度に分けて並列エージェント（Yahoo!ファイナンス優先、kabutan.jpは403のため不使用、代替はirbank.net/nikkei.com/kabuyoho.ifis.co.jp）で取得し、`fundamentals/raw/pricechg_batchN.md`に保存したうえで、`<script>`内の`DAILY`オブジェクトを新しい`{コード:[株価,前日比%]}`の値に**すべて置き換え**、`AS_OF`の日付も更新する。
    - `BASE`オブジェクトやCSS・HTML本体（テーブル行・nav）は**触らない**（データ駆動設計のため、DAILYの差し替えだけで表・ミニチャート・セクターヒートマップが自動更新される）。
    - 決算発表・株式分割・上場廃止など個別銘柄の「事案」があった場合のみ、該当コードの`BASE`エントリ（p/per/pbr/cr/dec等）も更新する。
+   - あわせて`#us`セクション（🇺🇸米国対応銘柄）に対応する米国銘柄113社（`USBASE`のキー＝JPコード）の株価も軽量調査し、`<script>`内`US_PRICE`オブジェクト（{JPコード: 米国株価USD}）を新しい値に**すべて置き換える**。`USBASE`（ティッカー・社名・PER/PBR・決算日・関係性・選定理由）は**触らない**（PER/PBRは`US_PRICE`との比率で自動換算される）。米国株価はstockanalysis.com優先で取得する。
    - 更新後、Edgeヘッドレスでスクリーンショットを撮って表示崩れがないか確認する。
 
 3. **当日の市況を調査 / Research today's market conditions**
