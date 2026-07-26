@@ -117,6 +117,10 @@ table.xref .code{width:58px;color:var(--ivory)}
 .world-card .wc-summary{font-size:13px;line-height:1.55}
 .world-card .wc-en{font-size:11px;opacity:.85;margin-top:7px;font-style:italic;line-height:1.4}
 .world-card .wc-date{font-size:10px;opacity:.7;margin-top:9px;font-family:ui-monospace,Menlo,monospace}
+.world-card[data-mode]{cursor:pointer}
+.world-card[data-mode]:hover{filter:brightness(1.12)}
+.world-card[data-mode].active{outline:3px solid var(--ivory);outline-offset:2px}
+#mode-indicator{font-weight:700}
 
 @media (max-width:620px){
   .wrap{padding:20px 12px 60px}
@@ -161,7 +165,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
     <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
   </div>
-  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。<b>🇯🇵日本／🇺🇸米国のカードはタップで切替可</b>：下の11業種テーブルの銘柄名・コメント・株価指標を、各銘柄に対応する競合・顧客・供給元の米国銘柄に一括で切り替えて表示します（現在: <span id="mode-indicator">🇯🇵 日本モード</span>）。</div>
   <div class="world-grid" id="world-grid"></div>
 </section>
 
@@ -178,7 +182,6 @@ table.xref .code{width:58px;color:var(--ivory)}
   <a href="#s9" class="heat" data-sector="9">9 機械・重工</a>
   <a href="#s10" class="heat" data-sector="10">10 自動車・運輸</a>
   <a href="#s11" class="heat" data-sector="11">11 内需・消費</a>
-  <a href="#us">🇺🇸 米国対応銘柄</a>
   <a href="#xref">◆ 重複銘柄一覧</a>
   <a href="#newslog">📰 ニュースログ</a>
 </nav>
@@ -599,171 +602,6 @@ table.xref .code{width:58px;color:var(--ivory)}
   <h3>11-5　外食<em>Restaurants</em></h3>
   <table>
     <tr><td class="code">3063</td><td class="name">ジェイグループHD<span class="en">J-Group Holdings</span></td><td class="why">居酒屋等の外食チェーンを運営する中小型株。自己資本比率が低く財務基盤は相対的に薄いが、新規出店・店舗再編を積極展開。<span class="badge b-flag">要確認</span></td><td class="fund" data-code="3063"></td></tr>
-  </table>
-</section>
-
-<!-- US -->
-<section id="us" class="us-sec" style="--c:var(--new)">
-  <div class="sec-head"><span class="sec-num">🇺🇸</span>
-    <h2>米国対応銘柄<em>US Counterpart Stocks</em></h2>
-    <span class="count">113銘柄</span></div>
-  <div class="sec-note">日本の113銘柄それぞれについて、競合・顧客・供給元・投資家関係のいずれかで最も投資分析上意味のある米国上場銘柄を1社選定(2026-07-26調査)。関係性・選定理由には主観的判断を含む。前日比%は本日が初回データのため未表示、次回の日次更新から表示されます。</div>
-
-  <h3>1　半導体・AI・電子部品 対応銘柄</h3>
-  <table>
-    <tr><td class="code">AMAT</td><td class="name">Applied Materials<span class="en">↔ 8035 東京エレクトロン</span></td><td class="why"><b>[競合]</b> 半導体前工程装置(成膜等)で世界を争う直接競合。</td><td class="fund" data-us="8035"></td></tr>
-    <tr><td class="code">TER</td><td class="name">Teradyne<span class="en">↔ 6857 アドバンテスト</span></td><td class="why"><b>[競合]</b> 半導体テスタ市場でシェアを二分する直接競合。</td><td class="fund" data-us="6857"></td></tr>
-    <tr><td class="code">KLAC</td><td class="name">KLA Corporation<span class="en">↔ 6920 レーザーテック</span></td><td class="why"><b>[競合]</b> 半導体プロセス制御(検査・計測)の主要競合。EUVマスク含む検査市場で最大シェア。</td><td class="fund" data-us="6920"></td></tr>
-    <tr><td class="code">KLIC</td><td class="name">Kulicke &amp; Soffa<span class="en">↔ 6146 ディスコ</span></td><td class="why"><b>[競合]</b> ダイシング・ウエハソー製品で重複する後工程装置の競合。</td><td class="fund" data-us="6146"></td></tr>
-    <tr><td class="code">AMAT</td><td class="name">Applied Materials<span class="en">↔ 6361 荏原製作所</span></td><td class="why"><b>[競合]</b> 半導体CMP(化学機械研磨)装置分野での競合。</td><td class="fund" data-us="6361"></td></tr>
-    <tr><td class="code">TTMI</td><td class="name">TTM Technologies<span class="en">↔ 6327 北川精機</span></td><td class="why"><b>[顧客・推定]</b> 真空プレスは多層基板製造に使用され、TTMは北米最大級PCBメーカーで潜在的需要家(推定)。</td><td class="fund" data-us="6327"></td></tr>
-    <tr><td class="code">DOW</td><td class="name">Dow Inc.<span class="en">↔ 4063 信越化学</span></td><td class="why"><b>[供給元/競合]</b> 米子会社シンテックがDowから原料調達する供給関係。シリコーン事業では競合でもある。</td><td class="fund" data-us="4063"></td></tr>
-    <tr><td class="code">TSM</td><td class="name">TSMC(ADR)<span class="en">↔ 3436 SUMCO</span></td><td class="why"><b>[顧客]</b> シリコンウエハーの主要顧客。TSMCから12年連続で優秀サプライヤー賞を受賞。</td><td class="fund" data-us="3436"></td></tr>
-    <tr><td class="code">DD</td><td class="name">DuPont de Nemours<span class="en">↔ 4186 東京応化工業</span></td><td class="why"><b>[競合]</b> フォトレジスト・電子材料分野の世界的競合。</td><td class="fund" data-us="4186"></td></tr>
-    <tr><td class="code">ENTG</td><td class="name">Entegris<span class="en">↔ 4901 富士フイルム</span></td><td class="why"><b>[競合]</b> 半導体材料(CMPスラリー等)分野の競合。</td><td class="fund" data-us="4901"></td></tr>
-    <tr><td class="code">CBT</td><td class="name">Cabot Corporation<span class="en">↔ 4631 DIC</span></td><td class="why"><b>[競合]</b> 顔料分散市場における世界的競合。</td><td class="fund" data-us="4631"></td></tr>
-    <tr><td class="code">MTRN</td><td class="name">Materion Corporation<span class="en">↔ 6890 フェローテックHD</span></td><td class="why"><b>[競合]</b> 半導体装置向け先端材料分野で重複する競合。</td><td class="fund" data-us="6890"></td></tr>
-    <tr><td class="code">HON</td><td class="name">Honeywell<span class="en">↔ 5016 JX金属</span></td><td class="why"><b>[競合]</b> スパッタリングターゲット材市場における直接競合。</td><td class="fund" data-us="5016"></td></tr>
-    <tr><td class="code">INTC</td><td class="name">Intel<span class="en">↔ 4062 イビデン</span></td><td class="why"><b>[顧客]</b> FC-BGA半導体パッケージ基板の主要顧客。</td><td class="fund" data-us="4062"></td></tr>
-    <tr><td class="code">VSH</td><td class="name">Vishay Intertechnology<span class="en">↔ 6971 京セラ</span></td><td class="why"><b>[競合]</b> 電子部品(受動部品等)分野における競合(PERは利益僅少による参考値)。</td><td class="fund" data-us="6971"></td></tr>
-    <tr><td class="code">INTC</td><td class="name">Intel<span class="en">↔ 2802 味の素</span></td><td class="why"><b>[顧客]</b> ABF(半導体パッケージ絶縁材)の生みの親であり最初の主要顧客。</td><td class="fund" data-us="2802"></td></tr>
-    <tr><td class="code">MU</td><td class="name">Micron Technology<span class="en">↔ 285A キオクシアHD</span></td><td class="why"><b>[競合]</b> NANDフラッシュメモリで直接競合する世界最大手級メーカー。</td><td class="fund" data-us="285A"></td></tr>
-    <tr><td class="code">NXPI</td><td class="name">NXP Semiconductors<span class="en">↔ 6723 ルネサス</span></td><td class="why"><b>[競合]</b> 車載マイコン市場で上位シェアを争う競合。</td><td class="fund" data-us="6723"></td></tr>
-    <tr><td class="code">WOLF</td><td class="name">Wolfspeed<span class="en">↔ 6963 ローム</span></td><td class="why"><b>[競合]</b> SiCパワー半導体分野で直接競合。</td><td class="fund" data-us="6963"></td></tr>
-    <tr><td class="code">MRVL</td><td class="name">Marvell Technology<span class="en">↔ 6526 ソシオネクスト</span></td><td class="why"><b>[競合]</b> カスタムASIC/SoC設計で同じビジネスモデルの競合。</td><td class="fund" data-us="6526"></td></tr>
-    <tr><td class="code">TDY</td><td class="name">Teledyne Technologies<span class="en">↔ 6965 浜松ホトニクス</span></td><td class="why"><b>[競合]</b> 光検出器・科学計測用イメージング製品分野で競合。</td><td class="fund" data-us="6965"></td></tr>
-    <tr><td class="code">ON</td><td class="name">onsemi<span class="en">↔ 6758 ソニーグループ</span></td><td class="why"><b>[競合]</b> 車載向けCMOSイメージセンサー市場で競合。</td><td class="fund" data-us="6758"></td></tr>
-    <tr><td class="code">AAPL</td><td class="name">Apple<span class="en">↔ 6981 村田製作所</span></td><td class="why"><b>[顧客]</b> MLCC・RFモジュールの主要サプライヤーであり最重要顧客。</td><td class="fund" data-us="6981"></td></tr>
-    <tr><td class="code">VSH</td><td class="name">Vishay Intertechnology<span class="en">↔ 6976 太陽誘電</span></td><td class="why"><b>[競合]</b> MLCC分野で重複する数少ない米国上場競合。</td><td class="fund" data-us="6976"></td></tr>
-    <tr><td class="code">VSH</td><td class="name">Vishay Intertechnology<span class="en">↔ 6997 日本ケミコン</span></td><td class="why"><b>[競合]</b> アルミ電解コンデンサ分野で重複する米国最大の受動部品メーカー。</td><td class="fund" data-us="6997"></td></tr>
-    <tr><td class="code">VSH</td><td class="name">Vishay Intertechnology<span class="en">↔ 6762 TDK</span></td><td class="why"><b>[競合]</b> 受動部品事業で広く重複する米国最大の総合受動部品メーカー。</td><td class="fund" data-us="6762"></td></tr>
-    <tr><td class="code">ENS</td><td class="name">EnerSys<span class="en">↔ 6674 GSユアサ</span></td><td class="why"><b>[競合]</b> 産業用鉛蓄電池・リチウムイオン電池分野で競合する米国最大手。</td><td class="fund" data-us="6674"></td></tr>
-    <tr><td class="code">TSLA</td><td class="name">Tesla<span class="en">↔ 6752 パナソニックHD</span></td><td class="why"><b>[顧客]</b> ネバダ工場でテスラ向け車載電池を供給する主要サプライヤー。</td><td class="fund" data-us="6752"></td></tr>
-    <tr><td class="code">GLW</td><td class="name">Corning<span class="en">↔ 5333 日本ガイシ</span></td><td class="why"><b>[競合]</b> 自動車排ガス浄化用セラミックハニカムの世界シェアを争う競合。</td><td class="fund" data-us="5333"></td></tr>
-    <tr><td class="code">RRX</td><td class="name">Regal Rexnord<span class="en">↔ 6594 ニデック</span></td><td class="why"><b>[競合]</b> 精密モーター・モーション制御分野で競合。</td><td class="fund" data-us="6594"></td></tr>
-    <tr><td class="code">ARM</td><td class="name">Arm Holdings<span class="en">↔ 9984 ソフトバンクグループ</span></td><td class="why"><b>[保有資産]</b> SBGが議決権ベース約90%を保有する中核子会社で、NAVを左右する最重要資産。</td><td class="fund" data-us="9984"></td></tr>
-    <tr><td class="code">AI</td><td class="name">C3.ai<span class="en">↔ 5586 Laboro.AI</span></td><td class="why"><b>[競合]</b> 企業向けカスタムAIプラットフォームで類似・競合。</td><td class="fund" data-us="5586"></td></tr>
-    <tr><td class="code">PTC</td><td class="name">PTC Inc<span class="en">↔ 2354 YE DIGITAL</span></td><td class="why"><b>[競合・推定]</b> 製造業向け産業用IoTプラットフォームで競合領域が重なる(推定)。</td><td class="fund" data-us="2354"></td></tr>
-    <tr><td class="code">ON</td><td class="name">onsemi<span class="en">↔ 6504 富士電機</span></td><td class="why"><b>[競合]</b> パワー半導体分野で競合(独Infineonは米国非上場のため除外)。</td><td class="fund" data-us="6504"></td></tr>
-    <tr><td class="code">HUBB</td><td class="name">Hubbell<span class="en">↔ 6508 明電舎</span></td><td class="why"><b>[競合]</b> 変電・送配電機器分野で競合する米国大手。</td><td class="fund" data-us="6508"></td></tr>
-    <tr><td class="code">ROK</td><td class="name">Rockwell Automation<span class="en">↔ 6954 ファナック</span></td><td class="why"><b>[競合]</b> CNC・産業用ロボット分野で世界的に競合。</td><td class="fund" data-us="6954"></td></tr>
-    <tr><td class="code">EMR</td><td class="name">Emerson Electric<span class="en">↔ 6506 安川電機</span></td><td class="why"><b>[競合]</b> サーボモーター・産業オートメーション分野で競合。</td><td class="fund" data-us="6506"></td></tr>
-    <tr><td class="code">CGNX</td><td class="name">Cognex<span class="en">↔ 6861 キーエンス</span></td><td class="why"><b>[競合]</b> マシンビジョン(画像処理)分野で直接競合。</td><td class="fund" data-us="6861"></td></tr>
-  </table>
-
-  <h3>2　データセンター・通信インフラ 対応銘柄</h3>
-  <table>
-    <tr><td class="code">GLW</td><td class="name">Corning<span class="en">↔ 5803 フジクラ</span></td><td class="why"><b>[競合]</b> データセンター間接続用光ファイバで世界的に競合。</td><td class="fund" data-us="5803"></td></tr>
-    <tr><td class="code">LITE</td><td class="name">Lumentum<span class="en">↔ 5801 古河電工</span></td><td class="why"><b>[競合]</b> 光通信用レーザー・光部品分野で競合。</td><td class="fund" data-us="5801"></td></tr>
-    <tr><td class="code">APTV</td><td class="name">Aptiv<span class="en">↔ 5802 住友電工</span></td><td class="why"><b>[競合]</b> 自動車用ワイヤーハーネス・電装システムで世界シェアを争う競合。</td><td class="fund" data-us="5802"></td></tr>
-    <tr><td class="code">CARR</td><td class="name">Carrier Global<span class="en">↔ 6367 ダイキン工業</span></td><td class="why"><b>[競合]</b> 空調(HVAC)世界市場でシェアを争う直接競合。</td><td class="fund" data-us="6367"></td></tr>
-    <tr><td class="code">EME</td><td class="name">EMCOR Group<span class="en">↔ 1969 高砂熱学工業</span></td><td class="why"><b>[競合]</b> データセンター向け設備工事(MEP)で事業モデルが類似する競合。</td><td class="fund" data-us="1969"></td></tr>
-    <tr><td class="code">DOV</td><td class="name">Dover<span class="en">↔ 6584 三桜工業</span></td><td class="why"><b>[競合]</b> 傘下CPCがDC液冷向けカプラーで世界的リーダーで、液冷配管事業と競合。</td><td class="fund" data-us="6584"></td></tr>
-    <tr><td class="code">CR</td><td class="name">Crane Company<span class="en">↔ 6498 キッツ</span></td><td class="why"><b>[競合]</b> 工業用バルブ分野で直接競合。</td><td class="fund" data-us="6498"></td></tr>
-    <tr><td class="code">DOCN</td><td class="name">DigitalOcean<span class="en">↔ 3778 さくらインターネット</span></td><td class="why"><b>[競合]</b> 独立系クラウド事業者として事業規模・モデルが近い競合。</td><td class="fund" data-us="3778"></td></tr>
-    <tr><td class="code">T</td><td class="name">AT&amp;T<span class="en">↔ 9432 NTT</span></td><td class="why"><b>[競合]</b> 固定・モバイル通信最大手同士でビジネスモデルが直接比較可能。</td><td class="fund" data-us="9432"></td></tr>
-    <tr><td class="code">HON</td><td class="name">Honeywell<span class="en">↔ 6383 ダイフク</span></td><td class="why"><b>[競合]</b> 子会社Intelligratedを通じ物流・倉庫搬送システムで世界的に競合。</td><td class="fund" data-us="6383"></td></tr>
-  </table>
-
-  <h3>3　IT・サイバーセキュリティ 対応銘柄</h3>
-  <table>
-    <tr><td class="code">CRWD</td><td class="name">CrowdStrike<span class="en">↔ 4704 トレンドマイクロ</span></td><td class="why"><b>[競合]</b> エンドポイントセキュリティ分野で直接競合するクラウドネイティブ大手。</td><td class="fund" data-us="4704"></td></tr>
-    <tr><td class="code">S</td><td class="name">SentinelOne<span class="en">↔ 3692 FFRIセキュリティ</span></td><td class="why"><b>[競合]</b> 中小型のエンドポイントセキュリティ専業として事業規模が近い競合。</td><td class="fund" data-us="3692"></td></tr>
-    <tr><td class="code">GEV</td><td class="name">GE Vernova<span class="en">↔ 6501 日立製作所</span></td><td class="why"><b>[競合]</b> 発電設備・送配電インフラ分野で競合するグローバル大手。</td><td class="fund" data-us="6501"></td></tr>
-    <tr><td class="code">IBM</td><td class="name">IBM<span class="en">↔ 6702 富士通</span></td><td class="why"><b>[競合]</b> 官公庁・金融向けITサービスで競合。</td><td class="fund" data-us="6702"></td></tr>
-    <tr><td class="code">MSI</td><td class="name">Motorola Solutions<span class="en">↔ 6701 NEC</span></td><td class="why"><b>[競合]</b> 顔認証など公共安全向け技術で競合(海底ケーブル・防衛電子の直接競合は非上場のため代替選定)。</td><td class="fund" data-us="6701"></td></tr>
-    <tr><td class="code">DBD</td><td class="name">Diebold Nixdorf<span class="en">↔ 6703 OKI</span></td><td class="why"><b>[競合]</b> ATM(現金自動預払機)分野で世界的に競合。</td><td class="fund" data-us="6703"></td></tr>
-    <tr><td class="code">AMZN</td><td class="name">Amazon<span class="en">↔ 4755 楽天グループ</span></td><td class="why"><b>[競合]</b> 日本国内EC市場でトラフィックシェアを争う世界最大手。</td><td class="fund" data-us="4755"></td></tr>
-  </table>
-
-  <h3>4　防衛・宇宙 対応銘柄</h3>
-  <table>
-    <tr><td class="code">LMT</td><td class="name">Lockheed Martin<span class="en">↔ 7011 三菱重工業</span></td><td class="why"><b>[競合]</b> 戦闘機・ミサイル等の防衛分野で世界最大級の企業同士。</td><td class="fund" data-us="7011"></td></tr>
-    <tr><td class="code">GD</td><td class="name">General Dynamics<span class="en">↔ 7012 川崎重工業</span></td><td class="why"><b>[競合]</b> 潜水艦建造(GDはElectric Boat部門)を手掛ける数少ない西側企業として競合。</td><td class="fund" data-us="7012"></td></tr>
-    <tr><td class="code">GE</td><td class="name">GE Aerospace<span class="en">↔ 7013 IHI</span></td><td class="why"><b>[競合]</b> 航空機エンジン市場で世界最大手のGE Aerospaceと直接競合・技術供与関係。</td><td class="fund" data-us="7013"></td></tr>
-    <tr><td class="code">BWXT</td><td class="name">BWX Technologies<span class="en">↔ 5631 日本製鋼所</span></td><td class="why"><b>[競合]</b> 原子力コンポーネント(圧力容器・鍛造品等)分野で比較される米国代表企業。</td><td class="fund" data-us="5631"></td></tr>
-    <tr><td class="code">GRMN</td><td class="name">Garmin<span class="en">↔ 7721 東京計器</span></td><td class="why"><b>[競合]</b> 船舶用オートパイロット市場での主要プレーヤー同士。</td><td class="fund" data-us="7721"></td></tr>
-    <tr><td class="code">LHX</td><td class="name">L3Harris Technologies<span class="en">↔ 4275 日本カーリット</span></td><td class="why"><b>[競合]</b> ロケット固体推進薬サプライチェーンで比較対象(L3HarrisのAerojet Rocketdyne部門)。</td><td class="fund" data-us="4275"></td></tr>
-    <tr><td class="code">BKSY</td><td class="name">BlackSky Technology<span class="en">↔ 290A Synspective</span></td><td class="why"><b>[競合・代替選定]</b> SAR専業競合が非上場のため、上場する商業地球観測衛星企業を代替選定。</td><td class="fund" data-us="290A"></td></tr>
-    <tr><td class="code">PL</td><td class="name">Planet Labs PBC<span class="en">↔ 464A QPS研究所</span></td><td class="why"><b>[競合・代替選定]</b> 同様にSAR専業の上場競合が無いため、商業地球観測大手を代替選定。</td><td class="fund" data-us="464A"></td></tr>
-    <tr><td class="code">RDW</td><td class="name">Redwire<span class="en">↔ 186A アストロスケール</span></td><td class="why"><b>[競合・代替選定]</b> 軌道上サービス(デブリ除去等)を手掛ける数少ない上場企業を代替選定。</td><td class="fund" data-us="186A"></td></tr>
-    <tr><td class="code">AVAV</td><td class="name">AeroVironment<span class="en">↔ 278A テラドローン</span></td><td class="why"><b>[競合]</b> 産業用・防衛用ドローン市場の米国代表的上場企業。</td><td class="fund" data-us="278A"></td></tr>
-  </table>
-
-  <h3>5　エネルギー・電力 対応銘柄</h3>
-  <table>
-    <tr><td class="code">DUK</td><td class="name">Duke Energy<span class="en">↔ 9501 東京電力HD</span></td><td class="why"><b>[競合]</b> 原子力を含む大規模多角的電力会社として事業規模・構成が類似。</td><td class="fund" data-us="9501"></td></tr>
-    <tr><td class="code">VST</td><td class="name">Vistra Corp<span class="en">↔ 9502 中部電力</span></td><td class="why"><b>[競合]</b> 競争的卸売火力発電の事業モデルが類似。</td><td class="fund" data-us="9502"></td></tr>
-    <tr><td class="code">CEG</td><td class="name">Constellation Energy<span class="en">↔ 9503 関西電力</span></td><td class="why"><b>[競合]</b> 電力9社中原発依存度が最も高く、米国最大の原発稼働事業者と事業モデルが類似。</td><td class="fund" data-us="9503"></td></tr>
-    <tr><td class="code">CEG</td><td class="name">Constellation Energy<span class="en">↔ 9506 東北電力</span></td><td class="why"><b>[競合]</b> 女川原発再稼働というテーマがCEGの原発再稼働テーマと類似。</td><td class="fund" data-us="9506"></td></tr>
-    <tr><td class="code">CEG</td><td class="name">Constellation Energy<span class="en">↔ 9508 九州電力</span></td><td class="why"><b>[競合]</b> TSMC向け電力需要というテーマがCEGのデータセンター向け原発電力供給と類似。</td><td class="fund" data-us="9508"></td></tr>
-    <tr><td class="code">CEG</td><td class="name">Constellation Energy<span class="en">↔ 9509 北海道電力</span></td><td class="why"><b>[競合]</b> ラピダス向け電力需要拡大というテーマがCEGのハイテク企業向け供給拡大と類似。</td><td class="fund" data-us="9509"></td></tr>
-    <tr><td class="code">NRG</td><td class="name">NRG Energy<span class="en">↔ 9513 電源開発(Jパワー)</span></td><td class="why"><b>[競合]</b> 小売部門を持たない卸電力専業の事業モデルが類似(PERは特殊要因により参考値)。</td><td class="fund" data-us="9513"></td></tr>
-    <tr><td class="code">COP</td><td class="name">ConocoPhillips<span class="en">↔ 1605 INPEX</span></td><td class="why"><b>[競合]</b> 川下部門を持たない上流(石油・ガス開発)専業の代表企業同士。</td><td class="fund" data-us="1605"></td></tr>
-    <tr><td class="code">VLO</td><td class="name">Valero Energy<span class="en">↔ 5020 ENEOS HD</span></td><td class="why"><b>[競合]</b> 日米それぞれの最大級精製専業企業同士。</td><td class="fund" data-us="5020"></td></tr>
-    <tr><td class="code">PSX</td><td class="name">Phillips 66<span class="en">↔ 5021 コスモエネルギーHD</span></td><td class="why"><b>[競合]</b> 精製・中流・化学品を持つ事業構成が近い。</td><td class="fund" data-us="5021"></td></tr>
-    <tr><td class="code">CW</td><td class="name">Curtiss-Wright<span class="en">↔ 6492 岡野バルブ製造</span></td><td class="why"><b>[競合]</b> 原子力発電所向けバルブ事業を持つ米国代表企業と直接競合。</td><td class="fund" data-us="6492"></td></tr>
-    <tr><td class="code">MIR</td><td class="name">Mirion Technologies<span class="en">↔ 7711 助川電気工業</span></td><td class="why"><b>[競合]</b> 原子力・核融合向け放射線検知・計測機器の代表的米国上場企業(PERは特殊要因により参考値)。</td><td class="fund" data-us="7711"></td></tr>
-    <tr><td class="code">URA</td><td class="name">Global X Uranium ETF<span class="en">↔ 224A GXウラニウムETF</span></td><td class="why"><b>[同一商品]</b> Global X Uranium ETFの米国本家(NYSE Arca上場)。</td><td class="fund" data-us="224A"></td></tr>
-  </table>
-
-  <h3>6　素材・非鉄・鉄鋼 対応銘柄</h3>
-  <table>
-    <tr><td class="code">FCX</td><td class="name">Freeport-McMoRan<span class="en">↔ 5713 住友金属鉱山</span></td><td class="why"><b>[競合]</b> 銅・金鉱山を保有する非鉄大手同士で銅価格への感応度が近い競合。</td><td class="fund" data-us="5713"></td></tr>
-    <tr><td class="code">KMT</td><td class="name">Kennametal<span class="en">↔ 5711 三菱マテリアル</span></td><td class="why"><b>[競合]</b> 切削工具(超硬工具)事業で世界トップシェアを争う競合。</td><td class="fund" data-us="5711"></td></tr>
-    <tr><td class="code">NVDA</td><td class="name">NVIDIA<span class="en">↔ 5706 三井金属鉱業</span></td><td class="why"><b>[顧客・実需]</b> 極薄銅箔がAIサーバー向け半導体パッケージ基板に使用され、NVIDIA向け需要拡大が業績の牽引役。</td><td class="fund" data-us="5706"></td></tr>
-    <tr><td class="code">NWPX</td><td class="name">NWPX Infrastructure<span class="en">↔ 5463 丸一鋼管</span></td><td class="why"><b>[競合]</b> 電縫溶接鋼管を主力とする点で共通する競合。</td><td class="fund" data-us="5463"></td></tr>
-    <tr><td class="code">SQM</td><td class="name">Sociedad Química y Minera(ADR)<span class="en">↔ 4107 伊勢化学工業</span></td><td class="why"><b>[競合]</b> 世界のヨウ素生産2大拠点(チリ・日本)を代表する競合。</td><td class="fund" data-us="4107"></td></tr>
-    <tr><td class="code">SMSMY</td><td class="name">Sims Limited(ADR)<span class="en">↔ 5857 AREホールディングス</span></td><td class="why"><b>[競合]</b> 使用済み電子機器からの貴金属リサイクルを手掛ける世界最大級企業。</td><td class="fund" data-us="5857"></td></tr>
-  </table>
-
-  <h3>7　金融 対応銘柄</h3>
-  <table>
-    <tr><td class="code">JPM</td><td class="name">JPMorgan Chase<span class="en">↔ 8306 三菱UFJ FG</span></td><td class="why"><b>[競合]</b> 国内最大銀行と米国最大銀行、総合金融グループとして直接比較される競合。</td><td class="fund" data-us="8306"></td></tr>
-    <tr><td class="code">BAC</td><td class="name">Bank of America<span class="en">↔ 8316 三井住友FG</span></td><td class="why"><b>[競合]</b> ユニバーサルバンクとして事業構成が近い競合。</td><td class="fund" data-us="8316"></td></tr>
-    <tr><td class="code">C</td><td class="name">Citigroup<span class="en">↔ 8411 みずほFG</span></td><td class="why"><b>[競合]</b> 法人金融・グローバル市場部門の比重が高い事業構成が共通する競合。</td><td class="fund" data-us="8411"></td></tr>
-    <tr><td class="code">SYF</td><td class="name">Synchrony Financial<span class="en">↔ 8303 SBI新生銀行</span></td><td class="why"><b>[競合]</b> 消費者金融・プライベートレーベルカード事業で近い競合。</td><td class="fund" data-us="8303"></td></tr>
-    <tr><td class="code">SCHW</td><td class="name">Charles Schwab<span class="en">↔ 8473 SBIホールディングス</span></td><td class="why"><b>[競合]</b> ネット証券・資産運用を核とする金融コングロマリット同士の競合。</td><td class="fund" data-us="8473"></td></tr>
-    <tr><td class="code">CB</td><td class="name">Chubb<span class="en">↔ 8725 MS&amp;AD</span></td><td class="why"><b>[競合]</b> 企業向け・専門保険分野で直接競合する世界最大級の損保。</td><td class="fund" data-us="8725"></td></tr>
-  </table>
-
-  <h3>8　商社 対応銘柄</h3>
-  <table>
-    <tr><td class="code">BRK.B</td><td class="name">Berkshire Hathaway<span class="en">↔ 8058 三菱商事</span></td><td class="why"><b>[投資家関係]</b> バフェット率いるBerkshireが2020年から出資・買い増しを続ける5大商社の一角。</td><td class="fund" data-us="8058"></td></tr>
-    <tr><td class="code">BRK.B</td><td class="name">Berkshire Hathaway<span class="en">↔ 8031 三井物産</span></td><td class="why"><b>[投資家関係]</b> 同上。資源分野の比重の高さはBerkshireのエネルギー事業との親和性も注目点。</td><td class="fund" data-us="8031"></td></tr>
-    <tr><td class="code">BRK.B</td><td class="name">Berkshire Hathaway<span class="en">↔ 8053 住友商事</span></td><td class="why"><b>[投資家関係]</b> 同上。データセンター・電力インフラシフトはBerkshireの公益事業との親和性も注目点。</td><td class="fund" data-us="8053"></td></tr>
-    <tr><td class="code">AER</td><td class="name">AerCap Holdings<span class="en">↔ 2768 双日</span></td><td class="why"><b>[競合・事業セグメント]</b> 航空機リース事業で世界最大手のAerCapと当該セグメントで競合。</td><td class="fund" data-us="2768"></td></tr>
-    <tr><td class="code">GWW</td><td class="name">W.W. Grainger<span class="en">↔ 8074 ユアサ商事</span></td><td class="why"><b>[競合]</b> 機械・工具の専門商社として事業モデルが直接比較される競合。</td><td class="fund" data-us="8074"></td></tr>
-  </table>
-
-  <h3>9　機械・重工（民需） 対応銘柄</h3>
-  <table>
-    <tr><td class="code">HLX</td><td class="name">Helix Energy Solutions<span class="en">↔ 6269 三井海洋開発(MODEC)</span></td><td class="why"><b>[競合]</b> FPSO・洋上原油/ガス生産設備分野で数少ない米国上場競合。</td><td class="fund" data-us="6269"></td></tr>
-    <tr><td class="code">HY</td><td class="name">Hyster-Yale<span class="en">↔ 7003 三井E&amp;S</span></td><td class="why"><b>[競合]</b> 港湾・産業向け荷役機器分野で競合する米国上場メーカー。</td><td class="fund" data-us="7003"></td></tr>
-    <tr><td class="code">TKR</td><td class="name">The Timken Company<span class="en">↔ 6471 日本精工(NSK)</span></td><td class="why"><b>[競合]</b> 自動車・産業機械向けベアリングで世界的に競合。</td><td class="fund" data-us="6471"></td></tr>
-    <tr><td class="code">TKR</td><td class="name">The Timken Company<span class="en">↔ 6472 NTN</span></td><td class="why"><b>[競合]</b> NSKと同様、ハブベアリング等で世界的に競合。</td><td class="fund" data-us="6472"></td></tr>
-    <tr><td class="code">DE</td><td class="name">Deere &amp; Company<span class="en">↔ 6326 クボタ</span></td><td class="why"><b>[競合]</b> 農業機械・小型建機分野で世界首位を争う直接競合。</td><td class="fund" data-us="6326"></td></tr>
-  </table>
-
-  <h3>10　自動車・運輸 対応銘柄</h3>
-  <table>
-    <tr><td class="code">GM</td><td class="name">General Motors<span class="en">↔ 7203 トヨタ自動車</span></td><td class="why"><b>[競合]</b> 世界販売台数上位を争う自動車メーカー同士の競合。</td><td class="fund" data-us="7203"></td></tr>
-    <tr><td class="code">F</td><td class="name">Ford Motor Company<span class="en">↔ 7267 本田技研工業(Honda)</span></td><td class="why"><b>[競合]</b> 北米四輪市場で競合し、EV戦略見直しという共通課題も抱える。</td><td class="fund" data-us="7267"></td></tr>
-    <tr><td class="code">DAL</td><td class="name">Delta Air Lines<span class="en">↔ 9201 日本航空(JAL)</span></td><td class="why"><b>[競合]</b> 日米路線を含む国際線で競合し、SkyTeam提携関係も持つ。</td><td class="fund" data-us="9201"></td></tr>
-    <tr><td class="code">UAL</td><td class="name">United Airlines<span class="en">↔ 9202 ANA HD</span></td><td class="why"><b>[競合・提携先]</b> Star Alliance日米共同事業パートナーであり、日米路線で競合・協業。</td><td class="fund" data-us="9202"></td></tr>
-    <tr><td class="code">UBER</td><td class="name">Uber Technologies<span class="en">↔ 581A GO</span></td><td class="why"><b>[競合]</b> ライドシェア・配車アプリの世界的最大手として直接比較される。</td><td class="fund" data-us="581A"></td></tr>
-  </table>
-
-  <h3>11　内需・消費 対応銘柄</h3>
-  <table>
-    <tr><td class="code">EL</td><td class="name">Estee Lauder<span class="en">↔ 4911 資生堂</span></td><td class="why"><b>[競合]</b> 高級化粧品・スキンケアで世界的に競合。</td><td class="fund" data-us="4911"></td></tr>
-    <tr><td class="code">COTY</td><td class="name">Coty Inc.<span class="en">↔ 4922 コーセー</span></td><td class="why"><b>[競合]</b> 中価格帯化粧品・フレグランス事業で規模感が近い競合。</td><td class="fund" data-us="4922"></td></tr>
-    <tr><td class="code">PG</td><td class="name">Procter &amp; Gamble<span class="en">↔ 4452 花王</span></td><td class="why"><b>[競合]</b> 日用品・パーソナルケア用品で世界的に競合する米国最大手。</td><td class="fund" data-us="4452"></td></tr>
-    <tr><td class="code">TTWO</td><td class="name">Take-Two Interactive<span class="en">↔ 7974 任天堂</span></td><td class="why"><b>[競合]</b> ゲームソフト・エンタテインメントで比較されるピュアプレイ企業。</td><td class="fund" data-us="7974"></td></tr>
-    <tr><td class="code">HAS</td><td class="name">Hasbro<span class="en">↔ 8136 サンリオ</span></td><td class="why"><b>[競合]</b> キャラクターIP・ライセンスビジネスで比較される米国大手。</td><td class="fund" data-us="8136"></td></tr>
-    <tr><td class="code">SONO</td><td class="name">Sonos<span class="en">↔ 7951 ヤマハ</span></td><td class="why"><b>[競合]</b> 音響機器分野で比較される米国上場企業。</td><td class="fund" data-us="7951"></td></tr>
-    <tr><td class="code">DHI</td><td class="name">D.R. Horton<span class="en">↔ 1928 積水ハウス</span></td><td class="why"><b>[競合]</b> 米国戸建住宅事業が利益の柱となっており、米国最大手と直接競合。</td><td class="fund" data-us="1928"></td></tr>
-    <tr><td class="code">BLMN</td><td class="name">Bloomin' Brands<span class="en">↔ 3063 ジェイグループHD</span></td><td class="why"><b>[競合]</b> 外食チェーン運営という事業モデルで比較される米国上場チェーン。</td><td class="fund" data-us="3063"></td></tr>
   </table>
 </section>
 
@@ -1204,70 +1042,111 @@ function naBar(cap){
   return '<i class="mbar na" style="--v:0;--cap:'+cap+'"></i>';
 }
 
-function renderFundCells(){
-  document.querySelectorAll('td.fund[data-code]').forEach(function(td){
-    var code = td.dataset.code;
-    var b = BASE[code];
-    if(!b) return;
-    var d = DAILY[code];
-    var price = d ? d[0] : b.p;
-    var chg = d ? d[1] : 0;
-    var ratio = price / b.p;
-    var html = '';
-    html += '<div class="px">¥'+fmtPrice(price)+'<span class="pxd">'+AS_OF+(b.pN? ','+b.pN:'')+'</span>'+chgBadge(chg)+'</div>';
-    if(b.etf){
-      html += '<div class="xref-note">ETFのためPER/PBR/信用倍率は該当なし</div>';
-    } else {
-      // PER
-      if(b.per==null){
-        html += '<div class="mrow"><s>PER</s>'+naBar(90)+'<em>'+(b.perLabel||'—')+'</em></div>';
-      } else {
-        var per = b.per*ratio;
-        html += '<div class="mrow"><s>PER</s>'+bar(per,90)+'<em>'+fmtNum(per)+'</em>'+chgBadge(chg)+'</div>';
-      }
-      // PBR
-      if(b.pbr==null){
-        html += '<div class="mrow"><s>PBR</s>'+naBar(20)+'<em>'+(b.pbrLabel||'—')+'</em></div>';
-      } else {
-        var pbr = b.pbr*ratio;
-        html += '<div class="mrow"><s>PBR</s>'+bar(pbr,20,pbr<1?'cheap':'')+'<em>'+fmtNum(pbr)+'</em>'+chgBadge(chg)+'</div>';
-      }
-      // 信用倍率
-      if(b.cr==null){
-        html += '<div class="mrow"><s>信用</s>'+naBar(40)+'<em>'+(b.crLabel||'—')+'</em></div>';
-      } else {
-        html += '<div class="mrow"><s>信用</s>'+bar(b.cr,40)+'<em>'+fmtNum(b.cr)+(b.crSuffix||'')+'</em></div>';
-      }
-      html += '<div class="ed'+(b.decW?' warn':'')+'">決算 '+b.dec+'</div>';
-    }
-    td.innerHTML = html;
-  });
-}
-
-function renderUsFundCells(){
-  document.querySelectorAll('td.fund[data-us]').forEach(function(td){
-    var code = td.dataset.us;
-    var b = USBASE[code];
-    if(!b) return;
-    var price = US_PRICE[code];
-    var ratio = price / b.p;
-    var html = '';
-    html += '<div class="px">$'+fmtPrice(price)+'<span class="pxd">'+US_AS_OF+'</span></div>';
+function fundHtmlJP(code){
+  var b = BASE[code];
+  if(!b) return '';
+  var d = DAILY[code];
+  var price = d ? d[0] : b.p;
+  var chg = d ? d[1] : 0;
+  var ratio = price / b.p;
+  var html = '';
+  html += '<div class="px">¥'+fmtPrice(price)+'<span class="pxd">'+AS_OF+(b.pN? ','+b.pN:'')+'</span>'+chgBadge(chg)+'</div>';
+  if(b.etf){
+    html += '<div class="xref-note">ETFのためPER/PBR/信用倍率は該当なし</div>';
+  } else {
     if(b.per==null){
       html += '<div class="mrow"><s>PER</s>'+naBar(90)+'<em>'+(b.perLabel||'—')+'</em></div>';
     } else {
       var per = b.per*ratio;
-      html += '<div class="mrow"><s>PER</s>'+bar(Math.min(per,90),90)+'<em>'+fmtNum(per)+'</em></div>';
+      html += '<div class="mrow"><s>PER</s>'+bar(per,90)+'<em>'+fmtNum(per)+'</em>'+chgBadge(chg)+'</div>';
     }
     if(b.pbr==null){
       html += '<div class="mrow"><s>PBR</s>'+naBar(20)+'<em>'+(b.pbrLabel||'—')+'</em></div>';
     } else {
       var pbr = b.pbr*ratio;
-      html += '<div class="mrow"><s>PBR</s>'+bar(Math.min(pbr,20),20,pbr<1?'cheap':'')+'<em>'+fmtNum(pbr)+'</em></div>';
+      html += '<div class="mrow"><s>PBR</s>'+bar(pbr,20,pbr<1?'cheap':'')+'<em>'+fmtNum(pbr)+'</em>'+chgBadge(chg)+'</div>';
     }
-    html += '<div class="ed">決算 '+b.dec+'</div>';
-    td.innerHTML = html;
+    if(b.cr==null){
+      html += '<div class="mrow"><s>信用</s>'+naBar(40)+'<em>'+(b.crLabel||'—')+'</em></div>';
+    } else {
+      html += '<div class="mrow"><s>信用</s>'+bar(b.cr,40)+'<em>'+fmtNum(b.cr)+(b.crSuffix||'')+'</em></div>';
+    }
+    html += '<div class="ed'+(b.decW?' warn':'')+'">決算 '+b.dec+'</div>';
+  }
+  return html;
+}
+function fundHtmlUS(code){
+  var u = USBASE[code];
+  if(!u) return '';
+  var price = US_PRICE[code];
+  var ratio = price / u.p;
+  var html = '';
+  html += '<div class="px">$'+fmtPrice(price)+'<span class="pxd">'+US_AS_OF+'</span></div>';
+  if(u.per==null){
+    html += '<div class="mrow"><s>PER</s>'+naBar(90)+'<em>'+(u.perLabel||'—')+'</em></div>';
+  } else {
+    var per = u.per*ratio;
+    html += '<div class="mrow"><s>PER</s>'+bar(Math.min(per,90),90)+'<em>'+fmtNum(per)+'</em></div>';
+  }
+  if(u.pbr==null){
+    html += '<div class="mrow"><s>PBR</s>'+naBar(20)+'<em>'+(u.pbrLabel||'—')+'</em></div>';
+  } else {
+    var pbr = u.pbr*ratio;
+    html += '<div class="mrow"><s>PBR</s>'+bar(Math.min(pbr,20),20,pbr<1?'cheap':'')+'<em>'+fmtNum(pbr)+'</em></div>';
+  }
+  html += '<div class="ed">決算 '+u.dec+'</div>';
+  return html;
+}
+function renderFundCells(){
+  document.querySelectorAll('td.fund[data-code]').forEach(function(td){
+    var code = td.dataset.code;
+    td.innerHTML = (currentMode==='us' && USBASE[code]) ? fundHtmlUS(code) : fundHtmlJP(code);
   });
+}
+
+/* ---------- 🇯🇵/🇺🇸 表示モード切替 / JP-US display toggle ----------
+   世界情勢カードの日本/米国をタップすると、11業種テーブルの銘柄名・コメント・
+   ファンダメンタルを対応する米国銘柄に一括で切り替える。 */
+var currentMode = 'jp';
+var ORIG_CODE = {}, ORIG_NAME = {}, ORIG_WHY = {};
+function cacheOriginals(){
+  document.querySelectorAll('td.fund[data-code]').forEach(function(td){
+    var code = td.dataset.code;
+    var tr = td.closest('tr');
+    var tdCode = tr.querySelector('td.code');
+    var tdName = tr.querySelector('td.name');
+    var tdWhy = tr.querySelector('td.why');
+    ORIG_CODE[code] = tdCode.innerHTML;
+    ORIG_NAME[code] = tdName.innerHTML;
+    ORIG_WHY[code] = tdWhy.innerHTML;
+  });
+}
+function applyMode(mode){
+  currentMode = mode;
+  document.body.classList.toggle('us-mode', mode==='us');
+  document.querySelectorAll('.world-card[data-mode]').forEach(function(c){
+    c.classList.toggle('active', c.dataset.mode===mode);
+  });
+  var ind = document.getElementById('mode-indicator');
+  if(ind) ind.textContent = mode==='us' ? '🇺🇸 米国モード' : '🇯🇵 日本モード';
+  document.querySelectorAll('td.fund[data-code]').forEach(function(td){
+    var code = td.dataset.code;
+    var tr = td.closest('tr');
+    var tdCode = tr.querySelector('td.code');
+    var tdName = tr.querySelector('td.name');
+    var tdWhy = tr.querySelector('td.why');
+    var u = USBASE[code];
+    if(mode==='us' && u){
+      tdCode.innerHTML = u.t;
+      tdName.innerHTML = u.n+'<span class="en">↔ '+code+'</span>';
+      tdWhy.innerHTML = '<b>['+u.rel+']</b> '+u.why;
+    } else {
+      tdCode.innerHTML = ORIG_CODE[code];
+      tdName.innerHTML = ORIG_NAME[code];
+      tdWhy.innerHTML = ORIG_WHY[code];
+    }
+  });
+  renderFundCells();
 }
 
 /* ---------- セクターヒートマップ / Sector heatmap ---------- */
@@ -1310,6 +1189,7 @@ function renderWorld(){
   if(!grid) return;
   var order = ['japan','us','china','korea'];
   var keys = order.concat(Object.keys(WORLD).filter(function(k){ return order.indexOf(k) < 0; }));
+  var modeMap = {japan:'jp', us:'us'};
   var html = '';
   keys.forEach(function(k){
     var w = WORLD[k];
@@ -1317,7 +1197,8 @@ function renderWorld(){
     var t = Math.max(0, Math.min(1, (w.score + 2) / 4));
     var col = heatColor(t);
     var textCol = (t > 0.72 || t < 0.28) ? '#0d1620' : 'var(--ivory)';
-    html += '<div class="world-card" style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
+    var modeAttr = modeMap[k] ? ' data-mode="'+modeMap[k]+'" title="タップして'+(modeMap[k]==='us'?'米国':'日本')+'モードに切替"' : '';
+    html += '<div class="world-card" '+modeAttr+' style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
       + '<div class="wc-label">'+w.label+'</div>'
       + '<div class="wc-summary">'+w.summary+'</div>'
       + (w.en ? '<div class="wc-en">'+w.en+'</div>' : '')
@@ -1325,12 +1206,16 @@ function renderWorld(){
       + '</div>';
   });
   grid.innerHTML = html;
+  grid.querySelectorAll('.world-card[data-mode]').forEach(function(c){
+    c.classList.toggle('active', c.dataset.mode===currentMode);
+    c.addEventListener('click', function(){ applyMode(c.dataset.mode); });
+  });
 }
 
-renderFundCells();
-renderUsFundCells();
+cacheOriginals();
 renderHeatmap();
 renderWorld();
+applyMode('jp');
 </script>
 </body>
 </html>
