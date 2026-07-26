@@ -165,7 +165,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
     <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
   </div>
-  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。<b>🇯🇵日本／🇺🇸米国のカードはタップで切替可</b>：下の11業種テーブルの銘柄名・コメント・株価指標を、各銘柄に対応する競合・顧客・供給元の米国銘柄に一括で切り替えて表示します（現在: <span id="mode-indicator">🇯🇵 日本モード</span>）。</div>
+  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。<b>🇯🇵日本／🇺🇸米国／🇨🇳中国／🇰🇷韓国のカードはタップで切替可</b>：下の11業種テーブルの銘柄名・コメント・株価指標を、各銘柄に対応する競合・顧客・供給元の海外銘柄に一括で切り替えて表示します（現在: <span id="mode-indicator">🇯🇵 日本モード</span>）。対応銘柄がない場合はその行のみ日本銘柄のまま表示されます。</div>
   <div class="world-grid" id="world-grid"></div>
 </section>
 
@@ -1018,9 +1018,250 @@ const US_PRICE = {
 "3063":7.94
 };
 const US_AS_OF = "7/24(初回調査、以降は前日比%も表示)";
+
+/* ---------- 中国対応銘柄 / China counterpart stocks (2026-07-26調査) ---------- */
+const CNBASE = {
+"8035":{t:"002371.SZ",n:"北方華創(NAURA)",per:98.26,pbr:13.98,dec:"8/25",rel:"競合",why:"半導体前工程装置(成膜・エッチング等)の中国最大手で直接競合。"},
+"6857":{t:"688200.SH",n:"華峰測控(Huafeng Test)",per:106.39,pbr:17.61,dec:"8/30",rel:"競合",why:"半導体テスタ(検査装置)の中国最大手で直接競合。"},
+"6920":{t:"0981.HK",n:"中芯国際(SMIC)",cur:"HKD",per:104.34,pbr:null,pbrLabel:"不明",dec:"8/28",rel:"顧客",why:"EUVフォトマスク欠陥検査装置の主要顧客となる中国最大手ファウンドリ。"},
+"6146":{t:"300480.SZ",n:"光力科技(Guangli Technology)",per:213.92,pbr:6.87,dec:"8/18",rel:"競合",why:"300mmウェハ切削・研削装置の国産化を進める競合、世界前3位を標榜。"},
+"6361":{t:"688120.SH",n:"華海清科(Hwatsing Technology)",per:null,perLabel:"不明",pbr:16.86,dec:"8/28",rel:"競合",why:"中国唯一の12インチCMP装置メーカーで競合。減薄・研削装置も展開。"},
+"4063":{t:"688126.SH",n:"滬硅産業(National Silicon Industry)",per:null,perLabel:"赤字",pbr:5.07,dec:"8/20",rel:"競合",why:"中国唯一の300mm半導体シリコンウェハ量産企業で競合。"},
+"3436":{t:"688126.SH",n:"滬硅産業(National Silicon Industry)",per:null,perLabel:"赤字",pbr:5.07,dec:"8/20",rel:"競合",why:"SUMCOと同じくシリコンウェハで直接競合する中国唯一の300mm量産企業。"},
+"4186":{t:"300346.SZ",n:"南大光電(Jiangsu Nata)",per:107.24,pbr:10.29,dec:"8/27",rel:"競合",why:"フォトレジスト国産化を主導する中国大手で競合。"},
+"4901":{t:"688019.SH",n:"安集科技(Anji Microelectronics)",per:60.34,pbr:12.72,dec:"8/26",rel:"競合",why:"CMPスラリーで中国最大手、半導体材料事業で競合。"},
+"4631":{t:"300522.SZ",n:"世名科技(Suzhou Sunmun)",per:212.45,pbr:4.58,dec:"8/21",rel:"競合(弱)",why:"液晶カラーフィルタ用ナノ顔料分散液の中国企業で、色材事業が部分的に重複。"},
+"6890":{t:"300395.SZ",n:"菲利華(Feilihua Quartz)",per:86.54,pbr:8.53,dec:"8/20",rel:"競合",why:"半導体用高純度石英ガラス材料で急伸する中国大手で競合。"},
+"5016":{t:"300666.SZ",n:"江豐電子(Jiangfeng Electronic)",per:75.48,pbr:9.06,dec:"不明",rel:"競合",why:"高純度スパッタリングターゲットの中国最大手でTSMC等にも供給、競合。"},
+"4062":{t:"002436.SZ",n:"興森科技(Xingsen Technology)",per:450.07,pbr:10.75,dec:"8/20",rel:"競合",why:"中国唯一ABF載板(FC-BGA)量産に成功した企業で直接競合。"},
+"6971":{t:"300408.SZ",n:"三環集団(CCTC)",per:67.11,pbr:8.9,dec:"8/27",rel:"競合",why:"電子セラミック部品市場で京セラの競合として知られる中国最大手。"},
+"2802":{t:"002916.SZ",n:"深南電路(Shennan Circuits)",per:64.70,pbr:12.53,dec:"8/26",rel:"顧客",why:"先端ICパッケージ基板を手掛け、ABF等層間絶縁材料の潜在的採用先。"},
+"285A":{t:"603986.SH",n:"兆易創新(GigaDevice)",per:106.07,pbr:null,pbrLabel:"不明",dec:"8/19",rel:"競合",why:"NAND/NORフラッシュメモリを設計する中国最大手ファブレスで競合。"},
+"6723":{t:"300327.SZ",n:"中穎電子(SinoWealth)",per:113.51,pbr:4.06,dec:"8/26",rel:"競合",why:"家電・車載向けMCU設計の中国最大手で競合。"},
+"6963":{t:"600460.SH",n:"士蘭微(Silan Microelectronics)",per:113.74,pbr:4.03,dec:"8/25",rel:"競合",why:"パワー半導体・SiCデバイスの中国最大級IDMで競合。"},
+"6526":{t:"688099.SH",n:"晶晨股份(Amlogic)",per:48.29,pbr:5.47,dec:"8/20",rel:"競合",why:"マルチメディア/AIoT向けカスタムSoCのファブレスで同一ビジネスモデルの競合。"},
+"6758":{t:"603501.SH",n:"韋爾股份(Will Semi/OmniVision)",per:31.84,pbr:3.64,dec:"8/25",rel:"競合",why:"CMOSイメージセンサでソニー・Samsungに次ぐ世界3位のファブレス。"},
+"6981":{t:"000636.SZ",n:"風華高科(Fenghua Advanced Tech)",per:149.33,pbr:3.65,dec:"8/28",rel:"競合",why:"中国最大のMLCC生産能力を持つ国産最大手。"},
+"6976":{t:"300408.SZ",n:"三環集団(CCTC)",per:67.23,pbr:8.88,dec:"8/28",rel:"競合",why:"高耐圧・高容量MLCC等で伸びる中国大手セラミック部品メーカー。"},
+"6997":{t:"002484.SZ",n:"江海股份(Nantong Jianghai)",per:78.29,pbr:8.23,dec:"8/21",rel:"競合",why:"中国最大のアルミ電解コンデンサ専業メーカー。"},
+"6762":{t:"300750.SZ",n:"寧徳時代(CATL)",per:20.49,pbr:4.33,dec:"不明",rel:"競合",why:"民生用リチウムイオン電池事業(ATL)でバッテリー市場が競合。"},
+"6674":{t:"300750.SZ",n:"寧徳時代(CATL)",per:20.49,pbr:4.33,dec:"不明",rel:"競合",why:"車載リチウムイオン電池で世界最大手、車載電池事業と競合。"},
+"6752":{t:"300750.SZ",n:"寧徳時代(CATL)",per:20.49,pbr:4.33,dec:"不明",rel:"競合",why:"EV用電池でテスラ向け等のサプライヤー地位を巡り競合。"},
+"5333":{t:"300285.SZ",n:"国瓷材料(Sinocera)",per:92.38,pbr:7.30,dec:"8/6",rel:"競合",why:"触媒担体・電子材料用セラミック粉体で事業が重なる中国最大手。"},
+"6594":{t:"300124.SZ",n:"匯川技術(Inovance)",per:34.30,pbr:4.21,dec:"8/29",rel:"競合",why:"産業用サーボモーター・NEV用モーターの中国最大手自動化企業。"},
+"9984":{t:"0700.HK",n:"騰訊控股(Tencent)",cur:"HKD",per:15.10,pbr:2.83,dec:"8/12",rel:"競合(類似業態)",why:"AI・テック領域への大型投資を続ける中国最大のテック持株会社。"},
+"5586":{t:"6682.HK",n:"第四範式(4Paradigm)",cur:"HKD",per:null,perLabel:"赤字",pbr:1.77,dec:"8/21",rel:"競合",why:"企業向けプラットフォーム型AIソリューションの中国最大手エンタープライズAI企業。"},
+"2354":{t:"300166.SZ",n:"東方国信",per:null,perLabel:"赤字",pbr:2.56,dec:"8/28",rel:"競合",why:"工業インターネット・ビッグデータプラットフォームの中国上場工場向けIoT大手。"},
+"6504":{t:"000400.SZ",n:"許継電気(XJ Electric)",per:20.98,pbr:1.67,dec:"8/20",rel:"競合",why:"変電設備・電力機器の中国大手重電メーカーで競合。"},
+"6508":{t:"600312.SH",n:"平高電気(Pinggao Electric)",per:21.49,pbr:2.07,dec:"8/20",rel:"競合",why:"超高圧変電設備(GIS)で中国最大手の重電メーカー。"},
+"6954":{t:"002747.SZ",n:"埃斯頓(Estun Automation)",per:207.69,pbr:8.39,dec:"8/22",rel:"競合",why:"中国国内シェア2位、垂直統合型の産業用ロボットメーカー。"},
+"6506":{t:"300124.SZ",n:"匯川技術(Inovance)",per:34.30,pbr:4.21,dec:"8/29",rel:"競合",why:"サーボ・インバータ・産業用ロボット全領域で直接競合。"},
+"6861":{t:"002415.SZ",n:"海康威視(Hikvision)",per:19.79,pbr:3.49,dec:"7/25",rel:"競合",why:"マシンビジョン・産業用カメラ事業を展開する中国最大の映像機器メーカー。"},
+"5803":{t:"601869.SH",n:"長飛光纖光纜(YOFC)",per:69.35,pbr:12.43,dec:"8/25(予定)",rel:"競合",why:"光ファイバケーブルの中国最大手で直接競合。DC向け高密度心線でも競合。"},
+"5801":{t:"002281.SZ",n:"武漢光迅科技(Accelink)",per:142.60,pbr:14.89,dec:"8/20",rel:"競合",why:"光通信用部品(光アンプ・DWDM等)で競合。"},
+"5802":{t:"002055.SZ",n:"深圳市得潤電子",per:null,perLabel:"赤字",pbr:2.33,dec:"8/21",rel:"競合",why:"自動車用コネクタ・ワイヤーハーネスで競合する中国大手コネクタメーカー。"},
+"6367":{t:"000651.SZ",n:"珠海格力電器(Gree)",per:6.58,pbr:1.49,dec:"8/28",rel:"競合",why:"エアコン世界最大手同士の直接競合。"},
+"1969":{t:"002837.SZ",n:"深圳市英維克科技(Envicool)",per:151.99,pbr:21.47,dec:"8/25",rel:"競合(隣接)",why:"データセンター向け精密空調・液冷機器の中国大手。"},
+"6584":{t:"002050.SZ",n:"浙江三花智能控制(Sanhua)",per:36.03,pbr:4.28,dec:"8/27",rel:"競合(隣接)",why:"冷媒制御弁・水冷プレート等の熱管理部品メーカーでDC液冷分野が重複。"},
+"6498":{t:"603699.SH",n:"紐威閥門(Neway Valve)",per:18.90,pbr:6.44,dec:"8/22",rel:"競合",why:"産業用バルブの直接競合、中国最大級のバルブ専業上場企業。"},
+"3778":{t:"9988.HK",n:"阿里巴巴集団(Alibaba)",cur:"HKD",per:16.96,pbr:1.48,dec:"不明",rel:"競合",why:"Alibaba Cloudが国産クラウド事業と競合。"},
+"9432":{t:"0941.HK",n:"中国移動(China Mobile)",cur:"HKD",per:10.47,pbr:0.99,dec:"不明",rel:"競合",why:"固定・移動通信最大手同士の競合。"},
+"6383":{t:"300532.SZ",n:"今天国際物流技術",per:19.04,pbr:2.24,dec:"8/29",rel:"競合",why:"スマート物流・搬送システムの中国上場企業で物流自動化が重複。"},
+"4704":{t:"601360.SH",n:"三六零安全科技(Qihoo 360)",per:null,perLabel:"不明",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"中国最大級のサイバーセキュリティ企業。エンドポイント・脅威インテリジェンスで競合。"},
+"3692":{t:"002439.SZ",n:"啓明星辰(Venustech)",per:null,perLabel:"赤字",pbr:1.48,dec:"8/22",rel:"競合",why:"企業向けネットワークセキュリティ専業の中国上場企業で競合。"},
+"6501":{t:"601727.SH",n:"上海電気集団",per:80.88,pbr:1.92,dec:"不明",rel:"競合",why:"発電設備・重電機器の総合メーカーで電力システム事業が競合。"},
+"6702":{t:"600718.SH",n:"東軟集団(Neusoft)",per:null,perLabel:"赤字",pbr:1.08,dec:"8/29",rel:"競合",why:"中国最大手ITサービス・SI企業で医療・金融・行政向けシステムが競合。"},
+"6701":{t:"002415.SZ",n:"海康威視(Hikvision)",per:19.79,pbr:3.49,dec:"不明",rel:"競合",why:"顔認証・監視カメラ・生体認証分野で世界的に競合する中国最大手。"},
+"6703":{t:"002152.SZ",n:"広州広電運通(GRG Banking)",per:28.08,pbr:1.87,dec:"8/28",rel:"競合",why:"ATMの直接競合。海外情報源でもOKI・日立と並ぶ競合として明記。"},
+"4755":{t:"9618.HK",n:"京東集団(JD.com)",cur:"HKD",per:18.50,pbr:1.04,dec:"8/11(予想)",rel:"競合",why:"EC分野の競合、自社物流を持つ点も類似。"},
+"7011":{t:"600760.SH",n:"中航瀋飛(AVIC Shenyang)",per:37.37,pbr:null,pbrLabel:"不明",dec:"8/28",rel:"競合",why:"戦闘機(J-15/J-16等)製造の中国国有航空機メーカーで戦闘機事業が競合。"},
+"7012":{t:"600150.SH",n:"中国船舶(CSSC Holdings)",per:19.68,pbr:null,pbrLabel:"不明",dec:"8/31",rel:"競合/供給元",why:"中国最大の商船・艦艇建造企業。LPG船建造の持分法適用先でもある。"},
+"7013":{t:"600893.SH",n:"中国航発動力(AECC Aviation)",per:143.61,pbr:1.85,dec:"8/27",rel:"競合",why:"中国唯一の大型航空機用エンジン上場メーカーで直接競合。"},
+"5631":{t:"002371.SZ",n:"北方華創(NAURA)",per:null,perLabel:"参考92倍",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"中国最大の半導体製造装置メーカーで半導体製造装置事業が競合。"},
+"7721":{t:"300065.SZ",n:"海蘭信(Hairui Ocean)",per:null,perLabel:"不明",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"船舶用自動化・監視・航法システムの中国企業で舶用機器事業が競合。"},
+"4275":{t:"002683.SZ",n:"広東宏大(Guangdong Hongda)",per:null,perLabel:"不明",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"中国最大級の民間爆薬・火工品企業で業態が近い(推進薬原料の直接競合ではない)。"},
+"290A":{t:"688066.SH",n:"航天宏図(PIESAT)",per:null,perLabel:"赤字",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"X帯SAR衛星コンステレーション「女媧」運用企業で事業モデルが直接競合(上場廃止リスク警告あり要注意)。"},
+"464A":{t:"688066.SH",n:"航天宏図(PIESAT)",per:null,perLabel:"赤字",pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"同上、QPSとも直接競合。"},
+"9501":{t:"1816.HK",n:"中国広核電力(CGN Power)",cur:"HKD",per:13.74,pbr:1.06,dec:"8/26",rel:"競合",why:"中国二大原発運営会社の一つで原子力発電事業が直接競合。"},
+"9502":{t:"600011.SH",n:"華能国際電力(Huaneng Power)",per:9.19,pbr:null,pbrLabel:"不明",dec:"8/19",rel:"競合",why:"中国最大級の火力発電上場IPPで火力発電中心の事業構造が類似。"},
+"9503":{t:"601985.SH",n:"中国核電(CNNP)",per:22.21,pbr:0.77,dec:"8/29",rel:"競合",why:"中国最大の原発運営上場企業で原発依存度の高い事業構造が類似。"},
+"9506":{t:"1816.HK",n:"中国広核電力(CGN Power)",cur:"HKD",per:13.74,pbr:1.06,dec:"8/26",rel:"競合",why:"原発を保有する地域電力会社として中国大手原発運営企業と競合。"},
+"9508":{t:"601985.SH",n:"中国核電(CNNP)",per:22.21,pbr:0.77,dec:"8/29",rel:"競合",why:"玄海・川内原発稼働の地域電力会社として中国最大の原発運営企業と競合。"},
+"9509":{t:"1816.HK",n:"中国広核電力(CGN Power)",cur:"HKD",per:13.74,pbr:1.06,dec:"8/26",rel:"競合",why:"泊原発再稼働を目指す地域電力会社として中国大手原発運営企業と競合。"},
+"9513":{t:"600011.SH",n:"華能国際電力(Huaneng Power)",per:9.19,pbr:null,pbrLabel:"不明",dec:"8/19",rel:"競合",why:"小売を持たない卸電力専業(IPP)という事業構造が類似。"},
+"1605":{t:"0883.HK",n:"中国海洋石油(CNOOC)",cur:"HKD",per:7.8,pbr:1.14,dec:"不明",rel:"競合",why:"中国最大の海洋石油・ガス上流開発専業企業で上流専業モデルが一致。"},
+"5020":{t:"600028.SH",n:"中国石油化工(Sinopec)",per:16.31,pbr:null,pbrLabel:"不明",dec:"8/24",rel:"競合",why:"石油精製・元売り最大手同士の直接競合。"},
+"5021":{t:"601857.SH",n:"中国石油天然気(PetroChina)",per:12.47,pbr:null,pbrLabel:"不明",dec:"8/25",rel:"競合",why:"石油精製・元売り事業で競合(PetroChinaはコスモよりはるかに大規模)。"},
+"6492":{t:"000777.SZ",n:"中核科技(China Nuclear Suvalve)",per:16,pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"中国核工業集団(CNNC)傘下唯一の上場企業で原発向け弁を専門製造、直接一致。"},
+"5713":{t:"2899.HK",n:"紫金鉱業(Zijin Mining)",cur:"HKD",per:13.39,pbr:3.85,dec:"8/21",rel:"競合",why:"金・銅中心の非鉄金属鉱山開発・製錬の巨大企業で電池材料展開も類似。"},
+"5711":{t:"0358.HK",n:"江西銅業(Jiangxi Copper)",cur:"HKD",per:13.16,pbr:1.35,dec:"8/25",rel:"競合",why:"中国最大級の銅製錬・伸銅品企業で銅製錬事業が競合。"},
+"5706":{t:"301217.SZ",n:"銅冠銅箔",per:175.61,pbr:13.58,dec:"不明",rel:"競合",why:"AIサーバー・半導体パッケージ基板向け高付加価値銅箔メーカーで競合。"},
+"5463":{t:"002443.SZ",n:"金洲管道(Kingland Pipeline)",per:25.46,pbr:1.17,dec:"不明",rel:"競合",why:"中国初のA株上場溶接鋼管専業メーカーで市場が同じ。"},
+"4107":{t:"301617.SZ",n:"博苑股份(Shandong Boyuan)",per:38.56,pbr:4.49,dec:"不明",rel:"競合",why:"有機・無機ヨウ素化合物とヨウ素回収リサイクルを手掛け同事業。"},
+"5857":{t:"002340.SZ",n:"格林美(GEM Co.)",per:15.82,pbr:1.55,dec:"不明",rel:"競合",why:"使用済み電子基板・電池からの貴金属/レアメタルリサイクルで直接競合。"},
+"8306":{t:"1398.HK",n:"中国工商銀行(ICBC)",cur:"HKD",per:6.26,pbr:0.61,dec:"8/29",rel:"競合",why:"世界最大級の総資産を持つメガバンクでアジア最大級同士の競合。"},
+"8316":{t:"3968.HK",n:"招商銀行(China Merchants Bank)",cur:"HKD",per:7.07,pbr:0.96,dec:"8/29",rel:"競合",why:"中国の株式制商業銀行で最高ROEとされ、高ROEの三井住友FGと構図が類似。"},
+"8411":{t:"3988.HK",n:"中国銀行(Bank of China)",cur:"HKD",per:6.34,pbr:0.57,dec:"8/29",rel:"競合",why:"中国四大銀行の中で国際業務・法人金融比重が高くみずほと類似。"},
+"8303":{t:"000001.SZ",n:"平安銀行(Ping An Bank)",per:3.71,pbr:0.47,dec:"不明",rel:"競合",why:"平安集団傘下でリテール・消費者金融に強くSBI系新生銀行と構造類似。"},
+"8473":{t:"300059.SZ",n:"東方財富(East Money)",per:20.53,pbr:3.26,dec:"不明",rel:"競合",why:"証券取引・資産運用・金融情報統合のネット金融プラットフォームでSBIと類似。"},
+"8725":{t:"2318.HK",n:"中国平安保険(Ping An Insurance)",cur:"HKD",per:7.23,pbr:0.89,dec:"8/20",rel:"競合",why:"中国最大級の総合保険グループで損保・生保統合が類似。"},
+"8058":{t:"0267.HK",n:"中信股份(CITIC Limited)",cur:"HKD",per:5.37,pbr:0.40,dec:"8/31",rel:"競合/提携",why:"金融・資源・不動産・製造の多角的中国最大級コングロマリットで総合商社的構造。"},
+"8031":{t:"600058.SH",n:"五鉱発展(Minmetals Development)",per:131.63,pbr:1.85,dec:"不明",rel:"競合",why:"中国五鉱集団傘下の資源トレーディング企業で資源比重の高さが類似。"},
+"8053":{t:"0656.HK",n:"復星国際(Fosun International)",cur:"HKD",per:null,perLabel:"赤字",pbr:0.33,dec:"8/28",rel:"競合",why:"資源以外の多角的投資を主軸とする中国コングロマリットで非資源寄りが類似。"},
+"2768":{t:"600500.SH",n:"中化国際(Sinochem Intl)",per:null,perLabel:"赤字",pbr:1.66,dec:"不明",rel:"競合",why:"化学品中間体・ポリマー添加剤等のトレーディングで化学品事業が競合。"},
+"6269":{t:"2039.HK",n:"中集集団(CIMC Group)",cur:"HKD",per:52.19,pbr:0.74,dec:"8/29",rel:"競合",why:"子会社CIMC RafflesがFPSO船体・トップサイドを設計建造しMODECと競合。"},
+"7003":{t:"600320.SS",n:"振華重工(ZPMC)",per:14.39,pbr:1.38,dec:"不明",rel:"競合",why:"世界の港湾クレーン市場で世界2位の三井E&Sと直接競合。"},
+"6471":{t:"300718.SZ",n:"長盛軸承(C&U Group)",per:65.01,pbr:9.20,dec:"不明",rel:"競合",why:"中国大手自動車用ベアリングメーカーで価格競争の代表的競合。"},
+"6472":{t:"000678.SZ",n:"襄陽軸承(XZB)",per:null,perLabel:"赤字",pbr:4.52,dec:"不明",rel:"競合",why:"中国の主要自動車用ベアリングメーカーで自動車部品向けが競合。"},
+"6326":{t:"601038.SS",n:"中国一拖(YTO)",per:6.89,pbr:1.94,dec:"不明",rel:"競合",why:"中国最大手のトラクターメーカーでクボタに次ぐ国内3番手として競合。"},
+"7203":{t:"1211.HK",n:"比亜迪(BYD)",cur:"HKD",per:26.06,pbr:3.03,dec:"8/29",rel:"競合",why:"世界最大のEV/PHEVメーカーでトヨタの電動化戦略上の最大競合。"},
+"7267":{t:"603766.SS",n:"隆鑫通用(Loncin Motor)",per:15.05,pbr:3.29,dec:"不明",rel:"競合",why:"中国大手二輪車・汎用エンジンメーカーでHondaの主力二輪車市場が競合。"},
+"9201":{t:"0753.HK",n:"中国国際航空(Air China)",cur:"HKD",per:31.06,pbr:2.75,dec:"8/31",rel:"競合",why:"中国のフラッグキャリアで日中路線・国際線フルサービス市場が競合。"},
+"9202":{t:"1055.HK",n:"中国南方航空(China Southern)",cur:"HKD",per:null,perLabel:"赤字",pbr:1.45,dec:"8/29",rel:"競合",why:"中国最大手の航空会社でアジア国際線市場が競合。"},
+"4911":{t:"600315.SS",n:"上海家化(Jahwa)",per:12.63,pbr:1.62,dec:"不明",rel:"競合",why:"中国最古参の上場化粧品会社でスキンケア・化粧品市場が競合。"},
+"4922":{t:"603605.SS",n:"珀莱雅(Proya)",per:15.19,pbr:3.78,dec:"不明",rel:"競合",why:"中国国内で急成長中のマス〜プレステージ化粧品メーカーで競合。"},
+"4452":{t:"6993.HK",n:"藍月亮(Blue Moon)",cur:"HKD",per:null,perLabel:"赤字",pbr:2.48,dec:"8/31",rel:"競合",why:"中国洗濯洗剤・ハンドソープ市場首位ブランドでホームケア事業が競合。"},
+"7974":{t:"0700.HK",n:"騰訊控股(Tencent)",cur:"HKD",per:15.10,pbr:2.83,dec:"8/12",rel:"競合/旧顧客",why:"世界最大級のゲーム会社でゲーム消費を巡り競合(旧Switch中国独占販売元)。"},
+"8136":{t:"9992.HK",n:"泡泡瑪特(Pop Mart)",cur:"HKD",per:13.87,pbr:8.37,dec:"8/20",rel:"競合",why:"独自IP(LABUBU等)で時価総額サンリオを上回った中国企業でIPビジネスが競合。"},
+"7951":{t:"002678.SZ",n:"珠江鋼琴(Pearl River Piano)",per:null,perLabel:"赤字",pbr:1.76,dec:"不明",rel:"競合",why:"中国最大手のピアノ・楽器メーカーでピアノ事業が直接競合。"},
+"1928":{t:"0688.HK",n:"中国海外発展(COLI)",cur:"HKD",per:10.29,pbr:0.31,dec:"8/27",rel:"競合",why:"中国国有系デベロッパー大手で住宅開発事業が競合し得る規模。"},
+"3063":{t:"9922.HK",n:"九毛九(Jiumaojiu)",cur:"HKD",per:27.41,pbr:0.44,dec:"8/21",rel:"競合",why:"複数ブランド展開の中国マルチブランド外食チェーンでビジネスモデルが類似。"}
+};
+const CN_PRICE = {
+"8035":757.00,"6857":368.00,"6920":71.35,"6146":31.66,"6361":263.90,"4063":25.82,"3436":25.82,"4186":53.60,
+"4901":256.49,"4631":11.25,"6890":77.80,"5016":229.47,"4062":33.80,"6971":100.84,"2802":332.81,"285A":457.00,
+"6723":21.76,"6963":31.57,"6526":98.00,"6758":96.90,"6981":40.22,"6976":100.84,"6997":63.59,"6762":383.01,
+"6674":383.01,"6752":383.01,"5333":57.21,"6594":59.35,"9984":434.60,"5586":26.56,"2354":12.99,"6504":22.19,
+"6508":18.63,"6954":30.04,"6506":59.35,"6861":35.49,"5803":331.65,"5801":186.80,"5802":5.20,"6367":37.02,
+"1969":58.70,"6584":35.05,"6498":41.81,"3778":107.50,"9432":76.15,"6383":6.51,"4704":45.00,"3692":13.33,
+"6501":6.52,"6702":8.02,"6701":35.49,"6703":9.56,"4755":99.00,"7011":43.30,"7012":33.06,"7013":34.60,
+"5631":720.00,"7721":16.99,"4275":25.00,"290A":30.00,"464A":30.00,"9501":2.880,"9502":7.09,"9503":8.90,
+"9506":2.880,"9508":8.90,"9509":2.880,"9513":7.09,"1605":24.22,"5020":5.19,"5021":11.03,"6492":15.00,
+"5713":32.38,"5711":34.62,"5706":90.11,"5463":7.81,"4107":45.31,"5857":6.48,"8306":7.19,"8316":48.76,
+"8411":5.33,"8303":11.10,"8473":19.40,"8725":56.90,"8058":12.00,"8031":8.35,"8053":4.21,"2768":4.71,
+"6269":7.33,"7003":4.12,"6471":53.13,"6472":7.66,"6326":13.80,"7203":88.65,"7267":13.82,"9201":4.07,
+"9202":3.36,"4911":16.70,"4922":56.25,"4452":3.20,"7974":434.60,"8136":152.70,"7951":3.95,"1928":13.28,
+"3063":1.22
+};
+const CN_AS_OF = "7/24〜26(初回調査、以降は前日比%も表示)";
+
+/* ---------- 韓国対応銘柄 / Korea counterpart stocks (2026-07-26調査) ---------- */
+const KRBASE = {
+"8035":{t:"240810.KQ",n:"ウォニクIPS(Wonik IPS)",per:61.79,pbr:4.98,dec:"8/6",rel:"競合",why:"半導体成膜(CVD)装置の韓国代表企業でメタルCVD装置を国産化、競合。"},
+"6857":{t:"089030.KQ",n:"テックウィング(TechWing)",per:472.52,pbr:7.89,dec:"11/15",rel:"競合",why:"メモリ用テストハンドラ世界首位。HBM検査装置でアドバンテストに挑戦。"},
+"6920":{t:"005930.KS",n:"サムスン電子",per:null,perLabel:"不明",pbr:3.34,dec:"7/30",rel:"顧客",why:"EUVフォトマスク欠陥検査装置の主要顧客(半導体メモリ・ファウンドリ大手)。"},
+"6146":{t:"039030.KQ",n:"EOテクニクス(EO Technics)",per:82.54,pbr:5.2,dec:"8/18",rel:"競合",why:"レーザーステルスダイシング装置でDISCOの市場に参入し競合。"},
+"6361":{t:"281820.KQ",n:"ケーシーテック(KCTech)",per:25.95,pbr:2.69,dec:"8/18",rel:"競合",why:"CMP装置・スラリーを手掛け競合する韓国大手。"},
+"4063":{t:"009830.KS",n:"ハンファソリューションズ",per:null,perLabel:"赤字",pbr:0.54,dec:"7/28",rel:"競合",why:"韓国最大のPVC(塩化ビニル樹脂)メーカーでシンテック樹脂事業と競合。"},
+"3436":{t:"034730.KS",n:"SK Inc(SKシルトロン親会社・参考値)",per:13.20,pbr:1.16,dec:"8/18",rel:"競合",why:"韓国唯一のウェハ量産企業SKシルトロン(非上場)の親会社データを参考値として使用。"},
+"4186":{t:"005290.KQ",n:"ドンジンセミケム(Dongjin Semichem)",per:24.08,pbr:1.85,dec:"8/18",rel:"競合",why:"フォトレジストで世界シェア上位の韓国大手、競合。"},
+"4901":{t:"036830.KQ",n:"ソルブレイン(Soulbrain)",per:11.51,pbr:0.36,dec:"不明",rel:"競合",why:"CMPスラリー・エッチング液等の半導体材料メーカーで競合。"},
+"4631":{t:"049550.KQ",n:"インクテック(InkTec)",per:13.96,pbr:0.79,dec:"不明",rel:"競合(弱)",why:"インクジェット用機能性インキ・印刷電子材料で部分的に重複。"},
+"6890":{t:"074600.KQ",n:"ウォニクQnC(Wonik QnC)",per:42.59,pbr:1.34,dec:"8/18",rel:"競合",why:"半導体装置向け石英・セラミック部品の韓国最大手で直接競合。"},
+"5016":{t:"311320.KQ",n:"ジオエレメンツ(GeoElements)",per:24.13,pbr:1.49,dec:"8/6",rel:"競合",why:"韓国初の300mmスパッタリングターゲット国産化に成功、競合。"},
+"4062":{t:"009150.KS",n:"サムスン電機(Samsung Electro-Mechanics)",per:210.99,pbr:9.96,dec:"7/29",rel:"競合",why:"FC-BGA半導体パッケージ基板で直接競合する韓国大手。"},
+"6971":{t:"011070.KS",n:"LGイノテック(LG Innotek)",per:55.89,pbr:2.43,dec:"7/27",rel:"競合",why:"セラミック基板・電子部品を手掛け総合電子部品事業で競合。"},
+"2802":{t:"009150.KS",n:"サムスン電機(Samsung Electro-Mechanics)",per:210.99,pbr:9.96,dec:"7/29",rel:"顧客",why:"FC-BGA基板製造にABF等層間絶縁材料を採用する潜在顧客。"},
+"285A":{t:"000660.KS",n:"SKハイニックス",per:16.65,pbr:7.80,dec:"7/29",rel:"競合",why:"NAND世界シェアでキオクシア・Samsungと三強を形成する直接競合。"},
+"6723":{t:"005930.KS",n:"サムスン電子",per:20.02,pbr:3.25,dec:"7/30",rel:"競合",why:"System LSI部門が車載SoC「Exynos Auto」等で車載半導体競合。"},
+"6963":{t:"000990.KS",n:"DBハイテック(DB HiTek)",per:14.06,pbr:1.78,dec:"8/13",rel:"競合",why:"パワー/アナログ半導体の受託生産に強み、SiC/GaNで競合。"},
+"6526":{t:"108320.KQ",n:"LXセミコン(LX Semicon)",per:13.01,pbr:0.57,dec:"不明",rel:"競合",why:"韓国最大のファブレス、ディスプレイ・車載向けシステムICで競合。"},
+"6758":{t:"005930.KS",n:"サムスン電子",per:20.02,pbr:3.25,dec:"7/30",rel:"競合",why:"CMOSイメージセンサ世界2位、スマホ向け市場で直接競合。"},
+"6981":{t:"009150.KS",n:"サムスン電機(Samsung Electro-Mechanics)",per:123.25,pbr:9.68,dec:"7/30",rel:"競合",why:"MLCC世界シェア2位。AIサーバー向け需要拡大を巡り激しく競争。"},
+"6976":{t:"009150.KS",n:"サムスン電機(Samsung Electro-Mechanics)",per:123.25,pbr:9.68,dec:"7/30",rel:"競合",why:"MLCC分野で日系大手と競合する韓国最大手。"},
+"6997":{t:"001820.KS",n:"サムファコンデンサ(Samwha)",per:60.74,pbr:2.98,dec:"8/14",rel:"競合",why:"韓国のコンデンサ専業大手、アルミ電解コンデンサで競合。"},
+"6762":{t:"006400.KS",n:"サムスンSDI",per:null,perLabel:"赤字",pbr:1.34,dec:"7/30",rel:"競合",why:"小型リチウムイオン電池・車載電池分野でTDK/ATLと競合。"},
+"6674":{t:"006400.KS",n:"サムスンSDI",per:null,perLabel:"赤字",pbr:1.34,dec:"7/30",rel:"競合",why:"車載電池・産業用電池分野で競合する韓国大手。"},
+"6752":{t:"373220.KS",n:"LGエナジーソリューション",per:null,perLabel:"赤字(Fwd43.98)",pbr:2.58,dec:"10/8",rel:"競合",why:"テスラ向け車載電池の主要サプライヤーとして直接競合。"},
+"6594":{t:"011070.KS",n:"LGイノテック(LG Innotek)",per:30.51,pbr:2.43,dec:"7/27",rel:"競合",why:"EV駆動モーター等の精密モーター・部品事業で競合。"},
+"9984":{t:"402340.KS",n:"SKスクエア(SK Square)",per:9.42,pbr:4.03,dec:"8/13",rel:"競合(類似業態)",why:"半導体(SKハイニックス株保有)・AI関連投資を行う韓国のテック投資持株会社。"},
+"2354":{t:"022100.KS",n:"POSCO DX",per:84.59,pbr:5.20,dec:"7/31",rel:"競合",why:"POSCOグループのスマートファクトリー/産業用AI・IoT子会社で競合。"},
+"6504":{t:"010120.KS",n:"LSエレクトリック(LS Electric)",per:89.01,pbr:14.05,dec:"10/22",rel:"競合",why:"パワー半導体・変電設備の両分野で競合する韓国最大の重電メーカー。"},
+"6508":{t:"298040.KS",n:"孝誠重工業(Hyosung Heavy)",per:49.44,pbr:9.84,dec:"7/29",rel:"競合",why:"変電設備・大型モーター・発電機分野で韓国最大手として競合。"},
+"6954":{t:"454910.KS",n:"斗山ロボティクス(Doosan Robotics)",per:null,perLabel:"赤字",pbr:12.29,dec:"不明",rel:"競合",why:"協働ロボット分野で急成長する韓国大手として競合。"},
+"6506":{t:"454910.KS",n:"斗山ロボティクス(Doosan Robotics)",per:null,perLabel:"赤字",pbr:12.29,dec:"不明",rel:"競合",why:"協働ロボット市場で競合する韓国大手。"},
+"6861":{t:"489790.KS",n:"ハンファビジョン(Hanwha Vision)",per:45.14,pbr:2.47,dec:"7/29",rel:"競合",why:"産業用画像処理・センシング機器の韓国最大手映像ソリューション企業。"},
+"5803":{t:"001440.KS",n:"泰昌(太韓)電線(Taihan Cable)",per:107.07,pbr:3.40,dec:"8/13",rel:"競合",why:"光ファイバ・電線事業を持つ韓国最大手電線メーカー。"},
+"5801":{t:"006260.KS",n:"LS Corp",per:24.76,pbr:1.08,dec:"8/14",rel:"競合",why:"韓国最大の電線・ケーブルメーカーLS Cable&Systemsの持株会社。"},
+"6367":{t:"066570.KS",n:"LG電子",per:37.47,pbr:0.94,dec:"7/30",rel:"競合",why:"家電(H&A)部門でエアコン事業を展開しダイキンと世界市場で競合。"},
+"6584":{t:"018880.KS",n:"ハノンシステムズ(Hanon Systems)",per:null,perLabel:"赤字",pbr:0.88,dec:"8/13",rel:"競合(隣接)",why:"自動車用熱マネジメント・冷却配管システム大手でDC液冷分野が重複。"},
+"3778":{t:"035420.KS",n:"NAVER",per:17.28,pbr:1.00,dec:"8/7",rel:"競合",why:"Naver Cloudが国産クラウド事業として競合。"},
+"9432":{t:"030200.KS",n:"KTコーポレーション",per:8.49,pbr:0.65,dec:"8/12",rel:"競合",why:"韓国最大手の固定通信会社で旧国営という立ち位置も類似。"},
+"6383":{t:"056190.KQ",n:"SFAエンジニアリング",per:11.37,pbr:0.37,dec:"8/13",rel:"競合",why:"半導体工場向け無人搬送(OHT)システムでダイフク独占市場の国産化を進める新興競合。"},
+"4704":{t:"053800.KQ",n:"アンラボ(AhnLab)",per:9.04,pbr:1.40,dec:"不明",rel:"競合",why:"韓国最大手セキュリティベンダーで法人向けエンドポイント・XDRが競合。"},
+"6501":{t:"267260.KS",n:"HD現代エレクトリック",per:37.06,pbr:13.99,dec:"7/28",rel:"競合",why:"変圧器等の重電機器で世界的に競合する韓国大手。"},
+"6702":{t:"018260.KS",n:"サムスンSDS",per:25.30,pbr:1.58,dec:"7/30",rel:"競合",why:"韓国最大手SI企業で官公庁・金融向けシステム構築が競合。"},
+"6701":{t:"094840.KQ",n:"スプリマ(Suprema HQ)",per:10.81,pbr:0.46,dec:"8/14",rel:"競合",why:"韓国発の生体認証専業企業で指紋・顔認証アクセス制御分野が競合。"},
+"6703":{t:"004800.KS",n:"孝誠(Hyosung Corporation)",per:7.75,pbr:0.90,dec:"7/27",rel:"競合",why:"子会社Nautilus HyosungのATM事業がOKIと直接競合。"},
+"4755":{t:"035420.KS",n:"NAVER",per:17.28,pbr:1.00,dec:"8/7",rel:"競合",why:"ポータル+EC+金融の複合モデルで楽天と競合。"},
+"7011":{t:"047810.KS",n:"韓国航空宇宙産業(KAI)",per:77.90,pbr:null,pbrLabel:"不明",dec:"不明",rel:"競合",why:"韓国唯一の戦闘機メーカー(KF-21等)で戦闘機関連事業が競合。"},
+"7012":{t:"042660.KS",n:"ハンファオーシャン(Hanwha Ocean)",per:21.01,pbr:null,pbrLabel:"不明",dec:"7/27",rel:"競合",why:"韓国の潜水艦(KSS-III)建造を担う造船大手で潜水艦建造事業が直接競合。"},
+"7013":{t:"012450.KS",n:"ハンファエアロスペース",per:30.98,pbr:null,pbrLabel:"不明",dec:"7/31",rel:"競合",why:"航空機エンジン部品の製造・整備を手掛ける韓国大手で競合。"},
+"5631":{t:"042700.KQ",n:"ハンミ半導体(Hanmi Semiconductor)",per:106.79,pbr:29.83,dec:"8/14",rel:"競合",why:"半導体パッケージング装置(HBM向けTCボンダー)大手で広義に競合。"},
+"4275":{t:"000880.KS",n:"ハンファ(Hanwha Corporation)",per:19.80,pbr:0.54,dec:"8/5",rel:"競合",why:"韓国火薬(現ハンファ)創業事業である爆薬・火工品を今も手掛け競合。"},
+"290A":{t:"272210.KS",n:"ハンファシステム(Hanwha Systems)",per:77.83,pbr:2.53,dec:"7/28",rel:"競合",why:"64機のSAR衛星コンステレーション計画を進める韓国企業で直接競合。"},
+"464A":{t:"272210.KS",n:"ハンファシステム(Hanwha Systems)",per:77.83,pbr:2.53,dec:"7/28",rel:"競合",why:"同上、QPSとも直接競合。"},
+"9501":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"韓国唯一の垂直統合型電力会社で全地域電力会社の対応先(PER低位は特殊要因の可能性)。"},
+"9502":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"同上。"},
+"9503":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"同上。"},
+"9506":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"同上。"},
+"9508":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"同上。"},
+"9509":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"同上。"},
+"9513":{t:"015760.KS",n:"韓国電力公社(KEPCO)",per:2.61,pbr:0.44,dec:"8/14",rel:"競合",why:"KEPCOも発電部門を保有し卸電力事業と部分的に重なる。"},
+"5020":{t:"096770.KS",n:"SKイノベーション",per:null,perLabel:"赤字",pbr:0.58,dec:"7/31",rel:"競合",why:"SK EnergyがENEOSの精製・元売り事業と直接競合。"},
+"5021":{t:"010950.KS",n:"S-Oil",per:18.80,pbr:1.81,dec:"10/26",rel:"競合",why:"韓国の独立系大手精製会社でコスモの精製・元売り事業と競合。"},
+"5713":{t:"010130.KS",n:"高麗亜鉛(Korea Zinc)",per:20.86,pbr:1.91,dec:"8/14",rel:"競合",why:"世界最大級の単一製錬所を持つ非鉄金属製錬企業で製錬事業が競合。"},
+"5711":{t:"103140.KS",n:"豊山(Poongsan Corp)",per:10.16,pbr:0.79,dec:"8/14",rel:"競合",why:"韓国唯一の銅・銅合金材料メーカーで伸銅品事業が競合。"},
+"5706":{t:"011790.KS",n:"SKC(SKネクシリス親会社)",per:null,perLabel:"赤字",pbr:1.38,dec:"7/27",rel:"競合",why:"子会社SKネクシリスが世界最大の銅箔メーカーで競合。"},
+"5463":{t:"003030.KS",n:"世亜製鋼(SeAH Steel Holdings)",per:34.84,pbr:0.16,dec:"不明",rel:"競合",why:"韓国最大級の溶接鋼管メーカーで同市場競合。"},
+"5857":{t:"365340.KQ",n:"サンイルハイテック(SungEel HiTech)",per:null,perLabel:"赤字",pbr:2.90,dec:"8/14",rel:"競合",why:"電子廃棄物・使用済み電池からの貴金属回収で直接競合。"},
+"8306":{t:"105560.KS",n:"KB金融グループ",per:10.15,pbr:0.97,dec:"発表済(次回10月)",rel:"競合",why:"韓国最大の銀行持株会社で国内最大手同士。"},
+"8316":{t:"055550.KS",n:"新韓金融グループ",per:9.59,pbr:0.79,dec:"発表済(次回10月)",rel:"競合",why:"収益性の高さで知られ高ROE路線が類似。"},
+"8411":{t:"316140.KS",n:"又々金融グループ(Woori)",per:7.62,pbr:0.57,dec:"発表済(次回10月)",rel:"競合",why:"法人金融重視の銀行グループでみずほと類似。"},
+"8303":{t:"323410.KS",n:"カカオバンク(KakaoBank)",per:19.83,pbr:1.59,dec:"8/5",rel:"競合",why:"デジタル/直販型銀行モデルの代表格で機能的に類似(資本関係なし)。"},
+"8473":{t:"006800.KS",n:"未来アセット証券",per:12.77,pbr:1.21,dec:"8/7",rel:"競合",why:"韓国最大手の総合証券会社でSBI証券中心の事業と規模・業態が近い。"},
+"8725":{t:"000810.KS",n:"三星火災海上保険",per:14.58,pbr:1.10,dec:"8/13",rel:"競合",why:"韓国最大手の損害保険会社で損保中核の保険グループが類似。"},
+"8058":{t:"028260.KS",n:"三星物産(Samsung C&T)",per:22.20,pbr:0.78,dec:"7/29",rel:"競合",why:"商社部門と建設・投資事業を併せ持ち総合商社機能が部分的に類似。"},
+"8031":{t:"047050.KS",n:"POSCOインターナショナル",per:12.93,pbr:1.24,dec:"7/31",rel:"競合",why:"資源トレーディング・LNG・農業事業主軸で資源比重の高さが近い。"},
+"8053":{t:"001740.KS",n:"SKネットワークス",per:13.92,pbr:0.70,dec:"8/14",rel:"競合",why:"伝統的トレーディング+新規事業投資強化で非資源・多角的投資が類似。"},
+"2768":{t:"001250.KS",n:"GSグローバル",per:13.78,pbr:0.41,dec:"8/13",rel:"競合",why:"鉄鋼・石炭/バイオマス・石油化学品の輸出入を手掛ける中堅総合商社で規模感が近い。"},
+"6269":{t:"010140.KS",n:"三星重工業(Samsung Heavy Industries)",per:35.26,pbr:4.39,dec:"発表済(次回10月)",rel:"競合",why:"FLNG・FPSO・ドリルシップで世界をリードする韓国造船大手で直接競合。"},
+"7003":{t:"009540.KS",n:"HD韓国造船海洋",per:10.45,pbr:1.52,dec:"8/14",rel:"競合",why:"斗山ビナ買収でアジア拠点化する港湾クレーン事業競合。"},
+"6326":{t:"002900.KS",n:"TYM Corporation",per:4.28,pbr:0.57,dec:"8/13",rel:"競合",why:"韓国最大手のトラクター・農業機械メーカーで米国市場等で競合。"},
+"7203":{t:"005380.KS",n:"現代自動車(Hyundai Motor)",per:12.68,pbr:0.69,dec:"発表済(次回10月末)",rel:"競合",why:"世界的な総合自動車メーカーであらゆる主要セグメントで直接競合。"},
+"7267":{t:"000040.KS",n:"KRモーターズ",per:1.07,pbr:0.37,dec:"8/14",rel:"競合(規模差大)",why:"韓国唯一残る上場二輪車メーカー(旧S&Tモーターズ)、ただし規模差が非常に大きい。"},
+"9201":{t:"003490.KS",n:"大韓航空(Korean Air)",per:15.48,pbr:0.83,dec:"8/14",rel:"競合",why:"韓国のフラッグキャリアで日韓路線・国際線が直接競合。"},
+"9202":{t:"020560.KS",n:"アシアナ航空",per:null,perLabel:"赤字",pbr:2.48,dec:"8/11",rel:"競合",why:"国際線比率の高いフルサービスキャリアで類似(大韓航空との統合進行中に留意)。"},
+"581A":{t:"403550.KS",n:"ソカー(SOCAR)",per:null,perLabel:"赤字",pbr:2.39,dec:"8/12",rel:"競合(業態差)",why:"韓国唯一の上場モビリティプラットフォーム企業として代替選定(主力はカーシェア)。"},
+"4911":{t:"090430.KS",n:"アモーレパシフィック",per:41.25,pbr:1.32,dec:"8/10",rel:"競合",why:"韓国最大手化粧品メーカーでアジア美容市場が直接競合。"},
+"4922":{t:"018250.KS",n:"愛敬産業(Aekyung Industrial)",per:12.15,pbr:0.71,dec:"7/31",rel:"競合",why:"コーセーと規模感が近い韓国の中堅化粧品・パーソナルケアメーカー。"},
+"4452":{t:"051900.KS",n:"LG生活健康(LG H&H)",per:null,perLabel:"赤字",pbr:0.68,dec:"7/29",rel:"競合",why:"韓国2位の化粧品メーカーで日用品・化粧品の複合企業ポートフォリオが類似。"},
+"7974":{t:"259960.KS",n:"クラフトン(Krafton)",per:12.35,pbr:1.43,dec:"7/29",rel:"競合",why:"「PUBG」で世界的成功の韓国最大級ゲーム会社でゲーム消費が競合。"},
+"8136":{t:"419530.KQ",n:"SAMGエンターテインメント",per:13.62,pbr:3.74,dec:"8/11",rel:"競合",why:"自社IPをライセンス展開する韓国の3Dアニメ会社でIPビジネスが類似(規模小)。"},
+"7951":{t:"002450.KS",n:"三益楽器(Samick)",per:3.35,pbr:0.29,dec:"8/14",rel:"競合",why:"韓国最大手の総合楽器メーカーで楽器事業が直接競合。"},
+"1928":{t:"006360.KS",n:"GS建設(GS E&C)",per:30.91,pbr:0.46,dec:"7/30",rel:"競合",why:"「Xi」ブランド展開の韓国大手ゼネコン・住宅デベロッパーで規模・機能が類似。"}
+};
+const KR_PRICE = {
+"8035":100500,"6857":45050,"6920":249500,"6146":298500,"6361":75100,"4063":30000,"3436":630000,"4186":41250,
+"4901":30950,"4631":3200,"6890":25850,"5016":7080,"4062":1326000,"6971":625000,"2802":1326000,"285A":1759000,
+"6723":249500,"6963":100000,"6526":38800,"6758":249500,"6981":1326000,"6976":1326000,"6997":80700,"6762":428000,
+"6674":428000,"6752":329500,"6594":625000,"9984":1109000,"2354":19210,"6504":202000,"6508":2681000,"6954":64700,
+"6506":64700,"6861":42550,"5803":28100,"5801":307000,"6367":169200,"6584":3535,"3778":207500,"9432":54100,
+"6383":20200,"4704":54000,"6501":811000,"6702":209500,"6701":12570,"6703":156700,"4755":207500,"7011":158100,
+"7012":87900,"7013":979000,"5631":200000,"4275":96000,"290A":68200,"464A":68200,"9501":35400,"9502":35400,
+"9503":35400,"9506":35400,"9508":35400,"9509":35400,"9513":35400,"5020":130100,"5021":151200,"5713":1075000,
+"5711":68300,"5706":81800,"5463":110700,"5857":29800,"8306":171500,"8316":104100,"8411":30850,"8303":22050,
+"8473":36900,"8725":644000,"8058":342000,"8031":56300,"8053":7680,"2768":2900,"6269":22900,"7003":372000,
+"6326":6390,"7203":401000,"7267":267,"9201":25450,"9202":6850,"581A":9650,"4911":118000,"4922":11470,
+"4452":248500,"7974":242500,"8136":32200,"7951":1125,"1928":30250
+};
+const KR_AS_OF = "7/24〜26(初回調査、以降は前日比%も表示)";
+
 Object.keys(USBASE).forEach(function(c){ USBASE[c].p = US_PRICE[c]; });
-/* USBASE[c].p = 基準株価。US_PRICEを日次更新すると、JPのBASE/DAILYと同様に
-   ratio = US_PRICE[c]/USBASE[c].p が自動計算されPER/PBRもスケールする。 */
+Object.keys(CNBASE).forEach(function(c){ CNBASE[c].p = CN_PRICE[c]; });
+Object.keys(KRBASE).forEach(function(c){ KRBASE[c].p = KR_PRICE[c]; });
+/* 各BASE[c].p = 基準価格。対応するPRICEオブジェクトを日次更新すると、JPのBASE/DAILYと同様に
+   ratio = PRICE[c]/BASE[c].p が自動計算されPER/PBRもスケールする。 */
 
 /* ---------- レンダリング / Render ---------- */
 function fmtPrice(n){
@@ -1075,13 +1316,25 @@ function fundHtmlJP(code){
   }
   return html;
 }
-function fundHtmlUS(code){
-  var u = USBASE[code];
+/* ---------- 🇯🇵/🇺🇸/🇨🇳/🇰🇷 表示モード切替 / Display-mode toggle ----------
+   世界情勢カードの日本/米国/中国/韓国をタップすると、11業種テーブルの銘柄名・
+   コメント・ファンダメンタルを対応する海外銘柄に一括で切り替える。 */
+var MODE_DATA = {
+  us:{base:USBASE, price:US_PRICE, asOf:US_AS_OF, cur:function(u){ return '$'; }},
+  cn:{base:CNBASE, price:CN_PRICE, asOf:CN_AS_OF, cur:function(u){ return u.cur==='HKD' ? 'HK$' : 'CN¥'; }},
+  kr:{base:KRBASE, price:KR_PRICE, asOf:KR_AS_OF, cur:function(u){ return '₩'; }}
+};
+var MODE_FLAG = {jp:'🇯🇵 日本モード', us:'🇺🇸 米国モード', cn:'🇨🇳 中国モード', kr:'🇰🇷 韓国モード'};
+var MODE_LABEL = {us:'米国', cn:'中国', kr:'韓国'};
+function fundHtmlForeign(code, modeKey){
+  var md = MODE_DATA[modeKey];
+  var u = md.base[code];
   if(!u) return '';
-  var price = US_PRICE[code];
+  var price = md.price[code];
   var ratio = price / u.p;
+  var cur = md.cur(u);
   var html = '';
-  html += '<div class="px">$'+fmtPrice(price)+'<span class="pxd">'+US_AS_OF+'</span></div>';
+  html += '<div class="px">'+cur+fmtPrice(price)+'<span class="pxd">'+md.asOf+'</span></div>';
   if(u.per==null){
     html += '<div class="mrow"><s>PER</s>'+naBar(90)+'<em>'+(u.perLabel||'—')+'</em></div>';
   } else {
@@ -1100,13 +1353,11 @@ function fundHtmlUS(code){
 function renderFundCells(){
   document.querySelectorAll('td.fund[data-code]').forEach(function(td){
     var code = td.dataset.code;
-    td.innerHTML = (currentMode==='us' && USBASE[code]) ? fundHtmlUS(code) : fundHtmlJP(code);
+    var md = MODE_DATA[currentMode];
+    td.innerHTML = (md && md.base[code]) ? fundHtmlForeign(code, currentMode) : fundHtmlJP(code);
   });
 }
 
-/* ---------- 🇯🇵/🇺🇸 表示モード切替 / JP-US display toggle ----------
-   世界情勢カードの日本/米国をタップすると、11業種テーブルの銘柄名・コメント・
-   ファンダメンタルを対応する米国銘柄に一括で切り替える。 */
 var currentMode = 'jp';
 var ORIG_CODE = {}, ORIG_NAME = {}, ORIG_WHY = {};
 function cacheOriginals(){
@@ -1123,20 +1374,21 @@ function cacheOriginals(){
 }
 function applyMode(mode){
   currentMode = mode;
-  document.body.classList.toggle('us-mode', mode==='us');
+  document.body.dataset.mode = mode;
   document.querySelectorAll('.world-card[data-mode]').forEach(function(c){
     c.classList.toggle('active', c.dataset.mode===mode);
   });
   var ind = document.getElementById('mode-indicator');
-  if(ind) ind.textContent = mode==='us' ? '🇺🇸 米国モード' : '🇯🇵 日本モード';
+  if(ind) ind.textContent = MODE_FLAG[mode] || MODE_FLAG.jp;
+  var md = MODE_DATA[mode];
   document.querySelectorAll('td.fund[data-code]').forEach(function(td){
     var code = td.dataset.code;
     var tr = td.closest('tr');
     var tdCode = tr.querySelector('td.code');
     var tdName = tr.querySelector('td.name');
     var tdWhy = tr.querySelector('td.why');
-    var u = USBASE[code];
-    if(mode==='us' && u){
+    var u = md ? md.base[code] : null;
+    if(u){
       tdCode.innerHTML = u.t;
       tdName.innerHTML = u.n+'<span class="en">↔ '+code+'</span>';
       tdWhy.innerHTML = '<b>['+u.rel+']</b> '+u.why;
@@ -1160,13 +1412,14 @@ function heatColor(t){
 }
 function renderHeatmap(){
   var sums={}, counts={};
+  var md = MODE_DATA[currentMode];
   Object.keys(BASE).forEach(function(code){
     var b = BASE[code];
     if(!b.s) return;
     var c;
-    if(currentMode==='us' && USBASE[code]){
-      var u = USBASE[code];
-      c = (US_PRICE[code]/u.p - 1)*100;
+    if(md && md.base[code]){
+      var u = md.base[code];
+      c = (md.price[code]/u.p - 1)*100;
     } else {
       var d = DAILY[code];
       c = d ? d[1] : 0;
@@ -1178,7 +1431,7 @@ function renderHeatmap(){
   for(var s=1;s<=11;s++){ avgs[s] = counts[s] ? sums[s]/counts[s] : 0; }
   var vals = Object.values(avgs);
   var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
-  var label = currentMode==='us' ? '業種平均前日比(対応米国銘柄): ' : '業種平均前日比: ';
+  var label = MODE_LABEL[currentMode] ? '業種平均前日比(対応'+MODE_LABEL[currentMode]+'銘柄): ' : '業種平均前日比: ';
   document.querySelectorAll('nav a[data-sector]').forEach(function(a){
     var s = a.dataset.sector;
     var avg = avgs[s];
@@ -1197,7 +1450,8 @@ function renderWorld(){
   if(!grid) return;
   var order = ['japan','us','china','korea'];
   var keys = order.concat(Object.keys(WORLD).filter(function(k){ return order.indexOf(k) < 0; }));
-  var modeMap = {japan:'jp', us:'us'};
+  var modeMap = {japan:'jp', us:'us', china:'cn', korea:'kr'};
+  var modeName = {jp:'日本', us:'米国', cn:'中国', kr:'韓国'};
   var html = '';
   keys.forEach(function(k){
     var w = WORLD[k];
@@ -1205,7 +1459,7 @@ function renderWorld(){
     var t = Math.max(0, Math.min(1, (w.score + 2) / 4));
     var col = heatColor(t);
     var textCol = (t > 0.72 || t < 0.28) ? '#0d1620' : 'var(--ivory)';
-    var modeAttr = modeMap[k] ? ' data-mode="'+modeMap[k]+'" title="タップして'+(modeMap[k]==='us'?'米国':'日本')+'モードに切替"' : '';
+    var modeAttr = modeMap[k] ? ' data-mode="'+modeMap[k]+'" title="タップして'+modeName[modeMap[k]]+'モードに切替"' : '';
     html += '<div class="world-card" '+modeAttr+' style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
       + '<div class="wc-label">'+w.label+'</div>'
       + '<div class="wc-summary">'+w.summary+'</div>'
