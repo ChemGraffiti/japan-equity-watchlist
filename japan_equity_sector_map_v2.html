@@ -1147,6 +1147,7 @@ function applyMode(mode){
     }
   });
   renderFundCells();
+  renderHeatmap();
 }
 
 /* ---------- セクターヒートマップ / Sector heatmap ---------- */
@@ -1162,8 +1163,14 @@ function renderHeatmap(){
   Object.keys(BASE).forEach(function(code){
     var b = BASE[code];
     if(!b.s) return;
-    var d = DAILY[code];
-    var c = d ? d[1] : 0;
+    var c;
+    if(currentMode==='us' && USBASE[code]){
+      var u = USBASE[code];
+      c = (US_PRICE[code]/u.p - 1)*100;
+    } else {
+      var d = DAILY[code];
+      c = d ? d[1] : 0;
+    }
     sums[b.s] = (sums[b.s]||0) + c;
     counts[b.s] = (counts[b.s]||0) + 1;
   });
@@ -1171,6 +1178,7 @@ function renderHeatmap(){
   for(var s=1;s<=11;s++){ avgs[s] = counts[s] ? sums[s]/counts[s] : 0; }
   var vals = Object.values(avgs);
   var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
+  var label = currentMode==='us' ? '業種平均前日比(対応米国銘柄): ' : '業種平均前日比: ';
   document.querySelectorAll('nav a[data-sector]').forEach(function(a){
     var s = a.dataset.sector;
     var avg = avgs[s];
@@ -1179,7 +1187,7 @@ function renderHeatmap(){
     a.style.background = col;
     a.style.borderColor = col;
     a.style.color = (t>0.72||t<0.28) ? '#0d1620' : 'var(--ivory)';
-    a.title = '業種平均前日比: '+(avg>=0?'+':'')+avg.toFixed(2)+'%';
+    a.title = label+(avg>=0?'+':'')+avg.toFixed(2)+'%';
   });
 }
 
