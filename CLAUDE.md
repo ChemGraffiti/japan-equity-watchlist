@@ -83,7 +83,11 @@ Any cited data, articles, or literature must always be presented with a link or 
   7. Gmail下書きを作成（**自動送信ではなく下書きのみ**、Gmail連携にsend機能がないため）
   8. Googleドライブの「日本株ウォッチリスト」フォルダに日次コメント・ダッシュボードHTMLを保存
 - ルーティーン本体を更新する際は、ローカルの`.claude/commands/jp-daily-view.md`を先に直してから、同じ変更内容を`RemoteTrigger`の`update`で**朝・正午の両方のルーティーン**のプロンプトに反映すること（3箇所が乖離しないように）。
-- **既知の障害と対処（2026-07-27）**: 資金フロー分析・注目銘柄トップ3等の機能追加後、初回の正午ルーティーンが16並列のサブエージェントを起動し、セッション共有のWebSearch予算（200回）を数分で枯渇、さらにプロキシが金融・ニュースサイトの大半を403で拒否して更新に失敗した（`daily/2026-07-27_正午.md`に失敗報告あり。ダッシュボードは正しく更新をスキップし、既存データを保護）。対処として、**同時に起動する調査用サブエージェントは合計4〜6個までに抑える**旨を`.claude/commands/jp-daily-view.md`と両クラウドルーティーンのプロンプトに明記済み。今後この上限を緩める場合は、まず並列数を小刻みに増やして安全に確認すること。
+- **既知の障害と対処（2026-07-27、2回発生）**: 資金フロー分析・注目銘柄トップ3等の機能追加後、正午ルーティーンで2回連続の失敗が発生した。
+  1. **1回目(10:30起動)**: 16並列のサブエージェントを起動し、セッション共有のWebSearch予算（200回）を数分で枯渇、プロキシが金融・ニュースサイトの大半を403で拒否して更新に失敗（`daily/2026-07-27_正午.md`に失敗報告あり。ダッシュボードは正しく更新をスキップし既存データを保護）。
+  2. **2回目(10:30起動、1回目の直後に再試行)**: 対処として「並列4〜6個までに統合」（JP+US+CN+KRを同じバッチにまとめる）と指示したところ、1エージェントあたりの調査量が単純合算で最大4倍(110件超)に膨れ上がり、**3時間半経過しても応答・コミットなしでハング**（セッション`cse_01UypNK9zvTHSeKY7wN1rsU4`。原因調査には`RemoteTrigger get/list`でメタデータ確認、`git fetch`でコミット有無確認、を使用したが、ハングしたセッション自体を止める・強制終了する手段はAPI上見当たらなかった）。
+  - **最終的な対処**: 「並列数を減らす」と「1エージェントの負荷を上げない」を両立させる必要がある。市場ごとに独立したバッチ（JP4＋US/CN/KR各1〜2、合計8〜10バッチ、1バッチ30〜50ティッカー程度）に変更し、あわせて**20〜25分のタイムボックス**（超過時は不完全でも即保存）を追加した。`.claude/commands/jp-daily-view.md`と両クラウドルーティーンのプロンプトに反映済み。
+  - 今後また同様の障害が出た場合は、「並列数」と「1エージェントあたりの負荷（担当件数）」を両方同時に見て調整すること（片方だけ動かすと今回のように別の失敗モードを誘発する）。
 
 Local Cron is not used since it doesn't fire while the PC is asleep. Instead, a **cloud-scheduled routine** (via the `schedule` skill / `RemoteTrigger`) was set up on 2026-07-25. Since cloud agents can't reach the local PC, this project is operated through a GitHub repository (see above) that the cloud routine clones, updates, and pushes to every weekday morning (JST 6:00, targeting 7:00 completion). It also drafts a Gmail summary (draft only — the connector has no send capability) and saves snapshots to Google Drive.
 
