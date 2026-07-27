@@ -12,6 +12,10 @@ Following Rules ①-④ in CLAUDE.md (bilingual, subjective/objective split, ter
 実行時点の日付を yyyy-MM-dd 形式で求め、これを {date} とする。
 Compute today's date in yyyy-MM-dd format — this is {date}.
 
+## 実行上の制約 / Execution constraint
+
+**同時に起動する調査用サブエージェント（並列WebSearch）は合計4〜6個までに抑えること。** WebSearchはセッション全体（メイン＋全サブエージェント）で予算を共有しており、2026-07-27に16並列で起動してセッション予算(200回)を数分で枯渇させ、正午更新が失敗した事例がある（`daily/2026-07-27_正午.md`参照）。株価調査（JP4バッチ＋US/CN/KR）はバッチをまとめて4〜6個程度に集約し、市況調査・トップ3選定・資金フロー分析は新たにサブエージェントを増やさず、既存バッチの調査結果を再利用するか、メインの会話内で直接WebSearchを呼ぶこと。
+
 ## ステップ / Steps
 
 1. **ベースデータの確認 / Load baseline data**
@@ -22,7 +26,7 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
    [japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) 内の113銘柄（コード一覧は`<script>`内の`BASE`オブジェクトのキー）について、直近取引日の終値と前日比%を軽量調査する。114件近くあるため4バッチ程度に分けて並列エージェント（Yahoo!ファイナンス優先、kabutan.jpは403のため不使用、代替はirbank.net/nikkei.com/kabuyoho.ifis.co.jp）で取得し、`fundamentals/raw/pricechg_batchN.md`に保存したうえで、`<script>`内の`DAILY`オブジェクトを新しい`{コード:[株価,前日比%]}`の値に**すべて置き換え**、`AS_OF`の日付も更新する。
    - `BASE`オブジェクトやCSS・HTML本体（テーブル行・nav）は**触らない**（データ駆動設計のため、DAILYの差し替えだけで表・ミニチャート・セクターヒートマップが自動更新される）。
    - 決算発表・株式分割・上場廃止など個別銘柄の「事案」があった場合のみ、該当コードの`BASE`エントリ（p/per/pbr/cr/dec等）も更新する。
-   - あわせて🇯🇵/🇺🇸/🇨🇳/🇰🇷表示モード切替用に、`USBASE`/`CNBASE`/`KRBASE`のキー(JPコード)に対応する米国・中国・韓国銘柄の株価も軽量調査し、`<script>`内`US_PRICE`/`CN_PRICE`/`KR_PRICE`オブジェクトを新しい値に**すべて置き換える**。`USBASE`/`CNBASE`/`KRBASE`(ティッカー・社名・PER/PBR・決算日・関係性・選定理由)は**触らない**（PER/PBRは各PRICEオブジェクトとの比率で自動換算される）。米国はstockanalysis.com、中国・韓国はeastmoney.com/stockanalysis.com優先で取得する。「該当なし」判定でキーが存在しない銘柄は調査不要。
+   - あわせて🇯🇵/🇺🇸/🇨🇳/🇰🇷表示モード切替用に、`USBASE`/`CNBASE`/`KRBASE`のキー(JPコード)に対応する米国・中国・韓国銘柄の株価も軽量調査し、`<script>`内`US_PRICE`/`CN_PRICE`/`KR_PRICE`オブジェクトを新しい値に**すべて置き換える**。`USBASE`/`CNBASE`/`KRBASE`(ティッカー・社名・PER/PBR・決算日・関係性・選定理由)は**触らない**（PER/PBRは各PRICEオブジェクトとの比率で自動換算される）。米国はstockanalysis.com、中国・韓国はeastmoney.com/stockanalysis.com優先で取得する。「該当なし」判定でキーが存在しない銘柄は調査不要。**上記「実行上の制約」に従い、US/CN/KRの調査は新たなバッチを追加するのではなく、JPの4バッチの中に対応銘柄も一緒に含めて調査するか、既存バッチが余力を持てる範囲でまとめて依頼する（総バッチ数4〜6を超えないこと）。**
    - 更新後、Edgeヘッドレスでスクリーンショットを撮って表示崩れがないか確認する。
 
 3. **当日の市況を調査 / Research today's market conditions**

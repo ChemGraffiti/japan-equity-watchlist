@@ -83,6 +83,7 @@ Any cited data, articles, or literature must always be presented with a link or 
   7. Gmail下書きを作成（**自動送信ではなく下書きのみ**、Gmail連携にsend機能がないため）
   8. Googleドライブの「日本株ウォッチリスト」フォルダに日次コメント・ダッシュボードHTMLを保存
 - ルーティーン本体を更新する際は、ローカルの`.claude/commands/jp-daily-view.md`を先に直してから、同じ変更内容を`RemoteTrigger`の`update`で**朝・正午の両方のルーティーン**のプロンプトに反映すること（3箇所が乖離しないように）。
+- **既知の障害と対処（2026-07-27）**: 資金フロー分析・注目銘柄トップ3等の機能追加後、初回の正午ルーティーンが16並列のサブエージェントを起動し、セッション共有のWebSearch予算（200回）を数分で枯渇、さらにプロキシが金融・ニュースサイトの大半を403で拒否して更新に失敗した（`daily/2026-07-27_正午.md`に失敗報告あり。ダッシュボードは正しく更新をスキップし、既存データを保護）。対処として、**同時に起動する調査用サブエージェントは合計4〜6個までに抑える**旨を`.claude/commands/jp-daily-view.md`と両クラウドルーティーンのプロンプトに明記済み。今後この上限を緩める場合は、まず並列数を小刻みに増やして安全に確認すること。
 
 Local Cron is not used since it doesn't fire while the PC is asleep. Instead, a **cloud-scheduled routine** (via the `schedule` skill / `RemoteTrigger`) was set up on 2026-07-25. Since cloud agents can't reach the local PC, this project is operated through a GitHub repository (see above) that the cloud routine clones, updates, and pushes to every weekday morning (JST 6:00, targeting 7:00 completion). It also drafts a Gmail summary (draft only — the connector has no send capability) and saves snapshots to Google Drive.
 
