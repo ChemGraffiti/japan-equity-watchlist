@@ -69,18 +69,20 @@ Any cited data, articles, or literature must always be presented with a link or 
 
 - **GitHubリポジトリ**: https://github.com/ChemGraffiti/japan-equity-watchlist （**2026-07-25にPublicへ変更**。理由: タブレット/スマホのOneDriveアプリのプレビューはJavaScriptを実行せず、数値・色が表示されないため、GitHub Pagesでブラウザから直接閲覧できるようにした）。ローカルの変更は都度 `git push origin main` してリポジトリに反映する。クラウド側の日次更新もこのリポジトリにpushされるため、ローカルで最新を見たい場合は `git pull` する。
 - **GitHub Pages（スマホ・タブレット閲覧用）**: https://chemgraffiti.github.io/japan-equity-watchlist/ （`main`ブランチ・ルートから配信。`index.html`は`japan_equity_sector_map_v2.html`へ即時リダイレクトするだけの薄いファイル）。クラウドルーティーンが`git push`するたびに数分でこのURLにも自動反映される。**リポジトリがPublicのため、ここに機密情報（パスワード・APIキー等）を絶対にコミットしないこと。**
-- **ルーティーンID**: `trig_01MHvJpzmYjM1hoS8RqtCuKS`（名前:「日本株ウォッチリスト 日次更新」）。管理・停止は https://claude.ai/code/routines から。
-- **実行タイミング**: 毎週月〜金曜 JST 6:00開始（cron: `0 21 * * 0-4` UTC）。7:00完了を目安に1時間のバッファを確保。
-- **毎朝の処理内容**（プロンプトはルーティーン本体に記載。ローカルの`.claude/commands/jp-daily-view.md`と同等の内容をクラウド実行版として保持）:
+- **ルーティーンは1日2本**（いずれもSonnet 5で実行、Opusではない）:
+  - **朝**: `trig_01MHvJpzmYjM1hoS8RqtCuKS`（名前:「日本株ウォッチリスト 日次更新」）。毎週月〜金曜 JST 6:00開始（cron: `0 21 * * 0-4` UTC）。7:00完了を目安に1時間のバッファ。`daily/{date}.md`に保存。
+  - **正午**（2026-07-27追加）: `trig_01TN2HhJZhMKjvTcYPSqk7bk`（名前:「日本株ウォッチリスト 正午更新」）。毎週月〜金曜 JST 12:30開始（cron: `30 3 * * 1-5` UTC）。朝と同じ9ステップのフル版だが、`daily/{date}_正午.md`・Drive保存ファイル名・Gmail件名に「正午」を付けて朝の分と衝突しないようにしている。米国市場はこの時間まだ開いていないため`US_PRICE`調査は実質的に朝と同値になりやすい旨をプロンプトに明記済み（無駄を承知の上でユーザーが「フル版をそのまま2回」を選択）。
+  - 管理・停止は両方とも https://claude.ai/code/routines から。
+- **毎回の処理内容**（プロンプトは各ルーティーン本体に記載。ローカルの`.claude/commands/jp-daily-view.md`と同等の内容をクラウド実行版として保持。正午版は文言のみ「正午時点」向けに調整）:
   1. 113銘柄の株価前日比を調査し`DAILY`を更新。あわせて対応する米国・中国・韓国銘柄の株価も調査し`US_PRICE`/`CN_PRICE`/`KR_PRICE`を更新
   2. 市況調査（日本・米国・中国・韓国の世界情勢を含む）＋ニュースごとに関連するウォッチリスト銘柄を特定
   3. `WORLD`オブジェクトを更新（世界情勢サマリーカード）
-  4. 主観/客観コメントを`daily/{date}.md`に生成（関連銘柄を併記）
+  4. 主観/客観コメントを`daily/{date}.md`（正午版は`daily/{date}_正午.md`）に生成（関連銘柄を併記）
   5. `#newslog`に個別材料を追記
   6. GitHubにコミット・push
   7. Gmail下書きを作成（**自動送信ではなく下書きのみ**、Gmail連携にsend機能がないため）
   8. Googleドライブの「日本株ウォッチリスト」フォルダに日次コメント・ダッシュボードHTMLを保存
-- ルーティーン本体を更新する際は、ローカルの`.claude/commands/jp-daily-view.md`を先に直してから、同じ変更内容を`RemoteTrigger`の`update`でルーティーンのプロンプトにも反映すること（2箇所が乖離しないように）。
+- ルーティーン本体を更新する際は、ローカルの`.claude/commands/jp-daily-view.md`を先に直してから、同じ変更内容を`RemoteTrigger`の`update`で**朝・正午の両方のルーティーン**のプロンプトに反映すること（3箇所が乖離しないように）。
 
 Local Cron is not used since it doesn't fire while the PC is asleep. Instead, a **cloud-scheduled routine** (via the `schedule` skill / `RemoteTrigger`) was set up on 2026-07-25. Since cloud agents can't reach the local PC, this project is operated through a GitHub repository (see above) that the cloud routine clones, updates, and pushes to every weekday morning (JST 6:00, targeting 7:00 completion). It also drafts a Gmail summary (draft only — the connector has no send capability) and saves snapshots to Google Drive.
 
