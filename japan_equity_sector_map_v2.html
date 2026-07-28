@@ -650,10 +650,10 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
 
   <div class="newslog-day">
-    <div class="newslog-date">2026-07-28（正午更新）</div>
+    <div class="newslog-date">2026-07-28（正午更新・2回目、20:18 JST起動で当初予定より8時間超遅延）</div>
     <ul>
-      <li><span class="nl-macro">全体</span>日経平均は前場-4.44%(62,046.46円)の急落、キオクシアHD(285A)は前場ストップ安(-18.11%)。韓国KOSPIも一時8%超急落しサーキットブレーカー発動。米ナスダック安・信用取引の追証発生・韓国市場からの連想売りが要因として報じられている→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック 等半導体セクション全般。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-macro">全体</span>本日朝(6:00 JST)の日次更新ルーティーンは実行された形跡が確認できず(daily/2026-07-28.md未生成)、本正午更新が本日最初の更新となった。中国・韓国の対応銘柄株価は取得データの多くが前回比±35〜250%という現実的にあり得ない変動を示したため、データ品質を優先し全件更新を見送り既存値を維持(詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照)。</li>
+      <li><span class="nl-macro">全体</span>日経平均は前場-4.44%(62,046.46円)まで急落した後、後場でやや下げ渋り**終値は-3.95%(62,364.92円)**、TOPIXは-2.52%(3,963.59)。キオクシアHD(285A)は終値でも-18.33%(44,550円)とストップ安圏で着地、東京エレクトロン(8035)-10.89%・アドバンテスト(6857)-10.31%と半導体主力が終値でも二桁安。韓国KOSPIは終日悪化が続き終値で-10%超(一部報道)、サムスン電子-13.4%・SKハイニックス-14.7%前後。米ナスダック安・信用取引の追証発生・韓国市場からの連想売りが要因として報じられている→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック 等半導体セクション全般。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
+      <li><span class="nl-macro">全体</span>本日2回目の正午実行(1回目は14/113銘柄のみ反映の部分版、本更新で追加35銘柄・計49/113銘柄が7/28データを反映)。WebFetchが本日も主要金融サイトのほぼ全てで403エラーとなり、WebSearchスニペット経由の取得に限定。<span class="nl-code">6361</span>荏原製作所は取得データの前日比%から逆算した前日終値が旧基準値と約51%乖離し、株式分割等の未反映の可能性を排除できないため採用を見送り(要確認)。中国・韓国の対応銘柄株価(USBASE/CNBASE/KRBASE)は2026-07-28の方針転換により正午実行では調査対象外(朝の値のまま)。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
     </ul>
   </div>
 
@@ -739,7 +739,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "7/24〜28(混在)"; // 正午更新: 14/113銘柄を7/28前場値に更新(半導体中心の急落を反映。285Aは初回取得値が信頼性欠如のため複数情報源のニュース記事から補正)、5333は取得値が前日比%と価格変動が数理的に矛盾したため棄却し旧値を維持。残りは7/24〜27の既存値のまま(WebFetch断続障害・WebSearch予算枯渇のため)。詳細はdaily/2026-07-28_正午.md参照
+const AS_OF = "7/24〜28(混在)"; // 正午更新(2回目、20:18 JST起動・8時間超遅延): 追加で35銘柄を7/28終値(全日)に更新(半導体中心の急落継続、前場-4.44%→終値-3.95%への一部戻し。8035/6857/285Aは独立調査エージェントの市況レポートと整合を確認)。6361(荏原)は取得データが前日比%と価格変動から逆算した前日終値が旧値と約51%乖離し、株式分割等の未反映の可能性があるため棄却し旧値を維持(要確認)。5333は前回同様の理由で棄却済み。残りは7/24〜27または7/28前場値のまま(WebFetch/WebSearchが本日も金融サイトの大半で403エラーとなり4バッチ合計37/113銘柄しか取得できなかったため)。詳細はdaily/2026-07-28_正午.md参照
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -862,29 +862,29 @@ const BASE = {
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
 const DAILY = {
 
-"8035":[62800,0.22],"6857":[25345,-10.69],"6920":[43120,-0.12],"6146":[56080,-10.49],"6361":[5681,-1.23],
-"6327":[3210,-11.69],"4063":[6146,-8.3],"3436":[3762,3.84],"4186":[9925,-1.24],"4901":[3626,-0.87],
+"8035":[55960,-10.89],"6857":[25455,-10.31],"6920":[37440,-14.05],"6146":[56080,-10.49],"6361":[5681,-1.23],
+"6327":[3210,-11.69],"4063":[6146,-8.3],"3436":[3140,-16.53],"4186":[9925,-1.24],"4901":[3626,-0.87],
 "4631":[4473,-1.56],"6890":[8920,-0.22],"5016":[3770,-4.46],"4062":[16700,-3.86],"6971":[3653,-2.35],
-"2802":[5069,-0.53],"285A":[44670,-18.11],"6723":[3928,-6.45],"6963":[4234,-8.51],"6526":[2180,-9.07],
-"6965":[2233,-5.68],"6758":[3569,4.69],"6981":[8044,-3.21],"6976":[11545,1.14],"6997":[2919,-8.78],
+"2802":[5069,-0.53],"285A":[44550,-18.33],"6723":[3928,-6.45],"6963":[4234,-8.51],"6526":[2180,-9.07],
+"6965":[2233,-5.68],"6758":[3662,2.46],"6981":[8044,-3.21],"6976":[10275,-11],"6997":[2919,-8.78],
 "6762":[2935,-2.57],"6674":[5850,-2.74],"6752":[3883,-3.31],"5333":[6085,-2.06],"6594":[2549,-0.27],
-"9984":[5389,-2.02],"5586":[818,-2.15],"2354":[664,-0.3],"6504":[12925,-1.93],"6508":[9020,-0.77],
-"6954":[6624,-4.53],"6506":[5117,-4.09],"6861":[71820,-0.61],"5803":[4325,-5.83],"5801":[3277,-3.28],
+"9984":[5389,-2.02],"5586":[818,-2.15],"2354":[664,-0.3],"6504":[12925,-1.93],"6508":[8370,-7.51],
+"6954":[6624,-4.53],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[4073,-5.83],"5801":[3008,-8.21],
 "5802":[2355,-4.62],"6367":[23880,-0.97],"1969":[4429,-1.36],"6584":[802,-3.49],"6498":[2276,-1.68],
 "3778":[2818,-3.06],"9432":[153.8,1.65],"6383":[6202,-1.93],"4704":[6269,1.69],"3692":[5000,-1.57],
 "6501":[4850,-0.08],"6702":[3457,5.43],"6701":[4249,0.21],"6703":[3350,0.00],"4755":[785.6,-1.50],
-"7011":[3945,0.38],"7012":[2785.5,0.16],"7013":[2836.0,-1.48],"5631":[7678,-1.01],"7721":[6980,0.72],
-"4275":[2358,-0.51],"290A":[1126,-0.35],"464A":[1509,-6.85],"186A":[1015,-1.07],"278A":[12690,-7.84],
-"9501":[516.7,0.02],"9502":[2999.5,1.52],"9503":[2390,0.99],"9506":[1142,-0.39],"9508":[1781.5,0.14],
-"9509":[1007.5,-0.49],"9513":[3834,0.26],"1605":[3543.7,-2.93],"5020":[1320,-1.27],"5021":[3969,-0.15],
-"6492":[14030,-6.96],"7711":[4490,-6.46],"224A":[1519,-3.06],"5713":[7460,-5.59],"5711":[4166,-2.98],
-"5706":[31910,-5.87],"5463":[1793,-0.33],"4107":[3580,0.85],"5857":[3080,-2.53],"8306":[3662,-3.61],
+"7011":[3945,0.38],"7012":[2785.5,0.16],"7013":[2836.0,-1.48],"5631":[7678,-1.01],"7721":[6900,-1.71],
+"4275":[2358,-0.51],"290A":[1126,-0.35],"464A":[1509,-6.85],"186A":[1015,-1.07],"278A":[10380,-19.66],
+"9501":[506.6,1],"9502":[2866,-4.63],"9503":[2390,0.99],"9506":[1142,-0.39],"9508":[1820,-1.22],
+"9509":[1007.5,-0.49],"9513":[3834,0.26],"1605":[3543.7,-2.93],"5020":[1320,-1.27],"5021":[3985,0.4],
+"6492":[12890,-7.6],"7711":[4490,-6.46],"224A":[1519,-3.06],"5713":[7354,-5.54],"5711":[4166,-2.98],
+"5706":[28010,-10.31],"5463":[1800,-1.61],"4107":[3520,-4.22],"5857":[3080,-2.53],"8306":[3661,-3.63],
 "8316":[7161,-0.08],"8411":[8652,-1.30],"8303":[1423.5,-1.79],"8473":[2823.5,-2.47],"8725":[4898,0.51],
-"8058":[4918,0.04],"8031":[4957,-0.18],"8053":[1604,-1.53],"2768":[5390,-1.46],"8074":[5650,0.71],
-"6269":[10400,-0.95],"7003":[4877,2.89],"6471":[1107.5,-3.06],"6472":[380.7,2.09],"6326":[2797,0.02],
-"7203":[2897,-1.80],"7267":[1536,-1.95],"9201":[2787,-2.18],"9202":[3081,4.41],"581A":[2998,-4.22],
-"4911":[3045,-1.96],"4922":[5490,-0.15],"4452":[3284,1.89],"7974":[7431,6.63],"8136":[1245.5,7.42],
-"7951":[1203.5,-1.63],"1928":[3536,0.63],"3063":[1233,1.82]
+"8058":[4918,0.04],"8031":[4957,-0.18],"8053":[1604,-1.53],"2768":[5359,-1.6],"8074":[4910,1.87],
+"6269":[10340,-0.58],"7003":[4877,2.89],"6471":[1107.5,-3.06],"6472":[380.7,2.09],"6326":[2740,-4.94],
+"7203":[2897,-1.80],"7267":[1597.5,0.92],"9201":[2916,4.63],"9202":[3081,4.41],"581A":[3045,3.36],
+"4911":[3045,-1.96],"4922":[5785,0.5],"4452":[3320,1.1],"7974":[7431,6.63],"8136":[1245.5,7.42],
+"7951":[1248,-0.6],"1928":[3657,0.49],"3063":[1233,1.82]
 
 };
 
@@ -893,21 +893,21 @@ const DAILY = {
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
 "japan":{label:"日本 / Japan", score:-2,
-  summary:"7/28前場、日経平均は64,539.92円（前日比-391.27円）で寄り付いた後に下げ幅を拡大し、前場引けは62,046.46円（前日比-2,884.73円、-4.44%、一時-3,004.17円の61,927.02円まで下落）、TOPIXも3,954.30（-111.77）と急落した。主因として①前日7/27の米ナスダック安（エヌビディア主導、AI関連の循環投資への財務懸念）の連れ安、②韓国KOSPI急落（後述）への連想売り、③信用倍率（※信用買い残÷信用売り残。高いほど個人の買い建てが積み上がり将来の売り圧力になりやすい指標）が高水準だった銘柄の追証（信用取引で担保不足時に追加で差し入れる保証金）発生に伴う投げ売り、が複数メディアで指摘されている。キオクシアHD(285A)は前場ストップ安（-18.11%、44,670円）となり指数の重荷となった。東京エレクトロン・アドバンテスト・ソフトバンクグループ・フジクラなども軒並み下落と報じられている。",
-  en:"On the morning of 7/28, the Nikkei 225 opened at 64,539.92 (-391.27pt) and extended losses through the morning session, closing the AM session at 62,046.46 (-2,884.73pt, -4.44%, having touched an intraday low of 61,927.02, -3,004.17pt); TOPIX fell to 3,954.30 (-111.77). Reported drivers include: (1) spillover from 7/27's Nasdaq slide (Nvidia-led, on renewed AI-capex financing concerns), (2) contagion selling tied to the Korean KOSPI crash (see below), and (3) forced liquidation as margin calls hit in names with elevated credit ratios (margin buy/sell balance ratio — a high reading signals a large buildup of retail long positions that can become future sell pressure). Kioxia Holdings (285A) hit its daily down-limit (-18.11% to JPY44,670) and weighed on the index. Tokyo Electron, Advantest, SoftBank Group, and Fujikura were also reported broadly lower.",
-  asOf:"7/28前場引け", source:"https://www.nikkei.com/article/DGXZQOFL281G90Y6A720C2000000/"},
+  summary:"7/28、日経平均は64,539.92円で寄り付いた後に下げ幅を拡大し、前場引けは62,046.46円（前日比-2,884.73円、-4.44%、一時-3,004.17円の61,927.02円まで下落）。後場寄り直後の12:31にこの日の安値61,923.60円をつけたが、そこから徐々に下げ渋り、終値は62,364.92円（前日比-2,566.27円、-3.95%）と前場終値からは若干戻して着地した。TOPIXも3,963.59（-102.48、-2.52%）と、半導体比率の高い日経平均より下落率は小幅にとどまった。売買代金は約9.20兆円。主因として①前日7/27の米ナスダック安（エヌビディア主導、AI関連の循環投資への財務懸念）の連れ安、②韓国KOSPI急落（後述）への連想売り、③信用倍率（※信用買い残÷信用売り残。高いほど個人の買い建てが積み上がり将来の売り圧力になりやすい指標）が高水準だった銘柄の追証（信用取引で担保不足時に追加で差し入れる保証金）発生に伴う投げ売り、が複数メディアで指摘されている。キオクシアHD(285A)は終値でも前日比-18.33%の44,550円とストップ安圏で着地し指数の重荷となった。東京エレクトロン(8035)は-10.89%、アドバンテスト(6857)は-10.31%と、いずれも終値で二桁下落。個別材料としてはSCREENホールディングス(該当銘柄なし)が通期経常益予想を上方修正・増配と発表するなど、決算発表自体は好悪まちまち。",
+  en:"On 7/28, the Nikkei 225 opened at 64,539.92 and extended losses through the morning, closing the AM session at 62,046.46 (-2,884.73pt, -4.44%, having touched an intraday low of 61,927.02). The index printed its low for the day, 61,923.60, just after the afternoon session reopened at 12:31, then gradually pared losses into the close, finishing at 62,364.92 (-2,566.27pt, -3.95%) — a partial recovery from the morning low. TOPIX fell a comparatively smaller -2.52% to 3,963.59, reflecting the sell-off's concentration in semiconductor-heavy names. Turnover was roughly JPY9.20tn. Reported drivers include: (1) spillover from 7/27's Nasdaq slide (Nvidia-led, on renewed AI-capex financing concerns), (2) contagion selling tied to the Korean KOSPI crash (see below), and (3) forced liquidation as margin calls hit names with elevated credit ratios (margin buy/sell balance ratio — a high reading signals a large buildup of retail long positions that can become future sell pressure). Kioxia Holdings (285A) closed down -18.33% at JPY44,550, still near its down-limit, and weighed heavily on the index. Tokyo Electron (8035, -10.89%) and Advantest (6857, -10.31%) both finished down double digits. Individual earnings news was mixed — e.g. an unrelated name raised full-year profit guidance and its dividend the same day.",
+  asOf:"7/28終値", source:"https://www.nikkei.com/article/DGXZQOFL284UO0Y6A720C2000000/"},
 "korea":{label:"韓国 / South Korea", score:-2,
-  summary:"KOSPIは7/28アジア時間に一時8%超急落し、サーキットブレーカー・サイドカーが発動、-7.24%の6,266.78pt付近で推移との報道（7/24終値6,690.62からさらに続落）。サムスン電子は一時-13%超、SKハイニックスは一時-14%超下落したとの報道。主因は①米半導体株（エヌビディア主導）の急落波及、②中国国産半導体（CXMT等）の競争力向上への懸念による資本流出加速、と解説されている。半導体セクター（ウォッチリスト最大の38銘柄）への連れ安が続いている。なお個別の対応韓国銘柄(KRBASE)の株価は、本日の調査データが数理的に信頼できない変動（前回比±35〜250%）を示したため、正午時点では更新を見送り既存値のままとした（詳細はdaily/2026-07-28_正午.md参照）。",
-  en:"KOSPI reportedly plunged more than 8% intraday in Asian trading on 7/28, triggering circuit breakers and sidecars, trading around -7.24% at 6,266.78 (a further leg down from 7/24's close of 6,690.62). Samsung Electronics reportedly fell over 13% and SK Hynix over 14% at their intraday lows. Cited drivers include (1) spillover from the US chip-stock rout (Nvidia-led) and (2) accelerating capital outflows on concern over rising competitiveness of Chinese domestic chipmakers (e.g. CXMT). The spillover into Japan's semiconductor sector (the watchlist's largest group, 38 names) continues. Note: individual Korean counterpart-stock prices (KRBASE) were left unupdated at midday because today's collected data showed mathematically implausible swings (±35-250% vs. prior values); see daily/2026-07-28_正午.md for details.",
-  asOf:"7/28アジア時間（個別銘柄株価は7/24〜26のまま）", source:"https://www.tradingkey.com/analysis/stocks/more/262057458-skhynix-samsung-kioxia-dram-hbm-kospi-tradingkey"},
+  summary:"KOSPIは7/28、寄り付き後まもなく前日比-8%超まで急落しサーキットブレーカー・サイドカーが発動（節目6,300割れ、今年8回目・史上14回目の発動と報道）。その後も下げ止まらず、終値では前日比-10%超（一部報道で-10.8%前後）という、朝の急落局面をさらに上回る大幅安で着け引けたとみられる。KOSDAQも別途サーキットブレーカーを発動（-8.09%、702.91）。サムスン電子は終値-13.4%（約20年ぶりの下落率との報道）、SKハイニックスは終値-14.7%前後と報じられ、両社でKOSPI時価総額の半分近くを占めるため指数への影響が甚大だった。サムスンSDI-11.37%、LGイノテック-16.29%、ソウル半導体-8.78%、LG化学-7.5%など他のAI関連銘柄も大幅安。主因は①米半導体株（エヌビディア主導）の急落波及、②中国国産半導体（CXMT等）の競争力向上への懸念による資本流出加速、と解説されている。半導体セクター（ウォッチリスト最大の38銘柄）への連れ安が続いている。なお個別の対応韓国銘柄(KRBASE)は方針転換により正午実行では調査対象外（朝の値のまま）。",
+  en:"KOSPI plunged more than 8% shortly after the open on 7/28, triggering a circuit breaker and sidecar as it broke below 6,300 (reportedly the 8th trigger this year, 14th on record). Losses deepened further through the day; by the close, the index was reportedly down over 10% (some sources cite ~-10.8%), worse than the morning's circuit-breaker-level decline. KOSDAQ separately triggered its own circuit breaker (-8.09% to 702.91). Samsung Electronics closed -13.4% (reportedly its worst single-day fall in nearly two decades) and SK Hynix roughly -14.7% — together close to half of KOSPI's weight, driving most of the index decline. Other AI-linked names also fell sharply: Samsung SDI -11.37%, LG Innotek -16.29%, Seoul Semiconductor -8.78%, LG Chem -7.5%. Cited drivers: (1) spillover from the US chip-stock rout (Nvidia-led), and (2) accelerating capital outflows on concern over rising competitiveness of Chinese domestic chipmakers (e.g. CXMT). Spillover into Japan's semiconductor sector (the watchlist's largest group, 38 names) continues. Per the 2026-07-28 policy change, individual Korean counterpart-stock prices (KRBASE) are not researched during the noon run and remain at this morning's values.",
+  asOf:"7/28終値", source:"https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html"},
 "us":{label:"米国 / US", score:-1,
-  summary:"7/24終値はS&P500が7,411.98（+0.05%）、NYダウが51,947.25（+235.60、+0.46%）とほぼ横ばい〜小幅高だった一方、ナスダック総合は24,975.82（-0.64%）と続落。週間ではナスダックが約2%安と主要3指数の中で最も弱く、メモリ半導体（サンディスク-11%等）の急落が重し。中東情勢による原油高（WTI週間+10%程度）と米長期金利上昇（10年債利回り約4.68〜4.69%）もインフレ・金利懸念として意識された。CNBCの展望記事によると、今週(7/27-31)はFOMC(7/28-29、据え置き＝金利変更なしが有力視)とアルファベット・テスラ決算後のAI設備投資懸念が焦点で、月曜の寄り付きは横ばい〜やや軟調、資金は金融・ヘルスケアへローテーションとの見方。",
-  en:"On 7/24, the S&P 500 closed roughly flat at 7,411.98 (+0.05%) and the Dow rose 235.60pt (+0.46%) to 51,947.25, but the Nasdaq Composite fell -0.64% to 24,975.82. For the week, the Nasdaq was the weakest of the three, down ~2%, hit by a memory-chip rout (SanDisk -11% on the week). Middle East-driven oil gains (WTI +~10% w/w) and rising long-term yields (10Y ~4.68-4.69%) kept inflation/rate concerns in focus. Per CNBC's week-ahead piece, this week (7/27-31) centers on the FOMC decision (7/28-29, a hold is widely expected) and AI-capex jitters following Alphabet/Tesla earnings; Monday's open is expected flat-to-mildly-defensive with rotation into financials/healthcare.",
-  asOf:"7/24終値・週間展望は7/24公表", source:"https://www.cnbc.com/2026/07/24/stock-market-next-week-outlook-for-july-27-31-2026.html"},
+  summary:"7/24終値はS&P500が7,411.98（+0.05%）、NYダウが51,947.25（+235.60、+0.46%）とほぼ横ばい〜小幅高だった一方、ナスダック総合は24,975.82（-0.64%）と続落（詳細な確定値は本日朝の更新分を参照）。米国市場は正午時点（現地時間は夜間）でまだ開いておらず、本欄はこの正午更新では前回(朝)の終値ベースを維持する。参考情報として、本日アジア時間を通じたKOSPI急落等を受け、直近の先物ではナスダック先物が-1%前後、S&P500先物が-0.3%前後、NYダウ先物はほぼ横ばい〜小幅高との報道があり、AIインフラ投資への懸念が波及している可能性がある（確定値ではなく、あくまで参考の途中経過）。",
+  en:"On 7/24, the S&P 500 closed roughly flat at 7,411.98 (+0.05%) and the Dow rose to 51,947.25 (+0.46%), while the Nasdaq Composite fell -0.64% to 24,975.82 (see this morning's update for the fuller confirmed figures). The US market has not yet opened as of this noon update (it is still nighttime in the US), so this card retains this morning's close-based summary. For reference only, as of Asian trading hours today, Nasdaq futures were reported down roughly -1%, S&P 500 futures down roughly -0.3%, and Dow futures roughly flat-to-slightly-positive, suggesting the AI-capex jitters behind today's Asia sell-off may be spilling into US futures — this is an unconfirmed, still-evolving snapshot, not a final pre-market reading.",
+  asOf:"7/24終値(確定)・先物は7/28アジア時間の途中経過(参考)", source:"https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html"},
 "china":{label:"中国 / China", score:-1,
-  summary:"観光庁発表の2026年4-6月期データで、訪日中国人の消費額が前年比-48.8%と急減し、中国は首位から陥落（4位、シェア10.3%）。1-6月累計でも中国人観光客の構成比は2003年以来の低水準。資生堂・コーセー等インバウンド関連銘柄への構造的な逆風が続くが、資生堂株は「対中懸念の後退」を材料に4月に約1年半ぶり高値を付けるなど、市場は最悪期の織り込み一巡を示唆する動きも見られる。今週前半には消費支援策・インフラ・AI商業化等を焦点とする政治局会議（経済政策）が予定されているとの観測報道があり、内容次第で中国関連銘柄のセンチメントに影響しうる（未確定、要確認）。",
-  en:"Japan Tourism Agency data for Apr-Jun 2026 showed Chinese visitor spending down -48.8% year-on-year, dropping China out of the #1 spender spot to 4th place (10.3% share); for Jan-Jun 2026, China's share of inbound visitors was the lowest since 2003. This remains a structural headwind for inbound-tourism names like Shiseido and Kose, though Shiseido shares hit an ~18-month high in April on receding fears of a China backlash. Previews suggest a Politburo economic meeting focused on consumption support, infrastructure, and AI commercialization may occur early this week — unconfirmed, worth watching as it could move China-exposed sentiment.",
-  asOf:"7/16(観光庁データ)・政治局会議は7/25時点の観測報道（本日7/28午前の上海総合指数の値動きは検索結果の日付混在により確度高く確認できず、正午時点では未確認のまま）", source:"https://www.travelvoice.jp/20260716-160185"}
+  summary:"上海総合指数は7/28、前日比-1.2%の3,813.31で引けたと報じられている（7/27終値3,858.2、+1.15%からの反落。7/27は中国国産半導体メーカーCXMTの新規上場が上場直後に時価総額トップ級となるなど、中国製半導体の競争力向上期待で上昇していた反動とみられる）。今週後半に開催予定とされる政治局会議（経済政策、H2の政策方針を左右）については、消費支援・インフラ・AI商業化などが焦点になるとの観測報道が複数あるが、大規模な景気刺激策よりは的を絞った支援にとどまるとの見方が優勢で、開催日・内容の確定情報は本日時点で確認できていない（要確認）。観光庁データによる訪日中国人消費急減（前年比-48.8%）というインバウンド関連の構造的逆風は変わらず継続中。",
+  en:"The Shanghai Composite reportedly closed 7/28 down -1.2% at 3,813.31, retreating from 7/27's close of 3,858.2 (+1.15%), which had been boosted by optimism around domestic chipmaker CXMT's IPO (briefly the most valuable mainland-listed stock) on rising confidence in Chinese chip self-sufficiency. A Politburo economic meeting expected later this week — seen as setting H2 2026 policy tone, with focus reportedly on consumption support, infrastructure, and AI commercialization — is widely expected to bring targeted rather than broad stimulus; the exact date/contents remain unconfirmed as of today. The structural headwind from collapsing Chinese inbound tourist spending (-48.8% y/y per Japan Tourism Agency data) continues unabated.",
+  asOf:"上海総合指数は7/28終値、政治局会議は観測報道ベース(未確定)", source:"https://tradingeconomics.com/china/stock-market"}
 };
 
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
