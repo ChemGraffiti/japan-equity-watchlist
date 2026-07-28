@@ -122,6 +122,22 @@ table.xref .code{width:58px;color:var(--ivory)}
 .world-card[data-mode].active{outline:3px solid var(--ivory);outline-offset:2px}
 #mode-indicator{font-weight:700}
 
+/* Capital flow ranking + today's top picks */
+.flow-table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+.flow-table th,.flow-table td{padding:6px 10px;text-align:left;border-bottom:1px solid rgba(139,160,180,.25)}
+.flow-table th{color:var(--muted);font-weight:600;font-size:11.5px}
+.flow-table td.rank{font-family:ui-monospace,Menlo,monospace;color:var(--muted)}
+.flow-subj{font-size:13px;line-height:1.6;padding:10px 2px 0;color:var(--ivory)}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px}
+.pick-card{border:1px solid rgba(139,160,180,.35);border-radius:6px;padding:14px 16px;background:rgba(139,160,180,.06)}
+.pick-head{font-weight:700;font-size:14px;margin-bottom:8px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.pick-head .pick-code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted);font-weight:400}
+.pick-head .en{font-size:11px;opacity:.75;font-weight:400;font-style:italic}
+.pick-head .chg{margin-left:auto;font-size:13px}
+.pick-obj,.pick-subj{font-size:12.5px;line-height:1.55;margin-top:6px}
+.pick-obj b,.pick-subj b{color:var(--muted);font-weight:700;font-size:11px;margin-right:4px}
+.pick-date{font-size:10px;opacity:.7;margin-top:9px;font-family:ui-monospace,Menlo,monospace}
+
 @media (max-width:620px){
   .wrap{padding:20px 12px 60px}
   h1{font-size:23px}
@@ -131,6 +147,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   th:nth-child(3),td:nth-child(3),th:nth-child(4),td:nth-child(4){display:none}
   .count{display:none}
   .world-grid{grid-template-columns:1fr}
+  .picks-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -169,7 +186,18 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="world-grid" id="world-grid"></div>
 </section>
 
+<section id="pickup" class="world-sec">
+  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📊</span>
+    <h2>資金フロー分析 ＆ 本日の注目銘柄<em>Capital Flow &amp; Today's Top Picks</em></h2>
+  </div>
+  <div class="sec-note">業種別の資金フロー（客観・11業種の平均前日比%ランキング）は、下の11業種テーブルと同じ<code>DAILY</code>データから自動計算されるため常に最新の状態です（主観コメントのみ日次ルーティーンが更新）。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div id="flow-body"></div>
+  <h3 style="margin:18px 0 4px;font-size:14px;color:var(--ivory)">本日の注目銘柄トップ3<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Today's Top 3 to Watch</em></h3>
+  <div class="picks-grid" id="picks-grid"></div>
+</section>
+
 <nav>
+  <a href="#pickup">📊 資金フロー＆注目銘柄</a>
   <a href="#world">🌍 世界情勢</a>
   <a href="#s1" class="heat" data-sector="1">1 半導体・AI</a>
   <a href="#s2" class="heat" data-sector="2">2 データセンター</a>
@@ -910,6 +938,37 @@ const WORLD = {
   asOf:"上海総合指数は7/28終値、政治局会議は観測報道ベース(未確定)", source:"https://tradingeconomics.com/china/stock-market"}
 };
 
+/* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
+const SECTOR_NAMES = {1:"半導体・AI",2:"データセンター",3:"IT・サイバー",4:"防衛・宇宙",5:"エネルギー・電力",
+  6:"素材・非鉄",7:"金融",8:"商社",9:"機械・重工",10:"自動車・運輸",11:"内需・消費"};
+
+/* ---------- 資金フロー分析（主観コメントのみ） / Capital flow analysis (subjective commentary only) ----------
+   ランキング自体は既存のDAILY/BASE(または各国モードのXX_PRICE/XXBASE)から自動計算するため、ここには
+   モードごとの主観解釈コメントのみを日次ルーティーンが記載する。
+   Only the subjective interpretation is stored here per mode; the ranking itself is auto-computed from
+   existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
+const FLOW = {
+"jp":{subj:"半導体・AIセクターが11業種中最下位という結果は、ウォッチリスト最大の38銘柄を抱えるセクターであるだけに影響が大きく、資金がAI・半導体関連から自動車・内需消費等の相対的にディフェンシブと見なされるセクターへ回避的にシフトしている可能性があると考えます（推測です）。", asOf:"7/28終値"}
+};
+
+/* ---------- 本日の注目銘柄トップ3 / Today's Top 3 stocks to watch ----------
+   日次ルーティーンが選定・記載する。モード(jp/us/cn/kr)ごとに配列を持ち、🇯🇵🇺🇸🇨🇳🇰🇷切替に連動して表示が変わる。
+   対応するモードのデータが未選定の場合は、renderPicks()が自動的に日本(jp)にフォールバックする。
+   Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
+const PICKS = {
+"jp":[
+  {code:"285A", name:"キオクシアHD", en:"Kioxia Holdings", chg:-18.33,
+    obj:"終値44,550円、前日比-18.33%(ストップ安圏)。次回決算7/31。半導体メモリ市況悪化・AI設備投資の財務懸念が直接的な売り材料。(<a href=\"https://www.bloomberg.com/jp/news/articles/2026-07-28/TIV28GKJH6V400?srnd=jp-homepage\" target=\"_blank\" rel=\"noopener\">出典</a>)",
+    subj:"決算発表(7/31)目前でのこの下落は、市場が業績下振れ等のネガティブサプライズを織り込みにいっている可能性があります。急落した分、決算内容次第で急反発するリスクもあり、方向感は決算まで見極めが難しいと考えます(推測)。", asOf:"7/28終値"},
+  {code:"8035", name:"東京エレクトロン", en:"Tokyo Electron", chg:-10.89,
+    obj:"終値55,960円、前日比-10.89%。次回決算7/30。半導体製造装置(WFE)国内最大手として、アドバンテスト(6857)と並び日経平均の下落寄与度が最大級。(<a href=\"https://www.nikkei.com/article/DGXZQOFL284UO0Y6A720C2000000/\" target=\"_blank\" rel=\"noopener\">出典</a>)",
+    subj:"決算発表を翌日に控えた中での二桁下落は、市場が設備投資(AI関連含む)の先行き不透明感を強く意識していることの表れと考えます。受注動向・ガイダンスが今後数日の値動きを左右する可能性が高いとみています(推測)。", asOf:"7/28終値"},
+  {code:"6857", name:"アドバンテスト", en:"Advantest", chg:-10.31,
+    obj:"終値25,455円、前日比-10.31%。次回決算7/29確定。AI向け高帯域メモリ(HBM)検査装置で高シェア、半導体テスタ市場の動向を映す代表銘柄。",
+    subj:"決算発表が7/29に確定しており、本日の急落分がそのまま持ち越されるか決算内容次第で急反発するかの分水嶺になり得ると考えます。同社はAI投資サイクルの体温計的な位置づけであり、ガイダンスは東京エレクトロン(8035)を含む半導体セクター全体にも波及し得ると考えます(推測)。", asOf:"7/28終値"}
+]
+};
+
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
    JPコード→対応する米国上場銘柄1社。関係性(競合/顧客/供給元/投資家関係/同一商品)は投資分析上最も意味のあるものを選定(2026-07-26調査)。
    US_DAILY の第2要素(前日比%)は初回調査のため暫定0固定。次回以降の日次更新で実測値に置き換える。*/
@@ -1448,6 +1507,8 @@ function applyMode(mode){
   });
   renderFundCells();
   renderHeatmap();
+  renderFlow();
+  renderPicks();
 }
 
 /* ---------- セクターヒートマップ / Sector heatmap ---------- */
@@ -1522,9 +1583,80 @@ function renderWorld(){
   });
 }
 
+/* ---------- 資金フロー分析（ランキングは自動計算、コメントはFLOWデータ） / Capital flow ranking (auto-computed) + commentary ---------- */
+function renderFlow(){
+  var body = document.getElementById('flow-body');
+  if(!body) return;
+  var sums={}, counts={};
+  var md = MODE_DATA[currentMode];
+  Object.keys(BASE).forEach(function(code){
+    var b = BASE[code];
+    if(!b.s) return;
+    var c;
+    if(md && md.base[code]){
+      var u = md.base[code];
+      c = (md.price[code]/u.p - 1)*100;
+    } else if(!md){
+      var d = DAILY[code];
+      c = d ? d[1] : 0;
+    } else {
+      return; /* 対応銘柄がない国モードでは、その銘柄を業種平均に含めない */
+    }
+    sums[b.s] = (sums[b.s]||0) + c;
+    counts[b.s] = (counts[b.s]||0) + 1;
+  });
+  var rows = [];
+  for(var s=1;s<=11;s++){
+    if(!counts[s]) continue;
+    rows.push({s:s, name:SECTOR_NAMES[s], avg:sums[s]/counts[s], n:counts[s]});
+  }
+  rows.sort(function(a,b){ return b.avg - a.avg; });
+  var html = '<table class="flow-table"><tr><th>順位</th><th>業種</th><th>平均前日比%</th><th>銘柄数</th></tr>';
+  rows.forEach(function(r,i){
+    var cls = r.avg>=0.001 ? 'up' : (r.avg<=-0.001 ? 'down' : '');
+    html += '<tr><td class="rank">'+(i+1)+'</td><td>'+r.name+'</td><td class="chg '+cls+'">'+(r.avg>=0?'+':'')+r.avg.toFixed(2)+'%</td><td>'+r.n+'</td></tr>';
+  });
+  html += '</table>';
+  var f = FLOW[currentMode] || FLOW.jp;
+  if(f) html += '<div class="flow-subj"><b>主観 Subjective</b>（基準日 '+(f.asOf||AS_OF)+'）: '+f.subj+'</div>';
+  body.innerHTML = html;
+}
+
+/* ---------- 本日の注目銘柄トップ3 / Today's Top 3 picks ---------- */
+function renderPicks(){
+  var grid = document.getElementById('picks-grid');
+  if(!grid) return;
+  var list = PICKS[currentMode];
+  var fellBack = false;
+  if(!list || !list.length){ list = PICKS.jp; fellBack = true; }
+  var html = '';
+  if(!list || !list.length){
+    html = '<div class="sec-note">本日の注目銘柄データはまだありません。</div>';
+  } else {
+    if(fellBack && currentMode!=='jp'){
+      html += '<div class="sec-note">'+(MODE_LABEL[currentMode]||'')+'モードの注目銘柄データが未選定のため、日本の選定を表示しています。</div>';
+    }
+    list.forEach(function(p){
+      var cls = p.chg==null ? '' : (p.chg>=0 ? 'up' : 'down');
+      html += '<div class="pick-card">'
+        + '<div class="pick-head"><span class="pick-code">'+p.code+'</span>'+p.name
+        + (p.en ? '<span class="en">'+p.en+'</span>' : '')
+        + (p.chg!=null ? '<span class="chg '+cls+'">'+(p.chg>=0?'+':'')+p.chg.toFixed(2)+'%</span>' : '')
+        + '</div>'
+        + '<div class="pick-obj"><b>客観</b>'+p.obj+'</div>'
+        + '<div class="pick-subj"><b>主観</b>'+p.subj+'</div>'
+        + '<div class="pick-date">基準日 '+(p.asOf||AS_OF)+'</div>'
+        + '</div>';
+    });
+  }
+  grid.innerHTML = html;
+}
+
 cacheOriginals();
 renderHeatmap();
 renderWorld();
+renderFlow();
+renderPicks();
 applyMode('jp');
 </script>
 </body>
