@@ -674,8 +674,16 @@ table.xref .code{width:58px;color:var(--ivory)}
 <section id="newslog" style="--c:var(--new)">
   <div class="sec-head"><span class="sec-num">📰</span>
     <h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em></h2>
-    <span class="count">5日分</span></div>
+    <span class="count">6日分</span></div>
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+
+  <div class="newslog-day">
+    <div class="newslog-date">2026-07-29（朝更新）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>7/28（現地時間）の米国市場はS&amp;P500+0.21%・NYダウ+1.03%と上昇した一方、ナスダック総合-0.22%・半導体ETF(SMH)-3%超(4営業日続落)と半導体だけ軟調な「まちまち」の展開。本日7/29はFOMC(米金融政策決定会合)結果発表日で、ドル円は約40年ぶり高値圏(162円台後半〜165円台前半のレンジ予想)。日銀会合は7/31→関連: 半導体セクター全般(8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等)、輸出関連銘柄。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>参照。</li>
+      <li><span class="nl-macro">全体</span>個別銘柄の株価データ更新は本日見送り。WebFetchがfinance.yahoo.co.jp/irbank.net/stockanalysis.com/eastmoney.com等ほぼ全ての金融サイトで403(プロキシの組織ポリシーによる意図的ブロック、kabutan.jp限定だった従来の既知問題より範囲が拡大)、代替のWebSearchもセッション共有予算(200回)を10並列バッチの調査開始から15〜20分で使い切り、以降取得不能に。取得できたわずかな値も情報源間で数値が20〜50%以上食い違うものが多く、データ品質が信頼できないため全件棄却し既存値(7/24〜28混在)を維持(要確認)。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>およびCLAUDE.mdの障害記録参照。</li>
+    </ul>
+  </div>
 
   <div class="newslog-day">
     <div class="newslog-date">2026-07-28（正午更新・2回目、20:18 JST起動で当初予定より8時間超遅延）</div>
@@ -767,7 +775,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "7/24〜28(混在)"; // 正午更新(2回目、20:18 JST起動・8時間超遅延): 追加で35銘柄を7/28終値(全日)に更新(半導体中心の急落継続、前場-4.44%→終値-3.95%への一部戻し。8035/6857/285Aは独立調査エージェントの市況レポートと整合を確認)。6361(荏原)は取得データが前日比%と価格変動から逆算した前日終値が旧値と約51%乖離し、株式分割等の未反映の可能性があるため棄却し旧値を維持(要確認)。5333は前回同様の理由で棄却済み。残りは7/24〜27または7/28前場値のまま(WebFetch/WebSearchが本日も金融サイトの大半で403エラーとなり4バッチ合計37/113銘柄しか取得できなかったため)。詳細はdaily/2026-07-28_正午.md参照
+const AS_OF = "7/24〜28(混在)"; // 朝更新(7/29): 今回は113銘柄をJP3バッチで調査したが、(a)WebFetchがfinance.yahoo.co.jp/irbank.net/kabuyoho.ifis.co.jp/minkabu.jp等ほぼ全ての金融サイトに対してプロキシの組織ポリシーにより403を返す(kabutan.jpに限らない全面ブロックに拡大。/root/.ccr/README.mdで403は「ポリシーによる拒否・回避せず報告」と明記されている恒久的制約と判明)、(b)代替のWebSearchもセッション共有予算(200回)を10並列バッチ+メインの調査で15〜20分で使い切り、取得できた値もAI要約スニペット由来で一次ソース未検証・銘柄間で数値が食い違うものが多数(要確認多数)だったため、データ品質が信頼できず全件を棄却し既存値(7/24〜28混在)を維持。日経平均・TOPIX・KOSPI・米国主要指数等の指数レベルの数値は複数独立ソースで裏付けが取れたため、WORLDオブジェクトとdaily/2026-07-29.mdの市況コメントには反映済み。詳細はdaily/2026-07-29.md参照。これで個別銘柄レベルの一次情報取得が試行した5回中4回失敗しており、根本対処(WebSearch予算引き上げまたは金融サイトのプロキシ許可リスト追加)についてユーザー判断が必要。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -929,9 +937,9 @@ const WORLD = {
   en:"KOSPI plunged more than 8% shortly after the open on 7/28, triggering a circuit breaker and sidecar as it broke below 6,300 (reportedly the 8th trigger this year, 14th on record). Losses deepened further through the day; by the close, the index was reportedly down over 10% (some sources cite ~-10.8%), worse than the morning's circuit-breaker-level decline. KOSDAQ separately triggered its own circuit breaker (-8.09% to 702.91). Samsung Electronics closed -13.4% (reportedly its worst single-day fall in nearly two decades) and SK Hynix roughly -14.7% — together close to half of KOSPI's weight, driving most of the index decline. Other AI-linked names also fell sharply: Samsung SDI -11.37%, LG Innotek -16.29%, Seoul Semiconductor -8.78%, LG Chem -7.5%. Cited drivers: (1) spillover from the US chip-stock rout (Nvidia-led), and (2) accelerating capital outflows on concern over rising competitiveness of Chinese domestic chipmakers (e.g. CXMT). Spillover into Japan's semiconductor sector (the watchlist's largest group, 38 names) continues. Per the 2026-07-28 policy change, individual Korean counterpart-stock prices (KRBASE) are not researched during the noon run and remain at this morning's values.",
   asOf:"7/28終値", source:"https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html"},
 "us":{label:"米国 / US", score:-1,
-  summary:"7/24終値はS&P500が7,411.98（+0.05%）、NYダウが51,947.25（+235.60、+0.46%）とほぼ横ばい〜小幅高だった一方、ナスダック総合は24,975.82（-0.64%）と続落（詳細な確定値は本日朝の更新分を参照）。米国市場は正午時点（現地時間は夜間）でまだ開いておらず、本欄はこの正午更新では前回(朝)の終値ベースを維持する。参考情報として、本日アジア時間を通じたKOSPI急落等を受け、直近の先物ではナスダック先物が-1%前後、S&P500先物が-0.3%前後、NYダウ先物はほぼ横ばい〜小幅高との報道があり、AIインフラ投資への懸念が波及している可能性がある（確定値ではなく、あくまで参考の途中経過）。",
-  en:"On 7/24, the S&P 500 closed roughly flat at 7,411.98 (+0.05%) and the Dow rose to 51,947.25 (+0.46%), while the Nasdaq Composite fell -0.64% to 24,975.82 (see this morning's update for the fuller confirmed figures). The US market has not yet opened as of this noon update (it is still nighttime in the US), so this card retains this morning's close-based summary. For reference only, as of Asian trading hours today, Nasdaq futures were reported down roughly -1%, S&P 500 futures down roughly -0.3%, and Dow futures roughly flat-to-slightly-positive, suggesting the AI-capex jitters behind today's Asia sell-off may be spilling into US futures — this is an unconfirmed, still-evolving snapshot, not a final pre-market reading.",
-  asOf:"7/24終値(確定)・先物は7/28アジア時間の途中経過(参考)", source:"https://www.cnbc.com/2026/07/28/sk-hynix-plunges-semiconductor-selloff-deepens-samsung-softbank.html"},
+  summary:"7/28（現地時間）の米国市場は、S&P500が+0.21%高の7,428.78、NYダウが+1.03%高（+537.24ドル）の52,747.32と上昇した一方、ナスダック総合は-0.22%安の24,876.91と続落する「まちまち」の展開だった。決算好調・原油安を追い風にダウが牽引した一方、半導体株は日本・韓国から続く連れ安で軟調が継続（半導体ETF「VanEck Semiconductor ETF」は-3%超、4営業日続落）し、資金が半導体から他セクターへローテーションした可能性が指摘されている。本日7/29は米FOMC（連邦公開市場委員会、金融政策決定会合）の結果発表日にあたり、ドル円は約40年ぶり高値圏（162円台後半〜165円台前半のレンジ予想）で推移する中、政策金利発表・パウエル議長会見が為替・株式両市場の材料になる見込み。日銀金融政策決定会合も7/31に控える。",
+  en:"On 7/28 (US time), US markets were mixed: the S&P 500 rose +0.21% to 7,428.78 and the Dow jumped +1.03% (+537.24pts) to 52,747.32, while the Nasdaq Composite slipped -0.22% to 24,876.91. Strong earnings and falling oil prices drove the Dow's gain, while chip stocks stayed weak on continued spillover from Japan/Korea's semiconductor rout (the VanEck Semiconductor ETF fell over 3%, its 4th straight losing session), suggesting a possible rotation out of semis into other sectors. Today, 7/29, is the FOMC (Federal Open Market Committee) rate-decision day — with USD/JPY hovering near a ~40-year high (162-165 range expected), the rate decision and Chair Powell's press conference are likely to move both FX and equities. The BOJ's own policy meeting follows on 7/31.",
+  asOf:"7/28終値(確定)", source:"https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-28-dow-sp-500-nasdaq-chip-stocks-082832371.html"},
 "china":{label:"中国 / China", score:-1,
   summary:"上海総合指数は7/28、前日比-1.2%の3,813.31で引けたと報じられている（7/27終値3,858.2、+1.15%からの反落。7/27は中国国産半導体メーカーCXMTの新規上場が上場直後に時価総額トップ級となるなど、中国製半導体の競争力向上期待で上昇していた反動とみられる）。今週後半に開催予定とされる政治局会議（経済政策、H2の政策方針を左右）については、消費支援・インフラ・AI商業化などが焦点になるとの観測報道が複数あるが、大規模な景気刺激策よりは的を絞った支援にとどまるとの見方が優勢で、開催日・内容の確定情報は本日時点で確認できていない（要確認）。観光庁データによる訪日中国人消費急減（前年比-48.8%）というインバウンド関連の構造的逆風は変わらず継続中。",
   en:"The Shanghai Composite reportedly closed 7/28 down -1.2% at 3,813.31, retreating from 7/27's close of 3,858.2 (+1.15%), which had been boosted by optimism around domestic chipmaker CXMT's IPO (briefly the most valuable mainland-listed stock) on rising confidence in Chinese chip self-sufficiency. A Politburo economic meeting expected later this week — seen as setting H2 2026 policy tone, with focus reportedly on consumption support, infrastructure, and AI commercialization — is widely expected to bring targeted rather than broad stimulus; the exact date/contents remain unconfirmed as of today. The structural headwind from collapsing Chinese inbound tourist spending (-48.8% y/y per Japan Tourism Agency data) continues unabated.",
@@ -1120,7 +1128,7 @@ const US_PRICE = {
 "3063":7.94
 
 };
-const US_AS_OF = "7/24〜27(混在、49/99銘柄のみ7/27最新値に更新。詳細はdaily/2026-07-27_正午.md参照)";
+const US_AS_OF = "7/24〜27(混在、49/99銘柄のみ7/27最新値に更新)"; // 朝更新(7/29): US 3バッチで調査したが、WebFetchが金融サイト全面403・WebSearch予算も枯渇し、取得値の多くが要確認/不明のため全件棄却。詳細はdaily/2026-07-29.md参照
 
 /* ---------- 中国対応銘柄 / China counterpart stocks (2026-07-26調査) ---------- */
 const CNBASE = {
@@ -1248,7 +1256,7 @@ const CN_PRICE = {
 "3063":1.22
 
 };
-const CN_AS_OF = "7/24〜26(混在)"; // 正午更新: 中国株調査は実施したが、取得値の多くが前回比±40〜250%という現実的にあり得ない変動を示し(誤ティッカー取得等の疑い)、データ品質が信頼できないため今回は全件棄却し既存値(7/24〜26)を維持。詳細はdaily/2026-07-28_正午.md参照
+const CN_AS_OF = "7/24〜26(混在)"; // 朝更新(7/29): CN 2バッチで調査したが、WebFetchが金融サイト全面403・WebSearch予算も枯渇し、105銘柄中2銘柄しか値を得られず(うち1件は2ヶ月前の古いデータ)残りは全件棄却。詳細はdaily/2026-07-29.md参照
 
 /* ---------- 韓国対応銘柄 / Korea counterpart stocks (2026-07-26調査) ---------- */
 const KRBASE = {
@@ -1362,7 +1370,7 @@ const KR_PRICE = {
 "4452":248500,"7974":242500,"8136":32200,"7951":1125,"1928":30250
 
 };
-const KR_AS_OF = "7/24〜26(混在)"; // 正午更新: 韓国株調査は実施したが、取得値の多くが前回比±35〜250%という現実的にあり得ない変動を示し(誤ティッカー取得等の疑い)、データ品質が信頼できないため今回は全件棄却し既存値(7/24〜26)を維持。詳細はdaily/2026-07-28_正午.md参照
+const KR_AS_OF = "7/24〜26(混在)"; // 朝更新(7/29): KR 2バッチで調査したが、WebFetchが金融サイト全面403・WebSearch予算も枯渇し、93銘柄中1銘柄も確度をもって取得できず全件棄却。詳細はdaily/2026-07-29.md参照
 
 Object.keys(USBASE).forEach(function(c){ USBASE[c].p = US_PRICE[c]; });
 Object.keys(CNBASE).forEach(function(c){ CNBASE[c].p = CN_PRICE[c]; });
