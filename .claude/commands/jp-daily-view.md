@@ -94,8 +94,8 @@ Compute today's date in yyyy-MM-dd format — this is {date}.
 6. **保存 / Save**
    完成したコメントを `daily/{date}.md` として保存する（正午実行時は `daily/{date}_正午.md` として朝の分とは別に保存する）。
 
-7. **HTML/PDF化（ユーザーが希望する場合）/ HTML/PDF (on request)**
-   ユーザーがHTMLやPDFでの閲覧を希望した場合、[templates](../../一週間の投資情報まとめ/templates/report_template.html)相当のスタイル（`.objective`/`.subjective`のボックス分け）を用いて `daily/{date}.html` を作成し、[scripts/Convert-DailyViewToPdf.ps1](../scripts/Convert-DailyViewToPdf.ps1) を実行して `daily/{date}_日次相場観.pdf` を生成する。
+7. **PDF化は行わない / No PDF generation**
+   2026-07-29以降、`daily/{date}.html`やPDF（`daily/{date}_日次相場観.pdf`）は生成しない。ユーザーはGitHub Pages上のダッシュボード（https://chemgraffiti.github.io/japan-equity-watchlist/ 、pushすると数分で自動反映）を見るため、日々のPDF/HTML化は不要になった。[scripts/Convert-DailyViewToPdf.ps1](../scripts/Convert-DailyViewToPdf.ps1)はユーザーが明示的に「PDFで欲しい」と単発で依頼した場合にのみ使う。
 
 8. **ニュースログへの反映 / Update the news log**
    生成したコメントの中で、個別銘柄に固有の材料（決算・ガバナンス問題・上方修正・M&A等）が含まれる場合は、[japan_equity_sector_map_v2.html](../japan_equity_sector_map_v2.html) の `#newslog` セクションに新しい `.newslog-day` ブロックを**先頭に追加**し、`<span class="nl-code">コード</span>銘柄名: 内容` の形式で1〜2行程度にまとめて追記する。市況全体の話は `<span class="nl-macro">全体</span>` または `<span class="nl-macro">セクター</span>` タグを使うが、**ステップ4で特定した関連銘柄がある場合は、文末に「→関連: 8035 東京エレクトロン, 6857 アドバンテスト」のように併記する**。件数が多くなりすぎる場合は、株価インパクトの大きい材料に絞る。

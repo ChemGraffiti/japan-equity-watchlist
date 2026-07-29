@@ -52,9 +52,8 @@ Any cited data, articles, or literature must always be presented with a link or 
 - `fundamentals/raw/batchNN.md` — 初回フル調査（バッチ調査エージェント）の生データ
 - `fundamentals/raw/pricechg_batchN.md` — 株価・前日比%のみを取得する軽量バッチ調査の生データ（日次更新用）
 - `fundamentals/watchlist_fundamentals_{date}.md` — フル調査を統合したマスターデータベース（詳細出典URL付き）。BASEオブジェクトの一次情報源。
-- `daily/{date}.md` / `daily/{date}.html` / `daily/{date}_日次相場観.pdf` — `/jp-daily-view` コマンドで生成した日次の主観/客観市況コメント。**2026-07-27追加**: 通常の市況コメントに加え、①**資金フロー分析**（11業種の前日比ヒートマップ順位から資金の流出入を主観/客観で分析。日本に加え🇺🇸/🇨🇳/🇰🇷モードの業種平均も同様に分析）と②**本日の注目銘柄トップ3**（日本3＋対応米国/中国/韓国銘柄各3、計12銘柄を主観/客観で記載）を必ず含む。正午実行分（`daily/{date}_正午.md`）は③**午前中サマリー**（前場の値動きを主観/客観で記載。米国は取引時間外である旨を明記）も追加で含む。
+- `daily/{date}.md` — `/jp-daily-view` コマンドで生成した日次の主観/客観市況コメント。**2026-07-27追加**: 通常の市況コメントに加え、①**資金フロー分析**（11業種の前日比ヒートマップ順位から資金の流出入を主観/客観で分析。日本に加え🇺🇸/🇨🇳/🇰🇷モードの業種平均も同様に分析）と②**本日の注目銘柄トップ3**（日本3＋対応米国/中国/韓国銘柄各3、計12銘柄を主観/客観で記載）を必ず含む。正午実行分（`daily/{date}_正午.md`）は③**午前中サマリー**（前場の値動きを主観/客観で記載。米国は取引時間外である旨を明記）も追加で含む。**2026-07-29決定: これらの内容は`japan_equity_sector_map_v2.html`側の`FLOW`/`PICKS`オブジェクトにも同時に書き込まれ、GitHub Pages上のダッシュボードで直接閲覧できる。ユーザーはサイトのみを見るため、`daily/{date}.html`やPDF化はもう行わない**（`scripts/Convert-DailyViewToPdf.ps1`はユーザーが単発で明示的に依頼した場合のみ使用。日次ルーティーンからは呼び出さない）。
 - `.claude/commands/jp-daily-view.md` — 日次ルーティーン用スラッシュコマンド定義
-- `scripts/Convert-DailyViewToPdf.ps1` — 日次コメントHTML→PDF変換スクリプト（PS1ファイルはUTF-8 BOM必須、日本語ファイル名が文字化けする）
 
 ## ファンダメンタルDBの更新方針 / Fundamentals DB Update Policy
 
