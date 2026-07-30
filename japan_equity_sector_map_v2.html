@@ -678,6 +678,15 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
 
   <div class="newslog-day">
+    <div class="newslog-date">2026-07-30（正午更新）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>本日朝6:00実行予定の日次ルーティーンが未完了（<code>daily/2026-07-30.md</code>が存在せず、CLAUDE.mdに記録済みの既知のハング障害パターンの可能性）。このためDAILYは正午実行開始時点でも7/29終値のまま据え置かれていた。正午実行では個別銘柄調査を試みたが、WebSearchの多くが実際には7/29時点のキャッシュ済みスニペットを返す状態(例: 7203トヨタの「+7.18%」は7/29終値の数値)で、本日(7/30)時点と確度をもって判別・複数ソースで整合したのはアドバンテスト(6857)のみのため、同銘柄以外のDAILYは更新を見送り既存値を維持(要確認)→関連: 8035 東京エレクトロン(本日決算発表), 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-30_正午.md">正午の相場観コメント</a>参照。</li>
+      <li><span class="nl-macro">全体</span>日経平均は前引け+784.22円(62,218.41円、一時+1,300円超)と3日ぶり反発。アドバンテスト(6857)の通期上方修正・キオクシアHD(285A)の前場急伸(一時+9.58%)など半導体主力の自律反発が牽引した一方、東証プライム全体では値下がり銘柄(976)が値上がり(545)を大きく上回る「まだら」な内容だった→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
+      <li><span class="nl-macro">全体</span>韓国KOSPIは7/30午前、サムスン電子・SKハイニックスが売られ-1.10%程度で推移と報じられ、日本の上昇とは対照的な展開。前日(7/29)はSKハイニックス好決算で寄り付き+3.4%まで急伸するも終値-5.98%に転落しており、3営業日連続の乱高下が続く。韓国当局はレバレッジETFへの個人投資家参加を制限する規制強化を発表。SKハイニックスは最大約294億ドル規模のナスダック上場を申請したと報じられている→関連: 半導体セクター全般。中国・上海総合指数は本日分のデータを確認できず、直近値(7/29 13:37時点+0.60%)のまま(要確認)。</li>
+    </ul>
+  </div>
+
+  <div class="newslog-day">
     <div class="newslog-date">2026-07-29（正午更新、実際の起動16:17 JSTで約4時間弱遅延）</div>
     <ul>
       <li><span class="nl-macro">全体</span>日経平均は寄り付き+369.76円(62,734.68円)まで自律反発するも、フィッチ・レーティングスが同日発表した「グローバル・リスク・アウトルック」でAI関連投資の急拡大が金融市場全体の信用リスクになり得ると警告したことを受け半導体・AI関連株に売りが波及、寄り付き後まもなくマイナス転換。一時-1,800円超まで下げ幅を拡大した後、大引けにかけて下げ渋り、終値は<b>-930.73円(-1.49%)の61,434.19円と3日続落</b>。TOPIXは-4.03(-0.10%)の3,959.56とほぼ横ばいで踏みとどまり、値上がり銘柄数が値下がりを上回るなど下落は半導体・AI関連に集中→関連: 8035 東京エレクトロン(単独で指数を約559円押し下げ), 9984 ソフトバンクG, 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-29_正午.md">正午の相場観コメント</a>参照。</li>
@@ -784,7 +793,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "7/24〜29(混在,46銘柄のみ7/29最新反映)"; // 正午更新(7/29): 実際の起動が16:17 JST(予定12:30 JSTから約4時間弱遅延)となり、東証はすでに大引け(15:00)後だったため、"前場"ではなく実質的に本日終値〜引け間際のデータ収集となった。JP4バッチ(各約27〜29銘柄)で調査、WebFetchは今回も金融サイト全般で403(継続的な既知の制約)、WebSearchスニペット経由で取得。各バッチが取得した値のうち、明示的に7/29の日付・時刻が付き他情報源と矛盾しないもの46銘柄のみ採用し、日付不明瞭・7/28以前の値の誤帰属・出典間で数値が食い違うもの(67銘柄)は既存値を維持(要確認)。285A(キオクシアHD)・6857(アドバンテスト、本日15:30決算発表)は取得できた値が11:03/13:23時点の値で、大引け後の最終値・決算発表後の反応を反映できていない可能性がある点に注意。詳細はdaily/2026-07-29_正午.md参照。
+const AS_OF = "7/24〜30(混在,6857のみ7/30前引け反映・他112銘柄は7/29以前のまま)"; // 正午更新(7/30): 本来7/30朝6:00実行分がまずDAILYを更新するはずだったが、実行時点で daily/2026-07-30.md が存在せず朝ルーティーンが未完了(ハング中の可能性、CLAUDE.md既知の障害パターン)。正午ルーティーン開始時点でDAILYは7/29終値のまま止まっていた。本日はJP113銘柄についてWebSearchで個別調査を試みたが、多くの検索結果が実際には前日(7/29)時点のキャッシュ済みスニペットを返しており(例: 7203トヨタの「+7.18%」は7/29終値の数値、6920レーザーテックの検索結果も7/29 11:20時点のものが混在)、本日(7/30)時点のデータと明確に判別・複数ソースで整合したのはアドバンテスト(6857、値上がり率ランキング上位に明示的に7/30前引けの値として掲載)のみ。他112銘柄は誤った当日データを反映するリスクを避けるため既存値(7/29以前)を維持(要確認)。詳細はdaily/2026-07-30_正午.md参照。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -907,7 +916,7 @@ const BASE = {
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
 const DAILY = {
 
-"8035":[49820,-10.91],"6857":[24380,-4.43],"6920":[34770,-7.13],"6146":[56080,-10.49],"6361":[5681,-1.23],"6327":[3210,-11.69],"4063":[6146,-8.3],"3436":[3140,-16.53],
+"8035":[49820,-10.91],"6857":[27183,11.49],"6920":[34770,-7.13],"6146":[56080,-10.49],"6361":[5681,-1.23],"6327":[3210,-11.69],"4063":[6146,-8.3],"3436":[3140,-16.53],
 "4186":[9925,-1.24],"4901":[3626,-0.87],"4631":[4473,-1.56],"6890":[8920,-0.22],"5016":[3416,-9.82],"4062":[16700,-3.86],"6971":[3653,-2.35],"2802":[4927,0.80],
 "285A":[40150,-9.88],"6723":[3928,-6.45],"6963":[4098,-0.46],"6526":[2046.5,-4.77],"6965":[2233,-5.68],"6758":[3662,2.46],"6981":[6736,-5.83],"6976":[10140,-1.31],
 "6997":[2919,-8.78],"6762":[2730.5,-6.73],"6674":[5850,-2.74],"6752":[3883,-3.31],"5333":[5131,-7.35],"6594":[2567.0,0.12],"9984":[4785,-6.08],"5586":[818,-2.15],
@@ -929,22 +938,22 @@ const DAILY = {
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
-"japan":{label:"日本 / Japan", score:-1,
-  summary:"7/29、日経平均は前日終値比+369.76円の62,734.68円で寄り付き、前日の急落からの自律反発狙いの買いが先行したが、格付け会社フィッチが同日発表した「グローバル・リスク・アウトルック」でAI関連投資の急拡大が金融市場全体の信用リスクになり得ると警告したことが伝わると、半導体・AI関連株に改めて売りが波及し、寄り付き後まもなくマイナス圏に転落。下げ幅は一時-1,800円超まで拡大した後、大引けにかけてやや下げ渋り、終値は前日比-930.73円（-1.49%）の61,434.19円と3日続落（本日の実行が予定の12:30 JSTより約4時間弱遅れ16:17 JSTとなったため、この終値が判明した状態での更新となった）。TOPIXは-4.03（-0.10%）の3,959.56とほぼ横ばいで踏みとどまり、日経平均との乖離が示すように下落は半導体・AI関連へなお集中していた。値下がり寄与上位は東京エレクトロン(8035)・ソフトバンクG(9984)・キオクシアHD(285A)などで、東京エレクトロン1銘柄で指数を約559円押し下げたと報じられている。一方で東証プライム全体の値上がり銘柄数は値下がりを上回っており（自動車・内需消費など相対的にディフェンシブなセクターへの物色が指摘されている）、指数の下落ほど市場全体が悪いわけではない「まだら模様」の展開だった。アドバンテスト(6857)は本日15:30に2027年3月期通期純利益予想を76%上方修正（465.5億→660億円、市場予想518億円を上回る）すると発表、AI推論向け半導体テスト需要の想定超過が要因とされる。東京エレクトロン(8035)は明日7/30に決算発表を控える。",
-  en:"On 7/29 the Nikkei 225 opened up +369.76pt at 62,734.68 on bargain-hunting after the prior day's rout, but reversed into negative territory shortly after the open once ratings agency Fitch's Q3 Global Risk Outlook — warning that large-scale AI investment could become a major credit risk to broader capital markets — reignited selling in semiconductor/AI names. The decline widened to as much as -1,800pt intraday before paring somewhat into the close, finishing at 61,434.19 (-930.73pt, -1.49%), a third straight losing session. (This routine's actual start was delayed roughly 4 hours from its scheduled 12:30 JST to 16:17 JST, so this update reflects the now-known full-day close rather than a mid-session snapshot.) TOPIX was roughly flat at 3,959.56 (-4.03pt, -0.10%), underscoring that the decline stayed concentrated in semiconductor/AI names rather than broadening — Tokyo Electron (8035), SoftBank Group (9984), and Kioxia (285A) were the top index detractors, with Tokyo Electron alone reportedly subtracting ~559pt. Notably, advancing issues on the Prime Market outnumbered decliners, with money reportedly rotating into more defensive names like autos and domestic consumption — a healthier breadth than the headline index decline suggests. Advantest (6857) announced at 15:30 today that it is raising full-year (FY ending March 2027) net profit guidance 76% to JPY66.0bn (from JPY46.55bn), beating the JPY51.8bn consensus, on AI-inference chip test demand exceeding expectations. Tokyo Electron (8035) reports earnings tomorrow, 7/30.",
-  asOf:"7/29終値(実行16:17 JST時点で判明済み)", source:"https://www.zaikei.co.jp/article/20260729/863382.html"},
-"korea":{label:"韓国 / South Korea", score:-2,
-  summary:"KOSPIは7/29、SKハイニックスの決算が市場予想を上回ったことを好感し寄り付き直後に前日比+3.4%高の6,228.52まで急伸したが、10時ごろから売りに転じ下げ幅を拡大、10時55分に売り方サイドカー（急落時に発動される売買の一時停止措置）が発動、その後も下落が続き一時-8%超まで悪化して正午にサーキットブレーカーが発動された（2日連続の発動）。サムスン電子-4.09%・SKハイニックス-9.10%など、決算が好調だったにもかかわらず半導体株の下げが止まらない展開。前日(7/28)終値時点で-10%超という記録的急落を演じたばかりであり、2日連続の乱高下は市場心理の不安定さを表している。なお個別の対応韓国銘柄(KRBASE)は方針転換により正午実行では調査対象外（朝の値のまま）。指数レベルの動きのみニュースベースで確認。",
-  en:"KOSPI surged as much as +3.4% to 6,228.52 shortly after the open on 7/29, initially cheered by SK Hynix's earnings beat, but reversed into selling around 10am, triggering a sell-side sidecar at 10:55am and then a full circuit breaker at noon (the second consecutive trading day this has happened) as losses widened past -8%. Samsung Electronics fell -4.09% and SK Hynix -9.10% despite the strong earnings print — the good news wasn't enough to overcome broader AI-overinvestment jitters. This follows 7/28's record >10% single-day crash, and the renewed whipsaw over two straight days underscores how unsettled sentiment remains. Per the 2026-07-28 policy change, individual Korean counterpart-stock prices (KRBASE) are not researched during the noon run and remain at this morning's values — only index-level news was checked this run.",
-  asOf:"7/29 正午時点(ニュースベース)", source:"https://www.tradingkey.com/jp/analysis/stocks/more/262057318-kospi-drops-trigger-circuit-samsung-sk-hynix-tumble-tradingkey"},
+"japan":{label:"日本 / Japan", score:1,
+  summary:"7/30前引け、日経平均は前日比+784.22円高（3日ぶり反発）の62,218.41円（一時+1,300円超まで上げ幅拡大し62,666.42円）で前場を終えた。アドバンテスト(6857)が本日15:30発表の通期上方修正を材料に前引け値上がり率ランキング上位（+11.49%）となり、東京エレクトロン(8035、値上がり寄与トップ)・キオクシアHD(285A、前場一時+9.58%高の48,820円まで急伸)など半導体主力の自律反発が指数を押し上げた形。ただし東証プライム全体の値上がり銘柄数は545、値下がりは976と全体の3分の2が下落しており、指数の上昇は限られた大型半導体株への物色に集中した「まだら」な内容である点に注意（値上がり率上位には小森・MARUWA等の中小型株も入るが、下位には東証プライム全体の過半が並ぶ）。なお、同じ「784円高」報道の一部は「韓国株高を受けたAI半導体株買い」とも伝えているが、後述の通り韓国KOSPIは同時間帯にむしろ下落しており、この点は情報源間で整合していない（要確認）。東京エレクトロン(8035)は本日中に決算発表予定で、結果次第で午後の相場が大きく振れる可能性がある。",
+  en:"In the morning session on 7/30, the Nikkei 225 rebounded (its first gain in 3 days), closing the morning +784.22pt at 62,218.41 (intraday gains reached over +1,300pt, touching 62,666.42). Advantest (6857) ranked among the morning's top percentage gainers (+11.49%) on today's 15:30 full-year profit-guidance hike, while Tokyo Electron (8035, the top index contributor) and Kioxia (285A, which briefly surged +9.58% to 48,820) led a self-driven rebound in core semiconductor names. However, breadth was weak — only 545 Prime Market issues advanced versus 976 decliners, meaning roughly two-thirds of the market fell even as the index rose, concentrated buying in a handful of large-cap chip names. Note that one headline attributing today's rally partly to \"Korean stock strength\" conflicts with reporting (below) that KOSPI itself was actually down over the same window — this inconsistency is unresolved (要確認/TBD). Tokyo Electron (8035) reports earnings later today, which could swing the afternoon session either way.",
+  asOf:"7/30前引け時点", source:"https://www.nikkei.com/article/DGXZQOFL302DX0Q6A730C2000000/"},
+"korea":{label:"韓国 / South Korea", score:-1,
+  summary:"KOSPIは7/30午前、サムスン電子・SKハイニックスが売られ-1.10%程度の下落で推移していると報じられている（日本の日経平均上昇とは対照的な「明暗を分ける」展開と評されている）。前日7/29はSKハイニックスの好決算を受け寄り付き直後+3.4%まで急伸する場面もあったが、その後失速し終値では-5.98%（KOSDAQも-6.12%）と大幅安に転じており、直近3営業日は乱高下（10%超の急落→部分反発→再下落）が続いている。韓国当局はレバレッジETFへの個人投資家の参加を運用額の20%以内に制限する規制強化を発表するなど、過熱・乱高下抑制に動いている。なお、SKハイニックスは最大454.5兆ウォン（約294億ドル）規模のナスダック上場計画を申請したと報じられており、これが中期的な思惑材料として株価のボラティリティ要因になっている可能性がある。個別の対応韓国銘柄(KRBASE)は方針転換により正午実行では調査対象外（朝の値のまま）、指数レベルの動きのみニュースベースで確認。",
+  en:"On the morning of 7/30, KOSPI is reported down roughly -1.10% as Samsung Electronics and SK Hynix sold off — described as a \"divergence\" from Japan's rising Nikkei. The prior day (7/29) saw KOSPI spike as much as +3.4% on SK Hynix's earnings beat before reversing to close down -5.98% (KOSDAQ -6.12%), extending a 3-day stretch of extreme whipsaw (a >10% crash, a partial rebound, then renewed selling). Korean regulators have moved to curb the volatility, announcing new limits capping retail investor participation in leveraged ETFs to 20% of fund assets. Separately, SK Hynix is reported to have filed for a Nasdaq listing seeking to raise up to ~KRW454.5tn (~$29.4bn), which may be adding to near-term volatility as a speculative catalyst. Per the 2026-07-28 policy change, individual Korean counterpart-stock prices (KRBASE) are not researched during the noon run and remain at this morning's values — only index-level news was checked this run.",
+  asOf:"7/30午前時点(ニュースベース)", source:"https://www.tradingkey.com/jp/analysis/stocks/more/262062588-japan-south-korea-markets-diverge-kospi-slips-sk-hynix-kioxia-tradingkey"},
 "us":{label:"米国 / US", score:-1,
   summary:"7/28（現地時間）の米国市場は、S&P500が+0.21%高の7,428.78、NYダウが+1.03%高（+537.24ドル）の52,747.32と上昇した一方、ナスダック総合は-0.22%安の24,876.91と続落する「まちまち」の展開だった。決算好調・原油安を追い風にダウが牽引した一方、半導体株は日本・韓国から続く連れ安で軟調が継続（半導体ETF「VanEck Semiconductor ETF」は-3%超、4営業日続落）し、資金が半導体から他セクターへローテーションした可能性が指摘されている。本日7/29は米FOMC（連邦公開市場委員会、金融政策決定会合）の結果発表日にあたり、ドル円は約40年ぶり高値圏（162円台後半〜165円台前半のレンジ予想）で推移する中、政策金利発表・パウエル議長会見が為替・株式両市場の材料になる見込み。日銀金融政策決定会合も7/31に控える。",
   en:"On 7/28 (US time), US markets were mixed: the S&P 500 rose +0.21% to 7,428.78 and the Dow jumped +1.03% (+537.24pts) to 52,747.32, while the Nasdaq Composite slipped -0.22% to 24,876.91. Strong earnings and falling oil prices drove the Dow's gain, while chip stocks stayed weak on continued spillover from Japan/Korea's semiconductor rout (the VanEck Semiconductor ETF fell over 3%, its 4th straight losing session), suggesting a possible rotation out of semis into other sectors. Today, 7/29, is the FOMC (Federal Open Market Committee) rate-decision day — with USD/JPY hovering near a ~40-year high (162-165 range expected), the rate decision and Chair Powell's press conference are likely to move both FX and equities. The BOJ's own policy meeting follows on 7/31.",
   asOf:"7/28終値(確定)", source:"https://finance.yahoo.com/markets/live/stock-market-today-tuesday-july-28-dow-sp-500-nasdaq-chip-stocks-082832371.html"},
 "china":{label:"中国 / China", score:0,
-  summary:"上海総合指数は7/29、13時37分時点で前日比+23.05（+0.60%）の3,836.36と小幅ながら反発している（7/28終値3,813.31、-1.2%からの戻り）。前日までの下落は中国製半導体の競争力向上期待に沸いた7/27上昇の反動だったが、本日は反発しており、CXMT関連の材料による極端な振れはいったん落ち着いた様子。今週後半に開催予定とされる政治局会議（経済政策、H2の政策方針を左右）については引き続き確定情報が本日時点で確認できていない（要確認）。観光庁データによる訪日中国人消費急減（前年比-48.8%）というインバウンド関連の構造的逆風は変わらず継続中。",
-  en:"The Shanghai Composite was up +23.05pt (+0.60%) at 3,836.36 as of 13:37 JST on 7/29, a modest rebound from 7/28's close of 3,813.31 (-1.2%). The prior day's decline had been a pullback from 7/27's chip-optimism-driven rally, and today's data suggests the extreme CXMT-driven swings have eased somewhat for now. The Politburo economic meeting reportedly expected later this week remains unconfirmed as of today (要確認/TBD). The structural headwind from collapsing Chinese inbound tourist spending (-48.8% y/y per Japan Tourism Agency data) continues unabated.",
-  asOf:"7/29 13:37時点", source:"https://www.nikkei.com/marketdata/quote/SSEC/"}
+  summary:"上海総合指数の7/30本日時点データはWebSearchで確認できず（要確認）、前回取得できている最新値は7/29 13:37時点の+23.05（+0.60%）の3,836.36（7/28終値3,813.31、-1.2%からの戻り）のまま。前日までの下落は中国製半導体の競争力向上期待に沸いた7/27上昇の反動だったが、7/29は反発しており、CXMT関連の材料による極端な振れはいったん落ち着いた様子だった。今週後半に開催予定とされる政治局会議（経済政策、H2の政策方針を左右）については引き続き確定情報が確認できていない（要確認）。観光庁データによる訪日中国人消費急減（前年比-48.8%）というインバウンド関連の構造的逆風は変わらず継続中とみられる。",
+  en:"No 7/30same-day data for the Shanghai Composite could be confirmed via WebSearch this run (要確認/TBD); the most recent confirmed figure remains 7/29 13:37 JST's +23.05pt (+0.60%) to 3,836.36 (up from 7/28's close of 3,813.31, -1.2%). The prior decline had been a pullback from 7/27's chip-optimism-driven rally, and 7/29's data suggested the extreme CXMT-driven swings had eased somewhat. The Politburo economic meeting reportedly expected later this week remains unconfirmed (要確認/TBD). The structural headwind from collapsing Chinese inbound tourist spending (-48.8% y/y per Japan Tourism Agency data) is believed to be continuing.",
+  asOf:"7/29 13:37時点(7/30同日データ未確認)", source:"https://www.nikkei.com/marketdata/quote/SSEC/"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
@@ -957,7 +966,7 @@ const SECTOR_NAMES = {1:"半導体・AI",2:"データセンター",3:"IT・サ�
    Only the subjective interpretation is stored here per mode; the ranking itself is auto-computed from
    existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
 const FLOW = {
-"jp":{subj:"本日(7/29)も半導体・AIセクターへの売りが優勢で、フィッチのAI投資リスク警告を材料に上位セクターへ資金が向かい下位セクター(半導体・AI)から流出している可能性があると考えます（推測です）。一方でTOPIXがほぼ横ばいで踏みとどまり、値上がり銘柄数が値下がりを上回ったと報じられていることから、資金は完全に市場から逃避したのではなく、自動車・内需消費等の相対的にディフェンシブなセクターへ回避的にシフトしている可能性が高いと考えます（推測）。米国・中国・韓国の資金フロー分析は本日朝の更新分（<a href=\"daily/2026-07-29.md\">daily/2026-07-29.md</a>）を参照してください（本日は個別銘柄データを再取得していないため）。", asOf:"7/29正午実行(16:17 JST起動、実質終値ベース)"}
+"jp":{subj:"本日(7/30)前引けは前日までと一転し、半導体・AIセクターへ資金が回帰している可能性があると考えます（推測です）。DAILYの多くの銘柄が7/29以前の値のまま据え置きのため自動計算されるセクター別ランキング自体は本日更新分をほぼ反映できていない点に注意が必要ですが、個別に確認できたアドバンテスト(6857、+11.49%)・東京エレクトロン(8035、値上がり寄与トップ)・キオクシアHD(285A、前場一時+9.58%)の動きからは、フィッチ警告や信用リスク懸念で売られていた半導体・AI関連への見直し買いが入っている可能性があると考えます（推測）。ただし東証プライム全体では値下がり銘柄(976)が値上がり(545)を大きく上回っており、半導体以外のセクターからは資金が流出超になっている可能性も否定できません（推測）。米国・中国・韓国の資金フロー分析は本日朝の更新分（本来は<a href=\"daily/2026-07-30.md\">daily/2026-07-30.md</a>を参照する想定だが、本日朝ルーティーンが未完了[daily/2026-07-30.mdが存在せず]のため直近の<a href=\"daily/2026-07-29.md\">daily/2026-07-29.md</a>を参照）。", asOf:"7/30前引け実行(大半のDAILYは7/29以前のまま、6857のみ7/30反映の混在データに基づく参考値)"}
 };
 
 /* ---------- 本日の注目銘柄トップ3 / Today's Top 3 stocks to watch ----------
@@ -966,15 +975,15 @@ const FLOW = {
    Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
 const PICKS = {
 "jp":[
-  {code:"6857", name:"アドバンテスト", en:"Advantest", chg:-4.43,
-    obj:"本日15:30、2027年3月期通期純利益予想を76%上方修正（465.5億円→660億円）、市場予想(518億円)も上回った。AI推論向け半導体テスト需要が想定を上回ったことが要因。株価は決算発表前の13:23時点で24,380円・前日比-4.43%（<a href=\"https://www.nikkei.com/article/DGXZQOUB2796B0X20C26A7000000/\" target=\"_blank\" rel=\"noopener\">出典</a>）。発表が引け後のため、この上方修正が本日終値までにどこまで織り込まれたかは未確認（要確認）。",
-    subj:"内容自体は非常に強い決算・ガイダンスですが、発表が15:30と取引時間後のため、株価への完全な反映は明日以降になると考えられます。フィッチのAI投資リスク警告という逆風の中でのこの好決算が、明日の東京エレクトロン(8035)決算や半導体セクター全体のセンチメント好転につながるか注目したいと考えます（推測）。", asOf:"7/29(決算発表当日、株価は引け前時点)"},
+  {code:"6857", name:"アドバンテスト", en:"Advantest", chg:11.49,
+    obj:"7/30前引け、値上がり率ランキング上位（+11.49%、前引け27,183円前後と推定＝7/29終値24,380円からの逆算値・要確認）。前日15:30発表の2027年3月期通期純利益予想76%上方修正（465.5億円→660億円、市場予想518億円超）が材料視され、AI推論向け半導体テスト需要の想定超過が反映された形（<a href=\"https://www.nikkei.com/article/DGXZQOFL302DX0Q6A730C2000000/\" target=\"_blank\" rel=\"noopener\">出典</a>）。",
+    subj:"前日発表の好決算が取引時間後だったため、本日の寄り付き以降にきちんと織り込まれる形で買われていると見ています。フィッチのAI投資リスク警告という逆風下でこれだけ明確な上方修正が出たことで、半導体セクター全体の見直し買いのきっかけになっている可能性があると考えます（推測）。", asOf:"7/30前引け時点"},
   {code:"8035", name:"東京エレクトロン", en:"Tokyo Electron", chg:-10.91,
-    obj:"本日終値付近49,820円、前日比-10.91%（値下がり幅ベースで日経平均の下落寄与度トップ、単独で指数を約559円押し下げたと報じられている）。フィッチによるAI投資への信用リスク警告を受け、寄り付き後の自律反発が失速し売りが継続。次回決算は明日7/30。(<a href=\"https://www.zaikei.co.jp/article/20260729/863397.html\" target=\"_blank\" rel=\"noopener\">出典</a>)",
-    subj:"2日連続の二桁下落で、決算発表を翌日に控えた中でのマクロ悪材料（フィッチ警告）の直撃は極めて神経質な状況だと考えます。同業アドバンテスト(6857)の好決算・上方修正が伝われば地合い改善の一助になり得る一方、フィッチ警告のようなセクター全体への逆風が優勢な間は反発が続きにくいとみています（推測）。", asOf:"7/29(実行16:17 JST時点)"},
+    obj:"本日7/30は決算発表日。前引け時点では半導体主力株の反発を主導し日経平均の値上がり寄与トップと報じられている一方、DAILYの前日比%は前回(7/29)終値ベースの-10.91%のまま未更新（本日分の正確な変化率は本更新では確認できず要確認）。決算発表の具体的な内容・時刻は本更新時点で未確認。",
+    subj:"決算発表当日に半導体セクター全体の反発を主導する動きを見せていることから、市場は決算内容に対しても強気な期待を織り込みつつあるのではないかと考えます（推測）。発表後の反応次第で午後にかけて振れが大きくなる可能性があり、注視が必要と考えます。", asOf:"7/30前引け時点(前日比%は7/29終値ベースのまま・要確認)"},
   {code:"285A", name:"キオクシアHD", en:"Kioxia Holdings", chg:-9.88,
-    obj:"前場中盤(11:03時点)では40,150円・前日比-9.88%まで下落していたが、その後SKハイニックスの好決算を材料に一時+9.58%高の48,820円まで急伸する場面があったと報じられている（<a href=\"https://www.nikkei.com/article/DGXZQOFL290JT0Z20C26A7000000/\" target=\"_blank\" rel=\"noopener\">出典</a>）。大引け時点の正確な値は本更新では確認できておらず要確認。次回決算7/31。",
-    subj:"前場からの乱高下は、決算(7/31)を控えて材料次第で振れやすい地合いを表していると考えます。SKハイニックスの好決算を手掛かりにした反発は、本日のアドバンテスト(6857)の好決算とも通じるテーマであり、AI投資への懐疑と個別企業の好業績とのせめぎ合いが続いていると考えます（推測）。", asOf:"7/29(前場〜日中、複数時点混在・要確認)"}
+    obj:"7/30前場、SKハイニックスの好決算・大型ナスダック上場計画を材料に一時+9.58%高の48,820円まで急伸したと報じられている（<a href=\"https://www.nikkei.com/article/DGXZQOFL302DX0Q6A730C2000000/\" target=\"_blank\" rel=\"noopener\">出典</a>）。DAILYの前日比%は前回(7/29)終値ベースの-9.88%のまま未更新（要確認）。次回決算7/31。",
+    subj:"SKハイニックス関連の好材料に連動する形で急伸しており、半導体メモリセクター全体の地合い改善を示唆していると考えます（推測）。ただし決算(7/31)を翌日に控えていることもあり、材料次第で振れやすい状態が続くとみています。", asOf:"7/30前場時点(前日比%は7/29終値ベースのまま・要確認)"}
 ]
 };
 
