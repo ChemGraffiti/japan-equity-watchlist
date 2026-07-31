@@ -138,6 +138,17 @@ table.xref .code{width:58px;color:var(--ivory)}
 .pick-obj b,.pick-subj b{color:var(--muted);font-weight:700;font-size:11px;margin-right:4px}
 .pick-date{font-size:10px;opacity:.7;margin-top:9px;font-family:ui-monospace,Menlo,monospace}
 
+/* 7-day event calendar */
+.events-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+.events-table th,.events-table td{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(139,160,180,.25);vertical-align:top}
+.events-table th{color:var(--muted);font-weight:600;font-size:11.5px}
+.events-table td.ev-date{font-family:ui-monospace,Menlo,monospace;white-space:nowrap;color:var(--muted)}
+.events-table td.ev-date.today{color:var(--ivory);font-weight:700}
+.ev-badge{display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-right:6px;white-space:nowrap}
+.ev-badge.earnings{background:rgba(224,179,74,.18);border:1px solid rgba(224,179,74,.4);color:#e0b34a}
+.ev-badge.macro{background:rgba(139,160,180,.18);border:1px solid rgba(139,160,180,.4);color:var(--muted)}
+.events-empty{font-size:13px;color:var(--muted);padding:6px 2px}
+
 @media (max-width:620px){
   .wrap{padding:20px 12px 60px}
   h1{font-size:23px}
@@ -196,7 +207,16 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="picks-grid" id="picks-grid"></div>
 </section>
 
+<section id="events" class="world-sec">
+  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📅</span>
+    <h2>今後7日間のイベントカレンダー<em>7-Day Event Calendar</em></h2>
+  </div>
+  <div class="sec-note">本日から7日後（同じ曜日）までの、ウォッチリスト113銘柄の決算発表予定と主要な金融政策イベント（日銀金融政策決定会合・FOMC・米国CPI等）を一覧表示します。朝の日次ルーティーンが1日1回更新します（正午更新では変更しません）。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
+  <div id="events-body"></div>
+</section>
+
 <nav>
+  <a href="#events">📅 イベントカレンダー</a>
   <a href="#pickup">📊 資金フロー＆注目銘柄</a>
   <a href="#world">🌍 世界情勢</a>
   <a href="#s1" class="heat" data-sector="1">1 半導体・AI</a>
@@ -1045,6 +1065,41 @@ const PICKS = {
 ]
 };
 
+/* ---------- 今後7日間のイベントカレンダー / 7-day event calendar ----------
+   日次ルーティーン(朝のみ、1日1回)が更新する。asOfから7日後(同じ曜日)までの範囲を
+   renderEvents()が自動でフィルタして表示するため、items自体は多少先まで/過去分を
+   含んでいても構わない(表示側で絞り込む)。
+   type: "earnings"(決算発表) または "macro"(日銀・FOMC・CPI等の金融政策・経済指標イベント)。
+   Populated once daily by the morning routine only (not the noon routine). */
+const EVENTS = {
+"asOf":"2026-07-31",
+"items":[
+  {date:"2026-07-31", type:"macro", label:"日銀金融政策決定会合(7/30-31開催との報道ベース、結果は本日時点で未確認)", note:"要確認"},
+  {date:"2026-07-31", type:"earnings", code:"8035", name:"東京エレクトロン", note:"本日引け後発表予定(未確認)"},
+  {date:"2026-07-31", type:"earnings", code:"6723", name:"ルネサスエレクトロニクス", note:"本日発表予定(未確認)"},
+  {date:"2026-07-31", type:"earnings", code:"6981", name:"村田製作所"},
+  {date:"2026-07-31", type:"earnings", code:"6762", name:"TDK", note:"確定"},
+  {date:"2026-07-31", type:"earnings", code:"6508", name:"明電舎"},
+  {date:"2026-07-31", type:"earnings", code:"9503", name:"関西電力"},
+  {date:"2026-07-31", type:"earnings", code:"6954", name:"ファナック", note:"頃"},
+  {date:"2026-08-03", type:"earnings", code:"8306", name:"三菱UFJフィナンシャル・グループ", note:"確定"},
+  {date:"2026-08-04", type:"earnings", code:"4062", name:"イビデン"},
+  {date:"2026-08-05", type:"earnings", code:"6674", name:"GSユアサ"},
+  {date:"2026-08-06", type:"earnings", code:"4186", name:"東京応化工業"},
+  {date:"2026-08-06", type:"earnings", code:"4901", name:"富士フイルムホールディングス"},
+  {date:"2026-08-06", type:"earnings", code:"9984", name:"ソフトバンクグループ"},
+  {date:"2026-08-06", type:"earnings", code:"5801", name:"古河電気工業", note:"確定"},
+  {date:"2026-08-06", type:"earnings", code:"9432", name:"日本電信電話(NTT)", note:"確定"},
+  {date:"2026-08-06", type:"earnings", code:"5021", name:"コスモエネルギーホールディングス", note:"頃"},
+  {date:"2026-08-06", type:"earnings", code:"5711", name:"三菱マテリアル", note:"頃"},
+  {date:"2026-08-07", type:"earnings", code:"6997", name:"日本ケミコン"},
+  {date:"2026-08-07", type:"earnings", code:"7012", name:"川崎重工業", note:"確定"},
+  {date:"2026-08-07", type:"earnings", code:"1605", name:"INPEX", note:"確定"},
+  {date:"2026-08-07", type:"earnings", code:"5706", name:"三井金属鉱業", note:"頃"},
+  {date:"2026-08-07", type:"earnings", code:"5463", name:"丸一鋼管"}
+]
+};
+
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
    JPコード→対応する米国上場銘柄1社。関係性(競合/顧客/供給元/投資家関係/同一商品)は投資分析上最も意味のあるものを選定(2026-07-26調査)。
    US_DAILY の第2要素(前日比%)は初回調査のため暫定0固定。次回以降の日次更新で実測値に置き換える。*/
@@ -1728,11 +1783,44 @@ function renderPicks(){
   grid.innerHTML = html;
 }
 
+/* ---------- 7日間イベントカレンダー / 7-day event calendar ---------- */
+function renderEvents(){
+  var body = document.getElementById('events-body');
+  if(!body) return;
+  var wd = ['日','月','火','水','木','金','土'];
+  var start = new Date(EVENTS.asOf+'T00:00:00');
+  var end = new Date(start.getTime());
+  end.setDate(end.getDate()+7);
+  var items = (EVENTS.items||[]).filter(function(it){
+    var d = new Date(it.date+'T00:00:00');
+    return d>=start && d<=end;
+  }).slice().sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
+  if(!items.length){
+    body.innerHTML = '<div class="events-empty">今後7日間に登録済みのイベントはありません。</div>';
+    return;
+  }
+  var html = '<table class="events-table"><tr><th>日付</th><th>種別</th><th>内容</th></tr>';
+  items.forEach(function(it){
+    var d = new Date(it.date+'T00:00:00');
+    var label = (d.getMonth()+1)+'/'+d.getDate()+'('+wd[d.getDay()]+')';
+    var isToday = it.date===EVENTS.asOf;
+    var badge = it.type==='earnings' ? '<span class="ev-badge earnings">決算</span>' : '<span class="ev-badge macro">経済指標</span>';
+    var content = it.type==='earnings'
+      ? (it.code?('<span class="pick-code">'+it.code+'</span> '):'') + (it.name||'') + (it.note?'<span class="en"> ('+it.note+')</span>':'')
+      : (it.label||'') + (it.note?'<span class="en"> ('+it.note+')</span>':'');
+    html += '<tr><td class="ev-date'+(isToday?' today':'')+'">'+label+(isToday?' 本日':'')+'</td><td>'+badge+'</td><td>'+content+'</td></tr>';
+  });
+  html += '</table>';
+  html += '<div class="sec-note" style="padding-left:2px">基準日: '+EVENTS.asOf+'（この日から7日後まで表示）</div>';
+  body.innerHTML = html;
+}
+
 cacheOriginals();
 renderHeatmap();
 renderWorld();
 renderFlow();
 renderPicks();
+renderEvents();
 applyMode('jp');
 </script>
 </body>
