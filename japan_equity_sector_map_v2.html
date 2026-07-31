@@ -139,15 +139,23 @@ table.xref .code{width:58px;color:var(--ivory)}
 .pick-date{font-size:10px;opacity:.7;margin-top:9px;font-family:ui-monospace,Menlo,monospace}
 
 /* 7-day event calendar */
-.events-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
-.events-table th,.events-table td{padding:7px 10px;text-align:left;border-bottom:1px solid rgba(139,160,180,.25);vertical-align:top}
-.events-table th{color:var(--muted);font-weight:600;font-size:11.5px}
-.events-table td.ev-date{font-family:ui-monospace,Menlo,monospace;white-space:nowrap;color:var(--muted)}
-.events-table td.ev-date.today{color:var(--ivory);font-weight:700}
-.ev-badge{display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:3px;margin-right:6px;white-space:nowrap}
+.events-grid{display:grid;grid-template-columns:repeat(8,minmax(112px,1fr));gap:8px;overflow-x:auto;padding-bottom:6px}
+.ev-col{border:1px solid rgba(139,160,180,.25);border-radius:6px;padding:8px}
+.ev-col.today{border-color:var(--ivory);background:rgba(139,160,180,.07)}
+.ev-col-head{font-size:12.5px;font-weight:700;color:var(--ivory);margin-bottom:7px;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px}
+.ev-col-wd{font-size:10.5px;color:var(--muted);font-weight:400}
+.ev-col-today-badge{font-size:9px;background:var(--ivory);color:#0d1620;padding:0 4px;border-radius:2px;margin-left:auto;font-weight:700}
+.ev-col-empty{font-size:11px;color:var(--muted);opacity:.5}
+.ev-item{margin-bottom:7px}
+.ev-item:last-child{margin-bottom:0}
+.ev-badge{display:inline-block;font-size:9.5px;padding:1px 5px;border-radius:3px;white-space:nowrap}
 .ev-badge.earnings{background:rgba(224,179,74,.18);border:1px solid rgba(224,179,74,.4);color:#e0b34a}
 .ev-badge.macro{background:rgba(139,160,180,.18);border:1px solid rgba(139,160,180,.4);color:var(--muted)}
+.ev-item-text{font-size:10.5px;line-height:1.4;margin-top:3px}
 .events-empty{font-size:13px;color:var(--muted);padding:6px 2px}
+@media (max-width:620px){
+  .events-grid{grid-template-columns:repeat(8,132px)}
+}
 
 @media (max-width:620px){
   .wrap{padding:20px 12px 60px}
@@ -1787,35 +1795,43 @@ function renderPicks(){
   grid.innerHTML = html;
 }
 
-/* ---------- 7日間イベントカレンダー / 7-day event calendar ---------- */
+/* ---------- 7日間イベントカレンダー / 7-day event calendar ----------
+   横軸=日付・曜日、その下に小さくイベントを積む形式。基準日(asOf)から7日後まで、
+   1日1列の計8列で表示する。 */
 function renderEvents(){
   var body = document.getElementById('events-body');
   if(!body) return;
   var wd = ['日','月','火','水','木','金','土'];
   var start = new Date(EVENTS.asOf+'T00:00:00');
-  var end = new Date(start.getTime());
-  end.setDate(end.getDate()+7);
-  var items = (EVENTS.items||[]).filter(function(it){
-    var d = new Date(it.date+'T00:00:00');
-    return d>=start && d<=end;
-  }).slice().sort(function(a,b){ return a.date<b.date?-1:(a.date>b.date?1:0); });
-  if(!items.length){
-    body.innerHTML = '<div class="events-empty">今後7日間に登録済みのイベントはありません。</div>';
-    return;
-  }
-  var html = '<table class="events-table"><tr><th>日付</th><th>種別</th><th>内容</th></tr>';
-  items.forEach(function(it){
-    var d = new Date(it.date+'T00:00:00');
-    var label = (d.getMonth()+1)+'/'+d.getDate()+'('+wd[d.getDay()]+')';
-    var isToday = it.date===EVENTS.asOf;
-    var badge = it.type==='earnings' ? '<span class="ev-badge earnings">決算</span>' : '<span class="ev-badge macro">経済指標</span>';
-    var content = it.type==='earnings'
-      ? (it.code?('<span class="pick-code">'+it.code+'</span> '):'') + (it.name||'') + (it.note?'<span class="en"> ('+it.note+')</span>':'')
-      : (it.label||'') + (it.note?'<span class="en"> ('+it.note+')</span>':'');
-    html += '<tr><td class="ev-date'+(isToday?' today':'')+'">'+label+(isToday?' 本日':'')+'</td><td>'+badge+'</td><td>'+content+'</td></tr>';
+  var byDate = {};
+  (EVENTS.items||[]).forEach(function(it){
+    if(!byDate[it.date]) byDate[it.date] = [];
+    byDate[it.date].push(it);
   });
-  html += '</table>';
-  html += '<div class="sec-note" style="padding-left:2px">基準日: '+EVENTS.asOf+'（この日から7日後まで表示）</div>';
+  var html = '<div class="events-grid">';
+  for(var i=0;i<=7;i++){
+    var d = new Date(start.getTime());
+    d.setDate(d.getDate()+i);
+    var iso = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    var isToday = (i===0);
+    var items = byDate[iso] || [];
+    html += '<div class="ev-col'+(isToday?' today':'')+'">';
+    html += '<div class="ev-col-head">'+(d.getMonth()+1)+'/'+d.getDate()+'<span class="ev-col-wd">('+wd[d.getDay()]+')</span>'+(isToday?'<span class="ev-col-today-badge">本日</span>':'')+'</div>';
+    if(!items.length){
+      html += '<div class="ev-col-empty">—</div>';
+    } else {
+      items.forEach(function(it){
+        var badge = it.type==='earnings' ? '<span class="ev-badge earnings">決算</span>' : '<span class="ev-badge macro">指標</span>';
+        var content = it.type==='earnings'
+          ? (it.code?('<span class="pick-code">'+it.code+'</span> '):'') + (it.name||'')
+          : (it.label||'');
+        html += '<div class="ev-item">'+badge+'<div class="ev-item-text">'+content+(it.note?'<span class="en"> ('+it.note+')</span>':'')+'</div></div>';
+      });
+    }
+    html += '</div>';
+  }
+  html += '</div>';
+  html += '<div class="sec-note" style="padding-left:2px">基準日: '+EVENTS.asOf+'（この日から7日後まで表示。横スクロール可）</div>';
   body.innerHTML = html;
 }
 
