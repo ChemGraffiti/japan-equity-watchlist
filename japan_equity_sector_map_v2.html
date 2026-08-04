@@ -209,7 +209,7 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📊</span>
     <h2>資金フロー分析 ＆ 本日の注目銘柄<em>Capital Flow &amp; Today's Top Picks</em></h2>
   </div>
-  <div class="sec-note">業種別の資金フロー（客観・11業種の平均前日比%ランキング）は、下の11業種テーブルと同じ<code>DAILY</code>データから自動計算されるため常に最新の状態です（主観コメントのみ日次ルーティーンが更新）。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div class="sec-note">業種別の資金フロー（値上がり/値下がりトップ3業種）は<code>DAILY</code>データから自動計算されます（主観コメントのみ日次ルーティーンが更新）。日本モードは2026-08-01以降、各業種の代表3銘柄（計33銘柄）のサンプルに基づく参考値です（113銘柄全数の日次更新は使用率削減のため廃止）。🇺🇸🇨🇳🇰🇷モードは引き続き全対応銘柄の平均です。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
   <div id="flow-body"></div>
   <h3 style="margin:18px 0 4px;font-size:14px;color:var(--ivory)">本日の注目銘柄トップ3<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Today's Top 3 to Watch</em></h3>
   <div class="picks-grid" id="picks-grid"></div>
@@ -1010,6 +1010,27 @@ const WORLD = {
 const SECTOR_NAMES = {1:"半導体・AI",2:"データセンター",3:"IT・サイバー",4:"防衛・宇宙",5:"エネルギー・電力",
   6:"素材・非鉄",7:"金融",8:"商社",9:"機械・重工",10:"自動車・運輸",11:"内需・消費"};
 
+/* ---------- 業種別の代表銘柄（サンプリング方式） / Sector representative stocks (sampling) ----------
+   2026-08-01決定: 日本113銘柄すべての日次個別更新をやめ、各業種の代表3銘柄(計33銘柄)のみを
+   日次調査する方式に変更した（使用率削減のため）。renderFlow()はJPモード時、業種平均の計算対象を
+   この33銘柄に限定する。米国・中国・韓国モードは対象外（全銘柄平均のまま、既存ロジック維持）。
+   Since 2026-08-01, daily updates only cover these 3 bellwether stocks per sector (33 total)
+   instead of all 113 JP tickers, to cut usage. renderFlow() restricts its JP-mode sector-average
+   calculation to these codes; US/CN/KR modes are unaffected (still average over all tickers). */
+const SECTOR_REPS = {
+  1: ["8035","6857","285A"],
+  2: ["5803","9432","6383"],
+  3: ["6501","6702","4755"],
+  4: ["7011","7012","7013"],
+  5: ["9501","1605","5020"],
+  6: ["5713","5711","5706"],
+  7: ["8306","8316","8411"],
+  8: ["8058","8031","8053"],
+  9: ["6326","6471","7003"],
+  10:["7203","7267","9202"],
+  11:["7974","4452","8136"]
+};
+
 /* ---------- 資金フロー分析（主観コメントのみ） / Capital flow analysis (subjective commentary only) ----------
    ランキング自体は既存のDAILY/BASE(または各国モードのXX_PRICE/XXBASE)から自動計算するため、ここには
    モードごとの主観解釈コメントのみを日次ルーティーンが記載する。
@@ -1732,34 +1753,48 @@ function renderFlow(){
   if(!body) return;
   var sums={}, counts={};
   var md = MODE_DATA[currentMode];
-  Object.keys(BASE).forEach(function(code){
-    var b = BASE[code];
-    if(!b.s) return;
-    var c;
-    if(md && md.base[code]){
-      var u = md.base[code];
-      c = (md.price[code]/u.p - 1)*100;
-    } else if(!md){
-      var d = DAILY[code];
-      c = d ? d[1] : 0;
-    } else {
-      return; /* 対応銘柄がない国モードでは、その銘柄を業種平均に含めない */
+  var sampled = !md; /* JPモードのみサンプリング方式(SECTOR_REPS)を使う。2026-08-01決定。 */
+  if(sampled){
+    for(var s=1;s<=11;s++){
+      (SECTOR_REPS[s]||[]).forEach(function(code){
+        var d = DAILY[code];
+        if(!d) return;
+        sums[s] = (sums[s]||0) + d[1];
+        counts[s] = (counts[s]||0) + 1;
+      });
     }
-    sums[b.s] = (sums[b.s]||0) + c;
-    counts[b.s] = (counts[b.s]||0) + 1;
-  });
+  } else {
+    Object.keys(BASE).forEach(function(code){
+      var b = BASE[code];
+      if(!b.s) return;
+      var u = md.base[code];
+      if(!u) return; /* 対応銘柄がない国モードでは、その銘柄を業種平均に含めない */
+      var c = (md.price[code]/u.p - 1)*100;
+      sums[b.s] = (sums[b.s]||0) + c;
+      counts[b.s] = (counts[b.s]||0) + 1;
+    });
+  }
   var rows = [];
   for(var s=1;s<=11;s++){
     if(!counts[s]) continue;
     rows.push({s:s, name:SECTOR_NAMES[s], avg:sums[s]/counts[s], n:counts[s]});
   }
   rows.sort(function(a,b){ return b.avg - a.avg; });
-  var html = '<table class="flow-table"><tr><th>順位</th><th>業種</th><th>平均前日比%</th><th>銘柄数</th></tr>';
-  rows.forEach(function(r,i){
-    var cls = r.avg>=0.001 ? 'up' : (r.avg<=-0.001 ? 'down' : '');
-    html += '<tr><td class="rank">'+(i+1)+'</td><td>'+r.name+'</td><td class="chg '+cls+'">'+(r.avg>=0?'+':'')+r.avg.toFixed(2)+'%</td><td>'+r.n+'</td></tr>';
-  });
-  html += '</table>';
+  var top = rows.slice(0,3);
+  var bottom = rows.slice(-3).reverse();
+  function rowsToTable(list, isUp){
+    var html = '<table class="flow-table"><tr><th>順位</th><th>業種</th><th>平均前日比%</th><th>銘柄数</th></tr>';
+    list.forEach(function(r,i){
+      var cls = r.avg>=0.001 ? 'up' : (r.avg<=-0.001 ? 'down' : '');
+      html += '<tr><td class="rank">'+(i+1)+'</td><td>'+r.name+'</td><td class="chg '+cls+'">'+(r.avg>=0?'+':'')+r.avg.toFixed(2)+'%</td><td>'+r.n+'</td></tr>';
+    });
+    html += '</table>';
+    return html;
+  }
+  var html = '';
+  if(sampled) html += '<div class="sec-note" style="padding-left:2px">日本モードの業種平均は、各業種の代表3銘柄（計33銘柄、`SECTOR_REPS`）のサンプルに基づく参考値です(2026-08-01以降、113銘柄全数の日次更新を廃止したため)。</div>';
+  html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値上がりトップ3</h4>' + rowsToTable(top);
+  html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値下がりトップ3</h4>' + rowsToTable(bottom);
   var f = FLOW[currentMode] || FLOW.jp;
   if(f) html += '<div class="flow-subj"><b>主観 Subjective</b>（基準日 '+(f.asOf||AS_OF)+'）: '+f.subj+'</div>';
   body.innerHTML = html;
