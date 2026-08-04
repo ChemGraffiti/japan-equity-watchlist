@@ -42,6 +42,11 @@ h2{font-size:19px;margin:0;font-weight:600;color:var(--ivory)}
 h2 em{font-style:normal;font-size:12px;color:var(--muted);font-weight:400;margin-left:8px;font-family:ui-monospace,Menlo,monospace}
 .count{margin-left:auto;font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--muted);white-space:nowrap}
 .sec-note{padding-left:16px;font-size:12.5px;color:var(--muted);margin:2px 0 14px}
+.sec-details>summary{cursor:pointer;list-style:none;font-size:13px;font-weight:600;color:var(--fund);padding:8px 16px;border:1px solid rgba(139,160,180,.35);border-radius:6px;margin-bottom:10px;user-select:none}
+.sec-details>summary::-webkit-details-marker{display:none}
+.sec-details>summary::before{content:'▸ ';display:inline-block;transition:transform .15s}
+.sec-details[open]>summary::before{content:'▾ '}
+.sec-details>summary:hover{background:rgba(139,160,180,.08)}
 
 h3{font-size:12px;letter-spacing:.12em;color:var(--c);font-weight:700;margin:18px 0 6px;padding-left:16px}
 h3 em{font-style:normal;color:var(--muted);font-weight:400;letter-spacing:.02em;margin-left:6px;font-size:11px;font-family:ui-monospace,Menlo,monospace}
@@ -128,6 +133,11 @@ table.xref .code{width:58px;color:var(--ivory)}
 .flow-table th{color:var(--muted);font-weight:600;font-size:11.5px}
 .flow-table td.rank{font-family:ui-monospace,Menlo,monospace;color:var(--muted)}
 .flow-subj{font-size:13px;line-height:1.6;padding:10px 2px 0;color:var(--ivory)}
+.heatmap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:0 0 18px}
+.heatgrid-cell{display:block;border:1px solid;border-radius:6px;padding:9px 11px;text-decoration:none;transition:filter .15s}
+.heatgrid-cell:hover{filter:brightness(1.12)}
+.heatgrid-cell .hg-name{font-size:12px;font-weight:700;line-height:1.35}
+.heatgrid-cell .hg-chg{font-size:15px;font-weight:700;margin-top:4px;font-family:ui-monospace,Menlo,monospace}
 .picks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:6px}
 .pick-card{border:1px solid rgba(139,160,180,.35);border-radius:6px;padding:14px 16px;background:rgba(139,160,180,.06)}
 .pick-head{font-weight:700;font-size:14px;margin-bottom:8px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
@@ -209,7 +219,9 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📊</span>
     <h2>資金フロー分析 ＆ 本日の注目銘柄<em>Capital Flow &amp; Today's Top Picks</em></h2>
   </div>
-  <div class="sec-note">業種別の資金フロー（値上がり/値下がりトップ3業種）は<code>DAILY</code>データから自動計算されます（主観コメントのみ日次ルーティーンが更新）。日本モードは2026-08-01以降、各業種の代表3銘柄（計33銘柄）のサンプルに基づく参考値です（113銘柄全数の日次更新は使用率削減のため廃止）。🇺🇸🇨🇳🇰🇷モードは引き続き全対応銘柄の平均です。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <div class="sec-note">業種別の資金フロー（値上がり/値下がりトップ3業種、および下の全11業種ヒートマップ）は<code>DAILY</code>データから自動計算されます（主観コメントのみ日次ルーティーンが更新）。日本モードは2026-08-01以降、各業種の代表3銘柄（計33銘柄）のサンプルに基づく参考値です（113銘柄全数の日次更新は使用率削減のため廃止）。🇺🇸🇨🇳🇰🇷モードは引き続き全対応銘柄の平均です。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+  <h3 style="margin:4px 0 6px;font-size:14px;color:var(--ivory)">業種ヒートマップ（全11業種）<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">All 11 Sectors, Color-Coded</em></h3>
+  <div class="heatmap-grid" id="sector-heatmap-grid"></div>
   <div id="flow-body"></div>
   <h3 style="margin:18px 0 4px;font-size:14px;color:var(--ivory)">本日の注目銘柄トップ3<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Today's Top 3 to Watch</em></h3>
   <div class="picks-grid" id="picks-grid"></div>
@@ -1694,30 +1706,16 @@ function heatColor(t){
   return 'rgb('+c[0]+','+c[1]+','+c[2]+')';
 }
 function renderHeatmap(){
-  var sums={}, counts={};
-  var md = MODE_DATA[currentMode];
-  Object.keys(BASE).forEach(function(code){
-    var b = BASE[code];
-    if(!b.s) return;
-    var c;
-    if(md && md.base[code]){
-      var u = md.base[code];
-      c = (md.price[code]/u.p - 1)*100;
-    } else {
-      var d = DAILY[code];
-      c = d ? d[1] : 0;
-    }
-    sums[b.s] = (sums[b.s]||0) + c;
-    counts[b.s] = (counts[b.s]||0) + 1;
-  });
+  var calc = computeSectorAverages();
   var avgs = {};
-  for(var s=1;s<=11;s++){ avgs[s] = counts[s] ? sums[s]/counts[s] : 0; }
-  var vals = Object.values(avgs);
-  var min = Math.min.apply(null, vals), max = Math.max.apply(null, vals);
-  var label = MODE_LABEL[currentMode] ? '業種平均前日比(対応'+MODE_LABEL[currentMode]+'銘柄): ' : '業種平均前日比: ';
+  calc.rows.forEach(function(r){ avgs[r.s] = r.avg; });
+  var vals = calc.rows.map(function(r){ return r.avg; });
+  var min = vals.length ? Math.min.apply(null, vals) : 0;
+  var max = vals.length ? Math.max.apply(null, vals) : 0;
+  var label = MODE_LABEL[currentMode] ? '業種平均前日比(対応'+MODE_LABEL[currentMode]+'銘柄): ' : '業種平均前日比(代表3銘柄サンプル): ';
   document.querySelectorAll('nav a[data-sector]').forEach(function(a){
     var s = a.dataset.sector;
-    var avg = avgs[s];
+    var avg = avgs[s] || 0;
     var t = (max>min) ? (avg-min)/(max-min) : 0.5;
     var col = heatColor(t);
     a.style.background = col;
@@ -1725,6 +1723,29 @@ function renderHeatmap(){
     a.style.color = (t>0.72||t<0.28) ? '#0d1620' : 'var(--ivory)';
     a.title = label+(avg>=0?'+':'')+avg.toFixed(2)+'%';
   });
+  renderSectorHeatmapGrid(calc);
+}
+
+/* 11業種すべてを色分け表示する一覧グリッド（トップ3/ワースト3に絞らない）。
+   2026-08-04追加。renderHeatmap()内で毎回再計算・再描画される。 */
+function renderSectorHeatmapGrid(calc){
+  var grid = document.getElementById('sector-heatmap-grid');
+  if(!grid) return;
+  calc = calc || computeSectorAverages();
+  var vals = calc.rows.map(function(r){ return r.avg; });
+  var min = vals.length ? Math.min.apply(null, vals) : 0;
+  var max = vals.length ? Math.max.apply(null, vals) : 0;
+  var rows = calc.rows.slice().sort(function(a,b){ return b.avg - a.avg; });
+  var html = rows.map(function(r){
+    var t = (max>min) ? (r.avg-min)/(max-min) : 0.5;
+    var col = heatColor(t);
+    var textCol = (t>0.72||t<0.28) ? '#0d1620' : 'var(--ivory)';
+    return '<a href="#s'+r.s+'" class="heatgrid-cell" style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
+      + '<div class="hg-name">'+r.s+' '+r.name+'</div>'
+      + '<div class="hg-chg">'+(r.avg>=0?'+':'')+r.avg.toFixed(2)+'%</div>'
+      + '</a>';
+  }).join('');
+  grid.innerHTML = html;
 }
 
 /* ---------- 世界情勢カード / World affairs cards ---------- */
@@ -1758,12 +1779,13 @@ function renderWorld(){
 }
 
 /* ---------- 資金フロー分析（ランキングは自動計算、コメントはFLOWデータ） / Capital flow ranking (auto-computed) + commentary ---------- */
-function renderFlow(){
-  var body = document.getElementById('flow-body');
-  if(!body) return;
+/* 業種平均の共通計算。JPモードはSECTOR_REPS(代表33銘柄)のサンプル平均、US/CN/KRモードは
+   従来どおり全対応銘柄の平均。renderFlow()と業種ヒートマップ(renderSectorHeatmap)の両方が使う。
+   2026-08-01決定・2026-08-04共通化。 */
+function computeSectorAverages(){
   var sums={}, counts={};
   var md = MODE_DATA[currentMode];
-  var sampled = !md; /* JPモードのみサンプリング方式(SECTOR_REPS)を使う。2026-08-01決定。 */
+  var sampled = !md;
   if(sampled){
     for(var s=1;s<=11;s++){
       (SECTOR_REPS[s]||[]).forEach(function(code){
@@ -1789,10 +1811,17 @@ function renderFlow(){
     if(!counts[s]) continue;
     rows.push({s:s, name:SECTOR_NAMES[s], avg:sums[s]/counts[s], n:counts[s]});
   }
-  rows.sort(function(a,b){ return b.avg - a.avg; });
+  return {rows:rows, sampled:sampled};
+}
+
+function renderFlow(){
+  var body = document.getElementById('flow-body');
+  if(!body) return;
+  var calc = computeSectorAverages();
+  var rows = calc.rows.slice().sort(function(a,b){ return b.avg - a.avg; });
   var top = rows.slice(0,3);
   var bottom = rows.slice(-3).reverse();
-  function rowsToTable(list, isUp){
+  function rowsToTable(list){
     var html = '<table class="flow-table"><tr><th>順位</th><th>業種</th><th>平均前日比%</th><th>銘柄数</th></tr>';
     list.forEach(function(r,i){
       var cls = r.avg>=0.001 ? 'up' : (r.avg<=-0.001 ? 'down' : '');
@@ -1802,7 +1831,7 @@ function renderFlow(){
     return html;
   }
   var html = '';
-  if(sampled) html += '<div class="sec-note" style="padding-left:2px">日本モードの業種平均は、各業種の代表3銘柄（計33銘柄、`SECTOR_REPS`）のサンプルに基づく参考値です(2026-08-01以降、113銘柄全数の日次更新を廃止したため)。</div>';
+  if(calc.sampled) html += '<div class="sec-note" style="padding-left:2px">日本モードの業種平均は、各業種の代表3銘柄（計33銘柄、`SECTOR_REPS`）のサンプルに基づく参考値です(2026-08-01以降、113銘柄全数の日次更新を廃止したため)。</div>';
   html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値上がりトップ3</h4>' + rowsToTable(top);
   html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値下がりトップ3</h4>' + rowsToTable(bottom);
   var f = FLOW[currentMode] || FLOW.jp;
@@ -1880,6 +1909,27 @@ function renderEvents(){
   body.innerHTML = html;
 }
 
+/* 業種ヒートマップ導入(2026-08-04)に伴い、113銘柄の個別データ表(s1〜s11)は
+   データ・マークアップを保持したまま<details>で折りたたみ表示にする。 */
+function collapseCompanySections(){
+  for(var i=1;i<=11;i++){
+    var sec = document.getElementById('s'+i);
+    if(!sec) continue;
+    var head = sec.querySelector('.sec-head');
+    var note = sec.querySelector('.sec-note');
+    var rest = Array.prototype.filter.call(sec.children, function(el){ return el!==head && el!==note; });
+    if(!rest.length) continue;
+    var count = head ? head.querySelector('.count') : null;
+    var details = document.createElement('details');
+    details.className = 'sec-details';
+    var summary = document.createElement('summary');
+    summary.textContent = '個別銘柄データを表示' + (count ? '（'+count.textContent+'）' : '') + ' / Show individual stocks';
+    details.appendChild(summary);
+    rest.forEach(function(el){ details.appendChild(el); });
+    sec.appendChild(details);
+  }
+}
+
 cacheOriginals();
 renderHeatmap();
 renderWorld();
@@ -1887,6 +1937,7 @@ renderFlow();
 renderPicks();
 renderEvents();
 applyMode('jp');
+collapseCompanySections();
 </script>
 </body>
 </html>
