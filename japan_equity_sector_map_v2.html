@@ -1307,6 +1307,11 @@ const US_PRICE = {
 
 };
 const US_AS_OF = "7/24〜30(混在、5/113銘柄のみ7/30終値に更新)"; // 朝更新(7/31): US 2バッチ(各49〜50銘柄)でWebSearchのみ調査。WebFetchは金融サイト全面403のため不使用。セッション共有のWebSearch予算(200回、JP/CN/KRバッチと共有)が枯渇し、ほとんどの銘柄で複数ソース間の数値矛盾・古い日付のスニペットしか得られず。confidence=highと判定できたのはAMZN(4755楽天G経由)+3.9%、F(7267本田経由)-2.75%、JPM(8306三菱UFJ経由)+2.01%、TSLA(6752パナソニックHD経由)+3.5%の4銘柄のみ。WOLF(6963ローム経由)は+18.59%との報告があったが参考値比-45%と閾値超過のため不採用(要確認)。残り108銘柄は既存値維持。詳細はdaily/2026-07-31.md参照
+/* 米国個別銘柄の前日比%（2026-08-04追加）。コード→前日比%(数値)。US_PRICEは現在値のみでUSBASE.pが起動時に
+   同値へ上書きされるため前日比が常に0%になる問題を解消する目的で新設。日次更新でUS_PRICEと同じ調査時に
+   同じページから前日比%も併せて記録する（多くの情報源で価格の隣に表示されているため追加検索は基本不要）。
+   データ未取得の銘柄はキー自体を作らない（"該当なし"と同じ扱いで業種平均から除外される）。 */
+const US_CHG = {};
 
 /* ---------- 中国対応銘柄 / China counterpart stocks (2026-07-26調査) ---------- */
 const CNBASE = {
@@ -1435,6 +1440,8 @@ const CN_PRICE = {
 
 };
 const CN_AS_OF = "7/24〜30(混在、1/105銘柄のみ7/29終値に更新)"; // 朝更新(7/31): CN 2バッチ(各46銘柄)でWebSearchのみ調査。1バッチ目は18クエリ中confidence=highが0件(検索エンジンが7/30終値をまだインデックスしておらず、情報源間で±35〜250%級の乖離が多発)。2バッチ目はJP/US/KRバッチと共有するセッションWebSearch予算(200回)が6クエリ目で枯渇し、ほぼ未着手のまま打ち切り。confidence=highと判定できたのは兆易創新(603986.SH、285Aキオクシア経由、3ソース一致、ただし7/29終値)の1銘柄のみ。残り104銘柄は既存値維持。詳細はdaily/2026-07-31.md参照
+/* 中国個別銘柄の前日比%（2026-08-04追加、US_CHGと同じ目的・運用方針）。 */
+const CN_CHG = {};
 
 /* ---------- 韓国対応銘柄 / Korea counterpart stocks (2026-07-26調査) ---------- */
 const KRBASE = {
@@ -1549,6 +1556,8 @@ const KR_PRICE = {
 
 };
 const KR_AS_OF = "7/24〜30(混在、3/93銘柄(サムスン電子経由)のみ7/30終値に更新)"; // 朝更新(7/31): KR 2バッチ(各39/38銘柄)でWebSearchのみ調査。1バッチ目は予算15クエリで日付の古い・情報源間で数値が食い違うスニペットが大半、confidence=highはサムスン電子(005930、7/30終値・高安値と整合)の1銘柄のみ。2バッチ目はJP/US/CNバッチと共有するセッションWebSearch予算(200回)が13クエリ目で枯渇し、ほぼ未着手のまま打ち切り(confidence=highは0件)。サムスン電子は6920レーザーテック・6723ルネサス・6758ソニーGの3コード経由で反映。残り90銘柄は既存値維持。詳細はdaily/2026-07-31.md参照
+/* 韓国個別銘柄の前日比%（2026-08-04追加、US_CHGと同じ目的・運用方針）。 */
+const KR_CHG = {};
 
 Object.keys(USBASE).forEach(function(c){ USBASE[c].p = US_PRICE[c]; });
 Object.keys(CNBASE).forEach(function(c){ CNBASE[c].p = CN_PRICE[c]; });
@@ -1613,9 +1622,9 @@ function fundHtmlJP(code){
    世界情勢カードの日本/米国/中国/韓国をタップすると、11業種テーブルの銘柄名・
    コメント・ファンダメンタルを対応する海外銘柄に一括で切り替える。 */
 var MODE_DATA = {
-  us:{base:USBASE, price:US_PRICE, asOf:US_AS_OF, cur:function(u){ return '$'; }},
-  cn:{base:CNBASE, price:CN_PRICE, asOf:CN_AS_OF, cur:function(u){ return u.cur==='HKD' ? 'HK$' : 'CN¥'; }},
-  kr:{base:KRBASE, price:KR_PRICE, asOf:KR_AS_OF, cur:function(u){ return '₩'; }}
+  us:{base:USBASE, price:US_PRICE, chg:US_CHG, asOf:US_AS_OF, cur:function(u){ return '$'; }},
+  cn:{base:CNBASE, price:CN_PRICE, chg:CN_CHG, asOf:CN_AS_OF, cur:function(u){ return u.cur==='HKD' ? 'HK$' : 'CN¥'; }},
+  kr:{base:KRBASE, price:KR_PRICE, chg:KR_CHG, asOf:KR_AS_OF, cur:function(u){ return '₩'; }}
 };
 var MODE_FLAG = {jp:'🇯🇵 日本モード', us:'🇺🇸 米国モード', cn:'🇨🇳 中国モード', kr:'🇰🇷 韓国モード'};
 var MODE_LABEL = {us:'米国', cn:'中国', kr:'韓国'};
@@ -1732,6 +1741,10 @@ function renderSectorHeatmapGrid(calc){
   var grid = document.getElementById('sector-heatmap-grid');
   if(!grid) return;
   calc = calc || computeSectorAverages();
+  if(!calc.rows.length){
+    grid.innerHTML = '<div class="sec-note" style="padding-left:2px;margin:0">本日分の前日比データが未取得のため、このモードのヒートマップは表示できません。次回ルーティーンでの更新をお待ちください。</div>';
+    return;
+  }
   var vals = calc.rows.map(function(r){ return r.avg; });
   var min = vals.length ? Math.min.apply(null, vals) : 0;
   var max = vals.length ? Math.max.apply(null, vals) : 0;
@@ -1801,7 +1814,13 @@ function computeSectorAverages(){
       if(!b.s) return;
       var u = md.base[code];
       if(!u) return; /* 対応銘柄がない国モードでは、その銘柄を業種平均に含めない */
-      var c = (md.price[code]/u.p - 1)*100;
+      var c = md.chg[code];
+      /* md.price[code]は現在値のみを保持しBASE.pが起動時に同値へ上書きされるため、
+         価格同士の比較では前日比を再現できない(常に0%になる)。2026-08-04以降は
+         XX_CHGに記録された前日比%を直接使う。未取得の銘柄は業種平均から除外する
+         （"該当なし"と同じ扱い。0%として計算に含めると実際は無変化に見えるだけの
+         銘柄が混入し平均を歪めるため、undefinedのまま除外するのが安全）。 */
+      if(c === undefined) return;
       sums[b.s] = (sums[b.s]||0) + c;
       counts[b.s] = (counts[b.s]||0) + 1;
     });
@@ -1832,8 +1851,12 @@ function renderFlow(){
   }
   var html = '';
   if(calc.sampled) html += '<div class="sec-note" style="padding-left:2px">日本モードの業種平均は、各業種の代表3銘柄（計33銘柄、`SECTOR_REPS`）のサンプルに基づく参考値です(2026-08-01以降、113銘柄全数の日次更新を廃止したため)。</div>';
-  html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値上がりトップ3</h4>' + rowsToTable(top);
-  html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値下がりトップ3</h4>' + rowsToTable(bottom);
+  if(!rows.length){
+    html += '<div class="sec-note" style="padding-left:2px;margin:0">本日分の前日比データが未取得のため、このモードのランキングは表示できません。次回ルーティーンでの更新をお待ちください。</div>';
+  } else {
+    html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値上がりトップ3</h4>' + rowsToTable(top);
+    html += '<h4 style="margin:10px 0 2px;font-size:12.5px;color:var(--ivory)">値下がりトップ3</h4>' + rowsToTable(bottom);
+  }
   var f = FLOW[currentMode] || FLOW.jp;
   if(f) html += '<div class="flow-subj"><b>主観 Subjective</b>（基準日 '+(f.asOf||AS_OF)+'）: '+f.subj+'</div>';
   body.innerHTML = html;
