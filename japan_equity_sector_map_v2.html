@@ -177,7 +177,95 @@ table.xref .code{width:58px;color:var(--ivory)}
   .count{display:none}
   .world-grid{grid-template-columns:1fr}
   .picks-grid{grid-template-columns:1fr}
+  .dd-stats-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-row{grid-template-columns:1fr}
+  .review-row{flex-direction:column;gap:2px}
 }
+
+/* ---- 本日の日本株総合分析 / Daily deep-dive (2026-08-05追加) ---- */
+.dd-h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:16px;color:var(--ivory);
+  margin:18px 0 10px;font-weight:600}
+.dd-h3 em{font-style:normal;font-size:11px;color:var(--muted);font-weight:400;
+  margin-left:8px;font-family:ui-monospace,Menlo,monospace}
+.dd-h4-plain{font-size:13.5px;color:var(--ivory);font-weight:700;margin:26px 0 10px}
+.dd-h4-plain em{font-weight:400;font-size:11px;color:var(--muted);margin-left:6px}
+.dd-divider{border:none;border-top:1px solid var(--line);margin:26px 0}
+.dd-lede{font-size:13.5px;color:#c3d1de;line-height:1.65;margin:0 0 18px}
+
+.dd-stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px}
+.dd-stat{background:rgba(139,160,180,.06);border:1px solid rgba(139,160,180,.2);border-radius:6px;
+  padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.dd-stat-label{font-family:ui-monospace,Menlo,monospace;font-size:10px;color:var(--muted);
+  letter-spacing:.02em}
+.dd-stat-val{font-size:16px;font-weight:700;color:var(--ivory);font-variant-numeric:tabular-nums}
+.dd-stat-val small{font-size:11px;font-weight:400;color:var(--muted);margin-left:2px}
+.dd-stat-chg{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700}
+.dd-stat-chg.up{color:#ff5c5c}.dd-stat-chg.down{color:#3ddc84}
+.dd-tech-table td.num{font-family:ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+.factor-group{margin:0 0 16px}
+.factor-group h4{font-size:11.5px;color:var(--muted);font-weight:600;margin:0 0 6px;
+  text-transform:uppercase;letter-spacing:.04em;font-family:ui-monospace,Menlo,monospace}
+.factor-group h4 em{font-style:normal;font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px}
+.factor{display:flex;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.factor:last-child{border-bottom:none}
+.factor .fname{flex:1;font-size:13.5px;color:#c3d1de}
+.factor .fname b{font-weight:600}
+.factor.up-row .fname b{color:#ff5c5c}
+.factor.down-row .fname b{color:#3ddc84}
+.stars{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:1px;white-space:nowrap}
+.stars .on{color:var(--new)}
+.stars .off{color:var(--line)}
+
+.event-block{background:rgba(139,160,180,.06);border:1px solid rgba(139,160,180,.2);border-radius:6px;
+  padding:12px 14px;margin:0 0 10px}
+.event-head{font-size:13.5px;font-weight:600;color:var(--ivory);margin-bottom:8px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.event-block p{font-size:12.5px;color:#c3d1de;margin:8px 0 0}
+.theme-list{display:flex;flex-wrap:wrap;gap:6px}
+.theme-chip{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--text);
+  background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:3px 10px 3px 8px}
+.theme-chip .rank{color:var(--new);margin-right:4px}
+.demand-tag{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.03em;
+  padding:2px 8px;border-radius:3px}
+.demand-tag.real{background:rgba(61,220,132,.14);color:#3ddc84}
+.demand-tag.thin{background:rgba(224,138,107,.14);color:var(--warn)}
+
+.phase-pill{display:inline-block;font-size:11px;font-family:ui-monospace,Menlo,monospace;
+  padding:3px 10px;border-radius:20px;background:rgba(224,179,74,.16);color:var(--new);
+  margin:8px 0 8px;letter-spacing:.02em}
+
+.plan-grid{display:grid;grid-template-columns:1fr;gap:0;margin-top:4px}
+.plan-row{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:9px 0;
+  border-bottom:1px solid var(--line);font-size:13px;color:#c3d1de}
+.plan-row:last-child{border-bottom:none}
+.plan-term{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--new);padding-top:2px}
+
+.risk-list{margin:12px 0 0;padding:0;list-style:none}
+.risk-list li{display:flex;gap:8px;padding:5px 0;font-size:13px;color:#c3d1de}
+.risk-list li::before{content:"⚠";color:var(--warn);flex-shrink:0}
+.tldr{background:rgba(139,160,180,.06);border:1px dashed var(--line);border-radius:6px;
+  padding:14px 16px;margin-top:14px;font-size:13px;color:#c3d1de;line-height:1.6}
+.tldr .eyebrow{display:block;margin-bottom:6px}
+
+.review-block{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:16px 18px;margin-top:24px}
+.review-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.review-head em{font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);
+  font-style:normal;font-family:ui-monospace,Menlo,monospace}
+.verdict{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.03em;
+  padding:3px 11px;border-radius:20px;font-weight:600}
+.verdict.hit{background:rgba(61,220,132,.16);color:#3ddc84}
+.verdict.miss{background:rgba(255,92,92,.16);color:#ff5c5c}
+.verdict.partial{background:rgba(224,179,74,.16);color:var(--new)}
+.verdict.pending{background:rgba(139,160,180,.16);color:var(--muted)}
+.review-row{display:flex;justify-content:space-between;gap:14px;padding:7px 0;
+  border-bottom:1px solid var(--line);font-size:13px}
+.review-row:last-child{border-bottom:none}
+.review-row .label{color:var(--muted);flex-shrink:0}
+.review-row .val{text-align:right;color:#c3d1de}
+.review-row .val.hit{color:#3ddc84}
+.review-row .val.miss{color:#ff5c5c}
 </style>
 </head>
 <body>
@@ -235,9 +323,18 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div id="events-body"></div>
 </section>
 
+<section id="deepdive" class="world-sec">
+  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📈</span>
+    <h2>本日の日本株総合分析<em>Daily Deep-Dive — 客観データ→主観予想の順</em></h2>
+  </div>
+  <div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。正午ルーティーンが🔍13:00時点で朝の予想が当たったかを振り返ります。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
+  <div id="deepdive-body"></div>
+</section>
+
 <nav>
   <a href="#events">📅 イベントカレンダー</a>
   <a href="#pickup">📊 資金フロー＆注目銘柄</a>
+  <a href="#deepdive">📈 本日の総合分析</a>
   <a href="#world">🌍 世界情勢</a>
   <a href="#s1" class="heat" data-sector="1">1 半導体・AI</a>
   <a href="#s2" class="heat" data-sector="2">2 データセンター</a>
@@ -1155,6 +1252,13 @@ const EVENTS = {
 ]
 };
 
+/* ---------- 本日の日本株総合分析 / Daily deep-dive (2026-08-05追加) ----------
+   朝の日次ルーティーンが1日1回、このオブジェクト全体を新しい内容で上書きする。
+   null のときは「まだ生成されていない」状態として renderDeepDive() がその旨を表示する
+   (実データが埋まるまでダミー数値を表示しないための安全策。他のオブジェクトと異なりデフォルトで空)。
+   review は正午ルーティーンが13:00時点で追記する。朝の時点では review:null のままでよい。 */
+const DEEPDIVE = null;
+
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
    JPコード→対応する米国上場銘柄1社。関係性(競合/顧客/供給元/投資家関係/同一商品)は投資分析上最も意味のあるものを選定(2026-07-26調査)。
    US_DAILY の第2要素(前日比%)は初回調査のため暫定0固定。次回以降の日次更新で実測値に置き換える。*/
@@ -1932,6 +2036,134 @@ function renderEvents(){
   body.innerHTML = html;
 }
 
+/* ---------- 本日の日本株総合分析 / Daily deep-dive (2026-08-05追加) ----------
+   客観データ一覧を先に、主観予想を後に配置する構図（ユーザー指定）。
+   DEEPDIVE が null の間は「まだ生成されていない」ことを正直に表示する
+   （2026-08-04のCN/KR/USヒートマップ修正と同じ考え方：データが無いのに0や仮の値を表示しない）。 */
+function ddStars(n){
+  n = Math.max(0, Math.min(5, n||0));
+  return '<span class="on">'+'★'.repeat(n)+'</span><span class="off">'+'★'.repeat(5-n)+'</span>';
+}
+function renderDeepDive(){
+  var body = document.getElementById('deepdive-body');
+  if(!body) return;
+  if(!DEEPDIVE){
+    body.innerHTML = '<div class="sec-note" style="padding-left:2px;margin:0">本日分の総合分析はまだ生成されていません。次回の朝ルーティーン実行（平日6:00）をお待ちください。</div>';
+    return;
+  }
+  var d = DEEPDIVE;
+  var html = '';
+
+  /* ---- 客観データ一覧(先) ---- */
+  html += '<h3 class="dd-h3">📋 客観データ一覧<em>Objective Data</em></h3>';
+  if(d.stats && d.stats.length){
+    html += '<div class="dd-stats-grid">';
+    d.stats.forEach(function(s){
+      html += '<div class="dd-stat"><span class="dd-stat-label">'+s.label+'</span>'
+        + '<span class="dd-stat-val">'+s.val+(s.unit?'<small>'+s.unit+'</small>':'')+'</span>'
+        + (s.chg ? '<span class="dd-stat-chg '+(s.dir||'')+'">'+s.chg+'</span>' : '')
+        + '</div>';
+    });
+    html += '</div>';
+  }
+  if(d.picks && d.picks.length){
+    html += '<table class="flow-table dd-tech-table"><tr><th>コード</th><th>銘柄</th><th>株価</th><th>前日比</th><th>PER/PBR</th><th>支持線</th><th>抵抗線</th><th>直近高値</th><th>直近安値</th></tr>';
+    d.picks.forEach(function(p){
+      html += '<tr><td class="rank">'+p.code+'</td><td>'+p.name+'</td><td class="num">'+(p.price||'—')+'</td>'
+        + '<td class="chg '+(p.dir||'')+'">'+(p.chg||'—')+'</td>'
+        + '<td class="num">'+(p.per||'—')+'/'+(p.pbr||'—')+'</td>'
+        + '<td class="num">'+(p.support||'—')+'</td><td class="num">'+(p.resistance||'—')+'</td>'
+        + '<td class="num">'+(p.high||'—')+'</td><td class="num">'+(p.low||'—')+'</td></tr>';
+    });
+    html += '</table>';
+    html += '<div class="sec-note" style="margin-top:0">上表はピックアップ銘柄の客観データ(株価・PER/PBR・テクニカル節目)のみ。局面の解釈・売買判断は下の主観予想セクションに記載します。</div>';
+  }
+
+  html += '<hr class="dd-divider">';
+
+  /* ---- 主観予想(後) ---- */
+  html += '<h3 class="dd-h3">🔮 主観予想<em>Subjective Forecast</em></h3>';
+  if(d.intro) html += '<p class="dd-lede">'+d.intro+'</p>';
+
+  if(d.factorsBull && d.factorsBull.length){
+    html += '<div class="factor-group"><h4>日経平均 上昇要因<em>Bullish, ★5段階</em></h4>';
+    d.factorsBull.forEach(function(f){
+      html += '<div class="factor up-row"><div class="fname"><b>'+f.name+'</b>'+(f.desc?' — '+f.desc:'')+'</div><div class="stars">'+ddStars(f.stars)+'</div></div>';
+    });
+    html += '</div>';
+  }
+  if(d.factorsBear && d.factorsBear.length){
+    html += '<div class="factor-group"><h4>日経平均 下落要因<em>Bearish, ★5段階</em></h4>';
+    d.factorsBear.forEach(function(f){
+      html += '<div class="factor down-row"><div class="fname"><b>'+f.name+'</b>'+(f.desc?' — '+f.desc:'')+'</div><div class="stars">'+ddStars(f.stars)+'</div></div>';
+    });
+    html += '</div>';
+  }
+
+  if(d.events && d.events.length){
+    html += '<h4 class="dd-h4-plain">主要イベントと深層分析</h4>';
+    d.events.forEach(function(e){
+      var demandCls = e.demand==='real' ? 'real' : 'thin';
+      var demandLabel = e.demand==='real' ? '実需あり' : '実需薄・連想先行';
+      html += '<div class="event-block"><div class="event-head">'+e.title+'<span class="demand-tag '+demandCls+'">'+demandLabel+'</span></div>';
+      if(e.themes && e.themes.length){
+        html += '<div class="theme-list">';
+        e.themes.forEach(function(t,i){ html += '<span class="theme-chip"><span class="rank">'+['①','②','③','④','⑤'][i]+'</span>'+t+'</span>'; });
+        html += '</div>';
+      }
+      if(e.note) html += '<p>'+e.note+'</p>';
+      html += '</div>';
+    });
+  }
+
+  if(d.picks && d.picks.length){
+    html += '<h4 class="dd-h4-plain">ピックアップ銘柄の局面判断<em>客観データは上表を参照</em></h4><div class="picks-grid">';
+    d.picks.forEach(function(p){
+      html += '<div class="pick-card"><div class="pick-head"><span class="pick-code">'+p.code+'</span>'+p.name+'<span class="chg '+(p.dir||'')+'">'+(p.chg||'')+'</span></div>'
+        + (p.phase ? '<span class="phase-pill">局面: '+p.phase+'</span>' : '')
+        + (p.subj ? '<div class="pick-subj"><b>主観</b>'+p.subj+'</div>' : '')
+        + '</div>';
+    });
+    html += '</div>';
+  }
+
+  if(d.actionPlan && d.actionPlan.length){
+    html += '<h4 class="dd-h4-plain">投資家のアクションプラン<em>短期=数日〜数週／中期=3〜12か月／長期=1年以上</em></h4><div class="plan-grid">';
+    d.actionPlan.forEach(function(a){
+      html += '<div class="plan-row"><span class="plan-term">'+a.term+'</span><span>'+a.text+'</span></div>';
+    });
+    html += '</div>';
+  }
+
+  if(d.conclusion || (d.risks && d.risks.length) || d.beginner){
+    html += '<h4 class="dd-h4-plain">結論</h4>';
+    if(d.conclusion) html += '<p>'+d.conclusion+'</p>';
+    if(d.risks && d.risks.length){
+      html += '<ul class="risk-list">';
+      d.risks.forEach(function(r){ html += '<li>'+r+'</li>'; });
+      html += '</ul>';
+    }
+    if(d.beginner) html += '<div class="tldr"><span class="eyebrow">初心者向け 超簡単まとめ</span>'+d.beginner+'</div>';
+  }
+
+  /* ---- 13:00 振り返り（正午ルーティーンが追記） ---- */
+  html += '<div class="review-block"><div class="review-head"><span class="eyebrow" style="margin:0">🔍 13:00 振り返り</span>';
+  if(d.review){
+    var vCls = d.review.verdict||'partial';
+    var vLabel = {hit:'的中', miss:'外れ', partial:'部分的中', pending:'集計中'}[vCls] || '部分的中';
+    html += '<span class="verdict '+vCls+'">'+vLabel+'</span></div>';
+    (d.review.items||[]).forEach(function(it){
+      html += '<div class="review-row"><span class="label">'+it.label+'</span><span class="val '+(it.status||'')+'">'+it.val+'</span></div>';
+    });
+  } else {
+    html += '<span class="verdict pending">未実施</span></div>';
+    html += '<div class="sec-note" style="padding-left:2px;margin:0">正午ルーティーン(13:00)実行後にここへ追記されます。</div>';
+  }
+  html += '</div>';
+
+  body.innerHTML = html;
+}
+
 /* 業種ヒートマップ導入(2026-08-04)に伴い、113銘柄の個別データ表(s1〜s11)は
    データ・マークアップを保持したまま<details>で折りたたみ表示にする。 */
 function collapseCompanySections(){
@@ -1959,6 +2191,7 @@ renderWorld();
 renderFlow();
 renderPicks();
 renderEvents();
+renderDeepDive();
 applyMode('jp');
 collapseCompanySections();
 </script>
