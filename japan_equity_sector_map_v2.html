@@ -811,8 +811,19 @@ table.xref .code{width:58px;color:var(--ivory)}
 <section id="newslog" style="--c:var(--new)">
   <div class="sec-head"><span class="sec-num">📰</span>
     <h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em></h2>
-    <span class="count">9日分</span></div>
+    <span class="count">10日分</span></div>
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+
+  <div class="newslog-day">
+    <div class="newslog-date">2026-08-05（正午更新）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>本日(8/5)朝の日次ルーティーンの実行記録が見当たらず(daily/2026-08-05.md不在、DEEPDIVEオブジェクトも前回のnullのまま)、本正午更新が本日最初の反映となった。日経平均は前引け時点で+2.98%(65,861.00円)の大幅続伸。米国株の連日最高値更新(S&amp;P500 7,737・過去最高)、ホルムズ海峡の緊張緩和による原油安、韓国KOSPIの急反発(サムスン電子・SKハイニックス+4〜7%)が重なった全面高。詳細は<a href="daily/2026-08-05_正午.md">本日正午の相場観コメント</a>参照。</li>
+      <li><span class="nl-code">6857</span>アドバンテスト: 本日前場、日経平均の上げ幅(+1,903.47円)に単独で+504円分寄与したと報じられている。個別の前日比%は情報源間で矛盾したため未確認・DAILY未更新→関連: 8035 東京エレクトロン, 285A キオクシアHD 等半導体セクション全般。</li>
+      <li><span class="nl-code">8306</span>三菱UFJフィナンシャル・グループ: 8/3発表のQ1(4-6月期)決算で純利益+48.2%(8,094億円)・上場来高値更新と報じられる。SMFG(8316)・みずほFG(8411)も2月以来の高値水準、日銀利上げ期待が支援材料との報道→関連: 8316 三井住友FG, 8411 みずほFG。</li>
+      <li><span class="nl-code">7203</span>トヨタ自動車: 8/4発表のQ1決算で通期営業利益予想が前年比-9%(1兆628億円)。中東情勢の混乱・熊本地震の影響が押し下げ要因、円安・HV好調が下支えと報じられている。</li>
+      <li><span class="nl-code">6674</span>GSユアサ: 本日15:00に決算発表予定。事前情報(未確認)ではQ1経常利益が市場予想を+36.7%上振れる一方、通期経常利益見通しは市場予想を-4.4%下回るとの観測がある(要確認、PICKS参照)。</li>
+    </ul>
+  </div>
 
   <div class="newslog-day">
     <div class="newslog-date">2026-08-04（正午更新）</div>
@@ -962,7 +973,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "7/24〜8/4(混在,51/113銘柄のみ8/3終値〜8/4正午前場の確度high/medium データに更新・残り62銘柄は7/31以前の既存値を維持)"; // 正午更新(8/4): 8/1(土)〜8/3(月)は本ルーティーンの実行記録がなく(コミットなし)、朝更新も8/4は未実行のまま今回が8/4最初の更新。JPのみ4バッチ(各28〜29銘柄)でWebSearchのみ調査(WebFetchはfinance.yahoo.co.jp/irbank.net/nikkei.com/kabuyoho.ifis.co.jp/minkabu.jp/finance.matsui.co.jp等ほぼ全金融サイトで403、agent proxyの通信ポリシーによる拒否と判明・要ユーザー判断)。confidence=high/medium(日付が8/3または8/4と明記され、情報源間で大きな矛盾がないもの)と判定できた51銘柄のみ反映。残り62銘柄はconfidence=low/unknown(日付不明・情報源間で符号逆転や30%超の乖離)のため既存値(7/31以前)を維持。詳細はdaily/2026-08-04_正午.md参照。
+const AS_OF = "7/24〜8/5(混在,SECTOR_REPS33銘柄中8銘柄のみ本日8/5データに更新・残りは8/4以前の既存値を維持)"; // 正午更新(8/5): 本日朝ルーティーンの実行記録なし(daily/2026-08-05.md不在、DEEPDIVE null据え置き)のため、正午が本日最初の更新。SECTOR_REPSの33銘柄についてWebSearch(WebFetchはfinance.yahoo.co.jp等ほぼ全金融サイトで403、agent proxyの通信ポリシーによる拒否)で調査したが、日付が明確で内部整合性のある8/5データを確認できたのは8035・285A・5706(8/4終値への据え置き更新)・8058・8031・8053・7267・7974の8銘柄のみ。6857(アドバンテスト)は「日経平均に+504pt寄与」との報道はあったが個別の前日比%は情報源間で矛盾し不採用(要確認)。残り約25銘柄は日付不明・情報源間の矛盾・既存値との重複のため8/4以前の値を維持。詳細はdaily/2026-08-05_正午.md参照。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -1085,9 +1096,9 @@ const BASE = {
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
 const DAILY = {
 
-"8035":[54990,-0.92],"6857":[27925,10.81],"6920":[40910,7.91],"6146":[60890,4.12],"6361":[5681,-1.23],"6327":[2939,3.27],"4063":[5829,2.44],"3436":[3140,-16.53],
+"8035":[56700,3.11],"6857":[27925,10.81],"6920":[40910,7.91],"6146":[60890,4.12],"6361":[5681,-1.23],"6327":[2939,3.27],"4063":[5829,2.44],"3436":[3140,-16.53],
 "4186":[8797,-0.96],"4901":[3866,2.96],"4631":[4424,2.86],"6890":[8190,-1.33],"5016":[3340,0.27],"4062":[13510,0.3],"6971":[3550,-1.74],"2802":[4896,-1.39],
-"285A":[49160,5.72],"6723":[3905,13.45],"6963":[4404,1.76],"6526":[2028.5,6.07],"6965":[2233,-5.68],"6758":[3589,-5.23],"6981":[6736,-5.83],"6976":[9991,-2.29],
+"285A":[52090,5.96],"6723":[3905,13.45],"6963":[4404,1.76],"6526":[2028.5,6.07],"6965":[2233,-5.68],"6758":[3589,-5.23],"6981":[6736,-5.83],"6976":[9991,-2.29],
 "6997":[2919,-8.78],"6762":[3092,2.79],"6674":[5286,2.09],"6752":[4281,-0.07],"5333":[5532,-1.11],"6594":[2656,2.51],"9984":[5393,2.53],"5586":[818,-2.15],
 "2354":[1347,6.31],"6504":[14100,-0.21],"6508":[10270,-1.63],"6954":[6687,3.47],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[4400,2.56],"5801":[3008,-8.21],
 "5802":[2137.5,3.64],"6367":[23850,0.44],"1969":[4255,1.5],"6584":[813,4.9],"6498":[2232,1.45],"3778":[3280,5.64],"9432":[151.1,0.13],"6383":[5775,-3.48],
@@ -1095,10 +1106,10 @@ const DAILY = {
 "7012":[2744.5,1.35],"7013":[2771.5,0.6],"5631":[7223,-2.77],"7721":[6660,1.06],"4275":[2358,-0.51],"290A":[1018,-7.45],"464A":[1509,-6.85],"186A":[1040,2.77],
 "278A":[10380,-19.66],"9501":[516.7,0.02],"9502":[2706,-3.91],"9503":[2455.5,0.61],"9506":[1179,-1.13],"9508":[1820,-1.22],"9509":[1017.5,-1.07],"9513":[3834,0.26],
 "1605":[3568,-2.3],"5020":[1294,-2.52],"5021":[3988,1.04],"6492":[12890,-7.6],"7711":[4095,-3.65],"224A":[1431,-3.31],"5713":[7961,-2.74],"5711":[4151,-1.01],
-"5706":[28010,-10.31],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3567,-0.11],"8316":[6666,-3.05],"8411":[7797,-3.88],"8303":[1432,-1.45],
-"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4787,0.23],"8031":[4874,-1.28],"8053":[1660.5,-0.57],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
-"7003":[4517,-8.25],"6471":[1130,2.54],"6472":[371.1,1.87],"6326":[2781.5,-1.28],"7203":[2963.5,-3.37],"7267":[1670,-1.1],"9201":[2979.5,1.24],"9202":[3081,4.41],
-"581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3411,2.74],"7974":[7571,-1.41],"8136":[1264,-2.21],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
+"5706":[31900,3.27],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3567,-0.11],"8316":[6666,-3.05],"8411":[7797,-3.88],"8303":[1432,-1.45],
+"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4718,-0.42],"8031":[4687,-2.66],"8053":[1699.5,2.23],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
+"7003":[4517,-8.25],"6471":[1130,2.54],"6472":[371.1,1.87],"6326":[2781.5,-1.28],"7203":[2963.5,-3.37],"7267":[1621.5,2.95],"9201":[2979.5,1.24],"9202":[3081,4.41],
+"581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3411,2.74],"7974":[7528,-0.40],"8136":[1264,-2.21],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
 "3063":[1233,1.82]
 
 };
@@ -1107,22 +1118,22 @@ const DAILY = {
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
-"japan":{label:"日本 / Japan", score:-1,
-  summary:"本日8/4前引けの日経平均は421.55円安の63,333.35円と続落。米国株高(後述)を好感して寄り付き一時+400円超まで上昇する場面もあったが、日米財務相が協調為替介入を示唆したことでドル円が155円台前半まで急伸（円高）、その後157円台へ戻す乱高下となり、輸出関連株の重石となった。加えて韓国KOSPIが寄り後に上げ幅を全て吐き出しサムスン電子・SKハイニックスが-3%超まで下落したことで、日本の半導体株にも売りが波及したと報じられている。TOPIXも前引け時点で-23.55pt(3,936.48)と軟調。なお8/1〜8/3は本ルーティーンの実行記録がなく、株価データは4日ぶりの反映となる点に留意（関連銘柄: 8035 東京エレクトロン, 6857 アドバンテスト, 6920 レーザーテック 等半導体セクション全般, 9432 NTT等輸出・為替感応株）。",
-  en:"The Nikkei 225 closed the morning session (前引け) on 8/4 down 421.55 yen at 63,333.35, extending its decline. The index briefly rose over 400 points at the open on strength in overnight US stocks (see below), but reports of a suggested Japan-US coordinated FX intervention sent the yen sharply stronger (USD/JPY spiked to the mid-155 range before rebounding to the upper-157 range), weighing on exporters. Reports also cite South Korea's KOSPI giving back its entire opening gain with Samsung Electronics and SK Hynix both down over 3%, spilling over into Japanese semiconductor names. TOPIX was similarly soft, down 23.55pt to 3,936.48 at the morning close. Note: this routine has no execution record for 8/1-8/3, so today's price data is the first refresh in 4 days.",
-  asOf:"8/4前引け(11:30頃)", source:"[株式新聞Web](https://kabushiki.jp/news/760848) / [日本経済新聞](https://www.nikkei.com/article/DGXZQOFL041JS0U6A800C2000000/) / [外為どっとコム](https://www.gaitame.com/media/entry/2026/08/04/101500)"},
-"korea":{label:"韓国 / South Korea", score:-1,
-  summary:"KOSPIは前日比+1.50%の6,351.38で寄り付き、一時+2%超・6,380台まで上昇したが、寄り後約30分で上昇分を全て吐き出して下落に転じ、一時6,100ライン近辺まで下げ幅を拡大する乱高下となった。サムスン電子・SKハイニックスがともに-3%超下落と報じられている。一方KOSDAQは+1.47%の748.19で始まり、10:47に「買い方サイドカー」（先物の急変動時に一定時間現物の裁定取引を止める措置）が発動されるなど、指数間・銘柄間で明暗が分かれる不安定な相場だった。半導体2社の下落は、ウォッチリスト最大セクター(半導体・AI、38銘柄)への連れ安リスクとして注視が必要。",
-  en:"KOSPI opened up 1.50% at 6,351.38 and briefly rose over 2% above 6,380, but reversed within about 30 minutes to give back all gains and slide toward the 6,100 level. Samsung Electronics and SK Hynix were both reported down more than 3%. KOSDAQ, by contrast, opened up 1.47% at 748.19 and triggered a buy-side sidecar (a circuit-breaker-like pause on program trading) at 10:47am — a highly volatile, bifurcated session. The Samsung/SK Hynix declines are a read-through risk for the watchlist's largest sector (semiconductors/AI, 38 tickers).",
-  asOf:"8/4寄り付き〜前場中盤", source:"[Seoul Economic Daily](https://en.sedaily.com/finance/2026/08/04/kospi-reverses-to-1-percent-loss-as-samsung-sk-hynix-drop-3) / [BusinessKorea](https://www.businesskorea.co.kr/news/articleView.html?idxno=274093)"},
+"japan":{label:"日本 / Japan", score:2,
+  summary:"本日8/5前引け(9:00〜11:30)の日経平均は前日比+1,903.47円(+2.98%)の65,861.00円と大幅続伸(寄り付き64,565.27円→前引けにかけ一時66,000円台に接近)。8/4終値は63,957.53円(+202.63円、TOPIX 3,961.78、+1.75pt)で、前日から一段の上げ幅を積み上げた。押し上げ要因は①8/4(米国時間)の米国株大幅高(後述)、②米国が原油輸送の要衝ホルムズ海峡の緊張緩和(イラン交渉進展観測)を受け原油価格が下落し世界的にリスクオンとなったこと、③韓国KOSPIの大幅高でサムスン電子・SKハイニックスが+4〜7%と急伸し半導体セクターに連れ高が波及したこと。個別にはアドバンテスト(6857)が日経平均の上げ幅に単独で+504円分寄与したと報じられ、東京エレクトロン(8035)も本日+3.11%(56,700円)で推移。出来高は概算約12.8億株、値上がり144銘柄・値下がり81銘柄と全面高の様相。なお本日(8/5)朝の日次ルーティーン実行記録が見当たらず(daily/2026-08-05.md不在)、本更新が本日最初の反映となる点に留意（関連銘柄: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般, 7011 三菱重工業等防衛・重工セクション）。",
+  en:"The Nikkei 225 closed the morning session (前引け, 9:00-11:30) on 8/5 up 1,903.47 yen (+2.98%) at 65,861.00, opening at 64,565.27 and briefly approaching 66,000 intraday — a continuation of 8/4's close at 63,957.53 (+202.63, TOPIX 3,961.78 +1.75pt). Drivers: (1) Monday 8/4 US-session strength (see below), (2) a sharp drop in oil prices on hopes of easing tension around the Strait of Hormuz (Iran talks progress), fueling broad risk-on sentiment, and (3) a strong KOSPI rally with Samsung Electronics and SK Hynix both up 4-7%, spilling over into Japanese semiconductor names. Advantest (6857) alone reportedly contributed +504 points to the Nikkei's gain; Tokyo Electron (8035) traded +3.11% (56,700 yen). Volume was roughly 1.28bn shares with 144 advancers vs 81 decliners — a broad-based rally. Note: no execution record was found for this morning's routine (daily/2026-08-05.md is absent), so this noon update is the first reflection of today's data.",
+  asOf:"8/5前引け(11:30)", source:"[日本経済新聞 前引け](https://www.nikkei.com/article/DGXZQOFL0521H0V00C26A8000000/) / [株式新聞 前引け速報](https://kabushiki.jp/news/761146) / [ザイ 前場引け速報](https://zai.diamond.jp/articles/-/493425) / [株探 アドバンテスト寄与度](https://s.kabutan.jp/news/n202608050792/)"},
+"korea":{label:"韓国 / South Korea", score:2,
+  summary:"KOSPIは本日8/5、前日比+3.85%の6,603.48で寄り付き、一時+4.51%・6,645.71まで上げ幅を拡大し6,600台を回復。サムスン電子が+4〜5%(約25万ウォン)、SKハイニックスが+6〜7.1%(約169万ウォン)とそろって急伸した。背景には前日の米国半導体株高に加え、バンクオブアメリカ等の複数の米系証券がSKハイニックスADRを新規に「買い」推奨で調査開始したとの報道がある。8/4に見られたサムスン電子・SKハイニックスの-3%超の急落とは対照的な反発で、ウォッチリスト最大セクター(半導体・AI、38銘柄)への連れ高が期待される一方、値動きの荒さ自体は継続している点に注意が必要。",
+  en:"KOSPI opened up 3.85% at 6,603.48 on 8/5 and extended to +4.51% (6,645.71), reclaiming the 6,600 level. Samsung Electronics rose 4-5% (~KRW 250,000) and SK Hynix jumped 6-7.1% (~KRW 1,690,000). The rally follows overnight US semiconductor strength plus reports that several US brokerages, including Bank of America, initiated 'buy'/'overweight' coverage on SK Hynix ADRs. This is a sharp reversal from 8/4's >3% selloff in both names — a positive read-through for the watchlist's largest sector (semiconductors/AI, 38 tickers), though the swing itself underscores continued high volatility.",
+  asOf:"8/5前場", source:"[Seoul Economic Daily](https://en.sedaily.com/finance/2026/08/05/kospi-reclaims-6600-as-samsung-jumps-5-percent-sk-hynix-6) / [TradingKey](https://www.tradingkey.com/analysis/stocks/more/262074716-japan-south-korea-stocks-rally-kospi-nikkei-softbank-sk-hynix-kioxia-tradingkey)"},
 "us":{label:"米国 / US", score:2,
-  summary:"8/3(月)の米国株は大幅高。S&P500は+1.48%で終値ベース初の7,600台乗せ、ナスダック総合は+2.13%、ダウ工業株30種は+693ドル(+1.32%)の53,178ドルで引けた。トランプ大統領がイラン攻撃計画を撤回し交渉再開の可能性が浮上したことを受け、原油価格が約5%急落したことが投資家心理を大きく改善させ、大型ハイテク株中心に買いが広がった。日本時間8/4朝の日経平均は寄り付きでこの米国株高を好感したが、その後為替介入観測・韓国株安で上げ幅を維持できなかった（本カードのjapan項参照）。",
-  en:"US stocks rallied sharply on Monday 8/3: the S&P 500 rose 1.48% to close above 7,600 for the first time, the Nasdaq Composite surged 2.13%, and the Dow Jones added 693 points (+1.32%) to close at 53,178. Sentiment was lifted after President Trump reportedly canceled planned strikes on Iran, reviving hopes for negotiations and sending oil prices down roughly 5% — a boost that broadened into big-cap tech buying. Tokyo's Nikkei briefly reflected this strength at Tuesday's open before FX-intervention concerns and Korean equity weakness capped the gain (see the Japan card).",
-  asOf:"8/3引け", source:"[TheStreet](https://www.thestreet.com/stock-market-today/stock-market-today-aug-3-2026-dow-futures-climb-as-oil-slides-on-renewed-iran-talks) / [Yahoo Finance](https://finance.yahoo.com/markets/live/stock-market-today-monday-august-3-dow-sp-500-nasdaq-big-tech-oil-092516872.html)"},
+  summary:"8/4(火、現地時間)の米国株はさらに続伸。S&P500は+1.79%で7,737と過去最高値を更新(2か月ぶりの最高値更新)、ダウ工業株30種は+907ドル(+1.71%)の54,086ドル、ナスダック総合は+2.59%。好調な決算(SpaceX関連・AMD等)に加え、ホルムズ海峡の緊張緩和観測(イラン交渉進展)による地政学リスク後退・原油安が投資家心理を押し上げた。日本時間8/5朝の日経平均はこの米国株高をさらに好感し+2.98%まで買われている（本カードのjapan項参照）。",
+  en:"US stocks extended their rally on Tuesday 8/4: the S&P 500 rose 1.79% to a fresh record of 7,737 (its first new high in two months), the Dow added 907 points (+1.71%) to 54,086, and the Nasdaq Composite surged 2.59%. Strong corporate earnings (SpaceX-related names, AMD) combined with easing geopolitical risk around the Strait of Hormuz (Iran talks) and falling oil prices lifted sentiment further. Tokyo's Nikkei extended this strength into Wednesday's morning session, up 2.98% (see the Japan card).",
+  asOf:"8/4引け", source:"[CNN Business](https://us.cnn.com/2026/08/04/investing/us-stock-market) / [The Motley Fool](https://www.fool.com/coverage/stock-market-today/2026/08/04/stock-market-today-aug-4-s-and-p-500-and-dow-set-new-highs-on-easing-geopolitical-tensions/) / [TheStreet](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-4-2026)"},
 "china":{label:"中国 / China", score:0,
-  summary:"【要確認】本セッションでは上海総合指数等の8/4午前の指数レベルデータをWebSearchで取得できなかった(検索結果が7月下旬までの古い日付のものに限られた)。個別銘柄レベルの調査も本ルーティーンでは実施していない(2026-07-28決定によりCN個別銘柄は朝のみ更新)。scoreは実質「不明」につき暫定的に中立(0)としている。次回朝ルーティーンでの再調査を推奨。",
-  en:"[NEEDS VERIFICATION] This session could not obtain 8/4 morning index-level data for the Shanghai Composite or related China indices via WebSearch (results were limited to late-July dates). Individual-ticker research was also out of scope for this noon run (CN tickers are updated mornings only per the 2026-07-28 policy). Score is set to a provisional neutral (0) pending the next morning run's re-check.",
-  asOf:"要確認(本日分データ取得できず)", source:"(取得できず)"}
+  summary:"【要確認】本セッションでは上海総合指数等の8/5当日の指数レベルデータをWebFetch全面403のためWebSearchでのみ調査したが、直近で確認できた水準(上海総合3,822.3前後、+0.33%程度)が8/4分か8/5分か日付を確定できなかった。個別銘柄レベルの調査も本ルーティーンでは実施していない(2026-07-28決定によりCN個別銘柄は朝のみ更新)。scoreは実質「不明」につき暫定的に中立(0)としている。次回朝ルーティーンでの再調査を推奨。",
+  en:"[NEEDS VERIFICATION] This session could only research index-level China data via WebSearch (WebFetch returned 403 across the board), and could not confirm whether the most recent figure obtained (Shanghai Composite ~3,822.3, +0.33%) reflects 8/4 or 8/5. Individual-ticker research was also out of scope for this noon run (CN tickers are updated mornings only per the 2026-07-28 policy). Score is set to a provisional neutral (0) pending the next morning run's re-check.",
+  asOf:"要確認(日付確定できず)", source:"[Trading Economics](https://tradingeconomics.com/china/stock-market)"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
@@ -1156,7 +1167,7 @@ const SECTOR_REPS = {
    Only the subjective interpretation is stored here per mode; the ranking itself is auto-computed from
    existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
 const FLOW = {
-"jp":{subj:"本日はDAILYが113銘柄中51銘柄のみ8/3〜8/4分反映(残り62銘柄は7/31以前の既存値)という混在データのため、解釈には通常以上の注意が必要です（前置き）。それを踏まえた上で、更新できた51銘柄に限定した自動計算のセクター平均を見ると、データセンター(+2.04%、n=8)・半導体・AI(+1.80%、n=21)が相対的に堅調な一方、内需消費(-2.33%、n=3)・IT サイバー(-2.27%、n=2)・素材非鉄(-1.79%、n=3)が下位となっています。半導体・AIが本日プラス圏にあるのは意外にも見えますが、これは韓国KOSPIでサムスン電子・SKハイニックスが-3%超と大幅下落した後の連れ安が本日前場の日本市場でまだ十分に反映しきれていない(データ未更新の62銘柄に偏っている)可能性があり、上位セクターへの資金流入と単純に解釈するのは危険と考えます（推測）。むしろ本日の日経平均続落・円高進行を踏まえると、午後にかけて半導体株を含む輸出関連へ売りが波及する可能性もあると見ています（推測、要継続観察）。", asOf:"8/4正午(51/113銘柄が8/3〜8/4分反映、残りは既存値)"},
+"jp":{subj:"本日はSECTOR_REPS(33銘柄サンプル)のうち本日8/5分に更新できたのが8銘柄(8035・285A・5706・8058・8031・8053・7267・7974)のみで、残り25銘柄は8/4以前の既存値という混在データのため、業種平均の解釈には通常以上の注意が必要です（前置き）。それを踏まえた上で自動計算されるセクター平均を見ると、更新できた8銘柄が含まれる半導体・AI(285A・8035由来)・自動車運輸(7267由来)・素材非鉄(5706由来)は本日のプラス材料を部分的に織り込んでいる一方、商社(8058・8031・8053)は+2.23%(住友商事)〜-2.66%(三井物産)と銘柄間でばらつきが出ています。日経平均自体が本日前場+2.98%の全面高であったことを踏まえると、更新できていない25銘柄(特に金融・機械重工セクション)も本日は連れ高している可能性が高いと考えますが、これはデータに基づかない推測であり、実際の業種平均はサンプルの偏りにより過小評価されている可能性がある点にご留意ください（推測）。", asOf:"8/5正午(33銘柄中8銘柄が本日8/5分反映、残りは8/4以前の既存値)"},
 "us":{subj:"US_PRICEは113銘柄中4銘柄(AMZN,F,JPM,TSLA経由)のみ本日反映のため、セクター別ランキングはほぼ前回値のままで実質的な情報価値がありません。本日分としてコメントできる材料はなく、意味のある資金フロー分析は困難です（データ不足のため実施見送り）。", asOf:"要確認(4/113銘柄のみ更新、ランキングは実質前回値)"},
 "cn":{subj:"CN_PRICEは105銘柄中1銘柄(603986兆易創新経由、しかも7/29値)のみ本日反映のため、セクター別ランキングはほぼ前回値のままで実質的な情報価値がありません。意味のある資金フロー分析は困難です（データ不足のため実施見送り）。", asOf:"要確認(1/105銘柄のみ更新、ランキングは実質前回値)"},
 "kr":{subj:"KR_PRICEは93銘柄中3銘柄(いずれもサムスン電子経由)のみ本日反映のため、セクター別ランキングはほぼ前回値のままで実質的な情報価値がありません。意味のある資金フロー分析は困難です（データ不足のため実施見送り）。", asOf:"要確認(3/93銘柄のみ更新、ランキングは実質前回値)"}
@@ -1168,15 +1179,15 @@ const FLOW = {
    Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
 const PICKS = {
 "jp":[
-  {code:"6723", name:"ルネサスエレクトロニクス", en:"Renesas Electronics", chg:13.45,
-    obj:"8/3時点(前日終値比)+13.45%の3,905円(出典: <a href=\"https://finance.yahoo.co.jp/quote/6723.T\" target=\"_blank\" rel=\"noopener\">Yahoo!ファイナンス</a>、単一ソース・確度medium)。7/31発表の決算を好感した上昇が継続しているとみられる。次回決算は7月下旬発表済み(BASE参照)。",
-    subj:"決算後の上昇が2営業日以上続いていることから、市場は内容を単なる一時的な材料ではなく構造的な改善として織り込みつつある可能性があると考えます（推測）。ただし本日8/4の日経平均は続落・円高進行と逆風下にあるため、午後にかけて上昇が一服する可能性もあると見ています（推測、要確認）。", asOf:"8/3時点(確度medium)"},
-  {code:"4704", name:"トレンドマイクロ", en:"Trend Micro", chg:-5.96,
-    obj:"8/4当日-5.96%の6,341円(出典: <a href=\"https://finance.yahoo.co.jp/quote/4704.T\" target=\"_blank\" rel=\"noopener\">Yahoo!ファイナンス</a>、確度medium)。具体的な下落材料は本ルーティーンの調査範囲では特定できず(要確認)。",
-    subj:"個別の悪材料が確認できない中での大幅安のため、セクター物色の巻き戻しか、海外サイバーセキュリティ株安の連れ安の可能性もあると考えます（推測）。材料不明のため、明日以降の材料発表・IR公表の有無を注視する必要があると見ています。", asOf:"8/4時点(確度medium)"},
-  {code:"3778", name:"さくらインターネット", en:"Sakura Internet", chg:5.64,
-    obj:"8/4 11:30時点(前場引け頃)+5.64%の3,280円(出典: <a href=\"https://finance.yahoo.co.jp/quote/3778.T\" target=\"_blank\" rel=\"noopener\">Yahoo!ファイナンス</a>、確度high・取得時刻が正午速報の対象時間に合致)。国産GPUクラウド関連銘柄。",
-    subj:"本日の日経平均が続落する中で数少ないプラス銘柄であり、国内AIインフラ関連への物色が部分的に続いている可能性があると考えます（推測）。ただし更新できていない他のIT・サイバーセクター銘柄(FLOW参照)の平均は本日マイナスのため、セクター全体の傾向というより個別材料である可能性もあります（推測、要確認）。", asOf:"8/4 11:30時点(確度high)"}
+  {code:"285A", name:"キオクシアホールディングス", en:"Kioxia Holdings", chg:5.96,
+    obj:"8/5前場時点、前日(8/4)比+5.96%の52,090円(出典: WebSearchスニペット経由・単一ソース、確度medium。WebFetch全面403のため直接確認は未実施)。本日の日経平均全面高(+2.98%)の中で半導体・AIセクターの代表格として買われている。直近のQ1決算では生成AI向けデータセンター需要拡大を背景に売上高が前年比+415.5%と急拡大したと報じられている(出典未確認・要確認)。",
+    subj:"韓国SKハイニックス・サムスン電子が本日+4〜7%と急伸しているため（WORLD参照）、AI向けメモリ需要への期待がグローバルに波及した資金流入である可能性があると考えます（推測）。ただし本日の相場全体が地政学要因(ホルムズ海峡緊張緩和・原油安)によるリスクオン一色であるため、個別のファンダメンタルズよりも地合い全体に連動した動きである可能性も否定できません（推測、要確認）。", asOf:"8/5前場時点(確度medium)"},
+  {code:"7267", name:"本田技研工業", en:"Honda Motor", chg:2.95,
+    obj:"8/5前場引け(11:30)時点、前日比+2.95%の1,621.5円(出典: WebSearchスニペット経由、確度high・タイムスタンプ8/5 11:30と明記)。本日15:00に4-6月期決算発表を予定(出典: 株探決算発表予定一覧)。決算内容はこの正午時点では未公表。",
+    subj:"本日の上昇は決算発表を先取りした期待買いという側面と、日経平均全体の大幅高(+2.98%)に連動した側面の両方が考えられ、どちらが主因かはこの時点では判別できないと考えます（推測）。15:00の決算発表内容次第で、本日引けにかけて・明日以降の値動きが大きく変わる可能性があるため注視が必要です。", asOf:"8/5前場引け時点(確度high)"},
+  {code:"6674", name:"GSユアサ", en:"GS Yuasa Corporation", chg:null,
+    obj:"本日15:00に4-6月期決算発表・16:00に決算説明会を予定(EVENTSカレンダー参照)。この正午時点で株価は未確認(要確認)。事前に出回っている情報(出典: IFIS株予報経由のYahoo!ファイナンスニュース、確度不明・要確認)によれば、四半期経常利益はIFIS市場予想6,200百万円に対し8,474百万円(+36.7%)と大幅な上振れが示唆される一方、通期経常利益見通し490億円は市場予想を-4.4%下回るとの情報がある。正式発表前の未確認情報である点に留意。",
+    subj:"「四半期は大幅増益・通期見通しは市場予想未達」という組み合わせは、決算発表後に「増益でも下方修正的な通期見通しを嫌気して売られる」パターンになりやすいと考えます（推測）。ただし上記の数値自体が15:00の正式発表前の未確認情報のため、実際の反応は発表を待つ必要があります。", asOf:"8/5正午時点、株価未確認・決算未発表(要確認)"}
 ],
 "us":[
   {code:"6857", name:"テラダイン (Advantest競合)", en:"Teradyne (TER, Advantest peer)", chg:-13.63,
