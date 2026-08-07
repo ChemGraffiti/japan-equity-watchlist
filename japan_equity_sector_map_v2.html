@@ -815,6 +815,16 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
 
   <div class="newslog-day">
+    <div class="newslog-date">2026-08-07（正午更新）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>日経平均は本日前引け(11:30)時点65,039.16円(前日比-644.10円,-0.98%)と続落。ソフトバンクグループの4-6月期純利益-17.7%(8/6引け後発表)への嫌気売り、レーザーテックの通期利益見通し未達(一時-10%超)、これらを受けた半導体関連株への連想売りが主因と報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD, 9984 ソフトバンクグループ 等。</li>
+      <li><span class="nl-code">7012</span>川崎重工業: 本日8/7発表のQ1決算で純利益が前年同期比3.7倍の156億円、通期純利益予想を110億円→115億円(+6.3%)に上方修正し3期連続最高益更新見通し。本日の株価反応は情報源不一致のため未確認(要確認)→関連: 7011 三菱重工業, 7013 IHI 等防衛・宇宙セクション。</li>
+      <li><span class="nl-macro">全体</span>韓国KOSPIは本日8/7午前、寄り付き+1.09%高から一時+1.9%まで上昇したが上げ幅を維持できず11:05時点で前日比-0.81%まで反落、前日(8/6、-4.58%・サーキットブレーカー発動)の急落からの反発が定着しない不安定な展開→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+      <li><span class="nl-macro">全体</span>本セッションではWebFetchが金融サイト(finance.yahoo.co.jp・irbank.net・nikkei.com等)にほぼ全面的に「EGRESS_BLOCKED」となりアクセス不可であったため、WebSearchのスニペットのみで33銘柄を調査。既存データとの整合性チェックに通った2銘柄(7011三菱重工業-0.13%・8058三菱商事+3.03%)のみ採用し、残り31銘柄は前回値を維持(誤データ反映より安全側に倒す既定方針)。詳細は<a href="daily/2026-08-07_正午.md">本日正午の相場観コメント</a>参照。</li>
+    </ul>
+  </div>
+
+  <div class="newslog-day">
     <div class="newslog-date">2026-08-07（朝ルーティーン）</div>
     <ul>
       <li><span class="nl-macro">全体</span>韓国KOSPIが8/6に独立した2ソースで-4.58%〜-4.86%(サイドカー発動)という近い水準の急落を確認。サムスン電子-7.52%・SKハイニックス-6.90%と半導体2大巨頭がそろって急落し、外国人投資家の大量売り(純売り約1.48兆ウォン)が主因と報じられている。日経平均先物(大阪夜間)も63,820円(現物終値比-2,850円、-4.3%)まで下落して終了しており、8/7の東京市場は寄り付きから下振れリスクが高いと考えられる(推測)→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般(38銘柄)。</li>
@@ -1004,7 +1014,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "8/6終値(一部混在,SECTOR_REPS33銘柄中12銘柄が本日8/6終値に更新・残り21銘柄は前回値を維持)"; // 朝更新(8/7): JP・US・CN・KR合計8バッチを並列実行したが、市況調査の途中でセッション共有WebSearch予算(200回)が完全枯渇(0/200)。JPは12銘柄のみ複数ソースでの整合を確認できたため反映(8035東京エレクトロン-5.50%・6857アドバンテスト-2.34%・285Aキオクシア-11.45%・6501日立+0.99%・7011三菱重工-0.05%・5713住友金属鉱山+6.13%・8306三菱UFJ+0.93%・8058三菱商事+2.31%・6326クボタ+2.35%・7203トヨタ+1.87%・7974任天堂+2.87%・4452花王+12.83%)。残り21銘柄は取得値が未取得または情報源間で20%以上食い違う等の理由で不採用、前回値を維持。US_PRICE/CN_PRICE/KR_PRICE/US_CHG/CN_CHG/KR_CHGは、担当7エージェント全員が「取得できた値の大半が日付特定不能または情報源間で20〜50%以上の矛盾がある」と報告したため、本日は更新を全面的に見送り前回値を維持(詳細はdaily/2026-08-07.md参照)。日経平均は8/6終値65,683.26円(-617.18円,-0.93%)で3営業日ぶり反落。韓国KOSPIは8/6に独立2ソースで-4.58%〜-4.86%の急落(サイドカー発動)を確認、半導体株中心に世界的な調整が波及した可能性があり、日経平均先物(大阪夜間)も63,820円(現物比-2,850円)で終了、8/7朝は下振れリスクに留意。
+const AS_OF = "8/7前引け(一部混在,SECTOR_REPS33銘柄中2銘柄=7011三菱重工業・8058三菱商事のみ本日8/7前引け値に更新、残り31銘柄は8/6終値以前の前回値を維持)"; // 正午更新(8/7 13:00台): 本セッションではWebFetchがfinance.yahoo.co.jp・irbank.net・kabuyoho.ifis.co.jp・nikkei.com・minkabu.jp・finance.matsui.co.jp等ほぼ全ての金融サイトに対し「EGRESS_BLOCKED」(プロキシによるドメイン単位の接続遮断、403エラーとは別種)となり直接アクセス不可。WebSearchのスニペット経由で33銘柄を調査したが、多くが8/3〜8/6の古い日付のデータ・時刻不明・情報源間で数値不一致(既存DAILY値との整合チェックで前日比%が計算と合わない等)であったため、既存の前日比%と価格から逆算して整合性が取れ、かつ取得時刻が本日8/7 11:30(前引け)と明記されている2銘柄(7011三菱重工業-0.13%・8058三菱商事+3.03%)のみを採用した。誤データ反映より安全側に倒す既定方針(CLAUDE.md)に従い、残り31銘柄は不採用とし前回値を維持。US_PRICE/CN_PRICE/KR_PRICE等は方針通り本日調査していない(朝の値のまま)。日経平均は本日8/7前引け(11:30)時点65,039.16円(前日比-644.10円,-0.98%)で続落、TOPIXは4,060.68(+4.83pt)。主因はソフトバンクグループの4-6月期純利益-17.7%(8/6引け後発表)への嫌気売り、レーザーテックの通期利益見通し未達を受けた急落(一時-10%超)、及びそれに連想した半導体関連株売りとみられる。詳細はdaily/2026-08-07_正午.md参照。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -1133,12 +1143,12 @@ const DAILY = {
 "6997":[2919,-8.78],"6762":[3092,2.79],"6674":[5286,2.09],"6752":[4281,-0.07],"5333":[5532,-1.11],"6594":[2656,2.51],"9984":[5393,2.53],"5586":[818,-2.15],
 "2354":[1347,6.31],"6504":[14100,-0.21],"6508":[10270,-1.63],"6954":[6687,3.47],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[5073,9.62],"5801":[3008,-8.21],
 "5802":[2137.5,3.64],"6367":[23850,0.44],"1969":[4255,1.5],"6584":[813,4.9],"6498":[2232,1.45],"3778":[3280,5.64],"9432":[151.0,0.40],"6383":[6232,2.33],
-"4704":[6341,-5.96],"3692":[4900,0.41],"6501":[5530,0.99],"6702":[3483,1.37],"6701":[4490,1.01],"6703":[3390,6.27],"4755":[840.0,1.01],"7011":[3998,-0.05],
+"4704":[6341,-5.96],"3692":[4900,0.41],"6501":[5530,0.99],"6702":[3483,1.37],"6701":[4490,1.01],"6703":[3390,6.27],"4755":[840.0,1.01],"7011":[3993.0,-0.13],
 "7012":[2738.5,1.13],"7013":[2854.5,-0.87],"5631":[7223,-2.77],"7721":[6660,1.06],"4275":[2358,-0.51],"290A":[1018,-7.45],"464A":[1509,-6.85],"186A":[1040,2.77],
 "278A":[10380,-19.66],"9501":[492.8,-5.23],"9502":[2706,-3.91],"9503":[2455.5,0.61],"9506":[1179,-1.13],"9508":[1820,-1.22],"9509":[1017.5,-1.07],"9513":[3834,0.26],
 "1605":[3492,-0.77],"5020":[1294.5,1.01],"5021":[3988,1.04],"6492":[12890,-7.6],"7711":[4095,-3.65],"224A":[1431,-3.31],"5713":[9088.0,6.13],"5711":[4369,5.43],
 "5706":[35380,10.91],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3574.0,0.93],"8316":[6666,2.32],"8411":[8131,0.46],"8303":[1432,-1.45],
-"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4748,2.31],"8031":[4687,-2.66],"8053":[1699.5,2.23],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
+"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4892.0,3.03],"8031":[4687,-2.66],"8053":[1699.5,2.23],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
 "7003":[4308,5.14],"6471":[1185.5,2.6],"6472":[371.1,1.87],"6326":[2684.0,2.35],"7203":[2969.0,1.87],"7267":[1636,3.87],"9201":[2979.5,1.24],"9202":[3151,1.64],
 "581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3597,12.83],"7974":[7641,2.87],"8136":[1274.0,1.19],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
 "3063":[1233,1.82]
@@ -1150,21 +1160,21 @@ const DAILY = {
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
 "japan":{label:"日本 / Japan", score:-1,
-  summary:"日経平均は8/6終値で前日比-617.18円(-0.93%)の65,683.26円と3営業日ぶり反落(始値65,896.00円、高値65,983.13円、安値64,942.07円)。TOPIXは+9.68pt(+0.24%)の4,055.85と底堅く、値上がり銘柄が7割超を占めたため指数全体としては半導体一極安の側面が強い(米半導体株安を受け東京エレクトロン-5.50%・アドバンテスト-2.34%・キオクシアHD-11.45%が下落)。一方、決算好感の花王(+12.83%)・任天堂(+2.87%)は急伸するなど銘柄間の明暗が分かれた。さらに8/6夜間、韓国KOSPIが-4.6〜4.9%と急落(サイドカー発動、下記korea参照)したことを受け、大阪取引所の日経平均先物ナイト・セッションは63,820円(現物終値比-2,850円、-4.3%)まで下落して終了しており、8/7の東京市場は寄り付きから大幅安となるリスクが高いと考えられる(推測)。本日はセッション共有のWebSearch予算が枯渇したため、SECTOR_REPS33銘柄中12銘柄のみ8/6終値を確認できている状態である点に留意。",
-  en:"The Nikkei 225 closed 8/6 down 617.18 yen (-0.93%) at 65,683.26 (open 65,896.00, high 65,983.13, low 64,942.07), snapping a 2-day win streak. TOPIX held up better, +9.68pt (+0.24%) at 4,055.85, with over 70% of issues advancing — pointing to a narrow, semiconductor-led decline (Tokyo Electron -5.50%, Advantest -2.34%, Kioxia -11.45% on the back of US chip weakness) rather than a broad selloff. Earnings winners Kao (+12.83%) and Nintendo (+2.87%) surged in contrast. More importantly, after South Korea's KOSPI crashed roughly -4.6% to -4.9% overnight (see 'korea' below, sidecar circuit breaker triggered), Osaka Exchange's Nikkei 225 night-session futures closed at 63,820 (-2,850 vs. the cash close, -4.3%), pointing to a sharply lower open for Tokyo on 8/7 (subjective). Note: only 12 of the 33 SECTOR_REPS tickers could be re-confirmed for 8/6 today given the session's exhausted WebSearch budget.",
-  asOf:"8/6終値+8/6夜間先物", source:"[株探 8/6大引け](https://kabutan.jp/news/marketnews/?b=n202608061517) / [松井証券 日経225先物ナイト・セッション](https://finance.matsui.co.jp/news/583900/index)"},
+  summary:"日経平均は本日8/7前引け(11:30)時点で65,039.16円(前日比-644.10円,-0.98%)と続落(寄り付き65,896.00円=前日比-404.44円からさらに下げ幅拡大、場中は一時-1,000円超の場面もあった模様、四本値の高安は未確認)。TOPIXは前引け4,060.68(+4.83pt)と小幅ながらプラス圏を維持しており、値下がりが半導体関連に偏った銘柄選別型の下げとみられる。東証プライム前場売買代金は概算約5兆3,764億円・売買高約13億1,496万株。主因として報じられているのは①ソフトバンクグループが8/6引け後に発表した2026年4-6月期純利益が前年同期比17.7%減の3,473億円となったことへの嫌気売り、②レーザーテックの通期利益見通しが市場予想未達だったことによる急落(一時10%超安)、③これらを受けたアドバンテスト・東京エレクトロンなど半導体関連株への連想売り。ただし本ダッシュボードのSECTOR_REPS調査では東京エレクトロンの直近値が逆に上昇を示すデータもあり(WebFetchが金融サイトへ軒並み遮断されWebSearchスニペットのみに依存しているため)、個別銘柄の本日の実際の値動きには不確実性が残る点に留意(詳細はFLOW.jp参照)。",
+  en:"The Nikkei 225 stood at 65,039.16 (-644.10, -0.98%) at today's (8/7) morning-session close (11:30 JST), extending losses from the open (65,896.00, -404.44), with intraday reports of a brief 1,000+ point drop (high/low unconfirmed). TOPIX held a slim gain at the same point, +4.83pt to 4,060.68, suggesting a selective, semiconductor-led decline rather than a broad selloff. Prime Market morning turnover was roughly ¥5.3764tn on ~1.31496bn shares. Cited drivers: (1) SoftBank Group's post-close (8/6) Q1 net profit miss (-17.7% y/y to ¥347.3bn) triggering selling, (2) Lasertec's full-year profit guidance falling short of consensus (down over 10% intraday), and (3) knock-on selling in semiconductor names like Advantest and Tokyo Electron. Note: this dashboard's own SECTOR_REPS research returned conflicting, unverifiable data for Tokyo Electron (some snippets showed a gain) — a symptom of near-total WebFetch blocking to financial sites this session forcing reliance on WebSearch snippets, so individual-stock moves carry real uncertainty today (see FLOW.jp for detail).",
+  asOf:"8/7前引け(11:30)", source:"[日経電子版 前引け 8/7](https://www.nikkei.com/article/DGXZQOFL071K30X00C26A8000000/) / [ザイ 前場引け](https://zai.diamond.jp/articles/-/493586)"},
 "korea":{label:"韓国 / South Korea", score:-2,
-  summary:"KOSPIは8/6に急落し、独立した2つの情報源でそれぞれ-4.86%(6,274.74)・-4.58%(6,296.38、いずれもBusinessKorea/KED Global系報道)という近い水準の大幅下落を確認、日中の下げ幅が5%を超える場面ではプログラム売買停止措置(サイドカー、年46回目)が発動した。サムスン電子-7.52%(243,000ウォン)、SKハイニックス-6.90%(1,600,000ウォン)と半導体2大巨頭がそろって急落。主因は米半導体・AI株安を受けた外国人投資家の大量売り(純売り約1.48兆ウォン)、および市場予想を下回る決算への失望とされる。ウォッチリスト最大セクター(半導体・AI、38銘柄)への連れ安が強く懸念される展開であり、8/6の日本市場の半導体株安(東京エレクトロン-5.50%等)・日経平均先物の夜間急落もこの流れと軌を一にしていると考えられる(推測)。",
-  en:"KOSPI plunged on 8/6, with two independent sources reporting closely aligned drops of -4.86% (to 6,274.74) and -4.58% (to 6,296.38); an intraday sidecar circuit breaker was triggered (the 46th time this year) as the decline briefly exceeded 5%. Samsung Electronics fell 7.52% (KRW 243,000) and SK Hynix fell 6.90% (KRW 1,600,000). The proximate causes cited are heavy foreign selling (~KRW 1.48 trillion net) following overnight US semiconductor/AI-stock weakness, plus disappointment over earnings that missed expectations. This is a serious read-through risk for the watchlist's largest sector (semiconductors/AI, 38 tickers) — Japan's own semiconductor names (e.g. Tokyo Electron -5.50%) and the sharp overnight drop in Nikkei futures on 8/6 appear consistent with the same spillover (subjective).",
-  asOf:"8/6終値", source:"[BusinessKorea 8/6마감 시황](https://www.businesskorea.co.kr) / [KED Global](https://www.kedglobal.com/korean-stock-market/newsView/ked202608060013)"},
+  summary:"KOSPIは前日8/6に-4.58%(6,296.38)で終了(日中には一時-8.22%の6,861.60まで急落しサーキットブレーカー第1段階が発動、今年7回目・今月2回目)、サムスン電子-6.30%、SKハイニックス-10.37%(HBM過熱警戒・利益確定売り)。本日8/7午前は寄り付き+1.09%高の6,365.07で始まり一時6,415.60まで上昇する場面もあったが上げ幅を維持できず、11:05時点では前日比-0.81%(-50.83pt)の6,245.55まで反落し前日の上昇分を全て吐き出す展開となっている。前日の急落・サーキットブレーカー発動の後遺症で投資家心理が不安定なままであることを示唆しており(推測)、本日の日本市場の半導体関連株売り(WORLD.japan参照)にも連れ安圧力が波及した可能性がある(推測)。",
+  en:"KOSPI closed 8/6 down 4.58% at 6,296.38 (intraday low -8.22% at 6,861.60 triggered a first-stage sidecar circuit breaker, the 7th this year and 2nd this month); Samsung Electronics fell 6.30% and SK Hynix fell 10.37% on HBM-overheating concerns and profit-taking. This morning (8/7), KOSPI opened up 1.09% at 6,365.07 and briefly rose to 6,415.60, but failed to hold the gain — by 11:05 JST it had reversed to -0.81% (-50.83pt) at 6,245.55, erasing the entire morning bounce. This points to still-fragile investor sentiment following yesterday's crash and circuit-breaker event (subjective), and may be contributing spillover pressure to today's semiconductor-related selling in Japan (see WORLD.japan; subjective).",
+  asOf:"8/6終値+8/7 11:05時点", source:"[BusinessKorea](https://www.businesskorea.co.kr/news/articleView.html?idxno=274297) / [전자신문](https://www.etnews.com/20260807000062) / [이투데이](https://www.etoday.co.kr/news/view/2612033)"},
 "us":{label:"米国 / US", score:0,
   summary:"8/6(木、現地時間)の米国株はまちまちの展開で、S&P500は-0.18%の7,709.96、ナスダック総合は-0.06%の26,348.35とわずかな下落にとどまった一方、NYダウは-464.02ドル(-0.85%)の53,885と相対的に大きく下落した。中東情勢(ホルムズ海峡再開合意への警戒)・原油高・米国債利回り上昇・決算発表シーズンの個別材料が交錯した地合いとみられる。本日8/7(金)は米雇用統計(7月分非農業部門雇用者数)の発表が予定されており、指標結果次第で相場が大きく動く可能性がある。",
   en:"US markets were mixed on Thursday 8/6: the S&P 500 slipped 0.18% to 7,709.96 and the Nasdaq Composite eased just 0.06% to 26,348.35, while the Dow fell a comparatively sharper 464.02 points (-0.85%) to 53,885. The session reflected a mix of Middle East tensions (wariness over a potential Strait of Hormuz reopening deal), higher oil prices, rising Treasury yields, and single-stock earnings news. Today, 8/7 (Fri), brings the closely watched US jobs report (July nonfarm payrolls), which could drive significant volatility depending on the outcome.",
   asOf:"8/6引け", source:"[CNBC 8/6市況](https://www.cnbc.com/2026/08/05/stock-market-today-live-updates.html) / [TheStreet 8/6](https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-6-2026)"},
 "china":{label:"中国 / China", score:-1,
-  summary:"上海総合指数等の指数終値レベルの確定情報は本日もセッション共有のWebSearch予算枯渇のため再確認できなかった(3営業日連続で指数レベル未確認)。ただし製造業景況感については、7月分の中国国家統計局(官方)PMIが49.2(前月比-1.1pt、5か月ぶりに好不況の境目である50を割り込み)、財新(Caixin)PMIも50.9(6月51.7から低下、市場予想51.5も下回る)となり、いずれも減速方向を示している(既発表分の確認、8/3付)。この製造業指標の弱さと、韓国KOSPI急落・世界的な半導体株安という直近の地合いを踏まえ、scoreは前回の中立(0)から弱含み方向(-1)に見直した(推測を含む判断)。",
-  en:"Index-level closes (e.g. Shanghai Composite) could not be re-confirmed today either, given the exhausted session-wide WebSearch budget — the third consecutive business day this has gone unverified. That said, July manufacturing PMIs point to a slowdown: China's official PMI came in at 49.2 (down 1.1pt m/m, dipping below the 50 expansion/contraction line for the first time in 5 months) and the Caixin PMI eased to 50.9 (from 51.7 in June, also below the 51.5 consensus) — both already-published data confirmed as of 8/3. Combined with the KOSPI crash and broad global semiconductor weakness, the score has been revised down from a prior neutral (0) to a mild headwind (-1); this judgment carries a subjective component.",
-  asOf:"PMI:8/3発表分/指数レベル:要確認(3営業日連続未確認)", source:"[NNA ASIA](https://www.nna.jp/news/2951814) / [Investing.com](https://jp.investing.com/news/economic-indicators/article-1625613)"}
+  summary:"上海総合指数は本日8/7午前(午前立会)時点で-1.04%の3,999.03と4,000ポイントを割り込んで推移(深セン成分指数-1.02%、創業板指数-0.78%、下落銘柄4,700超)。半導体・シリコンウエハー関連は逆行高との報道もある。指数レベルが確認できたのは3営業日ぶり。7月分PMI(国家統計局49.2・財新50.9、いずれも既発表分)が示す製造業減速に加え、本日は世界的な半導体株安・韓国KOSPI続落の流れとも歩調を合わせる下げとなっており、scoreは前回同様弱含み(-1)を維持した(推測を含む判断)。",
+  en:"The Shanghai Composite was down 1.04% at 3,999.03 as of this morning's (8/7) midday session close, dipping below the 4,000 mark (Shenzhen Component -1.02%, ChiNext -0.78%, over 4,700 decliners); some reports note semiconductor/silicon-wafer names bucking the trend. This is the first index-level confirmation in 3 business days. Combined with the already-published July PMIs pointing to a manufacturing slowdown (official 49.2, Caixin 50.9) and today's broader global semiconductor weakness plus continued KOSPI softness, the score is held at a mild headwind (-1), a judgment with a subjective component.",
+  asOf:"8/7午前立会", source:"WebSearch経由の中国語ニュース要約(個別記事URL未特定、要確認)"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
@@ -1198,7 +1208,7 @@ const SECTOR_REPS = {
    Only the subjective interpretation is stored here per mode; the ranking itself is auto-computed from
    existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
 const FLOW = {
-"jp":{subj:"本日はSECTOR_REPS(33銘柄サンプル)のうち12銘柄のみ8/6終値分のデータを確認できました(セッション共有WebSearch予算が調査途中で枯渇したため)。花王(4452)+12.83%(決算好感)・住友金属鉱山(5713)+6.13%・トヨタ自動車(7203)+1.87%・三菱商事(8058)+2.31%・クボタ(6326)+2.35%が上昇した一方、キオクシアHD(285A)-11.45%・東京エレクトロン(8035)-5.50%・アドバンテスト(6857)-2.34%と半導体セクションが軒並み下落しました。韓国KOSPIの-4.6〜4.9%急落(WORLD.korea参照)を受けた世界的な半導体株安が、日本の半導体セクターにも連れ安として波及している可能性があると考えます（推測）。非鉄金属・内需(花王等)から半導体セクションへの相対的な資金シフトという仮説も成り立ちますが、サンプル数が12/33と少なく業種平均はなお参考値の域を出ない点にご留意ください。", asOf:"8/6終値(33銘柄中12銘柄が反映、残り21銘柄は前回値)"},
+"jp":{subj:"正午時点で本日8/7分のデータを確認できたのはSECTOR_REPS(33銘柄サンプル)中2銘柄(三菱重工業7011-0.13%・三菱商事8058+3.03%)のみで、残り31銘柄は本日朝(8/6終値以前)の値のままです。本セッションでは金融サイトへのWebFetchがほぼ全滅(EGRESS_BLOCKED)し、WebSearchのスニペットのみに依存せざるを得ず、取得できた株価の多くが既存データとの整合性チェックで矛盾したため大半を不採用としました(誤データ反映より安全側に倒す既定方針)。参考情報として、日経平均は本日前引け時点で-0.98%と続落しており、報道ベースでは半導体関連株(アドバンテスト・東京エレクトロン等)への売りが主因とされていますが、当ダッシュボードのSECTOR1(半導体・AI)の値は朝の8/6終値ベースのまま(東京エレクトロン-5.50%・アドバンテスト-2.34%・キオクシアHD-11.45%)で本日の動きを反映できていません。業種平均は参考値の域を出ない点にご留意ください。", asOf:"8/7前引け(33銘柄中2銘柄のみ更新、残り31銘柄は前回値)"},
 "us":{subj:"US_PRICE/US_CHGは113銘柄中対応JPコード20件(17ティッカー)で8/5終値分を確認できました。前日(8/4)にAI関連で急伸したArm(9984ソフトバンクG経由)は-0.84%と一服し、CrowdStrike(4704)+4.29%・NVIDIA(5706三井金属鉱業経由)+2.56%・Freeport-McMoRan(5713住友金属鉱山経由)+3.83%が堅調だった一方、Kulicke & Soffa(6146)-7.8%・D.R. Horton(1928)-1.86%・Constellation Energy(9503/9506/9508/9509)-1.83%は下落しました。WORLDカードの通り8/5の米国株全体はS&P500・ナスダック小幅安、ダウは続伸という方向感の分かれた地合いであり、個別銘柄でも明暗が分かれている可能性があると考えます（推測）。データ確認数が限定的なため業種平均への反映は参考値の域を出ません。", asOf:"8/5終値(113銘柄中20コードが反映)"},
 "cn":{subj:"CN_PRICE/CN_CHGは105銘柄中対応JPコード12件(8ティッカー)で8/5分を確認できました。中芯国際/SMIC(6920レーザーテック経由)+4.13%・騰訊/Tencent(9984ソフトバンクG・7974任天堂経由)+0.94%と半導体・ネット大手は底堅い一方、中国広核電力(9501東京電力HD・9506中国電力・9509九州電力経由)-1.03%・中信股份(8058三菱商事経由)-1.45%とエネルギー・コングロマリット系はやや軟調でした。日本・米国の半導体セクター堅調と同じ方向性を示す銘柄がある一方、データ確認数が少なく業種平均への反映は限定的な点にご留意ください。", asOf:"8/5(105銘柄中12コードが反映)"},
 "kr":{subj:"KR_PRICE/KR_CHGは93銘柄中19コードで8/5分を確認できました。サムスン電機(4062/2802/6981/6976経由)+14.43%・LGイノテック(6971/6594経由)+14.48%・ハンファソリューションズ(4063経由)+16.79%と半導体部材・部品の中小型株が二桁の急伸を見せた一方、SKハイニックス(285A)+5.71%・サムスン電子(6920/6723/6758経由)+2.81%は本体側では相対的に控えめな上昇にとどまりました。クラフトン(7974任天堂経由)-3.78%とゲーム関連は逆行安。WORLDカードの通りKOSPI全体は+3.76%の大幅高で、半導体サプライチェーン全体に資金が広く行き渡っている可能性があると考えます（推測）。", asOf:"8/5(93銘柄中19コードが反映)"}
@@ -1210,15 +1220,15 @@ const FLOW = {
    Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
 const PICKS = {
 "jp":[
-  {code:"4452", name:"花王", en:"Kao Corporation", chg:12.83,
-    obj:"8/6終値、前日比+12.83%の3,597円(出典: Yahoo!ファイナンス、確度medium)。8/5に決算発表を実施(EVENTSカレンダー参照)、決算内容が好感されたとみられる大幅上昇。日用品・化粧品の国内最大手で30年以上の連続増配銘柄。",
-    subj:"半導体セクション全体が軟調な中(下記2銘柄参照)、内需ディフェンシブかつ決算材料のある花王に資金が向かった可能性があると考えます（推測）。連続増配という安定性への評価が、リスクオフ地合いの中でむしろ選好された側面もあるかもしれません。", asOf:"8/6終値(確度medium)"},
-  {code:"285A", name:"キオクシアHD", en:"Kioxia Holdings", chg:-11.45,
-    obj:"8/6終値、前日比-11.45%の48,740円(出典: 日経電子版、確度medium・参考値からの乖離やや大きく要確認)。NAND型フラッシュメモリ世界2位級で、SECTOR_REPS中で本日最大の下落率。",
-    subj:"韓国KOSPIの急落(WORLD.korea参照、サムスン電子-7.52%・SKハイニックス-6.90%)と同じ半導体メモリセクターの調整が波及している可能性が高いと考えます（推測）。ウォッチリスト中でも値動きが特に荒い銘柄であるため、8/7の動向を注視する必要があります。", asOf:"8/6終値(確度medium、要確認)"},
-  {code:"8035", name:"東京エレクトロン", en:"Tokyo Electron", chg:-5.50,
-    obj:"8/6終値、前日比-5.50%の55,330円(出典: Yahoo!ファイナンス、確度medium)。半導体前工程装置で世界大手、SECTOR_REPS1(半導体・AI)の代表銘柄。",
-    subj:"アドバンテスト(6857、本日-2.34%)とあわせ、日本の半導体装置株が韓国・米国の半導体株安に連動して下落したと考えられます（推測）。8/6夜間の日経平均先物急落(WORLD.japan参照)とも整合的な動きです。", asOf:"8/6終値(確度medium)"}
+  {code:"8058", name:"三菱商事", en:"Mitsubishi Corporation", chg:3.03,
+    obj:"本日8/7前引け(11:30)時点、前日比+3.03%の4,892円(出典: WebSearchスニペット複数、8/6終値4,748円からの計算値と一致、確度medium)。総合商社最大手。日経平均が前引けで-0.98%と下落する中、SECTOR_REPS中で本日確認できた数少ない上昇銘柄の一つ。",
+    subj:"資源価格・為替動向や海外事業の分散が支えとなり、指数全体が半導体主導で軟調な中でも商社セクションには相対的に資金が向かっている可能性があると考えます（推測、単独銘柄のみのデータのため断定はできません）。", asOf:"8/7前引け(確度medium)"},
+  {code:"7012", name:"川崎重工業", en:"Kawasaki Heavy Industries", chg:null,
+    obj:"本日8/7に発表された2026年4-6月期(Q1)決算で、純利益が前年同期比3.7倍の156億円。通期純利益予想を110億円→115億円(+6.3%)に上方修正し、3期連続の最高益更新見通し(出典: 株探経由WebSearch要約、確度medium)。本日の株価反応は情報源間で数値が食い違い前日終値との整合が取れず、本日の前日比%は確認できていません(要確認)。",
+    subj:"大幅増益・上方修正という好材料からは株価は堅調に推移している可能性が高いと考えますが、具体的な値幅を確認できていないため断定は避けます（推測）。防衛・宇宙セクター(EVENTS参照で8/7発表確定)の決算シーズンの中でも際立った内容と言えます。", asOf:"8/7決算発表分(株価は要確認)"},
+  {code:"7013", name:"IHI", en:"IHI Corporation", chg:null,
+    obj:"8/5発表の2026年4-6月期決算で、売上収益+10.9%・営業利益+251.4%・純利益+361.2%と大幅増益、通期業績予想を上方修正(出典: 日経電子版経由WebSearch要約、確度medium)。防衛・宇宙セクターの代表銘柄。",
+    subj:"発表から2営業日が経過しておりある程度株価に織り込まれている可能性がありますが、防衛関連のテーマ性の強さから引き続き資金流入が続く可能性があると考えます（推測）。同業の川崎重工業(7012、上記)も同時期に好決算を発表しており、セクター全体への追い風となっているかもしれません。", asOf:"8/5決算発表分"}
 ],
 "us":[
   {code:"9984", name:"アーム・ホールディングス(ソフトバンクG保有)", en:"Arm Holdings (ARM, SoftBank Group affiliate)", chg:-0.84,
