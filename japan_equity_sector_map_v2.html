@@ -815,6 +815,17 @@ table.xref .code{width:58px;color:var(--ivory)}
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
 
   <div class="newslog-day">
+    <div class="newslog-date">2026-08-10（正午更新）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>日経平均は本日前引け(前場終値)66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、TOPIXも前引け4,107.14(+0.79%)。週末8/7の米国株が半導体中心に大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX)+2%超を好感してAI・半導体関連に買いが先行→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般(38銘柄)。</li>
+      <li><span class="nl-code">6857</span>アドバンテスト: 本日10:18時点33,840円(+5.13%)、<span class="nl-code">8035</span>東京エレクトロンも56,280円(+3.27%)と、本日確認できたSECTOR_REPS中で最も明確な上昇を記録し、日経平均の大幅反発をけん引したとみられる→関連: 285A キオクシアHD 等半導体セクション全般。</li>
+      <li><span class="nl-macro">セクター</span>自動車・運輸セクター(グループ10)はトヨタ(7203)-0.13%・ホンダ(7267)-0.68%とほぼ横ばい〜小幅安で、指数全体の強い上昇に対して出遅れが目立つ→関連: 7203 トヨタ自動車, 7267 本田技研工業, 9202 ANA HD。</li>
+      <li><span class="nl-code">5713</span>住友金属鉱山, <span class="nl-code">4755</span>楽天グループ: 本日決算発表予定(住友鉱は終日中、楽天は15:30発表予定)。本更新時点(13:00台JST)ではいずれも発表未確認→関連: SECTOR_REPS(素材・非鉄, IT・サイバー)。</li>
+      <li><span class="nl-macro">全体</span>本セッションも朝と同様WebFetchが金融サイト全面的に「EGRESS_BLOCKED」となり、WebSearchのスニペットのみで調査。SECTOR_REPS33銘柄中20銘柄は更新(うち今日時点データは3銘柄、残りは8/7終値)できたが、9銘柄は日付未確認・数値矛盾等のため前回値を維持。米国・中国・韓国の個別銘柄(計268件)は方針通り本日は調査対象外。詳細は<a href="daily/2026-08-10_正午.md">本日正午の相場観コメント</a>参照。</li>
+    </ul>
+  </div>
+
+  <div class="newslog-day">
     <div class="newslog-date">2026-08-10（朝ルーティーン）</div>
     <ul>
       <li><span class="nl-code">5711</span>三菱マテリアル: 8/6発表の1Q決算で黒字転換・通期上方修正を好感し8/7終値は前日比+15.71%(700円高の5,157円、一時ストップ高)と急伸→関連: 5713 住友金属鉱山, 5706 三井金属鉱業 等素材・非鉄セクション。</li>
@@ -1025,7 +1036,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "8/7終値(一部混在,SECTOR_REPS33銘柄中5銘柄=5713住友金属鉱山・5711三菱マテリアル・5706三井金属鉱業(8/6終値)・7012川崎重工業・7974任天堂のみ8/7(5706のみ8/6)終値に更新、残り28銘柄は前回値を維持)"; // 朝更新(8/10 6:00台JST): 本セッションはWebFetchが金融サイトのみならずja.wikipedia.org等も含め全面的に「EGRESS_BLOCKED」(過去の一部サイト遮断より広範、事実上WebFetch全面不可)となり、WebSearchのみに依存。個別銘柄の確定終値はスニペットからの取得率が低く(33銘柄中5銘柄のみ日付・数値ともに確度高く確認できた)、誤データ反映より安全側に倒す既定方針(CLAUDE.md)に従い残りは前回値を維持。US_PRICE/CN_PRICE/KR_PRICE等268銘柄も同様の理由で本日は調査を見送り(前回=8/7朝の値のまま)。日経平均は8/7大引けで65,606.71円(前日比-76.55円,-0.12%)と小幅続落(3日続落)、TOPIXは詳細未確認。米雇用統計(7月分、8/7発表)が非農業部門雇用者数-2.3万人(市場予想+8万人程度を大幅に下回り減少に転じた)・失業率4.1%(予想4.2%より改善)という弱いながらも解釈の分かれる内容となった一方、米国株は8/7に最高値更新(S&P500+0.62%の7,757.64、ナスダック+1.30%の26,690.62、ダウ+0.28%の54,036.93、週間ではS&P+3.58%・ナスダック+5.19%)で、弱い雇用統計が9月利下げ期待を強め株高につながったとみられる。本日2026-08-10(月)は東京市場開場前(06:00台JST)の実行のため、日本株の「本日」の値動きはまだ発生していない。詳細はdaily/2026-08-10.md参照。
+const AS_OF = "8/10正午時点(一部混在,SECTOR_REPS33銘柄中20銘柄を更新[うち8035東京エレクトロン・6857アドバンテスト・9432NTTの3銘柄は8/10 10:18時点の本日前場値、残り17銘柄は8/7終値]、4銘柄=7012川崎重工業・5713住友金属鉱山・8316三井住友FG・7974任天堂は再取得値が既存値と一致のため据置、残り9銘柄=285Aキオクシア・7013IHI・9501東京電力HD・5711三菱マテリアル・5706三井金属鉱業・8306三菱UFJ FG・8031三井物産・8053住友商事・9202ANA HDは日付未確認/数値矛盾/異常値のため前回値を維持)"; // 正午更新(8/10 13:00台JST): 本セッションも朝と同様WebFetchが金融サイト全面的に「EGRESS_BLOCKED」となりWebSearchのみに依存。指示通りUSBASE/US_PRICE/CNBASE/CN_PRICE/KRBASE/KR_PRICE(米国・中国・韓国)は今回一切調査・更新せず、朝の値のまま。日経平均は本日前引け(前場終値)66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、TOPIXも前引け4,107.14(+32.21pt,+0.79%)。米国株が8/7に半導体中心の大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX)+2%超を好感してAI・半導体関連に買いが先行したとされる。詳細はdaily/2026-08-10_正午.md参照。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -1148,20 +1159,20 @@ const BASE = {
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
 const DAILY = {
 
-"8035":[55330,-5.50],"6857":[32930,-2.34],"6920":[40910,7.91],"6146":[60890,4.12],"6361":[5681,-1.23],"6327":[2939,3.27],"4063":[5829,2.44],"3436":[3140,-16.53],
+"8035":[56280,3.27],"6857":[33840,5.13],"6920":[40910,7.91],"6146":[60890,4.12],"6361":[5681,-1.23],"6327":[2939,3.27],"4063":[5829,2.44],"3436":[3140,-16.53],
 "4186":[8797,-0.96],"4901":[3866,2.96],"4631":[4424,2.86],"6890":[8190,-1.33],"5016":[3340,0.27],"4062":[13510,0.3],"6971":[3550,-1.74],"2802":[4896,-1.39],
 "285A":[48740,-11.45],"6723":[3905,13.45],"6963":[4404,1.76],"6526":[2028.5,6.07],"6965":[2233,-5.68],"6758":[3589,-5.23],"6981":[6736,-5.83],"6976":[9991,-2.29],
 "6997":[2919,-8.78],"6762":[3092,2.79],"6674":[5286,2.09],"6752":[4281,-0.07],"5333":[5532,-1.11],"6594":[2656,2.51],"9984":[5393,2.53],"5586":[818,-2.15],
-"2354":[1347,6.31],"6504":[14100,-0.21],"6508":[10270,-1.63],"6954":[6687,3.47],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[5073,9.62],"5801":[3008,-8.21],
-"5802":[2137.5,3.64],"6367":[23850,0.44],"1969":[4255,1.5],"6584":[813,4.9],"6498":[2232,1.45],"3778":[3280,5.64],"9432":[151.0,0.40],"6383":[6232,2.33],
-"4704":[6341,-5.96],"3692":[4900,0.41],"6501":[5530,0.99],"6702":[3483,1.37],"6701":[4490,1.01],"6703":[3390,6.27],"4755":[840.0,1.01],"7011":[3993.0,-0.13],
+"2354":[1347,6.31],"6504":[14100,-0.21],"6508":[10270,-1.63],"6954":[6687,3.47],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[5185,12.82],"5801":[3008,-8.21],
+"5802":[2137.5,3.64],"6367":[23850,0.44],"1969":[4255,1.5],"6584":[813,4.9],"6498":[2232,1.45],"3778":[3280,5.64],"9432":[158.6,0.06],"6383":[6176,-0.02],
+"4704":[6341,-5.96],"3692":[4900,0.41],"6501":[5620,2.18],"6702":[3675,2.68],"6701":[4490,1.01],"6703":[3390,6.27],"4755":[886.5,3.08],"7011":[4044,1.15],
 "7012":[2778.5,-3.14],"7013":[2854.5,-0.87],"5631":[7223,-2.77],"7721":[6660,1.06],"4275":[2358,-0.51],"290A":[1018,-7.45],"464A":[1509,-6.85],"186A":[1040,2.77],
 "278A":[10380,-19.66],"9501":[492.8,-5.23],"9502":[2706,-3.91],"9503":[2455.5,0.61],"9506":[1179,-1.13],"9508":[1820,-1.22],"9509":[1017.5,-1.07],"9513":[3834,0.26],
-"1605":[3492,-0.77],"5020":[1294.5,1.01],"5021":[3988,1.04],"6492":[12890,-7.6],"7711":[4095,-3.65],"224A":[1431,-3.31],"5713":[8999,-0.98],"5711":[5157,15.71],
-"5706":[31970,-9.64],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3574.0,0.93],"8316":[6666,2.32],"8411":[8131,0.46],"8303":[1432,-1.45],
-"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4892.0,3.03],"8031":[4687,-2.66],"8053":[1699.5,2.23],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
-"7003":[4308,5.14],"6471":[1185.5,2.6],"6472":[371.1,1.87],"6326":[2684.0,2.35],"7203":[2969.0,1.87],"7267":[1636,3.87],"9201":[2979.5,1.24],"9202":[3151,1.64],
-"581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3597,12.83],"7974":[8043,5.26],"8136":[1274.0,1.19],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
+"1605":[3499.0,1.13],"5020":[1349.5,3.81],"5021":[3988,1.04],"6492":[12890,-7.6],"7711":[4095,-3.65],"224A":[1431,-3.31],"5713":[8999,-0.98],"5711":[5157,15.71],
+"5706":[31970,-9.64],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3574.0,0.93],"8316":[6666,2.32],"8411":[8446,-0.62],"8303":[1432,-1.45],
+"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4868,2.53],"8031":[4687,-2.66],"8053":[1699.5,2.23],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
+"7003":[4202,-2.28],"6471":[1175,0.13],"6472":[371.1,1.87],"6326":[2760,2.83],"7203":[2976,-0.13],"7267":[1671.5,-0.68],"9201":[2979.5,1.24],"9202":[3151,1.64],
+"581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3654,1.58],"7974":[8043,5.26],"8136":[1442,3.22],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
 "3063":[1233,1.82]
 
 };
@@ -1170,22 +1181,22 @@ const DAILY = {
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
-"japan":{label:"日本 / Japan", score:0,
-  summary:"日経平均は8/7大引けで65,606.71円(前日比-76.55円,-0.12%)と小幅続落(3日続落)。前日8/6引け後のソフトバンクグループ4-6月期減益・レーザーテック通期見通し未達を受けた半導体関連株への売りが重石となったが、フジクラが今期2度目の上方修正で急騰、メルカリ・花王が好決算で年初来高値を更新するなど個別物色が活発で、下げ幅は限定的だった。本日2026-08-10(月)は東京市場開場前(06:00台JST)の時点での更新であり、本日の値動きはまだ発生していない。週末には米国株が8/7に過去最高値を更新(WORLD.us参照)しており、地合いはやや好転している可能性があるが、半導体セクターのボラティリティ(WORLD.korea参照)には引き続き注意が必要と考える(推測)。本日8/10は住友金属鉱山(5713)・楽天グループ(4755)など244銘柄の決算発表が予定されている(EVENTS参照)。",
-  en:"The Nikkei 225 closed 8/7 at 65,606.71 (-76.55, -0.12%), a third straight decline. Semiconductor-related selling (SoftBank Group's post-close Q1 profit miss on 8/6, Lasertec's guidance shortfall) weighed on the index, but stock-picking was active elsewhere — Fujikura surged on its second upward earnings revision this fiscal year, and Mercari and Kao hit fresh 52-week highs on strong results — keeping the overall decline modest. This update runs before Monday 2026-08-10's Tokyo open (06:00 JST), so today's price action has not yet occurred. Over the weekend US stocks closed at record highs on 8/7 (see WORLD.us), a potentially supportive backdrop, though semiconductor-sector volatility (see WORLD.korea) still bears watching (subjective). 244 companies report earnings today 8/10, including Sumitomo Metal Mining (5713) and Rakuten Group (4755) — see EVENTS.",
-  asOf:"8/7大引け", source:"[日経電子版 大引け 8/7](https://www.nikkei.com/article/DGXZQOFL074XQ0X00C26A8000000/) / [日経 フジクラ上方修正](https://www.nikkei.com/article/DGXZQOUB075E50X00C26A8000000/)"},
-"korea":{label:"韓国 / South Korea", score:-1,
-  summary:"KOSPIは8/7終値6,258.77(前日比-0.60%)と続落したが、8/6の-4.58%・サーキットブレーカー発動に比べれば値動きは落ち着いた。8/8(土、現地報道)にはサムスン電子・SKハイニックスが寄り付き後に一時4〜5%下落する場面があったものの、AI半導体の需給逼迫観測を背景とした押し目買いが入り下げ幅を縮小(SKハイニックスは一時-5%から+5.8%まで急反発したとの報道もある)。全体としてなお神経質な値動きが続いているとみられ(推測)、日本の半導体セクター(SECTOR_REPS1)への連れ高・連れ安圧力は引き続き要注意と考える。",
-  en:"KOSPI closed 8/7 down 0.60% at 6,258.77, a calmer session than 8/6's -4.58% circuit-breaker day. Weekend reports (8/8) noted Samsung Electronics and SK Hynix each dipping 4-5% intraday before dip-buying (on tight AI-memory supply/demand expectations) pared the losses — SK Hynix reportedly swung from -5% to +5.8% intraday. Sentiment still appears jumpy overall (subjective), and spillover risk to Japan's semiconductor sector (SECTOR_REPS group 1) bears continued watching.",
-  asOf:"8/7終値+8/8報道", source:"[Seoul Economic Daily KOSPI 8/7](https://en.sedaily.com/finance/2026/08/07/kospi-closes-down-3761-points-at-625877) / [半導体株反発報道 8/8](https://news.yahoo.co.jp/articles/924686c8a10bc78a504b6e020e0f0ff115c1ff1e)"},
+"japan":{label:"日本 / Japan", score:2,
+  summary:"日経平均は本日8/10前引け(前場終値)で66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、一時+1,400円超まで上げ幅を拡大する場面もあった。TOPIXも前引け4,107.14(前日比+32.21pt,+0.79%)。週末8/7の米国株が半導体中心に大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX、米半導体企業の株価指数)が+2%超上昇したのを好感し、東京市場でも東京エレクトロン(8035)・アドバンテスト(6857)などAI・半導体関連に買いが先行した。TOPIXの上昇率(+0.79%)が日経平均(+2.02%)より明確に小さいのは、値がさ株(1株の株価が高い銘柄)の影響を強く受ける日経平均に対し、時価総額加重のTOPIXは相対的に上昇が穏やかなためで、半導体セクター主導の物色に偏っている可能性を示唆すると考える(推測)。本日は住友金属鉱山(5713)・楽天グループ(4755、15:30発表予定)など244銘柄の決算発表が予定されている(EVENTS参照)。",
+  en:"The Nikkei 225 rebounded sharply, closing this morning's session (前引け) at 66,931.48 (+1,324.77, +2.02%), briefly gaining over 1,400 points intraday. TOPIX also rose to 4,107.14 (+32.21pt, +0.79%) at the morning close. The move follows Friday 8/7's sharp US rally led by semiconductors, with the Philadelphia Semiconductor Index (SOX) up over 2%, which spurred buying in Tokyo Electron (8035), Advantest (6857), and other AI/chip names. TOPIX's smaller gain (+0.79%) versus the Nikkei's (+2.02%) likely reflects the Nikkei's greater sensitivity to high-priced ('value-heavy') stocks versus TOPIX's market-cap weighting — suggesting the rally is concentrated in semiconductors rather than broad-based (subjective). 244 companies report earnings today, including Sumitomo Metal Mining (5713) and Rakuten Group (4755, due 15:30) — see EVENTS.",
+  asOf:"8/10前引け", source:"[日経電子版 東証前引け](https://www.nikkei.com/article/DGXZQOFL1013N0Q6A810C2000000/) / [日経電子版 日経平均反発](https://www.nikkei.com/article/DGXZQOFL100DB0Q6A810C2000000/)"},
+"korea":{label:"韓国 / South Korea", score:1,
+  summary:"KOSPIは前週末8/7終値6,258.77(前日比-0.60%)からの反動高で、本日8/10前場9:30時点で前日比+82.66pt(+1.32%)の6,341.43まで上げ幅を拡大(寄り付きは+0.76%高の6,306.33)。米ハイテク株高を追い風に、サムスン電子・SKハイニックスなど大型半導体株が揃って上昇し指数を牽引したとされる。一方で個人・外国人投資家は売り越し、機関投資家が買い越しという需給構成で上値は抑制気味との報道があり(推測を交えた解釈)、全体としてなお神経質な地合いが続いている可能性があると考える。日本の半導体セクター(SECTOR_REPS1)への連れ高・連れ安圧力は引き続き要注意と考える(推測)。",
+  en:"KOSPI extended its rebound from Friday 8/7's close (6,258.77, -0.60%), reaching 6,341.43 (+82.66pt, +1.32%) as of 9:30am in this morning's session (having opened +0.76% at 6,306.33). Large-cap semiconductor names Samsung Electronics and SK Hynix rose in tandem, tracking the overnight US tech rally. However, reports note retail and foreign investors were net sellers while institutions were net buyers, suggesting the upside may be somewhat capped (interpretation, subjective) and sentiment remains jumpy overall. Spillover risk to Japan's semiconductor sector (SECTOR_REPS group 1) bears continued watching (subjective).",
+  asOf:"8/10前場9:30時点", source:"[Korea JoongAng Daily](https://www.koreajoongangdaily.com/business/kospi-opens-076-higher-on-us-gains/12816086) / [Newspim 開場市況](https://www.newspim.com/news/view/20260810000258)"},
 "us":{label:"米国 / US", score:1,
-  summary:"8/7(金)の米国株は7月雇用統計を受けて大幅高となり、S&P500は+0.62%の7,757.64で最高値更新、ナスダック総合は+1.30%の26,690.62、NYダウは+0.28%の54,036.93で引け、週間ではS&P+3.58%・ナスダック+5.19%と数ヶ月ぶりの大幅上昇週となった。7月分非農業部門雇用者数は-2.3万人と市場予想(+8万人程度)に反し減少に転じ、過去2ヶ月分も下方修正された一方、失業率は4.1%(予想4.2%)に改善するという解釈の分かれる内容だったが、市場は雇用の弱さをFRBの9月利下げ観測強化と受け止め株高につながったとみられる(推測)。来週8/12には米CPI(7月分)の発表を控える。",
-  en:"US stocks rallied sharply 8/7 (Fri) on the July jobs report: the S&P 500 rose 0.62% to a record 7,757.64, the Nasdaq Composite gained 1.30% to 26,690.62, and the Dow added 0.28% to 54,036.93 — a weekly gain of +3.58% (S&P) and +5.19% (Nasdaq), the best week in months. July nonfarm payrolls unexpectedly fell 23,000 (vs. consensus of roughly +80,000) with sizable downward revisions to prior months, while unemployment improved to 4.1% (vs. 4.2% expected) — a mixed signal, but markets appear to have read the labor-market softness as reinforcing September Fed rate-cut bets, fueling the rally (subjective). US CPI (July) is due 8/12.",
-  asOf:"8/7引け", source:"[CNBC 8/7市況・最高値更新](https://www.cnbc.com/2026/08/06/stock-market-today-live-updates.html) / [日経 米雇用統計](https://www.nikkei.com/article/DGXZQOGN022KA0S6A800C2000000/)"},
-"china":{label:"中国 / China", score:0,
-  summary:"上海総合指数は8/7終値3,940.04(前日比+1.02%)と続伸。7月分PMI(国家統計局49.2・財新50.9)が示す製造業のもたつきは残るものの、直近数日は下値を切り上げる展開で、輸出統計の上振れも指数を支えたとの報道がある。半導体・電子部品関連の一部銘柄は逆行高との情報もあり、日本・韓国の半導体セクターの動きとも方向性が一部重なる。ただしWebFetchが使用できないセッションのため個別銘柄レベルの確認はできておらず、指数レベルの情報にとどまる点に留意。",
-  en:"The Shanghai Composite closed 8/7 up 1.02% at 3,940.04, extending its recent rebound despite still-soft July PMIs (official 49.2, Caixin 50.9); reports cite an export-data beat as a supportive factor. Some semiconductor/electronics-component names reportedly outperformed, echoing similar strength in Japan's and Korea's chip sectors. Note this session had no WebFetch access, so only index-level (not individual-stock) data could be confirmed.",
-  asOf:"8/7終値", source:"[財経新聞 上海総合 8/7](https://www.zaikei.co.jp/article/20260807/864947.html)"}
+  summary:"8/7(金)の米国株は7月雇用統計を受けて大幅高となり、S&P500は+0.62%の7,757.64で最高値更新、ナスダック総合は+1.30%の26,690.62、NYダウは+0.28%の54,036.93で引け、週間ではS&P+3.58%・ナスダック+5.19%と数ヶ月ぶりの大幅上昇週となった。7月分非農業部門雇用者数は-2.3万人と市場予想(+8万人程度)に反し減少に転じ、過去2ヶ月分も下方修正された一方、失業率は4.1%(予想4.2%)に改善するという解釈の分かれる内容だったが、市場は雇用の弱さをFRBの9月利下げ観測強化と受け止め株高につながったとみられる(推測)。本日2026-08-10正午JST時点では米国市場は現地時間日曜夜〜月曜早朝のため未開場。来週8/12には米CPI(7月分)の発表を控える。",
+  en:"US stocks rallied sharply 8/7 (Fri) on the July jobs report: the S&P 500 rose 0.62% to a record 7,757.64, the Nasdaq Composite gained 1.30% to 26,690.62, and the Dow added 0.28% to 54,036.93 — a weekly gain of +3.58% (S&P) and +5.19% (Nasdaq), the best week in months. July nonfarm payrolls unexpectedly fell 23,000 (vs. consensus of roughly +80,000) with sizable downward revisions to prior months, while unemployment improved to 4.1% (vs. 4.2% expected) — a mixed signal, but markets appear to have read the labor-market softness as reinforcing September Fed rate-cut bets, fueling the rally (subjective). As of noon JST 2026-08-10, US markets remain closed (Sunday night/early Monday US time). US CPI (July) is due 8/12.",
+  asOf:"8/7引け(米国市場は本更新時点で未開場)", source:"[CNBC 8/7市況・最高値更新](https://www.cnbc.com/2026/08/06/stock-market-today-live-updates.html) / [日経 米雇用統計](https://www.nikkei.com/article/DGXZQOGN022KA0S6A800C2000000/)"},
+"china":{label:"中国 / China", score:1,
+  summary:"上海総合指数は本日8/10前引けで前日比+30.48pt(+0.76%)の4,067.07と続伸。前週末8/7終値3,940.04(+1.02%)からの上昇継続で、米ハイテク株高を受けたセンチメント改善が主因とみられる(推測)。日本・韓国の半導体セクター高とも方向性が一部重なるが、具体的な個別材料・出来高等の詳細は今回のセッションでは確認できていない点に留意。",
+  en:"The Shanghai Composite rose to 4,067.07 (+30.48pt, +0.76%) at this morning's 8/10 session close, extending Friday 8/7's gain (+1.02% to 3,940.04). The move appears to track improved sentiment following the overnight US tech rally (subjective), broadly consistent with the semiconductor-led strength seen in Japan and Korea today. Detailed drivers and volume figures could not be confirmed this session.",
+  asOf:"8/10前引け", source:"[Yahoo!ファイナンス(フィスコ) 中国本土前引け](https://finance.yahoo.co.jp/news/detail/7ec123f0693192d0043f4b78149d16a2666b0e95)"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
@@ -1219,7 +1230,7 @@ const SECTOR_REPS = {
    Only the subjective interpretation is stored here per mode; the ranking itself is auto-computed from
    existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
 const FLOW = {
-"jp":{subj:"本日2026-08-10朝はWebFetchがセッション全体で使用不可(EGRESS_BLOCKED、金融サイトに限らずWikipedia等も含め全面遮断)となり、WebSearchのスニペットのみで33銘柄を調査しました。確度高く確認できたのはSECTOR_REPS中5銘柄(住友金属鉱山5713-0.98%・三菱マテリアル5711+15.71%・三井金属鉱業5706-9.64%(8/6分)・川崎重工業7012-3.14%・任天堂7974+5.26%、いずれも直近終値)のみで、残り28銘柄は前回値を維持しています。素材・非鉄セクター(グループ6)は決算内容次第で銘柄ごとの明暗が大きく分かれており(三菱マテリアルは黒字転換・大幅増益で急伸、三井金属鉱業は反落)、資金が業種単位ではなく個別の決算内容に沿って選別的に動いている可能性があると考えます（推測）。東京市場はまだ開場前(06:00台JST)のため、本日の値動き自体はこれから発生する点にご留意ください。業種平均は参考値の域を出ません。", asOf:"8/7-8/6終値混在(33銘柄中5銘柄のみ更新、残り28銘柄は前回値)"},
+"jp":{subj:"本日正午の更新でも本セッションはWebFetchが金融サイト全面的に「EGRESS_BLOCKED」でWebSearchのスニペットに依存する状況は変わりませんでしたが、朝(5/33銘柄のみ更新)よりは改善し、SECTOR_REPS33銘柄中20銘柄を更新できました(うち東京エレクトロン8035・アドバンテスト6857・NTT9432の3銘柄は本日10:18時点の前場値、残り17銘柄は8/7終値、9銘柄は日付未確認・数値矛盾等のため前回値を維持)。値上がりが目立つのはデータセンター・光通信セクター(グループ2、フジクラ5803+12.82%が牽引)、IT・サイバーセクター(グループ3、楽天+3.08%含め全銘柄プラス)、内需・消費セクター(グループ11、花王・サンリオともプラス)で、日経平均+2.02%の大幅高を牽引したとされる半導体本体(東京エレクトロン+3.27%・アドバンテスト+5.13%)以外にも資金が広がっている可能性があると考えます（推測）。一方、自動車・運輸セクター(グループ10)はトヨタ-0.13%・ホンダ-0.68%とほぼ横ばい〜小幅安で、指数全体の強い上昇に対して出遅れている点が目立ちます。理由は不明ですが、輸出関連としてドル円がやや円高方向(157円台後半)に振れていることが重石になっている可能性があります（推測、要確認）。素材・非鉄セクター(グループ6)は本日データを更新していないため朝時点(三菱マテリアル決算急伸・三井金属鉱業反落で選別色)の内容のままです。", asOf:"8/10正午時点(33銘柄中20銘柄更新、詳細はAS_OF参照)"},
 "us":{subj:"【本日は未更新】本セッションはWebFetchが完全に利用不可となり、米国個別銘柄(99ティッカー)の調査を見送りました。以下は前回(8/7朝)更新時点の内容です: US_PRICE/US_CHGは113銘柄中対応JPコード20件(17ティッカー)で8/5終値分を確認できました。前日(8/4)にAI関連で急伸したArm(9984ソフトバンクG経由)は-0.84%と一服し、CrowdStrike(4704)+4.29%・NVIDIA(5706三井金属鉱業経由)+2.56%・Freeport-McMoRan(5713住友金属鉱山経由)+3.83%が堅調だった一方、Kulicke & Soffa(6146)-7.8%・D.R. Horton(1928)-1.86%・Constellation Energy(9503/9506/9508/9509)-1.83%は下落しました。なお8/7の米国株全体は雇用統計を受けて全指数で大幅高・最高値更新となっており(WORLD.us参照)、個別銘柄も総じて堅調だった可能性が高いと考えますが未確認です（推測）。", asOf:"8/5終値(113銘柄中20コードが反映、8/10朝は未更新)"},
 "cn":{subj:"【本日は未更新】本セッションはWebFetchが完全に利用不可となり、中国個別銘柄(92ティッカー)の調査を見送りました。以下は前回(8/7朝)更新時点の内容です: CN_PRICE/CN_CHGは105銘柄中対応JPコード12件(8ティッカー)で8/5分を確認できました。中芯国際/SMIC(6920レーザーテック経由)+4.13%・騰訊/Tencent(9984ソフトバンクG・7974任天堂経由)+0.94%と半導体・ネット大手は底堅い一方、中国広核電力(9501東京電力HD・9506中国電力・9509九州電力経由)-1.03%・中信股份(8058三菱商事経由)-1.45%とエネルギー・コングロマリット系はやや軟調でした。上海総合指数は8/7終値+1.02%と続伸しており(WORLD.china参照)、指数全体は底堅く推移している可能性があると考えます（推測）。", asOf:"8/5(105銘柄中12コードが反映、8/10朝は未更新)"},
 "kr":{subj:"【本日は未更新】本セッションはWebFetchが完全に利用不可となり、韓国個別銘柄(77ティッカー)の調査を見送りました。以下は前回(8/7朝)更新時点の内容です: KR_PRICE/KR_CHGは93銘柄中19コードで8/5分を確認できました。サムスン電機(4062/2802/6981/6976経由)+14.43%・LGイノテック(6971/6594経由)+14.48%・ハンファソリューションズ(4063経由)+16.79%と半導体部材・部品の中小型株が二桁の急伸を見せた一方、SKハイニックス(285A)+5.71%・サムスン電子(6920/6723/6758経由)+2.81%は本体側では相対的に控えめな上昇にとどまりました。クラフトン(7974任天堂経由)-3.78%とゲーム関連は逆行安。週末はサムスン電子・SKハイニックスが一時急落後に押し目買いで戻す不安定な値動きも報じられており(WORLD.korea参照)、半導体サプライチェーン全体のボラティリティは高い状態が続いている可能性があると考えます（推測）。", asOf:"8/5(93銘柄中19コードが反映、8/10朝は未更新)"}
@@ -1231,15 +1242,15 @@ const FLOW = {
    Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
 const PICKS = {
 "jp":[
-  {code:"5711", name:"三菱マテリアル", en:"Mitsubishi Materials", chg:15.71,
-    obj:"8/7終値5,157円(前日比+700円,+15.71%、一時ストップ高)(出典: WebSearchスニペット複数、確度medium)。8/6発表の1Q決算で黒字転換・上方修正を発表したのが材料。素材・非鉄セクター(グループ6)の代表銘柄の一つ。",
-    subj:"決算内容が市場予想を大きく上回ったための急伸とみられ、同業種の他銘柄(住友金属鉱山・三井金属鉱業、下記)がまちまちの値動きだったこととあわせ、業種全体というより個別の決算内容に資金が反応している可能性が高いと考えます（推測）。", asOf:"8/7終値(確度medium)"},
-  {code:"4755", name:"楽天グループ", en:"Rakuten Group", chg:null,
-    obj:"本日2026-08-10 15:30に2026年12月期第2四半期(中間期)決算発表を予定(出典: 株探「来週の決算発表予定」記事、確度high)。IT・サイバーセクター(グループ3)の代表銘柄。東京市場開場前(06:00台JST)の本更新時点では本日の株価変動は未発生。",
-    subj:"モバイル事業の収支改善ペースが引き続き焦点になると考えられ(推測)、決算内容次第で当日終値にかけて大きく値が動く可能性があります。決算は取引時間中の15:30発表予定のため、翌営業日の株価反応も含めて注視が必要と考えます（推測）。", asOf:"8/10 15:30決算発表予定"},
+  {code:"6857", name:"アドバンテスト", en:"Advantest", chg:5.13,
+    obj:"本日2026-08-10 10:18時点33,840円(前日比+5.13%)(出典: finance.yahoo.co.jp、確度medium・13:00時点の確定値ではなく前場中の中間時点)。半導体・AIセクター(グループ1)の代表銘柄で、本日のSECTOR_REPS中で最も明確な上昇率を確認できた銘柄。",
+    subj:"週末8/7の米国株が半導体中心に大幅高・最高値更新した流れ(フィラデルフィア半導体株指数SOX+2%超)を引き継ぎ、東京エレクトロン(8035、+3.27%)とともに本日の日経平均+2.02%の大幅反発をけん引した中心銘柄の一つとみられます（推測）。", asOf:"8/10 10:18時点(確度medium)"},
   {code:"5713", name:"住友金属鉱山", en:"Sumitomo Metal Mining", chg:-0.98,
-    obj:"8/7終値8,999円(前日比-89円,-0.98%)(出典: WebSearchスニペット、確度medium)。本日2026-08-10も決算発表が予定されている銘柄の一つ(株探「来週の決算発表予定」記事で★注目決算として言及、確度high)。素材・非鉄セクター(グループ6)の代表銘柄。",
-    subj:"8/7は小幅安にとどまったものの、同業種の三菱マテリアル(上記)が決算を機に急伸したことを踏まえると、本日の住友金属鉱山の決算内容次第でも大きく株価が動く可能性があると考えます（推測）。銅・ニッケル等の非鉄金属価格動向もあわせて確認したい銘柄です。", asOf:"8/7終値+8/10決算発表予定(確度medium)"}
+    obj:"直近確認できた株価は8/7終値8,999円(前日比-0.98%)(出典: WebSearchスニペット、確度medium)。本日2026-08-10に決算発表予定(株探「来週の決算発表予定」記事で★注目決算、確度high)。素材・非鉄セクター(グループ6)の代表銘柄。本日午前時点では発表の有無・内容とも未確認。",
+    subj:"同業種の三菱マテリアル(5711)が8/6決算を機に急伸した例を踏まえると、本日の住友金属鉱山の決算内容次第で後場に大きく株価が動く可能性があると考えます（推測）。銅・ニッケル等の非鉄金属価格動向もあわせて確認したい銘柄です。", asOf:"8/7終値+8/10決算発表予定(確度medium)"},
+  {code:"4755", name:"楽天グループ", en:"Rakuten Group", chg:3.08,
+    obj:"直近確認できた株価は8/7終値886.5円(前日比+3.08%)(出典: finance.yahoo.co.jp、確度medium)。本日2026-08-10 15:30に2026年12月期第2四半期(中間期)決算発表を予定(確定)。IT・サイバーセクター(グループ3)の代表銘柄。本更新時点(13:00台JST)では決算はまだ発表されていません。",
+    subj:"モバイル事業の収支改善ペースが引き続き焦点になると考えられ(推測)、決算は取引時間中の15:30発表予定のため、当日終値〜翌営業日の株価反応にかけて大きく値が動く可能性があると考えます（推測）。", asOf:"8/7終値+8/10 15:30決算発表予定(確度medium)"}
 ],
 "us":[
   {code:"9984", name:"アーム・ホールディングス(ソフトバンクG保有)", en:"Arm Holdings (ARM, SoftBank Group affiliate)", chg:-0.84,
