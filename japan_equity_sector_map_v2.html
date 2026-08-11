@@ -811,8 +811,19 @@ table.xref .code{width:58px;color:var(--ivory)}
 <section id="newslog" style="--c:var(--new)">
   <div class="sec-head"><span class="sec-num">📰</span>
     <h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em></h2>
-    <span class="count">13日分</span></div>
+    <span class="count">14日分</span></div>
   <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+
+  <div class="newslog-day">
+    <div class="newslog-date">2026-08-11（朝ルーティーン・大幅遅延実行、東証休場）</div>
+    <ul>
+      <li><span class="nl-macro">全体</span>本日2026-08-11は「山の日」の祝日で東証は休場。日経平均・TOPIXともに本日分の取引は発生せず、DAILY(SECTOR_REPS33銘柄)・PICKS.jp・FLOW.jp・DEEPDIVEはいずれも前回値(8/10正午時点)を意図的に据え置いた(正午ルーティーンの2026-08-11分と同じ判断)→関連銘柄なし(全銘柄据え置き)。</li>
+      <li><span class="nl-code">285A</span>キオクシアHD: 8/10、自己株式の取得状況及び取得終了に関するお知らせを適時開示(TDnet)。株価影響は本日休場のため未反映→関連: 半導体セクション全般(グループ1)。</li>
+      <li><span class="nl-macro">全体</span>米国とイラン間のホルムズ海峡を巡る協議難航・イエメン親イラン武装組織による攻撃報道を受け、WTI原油先物が一時+5%の82ドル台まで急伸(6日ぶりの80ドル台回復)。8/10の米国株はエヌビディア等ハイテク株が上値重く、S&P500・ナスダック・NYダウがそろって小幅安(-0.1〜-0.3%程度)で引けた→関連: 5020 ENEOSホールディングス, 1605 INPEX 等エネルギー・電力セクション、8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション。</li>
+      <li><span class="nl-macro">全体</span>韓国KOSPIは本日8/11、前日比-0.92%安の6,241.86で寄り付き続落。SKハイニックス一時-2.32%・サムスン電子-0.22%と半導体大手が軟調→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+      <li><span class="nl-macro">全体</span>本セッションもWebFetchは金融サイト(stockanalysis.com等)へのアクセスが「EGRESS_BLOCKED」で全面遮断されており、WebSearchのスニペットのみに依存。米国・中国・韓国の個別対応銘柄(計約268件)の株価再取得は、WebSearch予算(セッション共有・約200回)が268銘柄には構造的に不足すること、および前回(8/7朝)以降ほぼ全銘柄が未更新で推奨バッチ運用も要することを踏まえ、本セッションでは見送った(米国・中国・韓国側のUS_PRICE/CN_PRICE/KR_PRICE/US_CHG/CN_CHG/KR_CHG・PICKS.us/cn/kr・FLOW.us/cn/krはいずれも前回値のまま)。世界情勢(WORLD)・イベントカレンダー(EVENTS)は本日分に更新済み。詳細は<a href="daily/2026-08-11.md">本日の相場観コメント</a>参照。</li>
+    </ul>
+  </div>
 
   <div class="newslog-day">
     <div class="newslog-date">2026-08-10（正午更新）</div>
@@ -1181,22 +1192,22 @@ const DAILY = {
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
-"japan":{label:"日本 / Japan", score:2,
-  summary:"日経平均は本日8/10前引け(前場終値)で66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、一時+1,400円超まで上げ幅を拡大する場面もあった。TOPIXも前引け4,107.14(前日比+32.21pt,+0.79%)。週末8/7の米国株が半導体中心に大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX、米半導体企業の株価指数)が+2%超上昇したのを好感し、東京市場でも東京エレクトロン(8035)・アドバンテスト(6857)などAI・半導体関連に買いが先行した。TOPIXの上昇率(+0.79%)が日経平均(+2.02%)より明確に小さいのは、値がさ株(1株の株価が高い銘柄)の影響を強く受ける日経平均に対し、時価総額加重のTOPIXは相対的に上昇が穏やかなためで、半導体セクター主導の物色に偏っている可能性を示唆すると考える(推測)。本日は住友金属鉱山(5713)・楽天グループ(4755、15:30発表予定)など244銘柄の決算発表が予定されている(EVENTS参照)。",
-  en:"The Nikkei 225 rebounded sharply, closing this morning's session (前引け) at 66,931.48 (+1,324.77, +2.02%), briefly gaining over 1,400 points intraday. TOPIX also rose to 4,107.14 (+32.21pt, +0.79%) at the morning close. The move follows Friday 8/7's sharp US rally led by semiconductors, with the Philadelphia Semiconductor Index (SOX) up over 2%, which spurred buying in Tokyo Electron (8035), Advantest (6857), and other AI/chip names. TOPIX's smaller gain (+0.79%) versus the Nikkei's (+2.02%) likely reflects the Nikkei's greater sensitivity to high-priced ('value-heavy') stocks versus TOPIX's market-cap weighting — suggesting the rally is concentrated in semiconductors rather than broad-based (subjective). 244 companies report earnings today, including Sumitomo Metal Mining (5713) and Rakuten Group (4755, due 15:30) — see EVENTS.",
-  asOf:"8/10前引け", source:"[日経電子版 東証前引け](https://www.nikkei.com/article/DGXZQOFL1013N0Q6A810C2000000/) / [日経電子版 日経平均反発](https://www.nikkei.com/article/DGXZQOFL100DB0Q6A810C2000000/)"},
-"korea":{label:"韓国 / South Korea", score:1,
-  summary:"KOSPIは前週末8/7終値6,258.77(前日比-0.60%)からの反動高で、本日8/10前場9:30時点で前日比+82.66pt(+1.32%)の6,341.43まで上げ幅を拡大(寄り付きは+0.76%高の6,306.33)。米ハイテク株高を追い風に、サムスン電子・SKハイニックスなど大型半導体株が揃って上昇し指数を牽引したとされる。一方で個人・外国人投資家は売り越し、機関投資家が買い越しという需給構成で上値は抑制気味との報道があり(推測を交えた解釈)、全体としてなお神経質な地合いが続いている可能性があると考える。日本の半導体セクター(SECTOR_REPS1)への連れ高・連れ安圧力は引き続き要注意と考える(推測)。",
-  en:"KOSPI extended its rebound from Friday 8/7's close (6,258.77, -0.60%), reaching 6,341.43 (+82.66pt, +1.32%) as of 9:30am in this morning's session (having opened +0.76% at 6,306.33). Large-cap semiconductor names Samsung Electronics and SK Hynix rose in tandem, tracking the overnight US tech rally. However, reports note retail and foreign investors were net sellers while institutions were net buyers, suggesting the upside may be somewhat capped (interpretation, subjective) and sentiment remains jumpy overall. Spillover risk to Japan's semiconductor sector (SECTOR_REPS group 1) bears continued watching (subjective).",
-  asOf:"8/10前場9:30時点", source:"[Korea JoongAng Daily](https://www.koreajoongangdaily.com/business/kospi-opens-076-higher-on-us-gains/12816086) / [Newspim 開場市況](https://www.newspim.com/news/view/20260810000258)"},
-"us":{label:"米国 / US", score:1,
-  summary:"8/7(金)の米国株は7月雇用統計を受けて大幅高となり、S&P500は+0.62%の7,757.64で最高値更新、ナスダック総合は+1.30%の26,690.62、NYダウは+0.28%の54,036.93で引け、週間ではS&P+3.58%・ナスダック+5.19%と数ヶ月ぶりの大幅上昇週となった。7月分非農業部門雇用者数は-2.3万人と市場予想(+8万人程度)に反し減少に転じ、過去2ヶ月分も下方修正された一方、失業率は4.1%(予想4.2%)に改善するという解釈の分かれる内容だったが、市場は雇用の弱さをFRBの9月利下げ観測強化と受け止め株高につながったとみられる(推測)。本日2026-08-10正午JST時点では米国市場は現地時間日曜夜〜月曜早朝のため未開場。来週8/12には米CPI(7月分)の発表を控える。",
-  en:"US stocks rallied sharply 8/7 (Fri) on the July jobs report: the S&P 500 rose 0.62% to a record 7,757.64, the Nasdaq Composite gained 1.30% to 26,690.62, and the Dow added 0.28% to 54,036.93 — a weekly gain of +3.58% (S&P) and +5.19% (Nasdaq), the best week in months. July nonfarm payrolls unexpectedly fell 23,000 (vs. consensus of roughly +80,000) with sizable downward revisions to prior months, while unemployment improved to 4.1% (vs. 4.2% expected) — a mixed signal, but markets appear to have read the labor-market softness as reinforcing September Fed rate-cut bets, fueling the rally (subjective). As of noon JST 2026-08-10, US markets remain closed (Sunday night/early Monday US time). US CPI (July) is due 8/12.",
-  asOf:"8/7引け(米国市場は本更新時点で未開場)", source:"[CNBC 8/7市況・最高値更新](https://www.cnbc.com/2026/08/06/stock-market-today-live-updates.html) / [日経 米雇用統計](https://www.nikkei.com/article/DGXZQOGN022KA0S6A800C2000000/)"},
-"china":{label:"中国 / China", score:1,
-  summary:"上海総合指数は本日8/10前引けで前日比+30.48pt(+0.76%)の4,067.07と続伸。前週末8/7終値3,940.04(+1.02%)からの上昇継続で、米ハイテク株高を受けたセンチメント改善が主因とみられる(推測)。日本・韓国の半導体セクター高とも方向性が一部重なるが、具体的な個別材料・出来高等の詳細は今回のセッションでは確認できていない点に留意。",
-  en:"The Shanghai Composite rose to 4,067.07 (+30.48pt, +0.76%) at this morning's 8/10 session close, extending Friday 8/7's gain (+1.02% to 3,940.04). The move appears to track improved sentiment following the overnight US tech rally (subjective), broadly consistent with the semiconductor-led strength seen in Japan and Korea today. Detailed drivers and volume figures could not be confirmed this session.",
-  asOf:"8/10前引け", source:"[Yahoo!ファイナンス(フィスコ) 中国本土前引け](https://finance.yahoo.co.jp/news/detail/7ec123f0693192d0043f4b78149d16a2666b0e95)"}
+"japan":{label:"日本 / Japan", score:0,
+  summary:"本日2026年8月11日は「山の日」で東京証券取引所は休場(祝日)であり、日経平均・TOPIXともに本日分の取引データは存在しない。前回の取引実績は8/10前引け(前場終値)66,931.48円(前日比+1,324.77円,+2.02%)・TOPIX前引け4,107.14(+0.79%)で、半導体関連への買いを中心に大幅反発していた。本日は取引材料がないためscoreは中立(0)とした。翌営業日8/12は米CPI(7月分、日本時間8/12夜発表)の発表と重なるため、休場明けの寄り付きにボラティリティが生じる可能性があると考える(推測)。",
+  en:"Today, August 11, 2026, is 山の日 (Mountain Day), a Japanese national holiday — the Tokyo Stock Exchange is closed, so there is no new Nikkei/TOPIX trading data for today. The last session (8/10 morning close) saw the Nikkei rebound sharply to 66,931.48 (+1,324.77, +2.02%) and TOPIX to 4,107.14 (+0.79%), led by semiconductor buying. Score is set to neutral (0) given the absence of trading activity today. The next session (8/12) coincides with the US July CPI release (due late 8/12 JST), which may add volatility at the reopen (subjective).",
+  asOf:"8/11(休場)", source:"[休場日カレンダー(投資の森)](https://nikkeiyosoku.com/stock/holiday/) / [WealthNavi 市場休場日カレンダー](https://www.wealthnavi.com/holiday-calendar)"},
+"korea":{label:"韓国 / South Korea", score:-1,
+  summary:"KOSPIは本日8/11、前日比-0.92%安の6,241.86で寄り付き、続落してのスタートとなった。主力半導体株が軟調で、SKハイニックスは一時-2.32%、サムスン電子も-0.22%と下落。前日(8/10)の米国ハイテク株の軟調(ナスダック-0.3%、エヌビディア反落)を受けた連れ安に加え、米イラン間の中東情勢緊張継続への警戒も重荷になったとみられる(推測)。一方、韓国政府は半導体産業向けに5兆ウォン規模の特別基金設立等の政策支援を発表しており、下支え材料として意識されている可能性がある(推測)。日本の半導体セクター(SECTOR_REPS1、休場明けの8/12以降)への連れ安圧力に注意したい。",
+  en:"KOSPI opened down 0.92% at 6,241.86 today (8/11), extending its decline. Major semiconductor names were soft — SK Hynix fell as much as 2.32% and Samsung Electronics slipped 0.22% — tracking Monday's (8/10) weak US tech session (Nasdaq -0.3%, Nvidia pulled back) and continued unease over US-Iran tensions in the Middle East (subjective). The South Korean government has separately unveiled semiconductor-industry support including a ~5 trillion won special fund, seen as a potential offsetting factor (subjective). Spillover risk to Japan's semiconductor sector (SECTOR_REPS group 1) bears watching once TSE reopens 8/12.",
+  asOf:"8/11寄り付き〜前場", source:"[TradingKey KOSPI続落](https://www.tradingkey.com/jp/analysis/stocks/more/262094141-south-korea-stocks-kospi-sk-hynix-samsung-tradingkey)"},
+"us":{label:"米国 / US", score:-1,
+  summary:"8/10(月)の米国株はやや軟調な引けとなり、S&P500は前日比約-0.1%(7,750.26)、ナスダック総合は約-0.3%、NYダウも約-0.1%とそろって小幅安。原油価格上昇(WTI一時+5%の82ドル台、6日ぶりの80ドル台回復)を背景にエネルギー株が上昇した一方、エヌビディア等の主力ハイテク株が上値重く、8/7に付けた最高値からは一服する展開だった。原油高の主因は米国とイラン間のホルムズ海峡を巡る協議難航・イエメン親イラン武装組織の攻撃報道で、中東情勢の緊張が再燃していることによるとみられる(推測交じり)。今週は8/12米CPI・8/13 PPI・8/14小売売上高等、週後半にかけて重要指標が集中する。",
+  en:"US stocks closed slightly lower Monday 8/10: the S&P 500 fell about -0.1% to 7,750.26, the Nasdaq Composite dropped roughly -0.3%, and the Dow was down about -0.1% — all pulling back modestly from Friday's record highs. Energy shares rose as oil prices jumped (WTI briefly up 5% to the $82 range, back above $80 for the first time in six sessions) on renewed Middle East tension — stalled US-Iran talks over the Strait of Hormuz and reports of a Houthi attack — while mega-cap tech names including Nvidia lagged. A heavy data week follows: US CPI (8/12), PPI (8/13), and retail sales (8/14).",
+  asOf:"8/10引け", source:"[Yahoo Finance 8/10市況](https://finance.yahoo.com/markets/live/stock-market-today-monday-august-10-dow-sp-500-nasdaq-104358890.html) / [日経 原油高](https://www.nikkei.com/article/DGXZQOGN108OP0Q6A810C2000000/)"},
+"china":{label:"中国 / China", score:0,
+  summary:"本日8/11時点の上海総合指数の確定値は本セッションのWebSearchでは確認できなかった(要確認)。直近確認できた値は8/10前引けの前日比+30.48pt(+0.76%)の4,067.07(前週末8/7終値3,940.04から続伸)。韓国KOSPIが本日-0.92%で寄り付き軟調となっている(WORLD.korea参照)ことや、米国ハイテク株が8/10に一服(WORLD.us参照)したことを踏まえると、中国株も上値の重い展開になっている可能性があるが、これは推測であり確認していない。",
+  en:"This session's WebSearch could not confirm a same-day (8/11) closing figure for the Shanghai Composite (unconfirmed). The most recent confirmed reading is 8/10's morning-session close of 4,067.07 (+30.48pt, +0.76%), extending Friday 8/7's gain. Given Korea's KOSPI opened down 0.92% today (see WORLD.korea) and US tech names cooled off 8/10 (see WORLD.us), Chinese equities may also be facing some near-term headwinds today, but this is speculative and unconfirmed.",
+  asOf:"8/10前引け(8/11分は要確認)", source:"[Yahoo!ファイナンス(フィスコ) 中国本土前引け](https://finance.yahoo.co.jp/news/detail/7ec123f0693192d0043f4b78149d16a2666b0e95)"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
@@ -1294,20 +1305,19 @@ const PICKS = {
    type: "earnings"(決算発表) または "macro"(日銀・FOMC・CPI等の金融政策・経済指標イベント)。
    Populated once daily by the morning routine only (not the noon routine). */
 const EVENTS = {
-"asOf":"2026-08-10",
+"asOf":"2026-08-11",
 "items":[
-  {date:"2026-08-12", type:"macro", label:"米CPI(消費者物価指数、2026年7月分)", note:"米国東部時間8/12発表予定。来週の為替見通し記事(外為どっとコム 8/9)でも最大の焦点として言及、確度high"},
-  {date:"2026-08-10", type:"earnings", code:"5713", name:"住友金属鉱山", note:"確定。株探「来週の決算発表予定」記事で★注目決算として掲載"},
-  {date:"2026-08-10", type:"earnings", code:"4755", name:"楽天グループ", note:"確定、15:30発表予定。株探記事で★注目決算として掲載"},
-  {date:"2026-08-10", type:"earnings", code:"4631", name:"DIC", note:"予定"},
-  {date:"2026-08-10", type:"earnings", code:"8136", name:"サンリオ", note:"要確認"},
-  {date:"2026-08-10", type:"earnings", code:"4275", name:"日本カーリット", note:"「8月上旬〜中旬」予定、日程未確定"},
-  {date:"2026-08-10", type:"earnings", code:"6498", name:"キッツ", note:"「8月上旬〜中旬」予定、日程未確定"},
+  {date:"2026-08-12", type:"macro", label:"米CPI(消費者物価指数、2026年7月分)", note:"米国東部時間8/12発表予定。財経新聞・TradingKey等の週間展望記事でも今週最大の焦点として言及、確度high"},
+  {date:"2026-08-13", type:"macro", label:"米PPI(生産者物価指数)・新規失業保険申請件数", note:"米国東部時間8/13発表予定、確度high"},
+  {date:"2026-08-14", type:"macro", label:"米小売売上高・ミシガン大学消費者信頼感(速報値)", note:"米国東部時間8/14発表予定、確度high"},
   {date:"2026-08-12", type:"earnings", code:"6584", name:"三桜工業", note:"頃"},
   {date:"2026-08-13", type:"earnings", code:"5586", name:"Laboro.AI"},
   {date:"2026-08-13", type:"earnings", code:"8725", name:"MS&AD", note:"「8月中旬」予定、日程未確定"},
   {date:"2026-08-14", type:"earnings", code:"6890", name:"フェローテックHD", note:"7/22に通期経常を+61.1%上方修正済み"},
-  {date:"2026-08-14", type:"earnings", code:"290A", name:"Synspective"}
+  {date:"2026-08-14", type:"earnings", code:"290A", name:"Synspective"},
+  {date:"2026-08-14", type:"earnings", code:"6361", name:"荏原製作所", note:"マスターDB(7/24調査)で「2026年8月中旬(2Q)」予定と記載。日程未確定のため仮に8/14を割当て"},
+  {date:"2026-08-15", type:"earnings", code:"6492", name:"岡野バルブ製造", note:"マスターDB(7/24調査)で「8月中旬頃(3Q,推定)」と記載、日程未確定"},
+  {date:"2026-08-15", type:"earnings", code:"7711", name:"助川電気工業", note:"マスターDB(7/24調査)で「8月中旬頃(3Q,推定)」と記載、日程未確定"}
 ]
 };
 
