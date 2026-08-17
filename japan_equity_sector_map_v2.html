@@ -103,6 +103,19 @@ footer li{margin-bottom:6px}
 table.xref td{font-size:12.5px}
 table.xref .code{width:58px;color:var(--ivory)}
 
+
+/* Top Movers */
+.movers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 12px; }
+.mover-box { border: 1px solid rgba(139,160,180,0.3); border-radius: 6px; background: rgba(24,38,52,0.5); padding: 12px 16px; }
+.mover-box h4 { margin: 0 0 10px; font-size: 13.5px; color: var(--ivory); letter-spacing: 0.05em; display:flex; align-items:center; gap:6px; }
+.mover-row { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px dashed rgba(139,160,180,0.2); }
+.mover-row:last-child { border-bottom: none; }
+.mover-rank { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); width: 24px; }
+.mover-name { font-weight: 600; font-size: 13px; color: var(--ivory); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mover-code { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--muted); margin-left: 6px; }
+.mover-px { font-family: ui-monospace, Menlo, monospace; font-size: 12.5px; margin: 0 10px; }
+.mover-row .chg { font-size: 13px; width: 50px; text-align: right; }
+
 /* News log */
 .newslog-day{margin-bottom:22px}
 .newslog-date{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--new);letter-spacing:.06em;
@@ -294,6 +307,12 @@ table.xref .code{width:58px;color:var(--ivory)}
 <span>世界情勢カードの色＝日本株への影響度（明るい赤=追い風、明るい緑=逆風）</span>
 </div>
 </header>
+<section class="top-movers-sec" id="topmovers">
+<div class="sec-head" style="--c:var(--new)"><span class="sec-num">??</span>
+<h2>本日の値上がり・値下がり・注目銘柄<em>Top Movers &amp; Watched Stocks</em></h2>
+</div>
+<div id="topmovers-body"></div>
+</section>
 <section class="world-sec" id="world">
 <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
 <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
@@ -1813,6 +1832,7 @@ const EVENTS = {
    (実データが埋まるまでダミー数値を表示しないための安全策。他のオブジェクトと異なりデフォルトで空)。
    review は正午ルーティーンが13:00時点で追記する。朝の時点では review:null のままでよい。 */
 const DEEPDIVE = null;
+const TOP_MOVERS = {"gainers": [{"code": "285A", "name": "N/A", "price": "61,840", "chg": "+15.07%"}, {"code": "278A", "name": "N/A", "price": "13,780", "chg": "+13.88%"}, {"code": "6327", "name": "N/A", "price": "3,985", "chg": "+11.31%"}], "losers": [{"code": "4704", "name": "N/A", "price": "5,352", "chg": "-8.53%"}, {"code": "6701", "name": "N/A", "price": "4,786", "chg": "-7.39%"}, {"code": "6361", "name": "N/A", "price": "5,482", "chg": "-6.45%"}], "watched": [{"code": "5706", "name": "N/A", "price": "31,590", "chg": "+7.54%", "reason": "直近で値動きが活発化した注目銘柄"}, {"code": "5803", "name": "N/A", "price": "6,078", "chg": "+7.29%", "reason": "直近で値動きが活発化した注目銘柄"}, {"code": "6890", "name": "N/A", "price": "9,750", "chg": "+7.03%", "reason": "直近で値動きが活発化した注目銘柄"}]};
 
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
    JPコード→対応する米国上場銘柄1社。関係性(競合/顧客/供給元/投資家関係/同一商品)は投資分析上最も意味のあるものを選定(2026-07-26調査)。
@@ -2657,6 +2677,42 @@ function renderDeepDive(){
 
 /* 業種ヒートマップ導入(2026-08-04)に伴い、113銘柄の個別データ表(s1〜s11)は
    データ・マークアップを保持したまま<details>で折りたたみ表示にする。 */
+
+function renderTopMovers(){
+  var body = document.getElementById('topmovers-body');
+  if(!body) return;
+  if(!TOP_MOVERS){
+    body.innerHTML = '<div class="sec-note" style="padding-left:2px;margin:0">データ集計待ち...</div>';
+    return;
+  }
+  var html = '<div class="movers-grid">';
+  
+  // Gainers
+  html += '<div class="mover-box"><h4><span style="color:#ff5c5c">??</span> 値上がりトップ３</h4>';
+  (TOP_MOVERS.gainers||[]).forEach(function(m, i){
+    html += '<div class="mover-row"><span class="mover-rank">'+(i+1)+'</span><span class="mover-name">'+m.name+'<span class="mover-code">'+m.code+'</span></span><span class="mover-px">'+m.price+'</span><span class="chg up">'+m.chg+'</span></div>';
+  });
+  html += '</div>';
+
+  // Losers
+  html += '<div class="mover-box"><h4><span style="color:#3ddc84">??</span> 値下がりトップ３</h4>';
+  (TOP_MOVERS.losers||[]).forEach(function(m, i){
+    html += '<div class="mover-row"><span class="mover-rank">'+(i+1)+'</span><span class="mover-name">'+m.name+'<span class="mover-code">'+m.code+'</span></span><span class="mover-px">'+m.price+'</span><span class="chg down">'+m.chg+'</span></div>';
+  });
+  html += '</div>';
+
+  // Watched
+  html += '<div class="mover-box"><h4><span style="color:#e0b34a">??</span> 注目銘柄トップ３</h4>';
+  (TOP_MOVERS.watched||[]).forEach(function(m, i){
+    var cCls = (m.chg.indexOf('-') > -1) ? 'down' : 'up';
+    html += '<div class="mover-row" title="'+(m.reason||'')+'"><span class="mover-rank">'+(i+1)+'</span><span class="mover-name">'+m.name+'<span class="mover-code">'+m.code+'</span></span><span class="mover-px">'+m.price+'</span><span class="chg '+cCls+'">'+m.chg+'</span></div>';
+  });
+  html += '</div>';
+
+  html += '</div>';
+  body.innerHTML = html;
+}
+
 function collapseCompanySections(){
   for(var i=1;i<=11;i++){
     var sec = document.getElementById('s'+i);
@@ -2683,6 +2739,7 @@ renderFlow();
 renderPicks();
 renderEvents();
 renderDeepDive();
+renderTopMovers();
 applyMode('jp');
 collapseCompanySections();
 </script>
