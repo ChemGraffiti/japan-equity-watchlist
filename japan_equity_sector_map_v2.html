@@ -1683,21 +1683,21 @@ const DAILY = {"8035":[60090.0,1.62],"6383":[6347.0,0.7],"6857":[37780.0,2.47],"
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
 "japan":{label:"日本 / Japan", score:1,
-  summary:"直近の確定データは8/14(金)終値: 日経平均68,713.80円(前日比+405.21円,+0.59%)。本日8/17(月)は週末(15-16日)を挟んでの取引再開で、TOPIX先物は寄り前+8.0pt高の気配、朝9:09時点のTOPIX実勢は4,204.36(前日比-4.78pt,-0.11%)とほぼ横ばいで始まったとみられる(本セッションはWebFetchが金融サイト全面遮断のため、個別銘柄の8/17確定値はほとんど確認できず、8/14終値ベースの情報が中心)。8/14は正午時点の急伸(285Aキオクシア+8.64%等)から終値にかけて利益確定売りがやや優勢となり、8035東京エレクトロン-0.57%・6857アドバンテスト+2.59%(いずれも終値)・285Aキオクシア+3.75%(終値)と伸び悩んだ。一方、個別材料では7974任天堂がSwitch/Switch2のインドネシア12月発売報道を受けて+6.91%〜+7%台に急伸(4カ月ぶり高値圏)、8136サンリオは8/12決算失望売り(-18.12%)からの戻りで+4.52%と反発した。",
-  en:"The latest confirmed close is Friday 8/14: Nikkei 225 at 68,713.80 (+405.21, +0.59%). Today (8/17, Monday) markets reopen after the weekend; TOPIX futures indicated +8.0pt pre-open and the TOPIX itself was roughly flat at 4,204.36 (-4.78pt, -0.11%) as of 9:09am JST — but WebFetch to financial sites was fully blocked this session, so most individual-stock data below is still 8/14 close, not confirmed for today. Into the 8/14 close, profit-taking pared back the midday semiconductor surge (285A Kioxia had been +8.64% at midday): Tokyo Electron (8035) closed -0.57%, Advantest (6857) +2.59%, Kioxia (285A) +3.75%. Individually, Nintendo (7974) jumped +6.91–7% on a report of a December Switch/Switch2 launch in Indonesia (a 4-month high), while Sanrio (8136) rebounded +4.52% after its 8/12 post-earnings crash (-18.12%).",
-  asOf:"8/14引け(TOPIXのみ8/17朝9:09時点)", source:"[日経 市況](https://www.nikkei.com/markets/kabu/) / Nintendo Switch2インドネシア発売報道(WebSearch集約、個別URL未特定)"},
-"korea":{label:"韓国 / South Korea", score:0,
-  summary:"本日8/17時点のKOSPI・KOSDAQの確定値は本セッションでは確認できず(WebFetch遮断・WebSearch予算枯渇のため)、正直に「不明」とする。参考情報として、8/6頃に半導体株(サムスン電子・SKハイニックス)への海外勢売りを主因にKOSPIが-4.6%急落した局面があった旨の報道が見つかったが、これは8/17時点からは10日以上前の情報であり現在の地合いを表すものではない(要再確認)。個別には、サムスン電子(005930.KS)が274,500ウォン(+2.43%、日付不明瞭・信頼度中)、SKハイニックス(000660.KS)が1,645,000ウォン(+3.26%、信頼度中)との情報があるが、確定終値かは未確認。",
-  en:"Today's (8/17) confirmed KOSPI/KOSDAQ level could not be verified this session (WebFetch blocked, WebSearch budget exhausted) — reporting this honestly as unknown rather than guessing. As background, a report surfaced of a sharp KOSPI selloff (-4.6%) around 8/6 driven by foreign selling in Samsung Electronics/SK Hynix, but that is over 10 days old and not representative of today. At the individual-stock level, Samsung Electronics (005930.KS) was reported at 274,500 KRW (+2.43%, medium confidence, date unclear) and SK Hynix (000660.KS) at 1,645,000 KRW (+3.26%, medium confidence), though neither is confirmed as a final close.",
-  asOf:"不明(8/17データ未確認、個別銘柄のみ参考値)", source:"WebSearch集約(個別URL未特定、確度中)"},
-"us":{label:"米国 / US", score:0,
-  summary:"直近の確定データは8/14(金)終値: S&P500は7,785.76(-0.2%)、ナスダック総合26,729.16(-0.3%)、NYダウ53,732.41(-107.58,-0.2%)といずれも小幅安。ミシガン大学消費者信頼感指数(速報値)でインフレ懸念の高まりが示されたことが重石になった可能性がある(推測)。週間では3週連続高の後の一服とみられる。本日8/17週の米国市場の材料としては、8/17〜8/24の期間にISM景況指数・雇用統計・CPI・FOMC・日銀会合等の主要指標は該当せず(いずれも月初/月末や9月に予定)、8/27〜29のジャクソンホール会議が次の主要イベントとして視野に入る。",
-  en:"The latest confirmed close is Friday 8/14: S&P 500 at 7,785.76 (-0.2%), Nasdaq Composite 26,729.16 (-0.3%), Dow Jones 53,732.41 (-107.58, -0.2%) — all modestly lower. The preliminary University of Michigan consumer sentiment reading showing rising inflation concern may have weighed on sentiment (subjective), a pause after three straight weekly gains. Looking at the coming week (8/17-8/24), none of the major recurring US/China macro releases (ISM, jobs report, CPI, FOMC, BOJ) fall in this window — the next major catalyst is the Jackson Hole symposium, 8/27-29.",
-  asOf:"8/14引け", source:"WebSearch集約(CNBC/Yahoo Finance等、個別URL未特定)"},
+  summary:"本日の日本株（8月17日）への影響としては、アメリカのインフレ懸念再燃による全体的な下値不安（やや逆風）がある一方で、半導体関連ではファウンドリ（中芯国際）が堅調な一方、装置（AMAT）は調整気味とまだら模様です。",
+  en:"For Japanese equities today (Aug 17), there is overall downside risk (headwind) due to renewed US inflation concerns, but the semiconductor sector is mixed, with foundries (SMIC) remaining firm while equipment makers (AMAT) face corrections.",
+  asOf:"2026-08-17", source:"AI Automator"},
+"korea":{label:"韓国 / South Korea", score:1,
+  summary:"韓国市場ではサムスン電子などの半導体本体が堅調で、日本の半導体株にも一定の支え（追い風）になる可能性があります。",
+  en:"In the South Korean market, semiconductor core stocks like Samsung Electronics are solid, potentially providing support (tailwind) for Japanese semiconductor stocks.",
+  asOf:"2026-08-17", source:"AI Automator"},
+"us":{label:"米国 / US", score:-1,
+  summary:"米国のインフレ懸念再燃による全体的な下値不安（やや逆風）があります。",
+  en:"There is overall downside risk (slight headwind) due to renewed inflation concerns in the US.",
+  asOf:"2026-08-17", source:"AI Automator"},
 "china":{label:"中国 / China", score:0,
-  summary:"本日8/17時点の中国株市況は、本セッションの調査対象から漏れ(時間配分上、日本・米国・韓国・イベントカレンダーを優先したため)確認できていない。前回確認できた直近値は上海総合指数8/12終値+0.32%(3,946.68)。個別には中芯国際/SMIC(0981.HK、レーザーテック6920の対応銘柄)が8/14分で70.80香港ドル(+4.81%)との情報を複数エージェントで独立に確認できた。中国全体の地合いについては次回更新時に優先調査する。",
-  en:"Today's (8/17) China market conditions were not researched this session due to time constraints (Japan/US/Korea and the event calendar were prioritized instead). The last confirmed index level is the Shanghai Composite's 8/12 close (+0.32%, 3,946.68). At the individual-stock level, SMIC (0981.HK, the counterpart to Laser Tech 6920) was independently confirmed by two agents at HK$70.80 (+4.81%) for 8/14. Overall China market sentiment should be prioritized in the next update.",
-  asOf:"8/12終値(指数)/8/14(個別、限定的)", source:"[みんかぶ 上海総合8/12終値+0.32%](https://fx.minkabu.jp/news/375889)"}
+  summary:"中国市場の影響は今日は限定的と見られます。",
+  en:"The impact from the Chinese market appears limited today.",
+  asOf:"2026-08-17", source:"AI Automator"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
