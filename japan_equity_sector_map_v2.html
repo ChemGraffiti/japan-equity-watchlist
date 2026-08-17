@@ -1,8 +1,9 @@
 ﻿<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>保有ウォッチリスト 業種分類マップ v2 / Sector Taxonomy Map</title>
 <style>
 :root{
@@ -270,806 +271,716 @@ table.xref .code{width:58px;color:var(--ivory)}
 </head>
 <body>
 <div class="wrap">
-
 <header>
-  <div class="eyebrow">Watchlist Live Dashboard / データ基準日 2026-07-24・最終更新 2026-07-26</div>
-  <h1>ウォッチリスト業種分類マップ v2
+<div class="eyebrow">Watchlist Live Dashboard / データ基準日 2026-07-24・最終更新 2026-07-26</div>
+<h1>ウォッチリスト業種分類マップ v2
     <span>Japan Equity Watchlist — Sector Map + Fundamentals + Daily News Log</span>
-  </h1>
-  <div class="meta">
-    <b>113銘柄</b>を<b>11大分類 / 41小分類</b>に整理。各銘柄の行に<b>株価・PER・PBR・信用倍率・次回決算日</b>をミニバーチャート（緑色のバー＝2026-07-24時点スナップショット、バー長は上限でクリップ・実数値は右側に表示）で追加し、
+</h1>
+<div class="meta">
+<b>113銘柄</b>を<b>11大分類 / 41小分類</b>に整理。各銘柄の行に<b>株価・PER・PBR・信用倍率・次回決算日</b>をミニバーチャート（緑色のバー＝2026-07-24時点スナップショット、バー長は上限でクリップ・実数値は右側に表示）で追加し、
     ページ下部に<b>📰デイリーニュースログ</b>を新設して日々の材料を蓄積していく形にしました。
-    「主」＝主力事業、「副」＝収益の一部だが株価材料になり得る領域、として区別しています。<br>
-    <span style="color:#8ba0b4">113 unique tickers（旧114から7120を除外）· 11 sectors · 41 sub-sectors · 25 cross-listings · fundamentals snapshot 2026-07-24</span><br>
+    「主」＝主力事業、「副」＝収益の一部だが株価材料になり得る領域、として区別しています。<br/>
+<span style="color:#8ba0b4">113 unique tickers（旧114から7120を除外）· 11 sectors · 41 sub-sectors · 25 cross-listings · fundamentals snapshot 2026-07-24</span><br/>
     詳細な調査根拠・出典URLは <a href="fundamentals/watchlist_fundamentals_2026-07-24.md">fundamentals/watchlist_fundamentals_2026-07-24.md</a>、日次の相場観コメントは <a href="daily/">daily/</a> フォルダを参照。
   </div>
-  <div class="legend">
-    <span><i class="sq" style="background:#e8eef4"></i>主掲載（Primary）＝主力事業</span>
-    <span><i class="sq" style="background:#3b4c5e"></i>副掲載（Cross-listed）＝関連事業として再掲</span>
-    <span><i class="badge b-new" style="margin:0">NEW</i>前回(106社)からの追加</span>
-    <span style="color:var(--fund)">■緑バー＝PER/PBR/信用倍率（上限超は満タン表示、実数値は右端）</span>
-    <span style="color:var(--new)">■金バー＝PBR1倍未満（割安シグナル）</span>
-    <span><i class="chg up" style="position:static;width:auto">+1.7%</i>＝前日比プラス（赤）　<i class="chg down" style="position:static;width:auto">-4.9%</i>＝前日比マイナス（緑）</span>
-    <span>下のセクタータブの色＝業種平均の前日比ヒートマップ（明るい赤=最も上昇、明るい緑=最も下落、基準日2026-07-24）</span>
-    <span>世界情勢カードの色＝日本株への影響度（明るい赤=追い風、明るい緑=逆風）</span>
-  </div>
+<div class="legend">
+<span><i class="sq" style="background:#e8eef4"></i>主掲載（Primary）＝主力事業</span>
+<span><i class="sq" style="background:#3b4c5e"></i>副掲載（Cross-listed）＝関連事業として再掲</span>
+<span><i class="badge b-new" style="margin:0">NEW</i>前回(106社)からの追加</span>
+<span style="color:var(--fund)">■緑バー＝PER/PBR/信用倍率（上限超は満タン表示、実数値は右端）</span>
+<span style="color:var(--new)">■金バー＝PBR1倍未満（割安シグナル）</span>
+<span><i class="chg up" style="position:static;width:auto">+1.7%</i>＝前日比プラス（赤）　<i class="chg down" style="position:static;width:auto">-4.9%</i>＝前日比マイナス（緑）</span>
+<span>下のセクタータブの色＝業種平均の前日比ヒートマップ（明るい赤=最も上昇、明るい緑=最も下落、基準日2026-07-24）</span>
+<span>世界情勢カードの色＝日本株への影響度（明るい赤=追い風、明るい緑=逆風）</span>
+</div>
 </header>
-
-<section id="world" class="world-sec">
-  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
-    <h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
-  </div>
-  <div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。<b>🇯🇵日本／🇺🇸米国／🇨🇳中国／🇰🇷韓国のカードはタップで切替可</b>：下の11業種テーブルの銘柄名・コメント・株価指標を、各銘柄に対応する競合・顧客・供給元の海外銘柄に一括で切り替えて表示します（現在: <span id="mode-indicator">🇯🇵 日本モード</span>）。対応銘柄がない場合はその行のみ日本銘柄のまま表示されます。</div>
-  <div class="world-grid" id="world-grid"></div>
+<section class="world-sec" id="world">
+<div class="sec-head" style="--c:var(--new)"><span class="sec-num">🌍</span>
+<h2>世界情勢サマリー<em>World Affairs Summary — updates daily</em></h2>
+</div>
+<div class="sec-note">従来「一週間の投資情報まとめ」プロジェクトで週次のみ扱っていた世界情勢分析（日本・米国・中国・韓国など）をこちらに統合し、日次ルーティーンで毎朝更新します。カードの色は日本株への影響度（客観データ＋主観判断）を反映した日次のヒートマップです。詳細な出典・分析は <a href="daily/">daily/{date}.md</a> を参照してください。<b>🇯🇵日本／🇺🇸米国／🇨🇳中国／🇰🇷韓国のカードはタップで切替可</b>：下の11業種テーブルの銘柄名・コメント・株価指標を、各銘柄に対応する競合・顧客・供給元の海外銘柄に一括で切り替えて表示します（現在: <span id="mode-indicator">🇯🇵 日本モード</span>）。対応銘柄がない場合はその行のみ日本銘柄のまま表示されます。</div>
+<div class="world-grid" id="world-grid"></div>
 </section>
-
-<section id="pickup" class="world-sec">
-  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📊</span>
-    <h2>資金フロー分析 ＆ 本日の注目銘柄<em>Capital Flow &amp; Today's Top Picks</em></h2>
-  </div>
-  <div class="sec-note">業種別の資金フロー（値上がり/値下がりトップ3業種、および下の全11業種ヒートマップ）は<code>DAILY</code>データから自動計算されます（主観コメントのみ日次ルーティーンが更新）。日本モードは2026-08-01以降、各業種の代表3銘柄（計33銘柄）のサンプルに基づく参考値です（113銘柄全数の日次更新は使用率削減のため廃止）。🇺🇸🇨🇳🇰🇷モードは引き続き全対応銘柄の平均です。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
-  <h3 style="margin:4px 0 6px;font-size:14px;color:var(--ivory)">業種ヒートマップ（全11業種）<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">All 11 Sectors, Color-Coded</em></h3>
-  <div class="heatmap-grid" id="sector-heatmap-grid"></div>
-  <div id="flow-body"></div>
-  <h3 style="margin:18px 0 4px;font-size:14px;color:var(--ivory)">本日の注目銘柄トップ3<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Today's Top 3 to Watch</em></h3>
-  <div class="picks-grid" id="picks-grid"></div>
+<section class="world-sec" id="pickup">
+<div class="sec-head" style="--c:var(--new)"><span class="sec-num">📊</span>
+<h2>資金フロー分析 ＆ 本日の注目銘柄<em>Capital Flow &amp; Today's Top Picks</em></h2>
+</div>
+<div class="sec-note">業種別の資金フロー（値上がり/値下がりトップ3業種、および下の全11業種ヒートマップ）は<code>DAILY</code>データから自動計算されます（主観コメントのみ日次ルーティーンが更新）。日本モードは2026-08-01以降、各業種の代表3銘柄（計33銘柄）のサンプルに基づく参考値です（113銘柄全数の日次更新は使用率削減のため廃止）。🇺🇸🇨🇳🇰🇷モードは引き続き全対応銘柄の平均です。「本日の注目銘柄トップ3」は日次ルーティーンが選定・記載します。🇯🇵🇺🇸🇨🇳🇰🇷モード切替（上の世界情勢カード、または下の11業種テーブル）に連動して表示が切り替わります。詳細な出典は <a href="daily/">daily/{date}.md</a> を参照してください。</div>
+<h3 style="margin:4px 0 6px;font-size:14px;color:var(--ivory)">業種ヒートマップ（全11業種）<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">All 11 Sectors, Color-Coded</em></h3>
+<div class="heatmap-grid" id="sector-heatmap-grid"></div>
+<div id="flow-body"></div>
+<h3 style="margin:18px 0 4px;font-size:14px;color:var(--ivory)">本日の注目銘柄トップ3<em style="font-size:11px;color:var(--muted);font-weight:400;margin-left:6px">Today's Top 3 to Watch</em></h3>
+<div class="picks-grid" id="picks-grid"></div>
 </section>
-
-<section id="events" class="world-sec">
-  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📅</span>
-    <h2>今後7日間のイベントカレンダー<em>7-Day Event Calendar</em></h2>
-  </div>
-  <div class="sec-note">本日から7日後（同じ曜日）までの、ウォッチリスト113銘柄の決算発表予定と主要な金融政策イベント（日銀金融政策決定会合・FOMC・米国CPI等）を一覧表示します。朝の日次ルーティーンが1日1回更新します（正午更新では変更しません）。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
-  <div id="events-body"></div>
+<section class="world-sec" id="events">
+<div class="sec-head" style="--c:var(--new)"><span class="sec-num">📅</span>
+<h2>今後7日間のイベントカレンダー<em>7-Day Event Calendar</em></h2>
+</div>
+<div class="sec-note">本日から7日後（同じ曜日）までの、ウォッチリスト113銘柄の決算発表予定と主要な金融政策イベント（日銀金融政策決定会合・FOMC・米国CPI等）を一覧表示します。朝の日次ルーティーンが1日1回更新します（正午更新では変更しません）。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
+<div id="events-body"></div>
 </section>
-
-<section id="deepdive" class="world-sec">
-  <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📈</span>
-    <h2>本日の日本株総合分析<em>Daily Deep-Dive — 客観データ→主観予想の順</em></h2>
-  </div>
-  <div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。正午ルーティーンが🔍13:00時点で朝の予想が当たったかを振り返ります。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
-  <div id="deepdive-body"></div>
+<section class="world-sec" id="deepdive">
+<div class="sec-head" style="--c:var(--new)"><span class="sec-num">📈</span>
+<h2>本日の日本株総合分析<em>Daily Deep-Dive — 客観データ→主観予想の順</em></h2>
+</div>
+<div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。正午ルーティーンが🔍13:00時点で朝の予想が当たったかを振り返ります。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
+<div id="deepdive-body"></div>
 </section>
-
 <nav>
-  <a href="#events">📅 イベントカレンダー</a>
-  <a href="#pickup">📊 資金フロー＆注目銘柄</a>
-  <a href="#deepdive">📈 本日の総合分析</a>
-  <a href="#world">🌍 世界情勢</a>
-  <a href="#s1" class="heat" data-sector="1">1 半導体・AI</a>
-  <a href="#s2" class="heat" data-sector="2">2 データセンター</a>
-  <a href="#s3" class="heat" data-sector="3">3 IT・サイバー</a>
-  <a href="#s4" class="heat" data-sector="4">4 防衛・宇宙</a>
-  <a href="#s5" class="heat" data-sector="5">5 エネルギー・電力</a>
-  <a href="#s6" class="heat" data-sector="6">6 素材・非鉄</a>
-  <a href="#s7" class="heat" data-sector="7">7 金融</a>
-  <a href="#s8" class="heat" data-sector="8">8 商社</a>
-  <a href="#s9" class="heat" data-sector="9">9 機械・重工</a>
-  <a href="#s10" class="heat" data-sector="10">10 自動車・運輸</a>
-  <a href="#s11" class="heat" data-sector="11">11 内需・消費</a>
-  <a href="#xref">◆ 重複銘柄一覧</a>
-  <a href="#newslog">📰 ニュースログ</a>
+<a href="#events">📅 イベントカレンダー</a>
+<a href="#pickup">📊 資金フロー＆注目銘柄</a>
+<a href="#deepdive">📈 本日の総合分析</a>
+<a href="#world">🌍 世界情勢</a>
+<a class="heat" data-sector="1" href="#s1">1 半導体・AI</a>
+<a class="heat" data-sector="2" href="#s2">2 データセンター</a>
+<a class="heat" data-sector="3" href="#s3">3 IT・サイバー</a>
+<a class="heat" data-sector="4" href="#s4">4 防衛・宇宙</a>
+<a class="heat" data-sector="5" href="#s5">5 エネルギー・電力</a>
+<a class="heat" data-sector="6" href="#s6">6 素材・非鉄</a>
+<a class="heat" data-sector="7" href="#s7">7 金融</a>
+<a class="heat" data-sector="8" href="#s8">8 商社</a>
+<a class="heat" data-sector="9" href="#s9">9 機械・重工</a>
+<a class="heat" data-sector="10" href="#s10">10 自動車・運輸</a>
+<a class="heat" data-sector="11" href="#s11">11 内需・消費</a>
+<a href="#xref">◆ 重複銘柄一覧</a>
+<a href="#newslog">📰 ニュースログ</a>
 </nav>
-
 <!-- 1 -->
 <section id="s1" style="--c:var(--semi)">
-  <div class="sec-head"><span class="sec-num">01</span>
-    <h2>半導体・AI・電子部品<em>Semiconductor / AI / Components</em></h2>
-    <span class="count">主38 ＋ 副7</span></div>
-  <div class="sec-note">上流→下流順（装置→材料→基板→デバイス→受動部品→AI→FA）。</div>
-
-  <h3>1-1　前工程製造装置<em>Front-end Equipment</em></h3>
-  <table>
-    <tr><td class="code">8035</td><td class="name">東京エレクトロン<span class="en">Tokyo Electron</span></td><td class="why">成膜・エッチング・洗浄・コータデベロッパー等を幅広く手掛ける日本最大の半導体製造装置(WFE)メーカー。海外勢がプロセスごとに専業化する中(成膜=Applied Materials、露光=ASML等)、コータ/デベロッパーで世界シェア9割超という特定工程での圧倒的独占を持つ。</td><td class="fund" data-code="8035"></td></tr>
-    <tr class="sub-listed"><td class="code">6383</td><td class="name">ダイフク<span class="badge b-sub">副</span><span class="en">Daifuku</span></td><td class="why">クリーンルーム搬送（OHT）で世界首位。主掲載は 2-4。</td><td class="fund"><span class="xref-note">→2-4参照</span></td></tr>
-  </table>
-
-  <h3>1-2　後工程・検査・研磨装置<em>Back-end / Inspection / CMP</em></h3>
-  <table>
-    <tr><td class="code">6857</td><td class="name">アドバンテスト<span class="en">Advantest</span></td><td class="why">半導体の良品検査を行うテスタ(検査装置)メーカーで、SoC/メモリ用テスタで世界首位級。米Teradyneと世界を二分する構図で、AI向け高帯域メモリ(HBM)の検査工程で特に高いシェアを握る。</td><td class="fund" data-code="6857"></td></tr>
-    <tr><td class="code">6920</td><td class="name">レーザーテック<span class="badge b-new">NEW</span><span class="en">Lasertec</span></td><td class="why">EUV(極端紫外線)露光用フォトマスクの欠陥検査装置で実質的に世界唯一の供給者。競合不在に近い独占的地位ゆえ超高PER・高ボラになりやすく、TSMC・Samsung等の最先端EUV投資動向に業績が直結する。</td><td class="fund" data-code="6920"></td></tr>
-    <tr><td class="code">6146</td><td class="name">ディスコ<span class="en">Disco</span></td><td class="why">半導体チップを切り分けるダイシングソー・研削装置(グラインダ)で世界シェア6〜7割の実質独占。精密切削・研削という特定工程への特化により、総合装置メーカー(東京エレクトロン等)とは異なるニッチ首位のポジションを築く。</td><td class="fund" data-code="6146"></td></tr>
-    <tr><td class="code">6361</td><td class="name">荏原製作所<span class="en">Ebara</span></td><td class="why">半導体の平坦化工程で使うCMP(化学機械研磨)装置と、真空ポンプの2本柱。ポンプ事業は産業用も含め世界大手級で、AI/データセンター向け液冷ポンプ需要も取り込む「装置＋コンポーネント」のハイブリッド型。</td><td class="fund" data-code="6361"></td></tr>
-    <tr><td class="code">6327</td><td class="name">北川精機<span class="en">Kitagawa Seiki</span></td><td class="why">多層基板の製造に使う真空プレス装置が主力の小型メーカー。大手装置メーカーが手掛けない基板成形のニッチ領域に特化しており、値動きの荒さは時価総額の小ささ(300億円規模)を反映。</td><td class="fund" data-code="6327"></td></tr>
-  </table>
-
-  <h3>1-3　半導体材料・ウェハ<em>Materials &amp; Wafers</em></h3>
-  <table>
-    <tr><td class="code">4063</td><td class="name">信越化学<span class="en">Shin-Etsu Chemical</span></td><td class="why">半導体シリコンウェハで世界首位(SUMCOと2強)、フォトレジストでも高シェア。塩化ビニル樹脂(米シンテック)という非半導体の稼ぎ頭も持ち、ウェハ専業のSUMCOより事業が分散されている点が特徴。</td><td class="fund" data-code="4063"></td></tr>
-    <tr><td class="code">3436</td><td class="name">SUMCO<span class="en">Sumco</span></td><td class="why">シリコンウェハ専業で信越化学に次ぐ世界2位。信越化学と異なりウェハ単一事業のため、半導体市況(特にメモリ市況)への感応度がより直接的で業績の振れ幅が大きい。</td><td class="fund" data-code="3436"></td></tr>
-    <tr><td class="code">4186</td><td class="name">東京応化工業<span class="badge b-new">NEW</span><span class="en">Tokyo Ohka Kogyo</span></td><td class="why">フォトレジスト(感光材料)で信越化学と並ぶ世界首位級。EUV用フォトレジストでも先行しており、露光技術の微細化が進むほど高付加価値製品比率が上がる構図。</td><td class="fund" data-code="4186"></td></tr>
-    <tr><td class="code">4901</td><td class="name">富士フイルム<span class="en">Fujifilm</span></td><td class="why">写真フィルムで培った薄膜・化学技術を転用し、CMPスラリー・現像液等の半導体材料でも存在感。ただし収益の柱はヘルスケア(医薬品・医療機器)で、半導体材料はポートフォリオの一角に過ぎない点で信越化学・SUMCOとは性格が異なる。</td><td class="fund" data-code="4901"></td></tr>
-    <tr><td class="code">4631</td><td class="name">DIC<span class="en">DIC</span></td><td class="why">印刷インキで世界首位級。半導体分野ではカラーフィルタ材料・エポキシ樹脂を手掛けるが、祖業のインキ・顔料事業が引き続き収益の中心で、PBR0.9倍という評価は「化学の老舗」としての市場評価を映す。</td><td class="fund" data-code="4631"></td></tr>
-    <tr><td class="code">6890</td><td class="name">フェローテックHD<span class="en">Ferrotec</span></td><td class="why">半導体装置向けの石英・セラミック部品やシリコン基板を製造。中国売上比率が高く地政学リスクを抱える一方、その中国事業がむしろ成長ドライバーにもなる両面性が特徴。</td><td class="fund" data-code="6890"></td></tr>
-    <tr><td class="code">5016</td><td class="name">JX金属<span class="en">JX Advanced Metals</span></td><td class="why">スパッタリングターゲット材(薄膜形成用金属材料)や圧延銅箔で世界首位級。銅製錬という非鉄金属事業も併せ持ち、資源(銅鉱山)から最先端半導体材料まで垂直統合的に展開する点が三菱マテリアル等の非鉄大手と一線を画す。</td><td class="fund" data-code="5016"></td></tr>
-    <tr class="sub-listed"><td class="code">5711</td><td class="name">三菱マテリアル<span class="badge b-sub">副</span><span class="en">Mitsubishi Materials</span></td><td class="why">多結晶シリコン・電子材料。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6367</td><td class="name">ダイキン工業<span class="badge b-sub">副</span><span class="en">Daikin</span></td><td class="why">フッ素化学（エッチングガス・樹脂）。主掲載は 2-2。</td><td class="fund"><span class="xref-note">→2-2参照</span></td></tr>
-  </table>
-
-  <h3>1-4　サブストレート（パッケージ基板）<em>IC Substrate</em></h3>
-  <table>
-    <tr><td class="code">4062</td><td class="name">イビデン<span class="en">Ibiden</span></td><td class="why">半導体パッケージ基板(FC-BGA)の代表格で、AIサーバー向け需要により業績・株価が急拡大。同業の新光電気工業が2025年に非公開化された結果、上場企業として数少ないFC-BGA基板の投資対象という希少性も株価を支える。</td><td class="fund" data-code="4062"></td></tr>
-    <tr><td class="code">6971</td><td class="name">京セラ<span class="en">Kyocera</span></td><td class="why">セラミックパッケージや電子部品を手掛けるファインセラミックス技術の総合電機。太陽光発電・通信機器・複合機など事業が幅広く分散し、半導体単独の他社に比べPER・PBRとも相対的に低く評価される。</td><td class="fund" data-code="6971"></td></tr>
-    <tr><td class="code">2802</td><td class="name">味の素<span class="en">Ajinomoto</span></td><td class="why">半導体パッケージ基板の層間絶縁材「ABF(味の素ビルドアップフィルム)」で実質独占的シェアを持つが、これは調味料・アミノ酸事業から派生した技術。本業は食品(うま味調味料世界首位)で、半導体は高収益・高成長の「隠れた稼ぎ頭」。副掲載 11-4（食品）。</td><td class="fund" data-code="2802"></td></tr>
-    <tr class="sub-listed"><td class="code">5706</td><td class="name">三井金属鉱業<span class="badge b-sub">副</span><span class="en">Mitsui Mining &amp; Smelting</span></td><td class="why">極薄銅箔で世界シェア約9割。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
-  </table>
-
-  <h3>1-5　半導体デバイス・光半導体<em>Devices / Photonics</em></h3>
-  <table>
-    <tr><td class="code">285A</td><td class="name">キオクシアHD<span class="badge b-new">NEW</span><span class="en">Kioxia Holdings</span></td><td class="why">NAND型フラッシュメモリで世界2位級(サムスンに次ぐ)。AI向けSSD需要とメモリ市況(価格サイクル)の両方に業績が左右され、ウォッチリスト中でも最も値動きが荒い銘柄の一つ。</td><td class="fund" data-code="285A"></td></tr>
-    <tr><td class="code">6723</td><td class="name">ルネサス<span class="en">Renesas</span></td><td class="why">車載マイコンで世界トップシェア。自動車の電動化・自動運転化に伴う半導体需要拡大を狙うが、自動車生産台数・EVシフト鈍化など自動車業界固有のリスクにも連動する。副掲載 10-2（自動車部品）。</td><td class="fund" data-code="6723"></td></tr>
-    <tr><td class="code">6963</td><td class="name">ローム<span class="en">Rohm</span></td><td class="why">パワー半導体・SiC(炭化ケイ素)デバイスに強みを持つが、近年は構造改革(工場再編・人員削減)局面。東芝系との資本提携も進めており、収益改善が株価回復の鍵。</td><td class="fund" data-code="6963"></td></tr>
-    <tr><td class="code">6526</td><td class="name">ソシオネクスト<span class="en">Socionext</span></td><td class="why">自社工場を持たないファブレスで、顧客企業の要求仕様に応じたカスタムSoC(System on Chip)設計に特化。台湾TSMC等に製造委託する分業モデルで、AI・データセンター向けカスタムチップ需要の取り込みが成長戦略の柱。</td><td class="fund" data-code="6526"></td></tr>
-    <tr><td class="code">6965</td><td class="name">浜松ホトニクス<span class="en">Hamamatsu Photonics</span></td><td class="why">光検出器・光電子増倍管という光半導体のニッチ分野で世界トップシェア。医療機器(PET装置等)・科学計測(素粒子実験等)向けにも展開し、汎用半導体とは異なる特殊用途技術で高い参入障壁を築く。</td><td class="fund" data-code="6965"></td></tr>
-    <tr><td class="code">6758</td><td class="name">ソニーグループ<span class="en">Sony Group</span></td><td class="why">CMOSイメージセンサで世界首位(スマホカメラ用で圧倒的シェア)。半導体はグループ収益の一角に過ぎず、ゲーム(PlayStation)・音楽・映画が利益の過半を占める複合企業という点で、他の半導体専業とは評価軸が全く異なる。副掲載 11-2（エンタメ）。</td><td class="fund" data-code="6758"></td></tr>
-  </table>
-
-  <h3>1-6　コンデンサ（受動部品）<em>Capacitors</em></h3>
-  <table>
-    <tr><td class="code">6981</td><td class="name">村田製作所<span class="en">Murata</span></td><td class="why">積層セラミックコンデンサ(MLCC)で世界首位。スマホ1台に数百個搭載される汎用部品ながら、高精度・小型化技術で圧倒的シェアを維持する。副掲載 1-7（小型電池）。</td><td class="fund" data-code="6981"></td></tr>
-    <tr><td class="code">6976</td><td class="name">太陽誘電<span class="en">Taiyo Yuden</span></td><td class="why">MLCCで村田に次ぐ国内2番手。村田がスマホ・自動車向け高付加価値品に強い一方、太陽誘電はデータセンターサーバー向けMLCC需要の取り込みで2025〜2026年に株価が急騰した。</td><td class="fund" data-code="6976"></td></tr>
-    <tr><td class="code">6997</td><td class="name">日本ケミコン<span class="en">Nippon Chemi-Con</span></td><td class="why">アルミ電解コンデンサ専業で、村田・太陽誘電のMLCC(セラミック系)とは異なる部品カテゴリで産業機器・車載向けに強みを持つ。</td><td class="fund" data-code="6997"></td></tr>
-    <tr><td class="code">6762</td><td class="name">TDK<span class="en">TDK</span></td><td class="why">受動部品に加え、スマホ用小型リチウムイオン電池(旧ソニー電池事業)で世界シェアを持つ点が村田と共通するが、TDKはHDD用磁気ヘッド由来のセンサ事業も併せ持つ点で独自性がある。副掲載 1-7。</td><td class="fund" data-code="6762"></td></tr>
-  </table>
-
-  <h3>1-7　バッテリー<em>Batteries</em></h3>
-  <table>
-    <tr><td class="code">6674</td><td class="name">GSユアサ<span class="en">GS Yuasa</span></td><td class="why">鉛蓄電池国内最大手から車載リチウムイオン電池に展開。潜水艦用リチウム電池を防衛省向けに独占供給する特殊な事業も持つ。副掲載 4-2（潜水艦電池）。</td><td class="fund" data-code="6674"></td></tr>
-    <tr><td class="code">6752</td><td class="name">パナソニックHD<span class="en">Panasonic Holdings</span></td><td class="why">テスラ向け車載電池の主要サプライヤー(北米工場を保有)。電池事業は空調・住宅・エレクトロニクス等の複数事業の一つに過ぎないが、市場からは「テスラ電池銘柄」として材料視されやすい。副掲載 2-2（空質・DC空調）。</td><td class="fund" data-code="6752"></td></tr>
-    <tr class="sub-listed"><td class="code">6762</td><td class="name">TDK<span class="badge b-sub">副</span><span class="en">TDK</span></td><td class="why">小型二次電池シェア世界首位。実質的に電池株。主掲載は 1-6。</td><td class="fund"><span class="xref-note">→1-6参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6981</td><td class="name">村田製作所<span class="badge b-sub">副</span><span class="en">Murata</span></td><td class="why">小型リチウム電池（旧ソニー電池事業）。主掲載は 1-6。</td><td class="fund"><span class="xref-note">→1-6参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">5713</td><td class="name">住友金属鉱山<span class="badge b-sub">副</span><span class="en">Sumitomo Metal Mining</span></td><td class="why">車載電池正極材。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
-  </table>
-
-  <h3>1-8　その他電子部品・モーター<em>Other Components</em></h3>
-  <table>
-    <tr><td class="code">5333</td><td class="name">日本ガイシ<span class="en">NGK Insulators</span></td><td class="why">ファインセラミックス技術を核に、自動車排ガス浄化用セラミックハニカムで世界首位級。AI半導体向け新素材(デジタルソサエティ事業)にも展開し、2025〜2026年に業績が過去最高を更新した。</td><td class="fund" data-code="5333"></td></tr>
-    <tr><td class="code">6594</td><td class="name">ニデック<span class="en">Nidec</span></td><td class="why">精密モーター(HDD用スピンドルモーター等)で世界首位級、近年はEV用駆動モーターやDC冷却ファンにも展開。ただし2025〜2026年は会計不正・品質問題により本決算延期という異例の経営問題を抱える。</td><td class="fund" data-code="6594"></td></tr>
-  </table>
-
-  <h3>1-9　AI・ソフト・プラットフォーム<em>AI / Platform</em></h3>
-  <table>
-    <tr><td class="code">9984</td><td class="name">ソフトバンクグループ<span class="badge b-new">NEW</span><span class="en">SoftBank Group</span></td><td class="why">英半導体設計大手Armを保有し、OpenAIへの巨額出資も行う「AI関連の投資持株会社」。事業会社というよりファンド的性格が強く、保有資産価値(NAV)からのディスカウント幅や有利子負債の状況が株価評価の主軸。日経寄与度が高く指数連動性も強い。副掲載 7-2。</td><td class="fund" data-code="9984"></td></tr>
-    <tr><td class="code">5586</td><td class="name">Laboro.AI<span class="en">Laboro.AI</span></td><td class="why">企業向けオーダーメイドAI開発を手掛ける小型グロース株。汎用AIサービス(ChatGPT等)ではなく、個社の業務課題に合わせた受託型AI開発というニッチに特化。小型・高ベータ。</td><td class="fund" data-code="5586"></td></tr>
-    <tr><td class="code">2354</td><td class="name">YE DIGITAL<span class="en">YE Digital</span></td><td class="why">安川電機グループのIT子会社で、工場向けIoT・AIソリューションが主力。親会社の産業用ロボット・FA事業とのシナジーが強み。</td><td class="fund" data-code="2354"></td></tr>
-    <tr class="sub-listed"><td class="code">3778</td><td class="name">さくらインターネット<span class="badge b-sub">副</span><span class="en">Sakura Internet</span></td><td class="why">国産GPUクラウド。主掲載は 2-3。</td><td class="fund"><span class="xref-note">→2-3参照</span></td></tr>
-  </table>
-
-  <h3>1-10　重電・パワー半導体<em>Heavy Electrical</em></h3>
-  <table>
-    <tr><td class="code">6504</td><td class="name">富士電機<span class="en">Fuji Electric</span></td><td class="why">パワー半導体(産業機器・車載向け)と変電・配電設備の2本柱。三菱電機・東芝のパワー半導体事業と競合するが、自動販売機(祖業)も手掛ける独特の事業構成。副掲載 2-4（DC電源）。</td><td class="fund" data-code="6504"></td></tr>
-    <tr><td class="code">6508</td><td class="name">明電舎<span class="en">Meidensha</span></td><td class="why">変電設備・モーターが主力の中堅重電。三菱電機・東芝・日立といった総合電機大手と異なり重電専業で、電力インフラの更新需要(老朽化対応)が業績を下支え。</td><td class="fund" data-code="6508"></td></tr>
-  </table>
-
-  <h3>1-11　FA・ロボット・計測<em>Factory Automation</em></h3>
-  <table>
-    <tr><td class="code">6954</td><td class="name">ファナック<span class="badge b-new">NEW</span><span class="en">Fanuc</span></td><td class="why">CNC(数値制御装置)と産業用ロボットで世界首位級。安川電機・独KUKA・スイスABBと並ぶ「ロボット4大メーカー」の一角だが、自社CNC技術を核に工作機械周辺で高いシェアを持つのが特徴。中国設備投資に連動。</td><td class="fund" data-code="6954"></td></tr>
-    <tr><td class="code">6506</td><td class="name">安川電機<span class="badge b-new">NEW</span><span class="en">Yaskawa Electric</span></td><td class="why">サーボモーター・インバータとロボットの両輪。ファナックが工作機械分野に強い一方、安川電機は半導体製造装置向け搬送ロボット等で半導体設備投資の先行指標として株価が注目されやすい。2026年は基幹システム移行の混乱で大幅減益となった。</td><td class="fund" data-code="6506"></td></tr>
-    <tr><td class="code">6861</td><td class="name">キーエンス<span class="badge b-new">NEW</span><span class="en">Keyence</span></td><td class="why">自社工場を持たないファブレスで、FA用センサー・画像処理装置を圧倒的な高収益率(営業利益率50%超)で展開。直接販売による顧客ニーズの深い理解と高付加価値提案が、価格競争に陥りやすい同業他社との最大の差別化要因。高収益・高PERのクオリティ株。</td><td class="fund" data-code="6861"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">01</span>
+<h2>半導体・AI・電子部品<em>Semiconductor / AI / Components</em></h2>
+<span class="count">主38 ＋ 副7</span></div>
+<div class="sec-note">上流→下流順（装置→材料→基板→デバイス→受動部品→AI→FA）。</div>
+<h3>1-1　前工程製造装置<em>Front-end Equipment</em></h3>
+<table>
+<tr><td class="code">8035</td><td class="name">東京エレクトロン<span class="en">Tokyo Electron</span></td><td class="why">成膜・エッチング・洗浄・コータデベロッパー等を幅広く手掛ける日本最大の半導体製造装置(WFE)メーカー。海外勢がプロセスごとに専業化する中(成膜=Applied Materials、露光=ASML等)、コータ/デベロッパーで世界シェア9割超という特定工程での圧倒的独占を持つ。</td><td class="fund" data-code="8035"></td></tr>
+<tr class="sub-listed"><td class="code">6383</td><td class="name">ダイフク<span class="badge b-sub">副</span><span class="en">Daifuku</span></td><td class="why">クリーンルーム搬送（OHT）で世界首位。主掲載は 2-4。</td><td class="fund"><span class="xref-note">→2-4参照</span></td></tr>
+</table>
+<h3>1-2　後工程・検査・研磨装置<em>Back-end / Inspection / CMP</em></h3>
+<table>
+<tr><td class="code">6857</td><td class="name">アドバンテスト<span class="en">Advantest</span></td><td class="why">半導体の良品検査を行うテスタ(検査装置)メーカーで、SoC/メモリ用テスタで世界首位級。米Teradyneと世界を二分する構図で、AI向け高帯域メモリ(HBM)の検査工程で特に高いシェアを握る。</td><td class="fund" data-code="6857"></td></tr>
+<tr><td class="code">6920</td><td class="name">レーザーテック<span class="badge b-new">NEW</span><span class="en">Lasertec</span></td><td class="why">EUV(極端紫外線)露光用フォトマスクの欠陥検査装置で実質的に世界唯一の供給者。競合不在に近い独占的地位ゆえ超高PER・高ボラになりやすく、TSMC・Samsung等の最先端EUV投資動向に業績が直結する。</td><td class="fund" data-code="6920"></td></tr>
+<tr><td class="code">6146</td><td class="name">ディスコ<span class="en">Disco</span></td><td class="why">半導体チップを切り分けるダイシングソー・研削装置(グラインダ)で世界シェア6〜7割の実質独占。精密切削・研削という特定工程への特化により、総合装置メーカー(東京エレクトロン等)とは異なるニッチ首位のポジションを築く。</td><td class="fund" data-code="6146"></td></tr>
+<tr><td class="code">6361</td><td class="name">荏原製作所<span class="en">Ebara</span></td><td class="why">半導体の平坦化工程で使うCMP(化学機械研磨)装置と、真空ポンプの2本柱。ポンプ事業は産業用も含め世界大手級で、AI/データセンター向け液冷ポンプ需要も取り込む「装置＋コンポーネント」のハイブリッド型。</td><td class="fund" data-code="6361"></td></tr>
+<tr><td class="code">6327</td><td class="name">北川精機<span class="en">Kitagawa Seiki</span></td><td class="why">多層基板の製造に使う真空プレス装置が主力の小型メーカー。大手装置メーカーが手掛けない基板成形のニッチ領域に特化しており、値動きの荒さは時価総額の小ささ(300億円規模)を反映。</td><td class="fund" data-code="6327"></td></tr>
+</table>
+<h3>1-3　半導体材料・ウェハ<em>Materials &amp; Wafers</em></h3>
+<table>
+<tr><td class="code">4063</td><td class="name">信越化学<span class="en">Shin-Etsu Chemical</span></td><td class="why">半導体シリコンウェハで世界首位(SUMCOと2強)、フォトレジストでも高シェア。塩化ビニル樹脂(米シンテック)という非半導体の稼ぎ頭も持ち、ウェハ専業のSUMCOより事業が分散されている点が特徴。</td><td class="fund" data-code="4063"></td></tr>
+<tr><td class="code">3436</td><td class="name">SUMCO<span class="en">Sumco</span></td><td class="why">シリコンウェハ専業で信越化学に次ぐ世界2位。信越化学と異なりウェハ単一事業のため、半導体市況(特にメモリ市況)への感応度がより直接的で業績の振れ幅が大きい。</td><td class="fund" data-code="3436"></td></tr>
+<tr><td class="code">4186</td><td class="name">東京応化工業<span class="badge b-new">NEW</span><span class="en">Tokyo Ohka Kogyo</span></td><td class="why">フォトレジスト(感光材料)で信越化学と並ぶ世界首位級。EUV用フォトレジストでも先行しており、露光技術の微細化が進むほど高付加価値製品比率が上がる構図。</td><td class="fund" data-code="4186"></td></tr>
+<tr><td class="code">4901</td><td class="name">富士フイルム<span class="en">Fujifilm</span></td><td class="why">写真フィルムで培った薄膜・化学技術を転用し、CMPスラリー・現像液等の半導体材料でも存在感。ただし収益の柱はヘルスケア(医薬品・医療機器)で、半導体材料はポートフォリオの一角に過ぎない点で信越化学・SUMCOとは性格が異なる。</td><td class="fund" data-code="4901"></td></tr>
+<tr><td class="code">4631</td><td class="name">DIC<span class="en">DIC</span></td><td class="why">印刷インキで世界首位級。半導体分野ではカラーフィルタ材料・エポキシ樹脂を手掛けるが、祖業のインキ・顔料事業が引き続き収益の中心で、PBR0.9倍という評価は「化学の老舗」としての市場評価を映す。</td><td class="fund" data-code="4631"></td></tr>
+<tr><td class="code">6890</td><td class="name">フェローテックHD<span class="en">Ferrotec</span></td><td class="why">半導体装置向けの石英・セラミック部品やシリコン基板を製造。中国売上比率が高く地政学リスクを抱える一方、その中国事業がむしろ成長ドライバーにもなる両面性が特徴。</td><td class="fund" data-code="6890"></td></tr>
+<tr><td class="code">5016</td><td class="name">JX金属<span class="en">JX Advanced Metals</span></td><td class="why">スパッタリングターゲット材(薄膜形成用金属材料)や圧延銅箔で世界首位級。銅製錬という非鉄金属事業も併せ持ち、資源(銅鉱山)から最先端半導体材料まで垂直統合的に展開する点が三菱マテリアル等の非鉄大手と一線を画す。</td><td class="fund" data-code="5016"></td></tr>
+<tr class="sub-listed"><td class="code">5711</td><td class="name">三菱マテリアル<span class="badge b-sub">副</span><span class="en">Mitsubishi Materials</span></td><td class="why">多結晶シリコン・電子材料。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6367</td><td class="name">ダイキン工業<span class="badge b-sub">副</span><span class="en">Daikin</span></td><td class="why">フッ素化学（エッチングガス・樹脂）。主掲載は 2-2。</td><td class="fund"><span class="xref-note">→2-2参照</span></td></tr>
+</table>
+<h3>1-4　サブストレート（パッケージ基板）<em>IC Substrate</em></h3>
+<table>
+<tr><td class="code">4062</td><td class="name">イビデン<span class="en">Ibiden</span></td><td class="why">半導体パッケージ基板(FC-BGA)の代表格で、AIサーバー向け需要により業績・株価が急拡大。同業の新光電気工業が2025年に非公開化された結果、上場企業として数少ないFC-BGA基板の投資対象という希少性も株価を支える。</td><td class="fund" data-code="4062"></td></tr>
+<tr><td class="code">6971</td><td class="name">京セラ<span class="en">Kyocera</span></td><td class="why">セラミックパッケージや電子部品を手掛けるファインセラミックス技術の総合電機。太陽光発電・通信機器・複合機など事業が幅広く分散し、半導体単独の他社に比べPER・PBRとも相対的に低く評価される。</td><td class="fund" data-code="6971"></td></tr>
+<tr><td class="code">2802</td><td class="name">味の素<span class="en">Ajinomoto</span></td><td class="why">半導体パッケージ基板の層間絶縁材「ABF(味の素ビルドアップフィルム)」で実質独占的シェアを持つが、これは調味料・アミノ酸事業から派生した技術。本業は食品(うま味調味料世界首位)で、半導体は高収益・高成長の「隠れた稼ぎ頭」。副掲載 11-4（食品）。</td><td class="fund" data-code="2802"></td></tr>
+<tr class="sub-listed"><td class="code">5706</td><td class="name">三井金属鉱業<span class="badge b-sub">副</span><span class="en">Mitsui Mining &amp; Smelting</span></td><td class="why">極薄銅箔で世界シェア約9割。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
+</table>
+<h3>1-5　半導体デバイス・光半導体<em>Devices / Photonics</em></h3>
+<table>
+<tr><td class="code">285A</td><td class="name">キオクシアHD<span class="badge b-new">NEW</span><span class="en">Kioxia Holdings</span></td><td class="why">NAND型フラッシュメモリで世界2位級(サムスンに次ぐ)。AI向けSSD需要とメモリ市況(価格サイクル)の両方に業績が左右され、ウォッチリスト中でも最も値動きが荒い銘柄の一つ。</td><td class="fund" data-code="285A"></td></tr>
+<tr><td class="code">6723</td><td class="name">ルネサス<span class="en">Renesas</span></td><td class="why">車載マイコンで世界トップシェア。自動車の電動化・自動運転化に伴う半導体需要拡大を狙うが、自動車生産台数・EVシフト鈍化など自動車業界固有のリスクにも連動する。副掲載 10-2（自動車部品）。</td><td class="fund" data-code="6723"></td></tr>
+<tr><td class="code">6963</td><td class="name">ローム<span class="en">Rohm</span></td><td class="why">パワー半導体・SiC(炭化ケイ素)デバイスに強みを持つが、近年は構造改革(工場再編・人員削減)局面。東芝系との資本提携も進めており、収益改善が株価回復の鍵。</td><td class="fund" data-code="6963"></td></tr>
+<tr><td class="code">6526</td><td class="name">ソシオネクスト<span class="en">Socionext</span></td><td class="why">自社工場を持たないファブレスで、顧客企業の要求仕様に応じたカスタムSoC(System on Chip)設計に特化。台湾TSMC等に製造委託する分業モデルで、AI・データセンター向けカスタムチップ需要の取り込みが成長戦略の柱。</td><td class="fund" data-code="6526"></td></tr>
+<tr><td class="code">6965</td><td class="name">浜松ホトニクス<span class="en">Hamamatsu Photonics</span></td><td class="why">光検出器・光電子増倍管という光半導体のニッチ分野で世界トップシェア。医療機器(PET装置等)・科学計測(素粒子実験等)向けにも展開し、汎用半導体とは異なる特殊用途技術で高い参入障壁を築く。</td><td class="fund" data-code="6965"></td></tr>
+<tr><td class="code">6758</td><td class="name">ソニーグループ<span class="en">Sony Group</span></td><td class="why">CMOSイメージセンサで世界首位(スマホカメラ用で圧倒的シェア)。半導体はグループ収益の一角に過ぎず、ゲーム(PlayStation)・音楽・映画が利益の過半を占める複合企業という点で、他の半導体専業とは評価軸が全く異なる。副掲載 11-2（エンタメ）。</td><td class="fund" data-code="6758"></td></tr>
+</table>
+<h3>1-6　コンデンサ（受動部品）<em>Capacitors</em></h3>
+<table>
+<tr><td class="code">6981</td><td class="name">村田製作所<span class="en">Murata</span></td><td class="why">積層セラミックコンデンサ(MLCC)で世界首位。スマホ1台に数百個搭載される汎用部品ながら、高精度・小型化技術で圧倒的シェアを維持する。副掲載 1-7（小型電池）。</td><td class="fund" data-code="6981"></td></tr>
+<tr><td class="code">6976</td><td class="name">太陽誘電<span class="en">Taiyo Yuden</span></td><td class="why">MLCCで村田に次ぐ国内2番手。村田がスマホ・自動車向け高付加価値品に強い一方、太陽誘電はデータセンターサーバー向けMLCC需要の取り込みで2025〜2026年に株価が急騰した。</td><td class="fund" data-code="6976"></td></tr>
+<tr><td class="code">6997</td><td class="name">日本ケミコン<span class="en">Nippon Chemi-Con</span></td><td class="why">アルミ電解コンデンサ専業で、村田・太陽誘電のMLCC(セラミック系)とは異なる部品カテゴリで産業機器・車載向けに強みを持つ。</td><td class="fund" data-code="6997"></td></tr>
+<tr><td class="code">6762</td><td class="name">TDK<span class="en">TDK</span></td><td class="why">受動部品に加え、スマホ用小型リチウムイオン電池(旧ソニー電池事業)で世界シェアを持つ点が村田と共通するが、TDKはHDD用磁気ヘッド由来のセンサ事業も併せ持つ点で独自性がある。副掲載 1-7。</td><td class="fund" data-code="6762"></td></tr>
+</table>
+<h3>1-7　バッテリー<em>Batteries</em></h3>
+<table>
+<tr><td class="code">6674</td><td class="name">GSユアサ<span class="en">GS Yuasa</span></td><td class="why">鉛蓄電池国内最大手から車載リチウムイオン電池に展開。潜水艦用リチウム電池を防衛省向けに独占供給する特殊な事業も持つ。副掲載 4-2（潜水艦電池）。</td><td class="fund" data-code="6674"></td></tr>
+<tr><td class="code">6752</td><td class="name">パナソニックHD<span class="en">Panasonic Holdings</span></td><td class="why">テスラ向け車載電池の主要サプライヤー(北米工場を保有)。電池事業は空調・住宅・エレクトロニクス等の複数事業の一つに過ぎないが、市場からは「テスラ電池銘柄」として材料視されやすい。副掲載 2-2（空質・DC空調）。</td><td class="fund" data-code="6752"></td></tr>
+<tr class="sub-listed"><td class="code">6762</td><td class="name">TDK<span class="badge b-sub">副</span><span class="en">TDK</span></td><td class="why">小型二次電池シェア世界首位。実質的に電池株。主掲載は 1-6。</td><td class="fund"><span class="xref-note">→1-6参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6981</td><td class="name">村田製作所<span class="badge b-sub">副</span><span class="en">Murata</span></td><td class="why">小型リチウム電池（旧ソニー電池事業）。主掲載は 1-6。</td><td class="fund"><span class="xref-note">→1-6参照</span></td></tr>
+<tr class="sub-listed"><td class="code">5713</td><td class="name">住友金属鉱山<span class="badge b-sub">副</span><span class="en">Sumitomo Metal Mining</span></td><td class="why">車載電池正極材。主掲載は 6-1。</td><td class="fund"><span class="xref-note">→6-1参照</span></td></tr>
+</table>
+<h3>1-8　その他電子部品・モーター<em>Other Components</em></h3>
+<table>
+<tr><td class="code">5333</td><td class="name">日本ガイシ<span class="en">NGK Insulators</span></td><td class="why">ファインセラミックス技術を核に、自動車排ガス浄化用セラミックハニカムで世界首位級。AI半導体向け新素材(デジタルソサエティ事業)にも展開し、2025〜2026年に業績が過去最高を更新した。</td><td class="fund" data-code="5333"></td></tr>
+<tr><td class="code">6594</td><td class="name">ニデック<span class="en">Nidec</span></td><td class="why">精密モーター(HDD用スピンドルモーター等)で世界首位級、近年はEV用駆動モーターやDC冷却ファンにも展開。ただし2025〜2026年は会計不正・品質問題により本決算延期という異例の経営問題を抱える。</td><td class="fund" data-code="6594"></td></tr>
+</table>
+<h3>1-9　AI・ソフト・プラットフォーム<em>AI / Platform</em></h3>
+<table>
+<tr><td class="code">9984</td><td class="name">ソフトバンクグループ<span class="badge b-new">NEW</span><span class="en">SoftBank Group</span></td><td class="why">英半導体設計大手Armを保有し、OpenAIへの巨額出資も行う「AI関連の投資持株会社」。事業会社というよりファンド的性格が強く、保有資産価値(NAV)からのディスカウント幅や有利子負債の状況が株価評価の主軸。日経寄与度が高く指数連動性も強い。副掲載 7-2。</td><td class="fund" data-code="9984"></td></tr>
+<tr><td class="code">5586</td><td class="name">Laboro.AI<span class="en">Laboro.AI</span></td><td class="why">企業向けオーダーメイドAI開発を手掛ける小型グロース株。汎用AIサービス(ChatGPT等)ではなく、個社の業務課題に合わせた受託型AI開発というニッチに特化。小型・高ベータ。</td><td class="fund" data-code="5586"></td></tr>
+<tr><td class="code">2354</td><td class="name">YE DIGITAL<span class="en">YE Digital</span></td><td class="why">安川電機グループのIT子会社で、工場向けIoT・AIソリューションが主力。親会社の産業用ロボット・FA事業とのシナジーが強み。</td><td class="fund" data-code="2354"></td></tr>
+<tr class="sub-listed"><td class="code">3778</td><td class="name">さくらインターネット<span class="badge b-sub">副</span><span class="en">Sakura Internet</span></td><td class="why">国産GPUクラウド。主掲載は 2-3。</td><td class="fund"><span class="xref-note">→2-3参照</span></td></tr>
+</table>
+<h3>1-10　重電・パワー半導体<em>Heavy Electrical</em></h3>
+<table>
+<tr><td class="code">6504</td><td class="name">富士電機<span class="en">Fuji Electric</span></td><td class="why">パワー半導体(産業機器・車載向け)と変電・配電設備の2本柱。三菱電機・東芝のパワー半導体事業と競合するが、自動販売機(祖業)も手掛ける独特の事業構成。副掲載 2-4（DC電源）。</td><td class="fund" data-code="6504"></td></tr>
+<tr><td class="code">6508</td><td class="name">明電舎<span class="en">Meidensha</span></td><td class="why">変電設備・モーターが主力の中堅重電。三菱電機・東芝・日立といった総合電機大手と異なり重電専業で、電力インフラの更新需要(老朽化対応)が業績を下支え。</td><td class="fund" data-code="6508"></td></tr>
+</table>
+<h3>1-11　FA・ロボット・計測<em>Factory Automation</em></h3>
+<table>
+<tr><td class="code">6954</td><td class="name">ファナック<span class="badge b-new">NEW</span><span class="en">Fanuc</span></td><td class="why">CNC(数値制御装置)と産業用ロボットで世界首位級。安川電機・独KUKA・スイスABBと並ぶ「ロボット4大メーカー」の一角だが、自社CNC技術を核に工作機械周辺で高いシェアを持つのが特徴。中国設備投資に連動。</td><td class="fund" data-code="6954"></td></tr>
+<tr><td class="code">6506</td><td class="name">安川電機<span class="badge b-new">NEW</span><span class="en">Yaskawa Electric</span></td><td class="why">サーボモーター・インバータとロボットの両輪。ファナックが工作機械分野に強い一方、安川電機は半導体製造装置向け搬送ロボット等で半導体設備投資の先行指標として株価が注目されやすい。2026年は基幹システム移行の混乱で大幅減益となった。</td><td class="fund" data-code="6506"></td></tr>
+<tr><td class="code">6861</td><td class="name">キーエンス<span class="badge b-new">NEW</span><span class="en">Keyence</span></td><td class="why">自社工場を持たないファブレスで、FA用センサー・画像処理装置を圧倒的な高収益率(営業利益率50%超)で展開。直接販売による顧客ニーズの深い理解と高付加価値提案が、価格競争に陥りやすい同業他社との最大の差別化要因。高収益・高PERのクオリティ株。</td><td class="fund" data-code="6861"></td></tr>
+</table>
 </section>
-
 <!-- 2 -->
 <section id="s2" style="--c:var(--dc)">
-  <div class="sec-head"><span class="sec-num">02</span>
-    <h2>データセンター・通信インフラ<em>Data Center / Network</em></h2>
-    <span class="count">主10 ＋ 副4</span></div>
-  <div class="sec-note">「電気を通す・冷やす・運ぶ・置く」の4層で分解。</div>
-
-  <h3>2-1　電線・光ファイバ<em>Cable &amp; Optical Fiber</em></h3>
-  <table>
-    <tr><td class="code">5803</td><td class="name">フジクラ<span class="en">Fujikura</span></td><td class="why">光ファイバケーブルの中でも超多心(データセンター間接続向け)に強み。古河電工・住友電工と国内3社で市場を分け合うが、ハイパースケーラー(米大手クラウド事業者)からの大型受注を獲得し業績予想を大幅上方修正した点で一歩リード。</td><td class="fund" data-code="5803"></td></tr>
-    <tr><td class="code">5801</td><td class="name">古河電工<span class="en">Furukawa Electric</span></td><td class="why">光ファイバに加え、光通信用の励起レーザーなど部品レベルでも高いシェア。自動車用ワイヤーハーネス(住友電工が主力)ではなく通信インフラに事業を集中させている点がフジクラ・住友電工との違い。</td><td class="fund" data-code="5801"></td></tr>
-    <tr><td class="code">5802</td><td class="name">住友電工<span class="en">Sumitomo Electric</span></td><td class="why">光ファイバも手掛けるが、実際の収益の柱は自動車用ワイヤーハーネスで世界シェアトップ。フジクラ・古河電工より事業が多角化している分、DCテーマとしての純粋度は相対的に低い。副掲載 10-2（ワイヤハーネス）。</td><td class="fund" data-code="5802"></td></tr>
-  </table>
-
-  <h3>2-2　冷却・空調<em>Cooling &amp; HVAC</em></h3>
-  <table>
-    <tr><td class="code">6367</td><td class="name">ダイキン工業<span class="en">Daikin</span></td><td class="why">空調(エアコン)で世界首位。データセンター向け高効率アプライド空調(大型業務用)を成長領域と位置づけ、欧州の猛暑による住宅用空調需要拡大も追い風。副掲載 1-3（フッ素化学）。</td><td class="fund" data-code="6367"></td></tr>
-    <tr><td class="code">1969</td><td class="name">高砂熱学工業<span class="en">Takasago Thermal</span></td><td class="why">ビル・データセンター・クリーンルームの空調「施工」を専門とするゼネコン的企業で、ダイキンのような空調機器メーカーとは異なり工事・エンジニアリングサービスで稼ぐビジネスモデル。</td><td class="fund" data-code="1969"></td></tr>
-    <tr><td class="code">6584</td><td class="name">三桜工業<span class="en">Sanoh Industrial</span></td><td class="why">自動車用配管メーカーが祖業だが、その精密配管技術をデータセンター向け液冷配管(サーバー冷却)に転用する事業転換を進行中。売上の実態はまだ自動車が中心で「テーマ株的な期待先行」の側面がある。副掲載 10-2。</td><td class="fund" data-code="6584"></td></tr>
-    <tr><td class="code">6498</td><td class="name">キッツ<span class="en">Kitz</span></td><td class="why">バルブ(流体制御機器)専業で、半導体工場やデータセンターの冷却水・薬液配管向け需要を取り込む。銅相場上昇の恩恵を受けるメタルソリューション事業も持つ。</td><td class="fund" data-code="6498"></td></tr>
-    <tr class="sub-listed"><td class="code">7011</td><td class="name">三菱重工業<span class="badge b-sub">副</span><span class="en">Mitsubishi Heavy</span></td><td class="why">ターボ冷凍機・ガスタービン（DC電源）。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6752</td><td class="name">パナソニックHD<span class="badge b-sub">副</span><span class="en">Panasonic Holdings</span></td><td class="why">空質空調（旧ジョンソンコントロールズ日立空調）。主掲載は 1-7。</td><td class="fund"><span class="xref-note">→1-7参照</span></td></tr>
-  </table>
-
-  <h3>2-3　DC運営・通信キャリア<em>Operators &amp; Carriers</em></h3>
-  <table>
-    <tr><td class="code">3778</td><td class="name">さくらインターネット<span class="en">Sakura Internet</span></td><td class="why">国産クラウド事業者で、政府が推進する「ガバメントクラウド」の受け皿となる数少ない国内事業者。AWS・Google Cloud・Azureの外資3強に対し、データ主権・安全保障の観点から選ばれる国産の選択肢という差別化ポジション。GPU貸し出し「高火力」でAI需要も取り込むが先行投資で赤字が続く。副掲載 1-9。</td><td class="fund" data-code="3778"></td></tr>
-    <tr><td class="code">9432</td><td class="name">NTT<span class="en">NTT</span></td><td class="why">固定通信最大手で、次世代光通信基盤IOWN(アイオン)による低遅延・低消費電力のデータセンター間接続技術を推進。KDDI・ソフトバンクと並ぶ通信キャリア3強の一角だが、国内固定回線のインフラ資産という独自の強みを持つ。ディフェンシブ配当。</td><td class="fund" data-code="9432"></td></tr>
-    <tr class="sub-listed"><td class="code">6702</td><td class="name">富士通<span class="badge b-sub">副</span><span class="en">Fujitsu</span></td><td class="why">サーバ・スパコン（富岳）。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
-  </table>
-
-  <h3>2-4　搬送・電源設備<em>Handling &amp; Power Equipment</em></h3>
-  <table>
-    <tr><td class="code">6383</td><td class="name">ダイフク<span class="en">Daifuku</span></td><td class="why">工場・物流倉庫向け搬送システムで世界首位。半導体クリーンルーム内の搬送(OHT)でも高シェアを持ち、物流自動化と半導体製造という2つの成長市場にまたがる。副掲載 1-1。</td><td class="fund" data-code="6383"></td></tr>
-    <tr class="sub-listed"><td class="code">6504</td><td class="name">富士電機<span class="badge b-sub">副</span><span class="en">Fuji Electric</span></td><td class="why">UPS・受変電設備。主掲載は 1-10。</td><td class="fund"><span class="xref-note">→1-10参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6501</td><td class="name">日立製作所<span class="badge b-sub">副</span><span class="en">Hitachi</span></td><td class="why">送配電（日立エナジー）。DC電力供給の中核。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">02</span>
+<h2>データセンター・通信インフラ<em>Data Center / Network</em></h2>
+<span class="count">主10 ＋ 副4</span></div>
+<div class="sec-note">「電気を通す・冷やす・運ぶ・置く」の4層で分解。</div>
+<h3>2-1　電線・光ファイバ<em>Cable &amp; Optical Fiber</em></h3>
+<table>
+<tr><td class="code">5803</td><td class="name">フジクラ<span class="en">Fujikura</span></td><td class="why">光ファイバケーブルの中でも超多心(データセンター間接続向け)に強み。古河電工・住友電工と国内3社で市場を分け合うが、ハイパースケーラー(米大手クラウド事業者)からの大型受注を獲得し業績予想を大幅上方修正した点で一歩リード。</td><td class="fund" data-code="5803"></td></tr>
+<tr><td class="code">5801</td><td class="name">古河電工<span class="en">Furukawa Electric</span></td><td class="why">光ファイバに加え、光通信用の励起レーザーなど部品レベルでも高いシェア。自動車用ワイヤーハーネス(住友電工が主力)ではなく通信インフラに事業を集中させている点がフジクラ・住友電工との違い。</td><td class="fund" data-code="5801"></td></tr>
+<tr><td class="code">5802</td><td class="name">住友電工<span class="en">Sumitomo Electric</span></td><td class="why">光ファイバも手掛けるが、実際の収益の柱は自動車用ワイヤーハーネスで世界シェアトップ。フジクラ・古河電工より事業が多角化している分、DCテーマとしての純粋度は相対的に低い。副掲載 10-2（ワイヤハーネス）。</td><td class="fund" data-code="5802"></td></tr>
+</table>
+<h3>2-2　冷却・空調<em>Cooling &amp; HVAC</em></h3>
+<table>
+<tr><td class="code">6367</td><td class="name">ダイキン工業<span class="en">Daikin</span></td><td class="why">空調(エアコン)で世界首位。データセンター向け高効率アプライド空調(大型業務用)を成長領域と位置づけ、欧州の猛暑による住宅用空調需要拡大も追い風。副掲載 1-3（フッ素化学）。</td><td class="fund" data-code="6367"></td></tr>
+<tr><td class="code">1969</td><td class="name">高砂熱学工業<span class="en">Takasago Thermal</span></td><td class="why">ビル・データセンター・クリーンルームの空調「施工」を専門とするゼネコン的企業で、ダイキンのような空調機器メーカーとは異なり工事・エンジニアリングサービスで稼ぐビジネスモデル。</td><td class="fund" data-code="1969"></td></tr>
+<tr><td class="code">6584</td><td class="name">三桜工業<span class="en">Sanoh Industrial</span></td><td class="why">自動車用配管メーカーが祖業だが、その精密配管技術をデータセンター向け液冷配管(サーバー冷却)に転用する事業転換を進行中。売上の実態はまだ自動車が中心で「テーマ株的な期待先行」の側面がある。副掲載 10-2。</td><td class="fund" data-code="6584"></td></tr>
+<tr><td class="code">6498</td><td class="name">キッツ<span class="en">Kitz</span></td><td class="why">バルブ(流体制御機器)専業で、半導体工場やデータセンターの冷却水・薬液配管向け需要を取り込む。銅相場上昇の恩恵を受けるメタルソリューション事業も持つ。</td><td class="fund" data-code="6498"></td></tr>
+<tr class="sub-listed"><td class="code">7011</td><td class="name">三菱重工業<span class="badge b-sub">副</span><span class="en">Mitsubishi Heavy</span></td><td class="why">ターボ冷凍機・ガスタービン（DC電源）。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6752</td><td class="name">パナソニックHD<span class="badge b-sub">副</span><span class="en">Panasonic Holdings</span></td><td class="why">空質空調（旧ジョンソンコントロールズ日立空調）。主掲載は 1-7。</td><td class="fund"><span class="xref-note">→1-7参照</span></td></tr>
+</table>
+<h3>2-3　DC運営・通信キャリア<em>Operators &amp; Carriers</em></h3>
+<table>
+<tr><td class="code">3778</td><td class="name">さくらインターネット<span class="en">Sakura Internet</span></td><td class="why">国産クラウド事業者で、政府が推進する「ガバメントクラウド」の受け皿となる数少ない国内事業者。AWS・Google Cloud・Azureの外資3強に対し、データ主権・安全保障の観点から選ばれる国産の選択肢という差別化ポジション。GPU貸し出し「高火力」でAI需要も取り込むが先行投資で赤字が続く。副掲載 1-9。</td><td class="fund" data-code="3778"></td></tr>
+<tr><td class="code">9432</td><td class="name">NTT<span class="en">NTT</span></td><td class="why">固定通信最大手で、次世代光通信基盤IOWN(アイオン)による低遅延・低消費電力のデータセンター間接続技術を推進。KDDI・ソフトバンクと並ぶ通信キャリア3強の一角だが、国内固定回線のインフラ資産という独自の強みを持つ。ディフェンシブ配当。</td><td class="fund" data-code="9432"></td></tr>
+<tr class="sub-listed"><td class="code">6702</td><td class="name">富士通<span class="badge b-sub">副</span><span class="en">Fujitsu</span></td><td class="why">サーバ・スパコン（富岳）。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
+</table>
+<h3>2-4　搬送・電源設備<em>Handling &amp; Power Equipment</em></h3>
+<table>
+<tr><td class="code">6383</td><td class="name">ダイフク<span class="en">Daifuku</span></td><td class="why">工場・物流倉庫向け搬送システムで世界首位。半導体クリーンルーム内の搬送(OHT)でも高シェアを持ち、物流自動化と半導体製造という2つの成長市場にまたがる。副掲載 1-1。</td><td class="fund" data-code="6383"></td></tr>
+<tr class="sub-listed"><td class="code">6504</td><td class="name">富士電機<span class="badge b-sub">副</span><span class="en">Fuji Electric</span></td><td class="why">UPS・受変電設備。主掲載は 1-10。</td><td class="fund"><span class="xref-note">→1-10参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6501</td><td class="name">日立製作所<span class="badge b-sub">副</span><span class="en">Hitachi</span></td><td class="why">送配電（日立エナジー）。DC電力供給の中核。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
+</table>
 </section>
-
 <!-- 3 -->
 <section id="s3" style="--c:var(--cyber)">
-  <div class="sec-head"><span class="sec-num">03</span>
-    <h2>IT・サイバーセキュリティ<em>IT / Cybersecurity</em></h2>
-    <span class="count">主7</span></div>
-  <div class="sec-note">能動的サイバー防御法の関連として括られやすいグループ。</div>
-
-  <h3>3-1　セキュリティ専業<em>Pure-play Security</em></h3>
-  <table>
-    <tr><td class="code">4704</td><td class="name">トレンドマイクロ<span class="en">Trend Micro</span></td><td class="why">エンドポイント・クラウド・XDRを軸とする純粋サイバーセキュリティ企業。日本発ながら売上の8割超を北米・欧州で稼ぐ。国内競合(FFRI・ラック等)が官公庁・国内案件中心なのに対し、CrowdStrike・Palo Alto Networks・Fortinetら米大手と直接競合するグローバルプレーヤーという点で一線を画す。</td><td class="fund" data-code="4704"></td></tr>
-    <tr><td class="code">3692</td><td class="name">FFRIセキュリティ<span class="en">FFRI Security</span></td><td class="why">国産エンドポイント防御ソフト「FFRI yarai」が主力の小型セキュリティ専業。外資製品への政府調達依存を警戒する防衛省・官公庁向けに「純国産」を強みとし、案件単価は小さいが防衛省関連ニュースで株価が跳ねやすい値がさ株的な位置づけ。</td><td class="fund" data-code="3692"></td></tr>
-  </table>
-
-  <h3>3-2　総合SIer・電機<em>System Integrators</em></h3>
-  <table>
-    <tr><td class="code">6501</td><td class="name">日立製作所<span class="en">Hitachi</span></td><td class="why">発電・鉄道・ITを横断する総合電機。稼ぐ柱はLumada(IoT/データ活用)と送配電(日立エナジー)。三菱電機・東芝が国内重電中心なのに対し、日立はABB送配電事業やGlobalLogicの買収などM&Aでグローバルデジタル×インフラ企業への転換を先行させる。副掲載 2-4。</td><td class="fund" data-code="6501"></td></tr>
-    <tr><td class="code">6702</td><td class="name">富士通<span class="en">Fujitsu</span></td><td class="why">官公庁・金融向けSI(システムインテグレーション)が中核。日立・NECと並ぶ「メインフレーム3社」の一角だが、2027年めど次世代スパコン・AI半導体「FUJITSU-MONAKA」開発など自社半導体設計に踏み込む点で他2社と一線を画す。副掲載 2-3。</td><td class="fund" data-code="6702"></td></tr>
-    <tr><td class="code">6701</td><td class="name">NEC<span class="en">NEC</span></td><td class="why">生体認証・海底ケーブル。副掲載 4-2（防衛電子）。</td><td class="fund" data-code="6701"></td></tr>
-    <tr><td class="code">6703</td><td class="name">OKI<span class="en">Oki Electric</span></td><td class="why">ATM(現金自動預払機)や公共インフラ機器が祖業だが、近年はEMS(電子機器受託製造)事業へ構造転換中。日立・富士通・NECの総合電機3社より規模は小さいが、水中音響技術など防衛関連のニッチ分野を持つ。</td><td class="fund" data-code="6703"></td></tr>
-  </table>
-
-  <h3>3-3　ネットサービス<em>Internet Services</em></h3>
-  <table>
-    <tr><td class="code">4755</td><td class="name">楽天グループ<span class="badge b-new">NEW</span><span class="en">Rakuten Group</span></td><td class="why">EC(楽天市場)・金融(楽天カード/銀行/証券)・モバイルの3本柱。ソフトバンク・KDDI・NTTドコモに続く「第4のキャリア」として自前回線を構築中で、モバイル黒字化とその先行投資でかさんだ有利子負債・社債償還が最大の変数。副掲載 7-2。</td><td class="fund" data-code="4755"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">03</span>
+<h2>IT・サイバーセキュリティ<em>IT / Cybersecurity</em></h2>
+<span class="count">主7</span></div>
+<div class="sec-note">能動的サイバー防御法の関連として括られやすいグループ。</div>
+<h3>3-1　セキュリティ専業<em>Pure-play Security</em></h3>
+<table>
+<tr><td class="code">4704</td><td class="name">トレンドマイクロ<span class="en">Trend Micro</span></td><td class="why">エンドポイント・クラウド・XDRを軸とする純粋サイバーセキュリティ企業。日本発ながら売上の8割超を北米・欧州で稼ぐ。国内競合(FFRI・ラック等)が官公庁・国内案件中心なのに対し、CrowdStrike・Palo Alto Networks・Fortinetら米大手と直接競合するグローバルプレーヤーという点で一線を画す。</td><td class="fund" data-code="4704"></td></tr>
+<tr><td class="code">3692</td><td class="name">FFRIセキュリティ<span class="en">FFRI Security</span></td><td class="why">国産エンドポイント防御ソフト「FFRI yarai」が主力の小型セキュリティ専業。外資製品への政府調達依存を警戒する防衛省・官公庁向けに「純国産」を強みとし、案件単価は小さいが防衛省関連ニュースで株価が跳ねやすい値がさ株的な位置づけ。</td><td class="fund" data-code="3692"></td></tr>
+</table>
+<h3>3-2　総合SIer・電機<em>System Integrators</em></h3>
+<table>
+<tr><td class="code">6501</td><td class="name">日立製作所<span class="en">Hitachi</span></td><td class="why">発電・鉄道・ITを横断する総合電機。稼ぐ柱はLumada(IoT/データ活用)と送配電(日立エナジー)。三菱電機・東芝が国内重電中心なのに対し、日立はABB送配電事業やGlobalLogicの買収などM&amp;Aでグローバルデジタル×インフラ企業への転換を先行させる。副掲載 2-4。</td><td class="fund" data-code="6501"></td></tr>
+<tr><td class="code">6702</td><td class="name">富士通<span class="en">Fujitsu</span></td><td class="why">官公庁・金融向けSI(システムインテグレーション)が中核。日立・NECと並ぶ「メインフレーム3社」の一角だが、2027年めど次世代スパコン・AI半導体「FUJITSU-MONAKA」開発など自社半導体設計に踏み込む点で他2社と一線を画す。副掲載 2-3。</td><td class="fund" data-code="6702"></td></tr>
+<tr><td class="code">6701</td><td class="name">NEC<span class="en">NEC</span></td><td class="why">生体認証・海底ケーブル。副掲載 4-2（防衛電子）。</td><td class="fund" data-code="6701"></td></tr>
+<tr><td class="code">6703</td><td class="name">OKI<span class="en">Oki Electric</span></td><td class="why">ATM(現金自動預払機)や公共インフラ機器が祖業だが、近年はEMS(電子機器受託製造)事業へ構造転換中。日立・富士通・NECの総合電機3社より規模は小さいが、水中音響技術など防衛関連のニッチ分野を持つ。</td><td class="fund" data-code="6703"></td></tr>
+</table>
+<h3>3-3　ネットサービス<em>Internet Services</em></h3>
+<table>
+<tr><td class="code">4755</td><td class="name">楽天グループ<span class="badge b-new">NEW</span><span class="en">Rakuten Group</span></td><td class="why">EC(楽天市場)・金融(楽天カード/銀行/証券)・モバイルの3本柱。ソフトバンク・KDDI・NTTドコモに続く「第4のキャリア」として自前回線を構築中で、モバイル黒字化とその先行投資でかさんだ有利子負債・社債償還が最大の変数。副掲載 7-2。</td><td class="fund" data-code="4755"></td></tr>
+</table>
 </section>
-
 <!-- 4 -->
 <section id="s4" style="--c:var(--def)">
-  <div class="sec-head"><span class="sec-num">04</span>
-    <h2>防衛・宇宙<em>Defense / Space</em></h2>
-    <span class="count">主10 ＋ 副2</span></div>
-  <div class="sec-note">防衛費GDP比2%前倒し・宇宙戦略基金が共通ドライバー。</div>
-
-  <h3>4-1　防衛重工（プライム）<em>Prime Contractors</em></h3>
-  <table>
-    <tr><td class="code">7011</td><td class="name">三菱重工業<span class="en">Mitsubishi Heavy</span></td><td class="why">防衛(戦闘機・護衛艦・ミサイル)売上で国内首位の総合重工。原子力発電プラントメーカーとしても国内最大手で、防衛費増額・原発再稼働・データセンター電源(ガスタービン)という3つの成長テーマに同時に跨る稀有な存在。副掲載 2-2（冷凍機・GT）／5-3（原子力）。</td><td class="fund" data-code="7011"></td></tr>
-    <tr><td class="code">7012</td><td class="name">川崎重工業<span class="en">Kawasaki Heavy</span></td><td class="why">潜水艦・哨戒機など海洋防衛装備に強み。二輪車(Kawasaki)や水素サプライチェーンも手掛ける事業多角化企業で、2026年7月には大型資金調達(公募増資+CB)による希薄化懸念が株価の重荷に。副掲載 9-5（水素・二輪）。</td><td class="fund" data-code="7012"></td></tr>
-    <tr><td class="code">7013</td><td class="name">IHI<span class="en">IHI</span></td><td class="why">航空機エンジン(整備・部品販売)が収益の柱で、防衛省向けにはF-2戦闘機用エンジンを量産。原子力機器(格納容器)も手掛け、三菱重工・川崎重工と並ぶ重工3社の一角。副掲載 5-3（原子力機器）。</td><td class="fund" data-code="7013"></td></tr>
-  </table>
-
-  <h3>4-2　防衛部品・火薬・計器<em>Components &amp; Ordnance</em></h3>
-  <table>
-    <tr><td class="code">5631</td><td class="name">日本製鋼所<span class="en">Japan Steel Works</span></td><td class="why">火砲・りゅう弾砲など火器製造で国内シェアの高い防衛メーカーだが、同時に半導体製造装置向けの精密機械部品事業も持つ「防衛と半導体の二枚看板」が特徴的。</td><td class="fund" data-code="5631"></td></tr>
-    <tr><td class="code">7721</td><td class="name">東京計器<span class="en">Tokyo Keiki</span></td><td class="why">船舶・航空機向けの航法・レーダー機器を手掛ける小型株。防衛省向け売上比率が高く、受注残高が過去最高を更新するなど防衛費増額の恩恵を直接的に受けやすい。</td><td class="fund" data-code="7721"></td></tr>
-    <tr><td class="code">4275</td><td class="name">日本カーリット<span class="en">Carlit Holdings</span></td><td class="why">ロケット推進薬・火工品(爆薬関連)を手掛ける数少ない国内企業。電池材料・半導体材料事業も持ち、化学メーカーとしての顔と防衛関連銘柄としての顔を併せ持つ。</td><td class="fund" data-code="4275"></td></tr>
-    <tr class="sub-listed"><td class="code">6701</td><td class="name">NEC<span class="badge b-sub">副</span><span class="en">NEC</span></td><td class="why">防衛電子装備・C4I。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6674</td><td class="name">GSユアサ<span class="badge b-sub">副</span><span class="en">GS Yuasa</span></td><td class="why">潜水艦用リチウム電池を独占供給。主掲載は 1-7。</td><td class="fund"><span class="xref-note">→1-7参照</span></td></tr>
-  </table>
-
-  <h3>4-3　宇宙・衛星・ドローン<em>Space &amp; Drones</em></h3>
-  <table>
-    <tr><td class="code">290A</td><td class="name">Synspective<span class="en">Synspective</span></td><td class="why">小型SAR(合成開口レーダー)衛星のコンステレーション(多数衛星による観測網)を構築するスタートアップ。天候・昼夜を問わず地表観測できるSAR技術で、防衛省の衛星情報収集ニーズに応える。</td><td class="fund" data-code="290A"></td></tr>
-    <tr><td class="code">464A</td><td class="name">QPS研究所<span class="en">QPS Institute</span></td><td class="why">Synspectiveと同じSAR衛星分野の競合。九州大学発ベンチャーで、防衛省から5年で約697億円規模の衛星データ取得契約(Trisat経由)を獲得しており、2026年に黒字転換を見込む。</td><td class="fund" data-code="464A"></td></tr>
-    <tr><td class="code">186A</td><td class="name">アストロスケール<span class="en">Astroscale</span></td><td class="why">宇宙ゴミ(デブリ)除去という世界的にも珍しい事業に特化した英国発・日本上場のスタートアップ。商業化前の長期テーマ株で、資金繰りが投資判断の焦点。</td><td class="fund" data-code="186A"></td></tr>
-    <tr><td class="code">278A</td><td class="name">テラドローン<span class="en">Terra Drone</span></td><td class="why">産業用ドローンの運航管理システム(UTM)が本業だが、2026年に迎撃ドローン「Terra A1/A2」を発表し防衛テーマとして急激に物色された。</td><td class="fund" data-code="278A"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">04</span>
+<h2>防衛・宇宙<em>Defense / Space</em></h2>
+<span class="count">主10 ＋ 副2</span></div>
+<div class="sec-note">防衛費GDP比2%前倒し・宇宙戦略基金が共通ドライバー。</div>
+<h3>4-1　防衛重工（プライム）<em>Prime Contractors</em></h3>
+<table>
+<tr><td class="code">7011</td><td class="name">三菱重工業<span class="en">Mitsubishi Heavy</span></td><td class="why">防衛(戦闘機・護衛艦・ミサイル)売上で国内首位の総合重工。原子力発電プラントメーカーとしても国内最大手で、防衛費増額・原発再稼働・データセンター電源(ガスタービン)という3つの成長テーマに同時に跨る稀有な存在。副掲載 2-2（冷凍機・GT）／5-3（原子力）。</td><td class="fund" data-code="7011"></td></tr>
+<tr><td class="code">7012</td><td class="name">川崎重工業<span class="en">Kawasaki Heavy</span></td><td class="why">潜水艦・哨戒機など海洋防衛装備に強み。二輪車(Kawasaki)や水素サプライチェーンも手掛ける事業多角化企業で、2026年7月には大型資金調達(公募増資+CB)による希薄化懸念が株価の重荷に。副掲載 9-5（水素・二輪）。</td><td class="fund" data-code="7012"></td></tr>
+<tr><td class="code">7013</td><td class="name">IHI<span class="en">IHI</span></td><td class="why">航空機エンジン(整備・部品販売)が収益の柱で、防衛省向けにはF-2戦闘機用エンジンを量産。原子力機器(格納容器)も手掛け、三菱重工・川崎重工と並ぶ重工3社の一角。副掲載 5-3（原子力機器）。</td><td class="fund" data-code="7013"></td></tr>
+</table>
+<h3>4-2　防衛部品・火薬・計器<em>Components &amp; Ordnance</em></h3>
+<table>
+<tr><td class="code">5631</td><td class="name">日本製鋼所<span class="en">Japan Steel Works</span></td><td class="why">火砲・りゅう弾砲など火器製造で国内シェアの高い防衛メーカーだが、同時に半導体製造装置向けの精密機械部品事業も持つ「防衛と半導体の二枚看板」が特徴的。</td><td class="fund" data-code="5631"></td></tr>
+<tr><td class="code">7721</td><td class="name">東京計器<span class="en">Tokyo Keiki</span></td><td class="why">船舶・航空機向けの航法・レーダー機器を手掛ける小型株。防衛省向け売上比率が高く、受注残高が過去最高を更新するなど防衛費増額の恩恵を直接的に受けやすい。</td><td class="fund" data-code="7721"></td></tr>
+<tr><td class="code">4275</td><td class="name">日本カーリット<span class="en">Carlit Holdings</span></td><td class="why">ロケット推進薬・火工品(爆薬関連)を手掛ける数少ない国内企業。電池材料・半導体材料事業も持ち、化学メーカーとしての顔と防衛関連銘柄としての顔を併せ持つ。</td><td class="fund" data-code="4275"></td></tr>
+<tr class="sub-listed"><td class="code">6701</td><td class="name">NEC<span class="badge b-sub">副</span><span class="en">NEC</span></td><td class="why">防衛電子装備・C4I。主掲載は 3-2。</td><td class="fund"><span class="xref-note">→3-2参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6674</td><td class="name">GSユアサ<span class="badge b-sub">副</span><span class="en">GS Yuasa</span></td><td class="why">潜水艦用リチウム電池を独占供給。主掲載は 1-7。</td><td class="fund"><span class="xref-note">→1-7参照</span></td></tr>
+</table>
+<h3>4-3　宇宙・衛星・ドローン<em>Space &amp; Drones</em></h3>
+<table>
+<tr><td class="code">290A</td><td class="name">Synspective<span class="en">Synspective</span></td><td class="why">小型SAR(合成開口レーダー)衛星のコンステレーション(多数衛星による観測網)を構築するスタートアップ。天候・昼夜を問わず地表観測できるSAR技術で、防衛省の衛星情報収集ニーズに応える。</td><td class="fund" data-code="290A"></td></tr>
+<tr><td class="code">464A</td><td class="name">QPS研究所<span class="en">QPS Institute</span></td><td class="why">Synspectiveと同じSAR衛星分野の競合。九州大学発ベンチャーで、防衛省から5年で約697億円規模の衛星データ取得契約(Trisat経由)を獲得しており、2026年に黒字転換を見込む。</td><td class="fund" data-code="464A"></td></tr>
+<tr><td class="code">186A</td><td class="name">アストロスケール<span class="en">Astroscale</span></td><td class="why">宇宙ゴミ(デブリ)除去という世界的にも珍しい事業に特化した英国発・日本上場のスタートアップ。商業化前の長期テーマ株で、資金繰りが投資判断の焦点。</td><td class="fund" data-code="186A"></td></tr>
+<tr><td class="code">278A</td><td class="name">テラドローン<span class="en">Terra Drone</span></td><td class="why">産業用ドローンの運航管理システム(UTM)が本業だが、2026年に迎撃ドローン「Terra A1/A2」を発表し防衛テーマとして急激に物色された。</td><td class="fund" data-code="278A"></td></tr>
+</table>
 </section>
-
 <!-- 5 -->
 <section id="s5" style="--c:var(--enr)">
-  <div class="sec-head"><span class="sec-num">05</span>
-    <h2>エネルギー・電力<em>Energy / Utilities</em></h2>
-    <span class="count">主13 ＋ 副2</span></div>
-  <div class="sec-note">「DC電力需要増」と「原発再稼働」の2軸。</div>
-
-  <h3>5-1　電力会社<em>Electric Utilities</em></h3>
-  <table>
-    <tr><td class="code">9501</td><td class="name">東京電力HD<span class="en">TEPCO</span></td><td class="why">福島第一原発事故の当事者で、柏崎刈羽原発の再稼働(2026年4月に6号機が営業運転開始、事故後初)が収益改善の最大のカタリスト。電力9社の中でも原発再稼働への感応度が最も高い。</td><td class="fund" data-code="9501"></td></tr>
-    <tr><td class="code">9502</td><td class="name">中部電力<span class="en">Chubu Electric</span></td><td class="why">JERA(東京電力と共同出資する火力発電最大手)への持分を持つ点が他の電力会社との違い。浜岡原発は再稼働時期未定。</td><td class="fund" data-code="9502"></td></tr>
-    <tr><td class="code">9503</td><td class="name">関西電力<span class="en">Kansai Electric</span></td><td class="why">美浜・大飯・高浜の3原発サイトが稼働しており、電力9社の中で原発稼働率が最も高く収益が安定。</td><td class="fund" data-code="9503"></td></tr>
-    <tr><td class="code">9506</td><td class="name">東北電力<span class="en">Tohoku Electric</span></td><td class="why">女川原発2号機の再稼働により原子力比率が上昇中で、電力9社の中では再稼働の進捗が比較的早い部類。</td><td class="fund" data-code="9506"></td></tr>
-    <tr><td class="code">9508</td><td class="name">九州電力<span class="en">Kyushu Electric</span></td><td class="why">玄海・川内の両原発が稼働し、半導体工場(TSMC熊本工場等)の集積による電力需要増も追い風で、電力大手の中でもROEが高水準。</td><td class="fund" data-code="9508"></td></tr>
-    <tr><td class="code">9509</td><td class="name">北海道電力<span class="en">Hokkaido Electric</span></td><td class="why">泊原発の再稼働目標は2027年12月に後ろ倒しされたが、次世代半導体ラピダスの千歳工場稼働に伴う道内電力需要増が中長期の成長期待。</td><td class="fund" data-code="9509"></td></tr>
-    <tr><td class="code">9513</td><td class="name">電源開発（Jパワー）<span class="en">J-Power</span></td><td class="why">発電した電気を電力会社に卸売りする「卸電力」専業で、地域独占の小売電力9社とはビジネスモデルが異なる。大間原発を建設中。</td><td class="fund" data-code="9513"></td></tr>
-  </table>
-
-  <h3>5-2　石油・資源開発<em>Oil &amp; Gas</em></h3>
-  <table>
-    <tr><td class="code">1605</td><td class="name">INPEX<span class="en">INPEX</span></td><td class="why">石油・天然ガスの上流開発(採掘)専業で、原油価格・為替(円安)に直接連動。ENEOS・コスモ石油が精製・小売り中心なのに対し、INPEXは資源開発に特化する点で差別化される。</td><td class="fund" data-code="1605"></td></tr>
-    <tr><td class="code">5020</td><td class="name">ENEOS HD<span class="en">ENEOS</span></td><td class="why">石油元売り(精製・販売)最大手。上流開発専業のINPEXとは異なり、精製・小売りのダウンストリームに強み。子会社JX金属の上場・資本再編が経営再編の焦点。</td><td class="fund" data-code="5020"></td></tr>
-    <tr><td class="code">5021</td><td class="name">コスモエネルギーHD<span class="en">Cosmo Energy</span></td><td class="why">石油元売り3位で、風力発電事業も展開し石油以外の収益源を持つ点でENEOSと差別化。高配当利回りも特徴。</td><td class="fund" data-code="5021"></td></tr>
-  </table>
-
-  <h3>5-3　原子力関連・ウラン<em>Nuclear &amp; Uranium</em></h3>
-  <table>
-    <tr><td class="code">6492</td><td class="name">岡野バルブ製造<span class="en">Okano Valve</span></td><td class="why">原子力発電所向けバルブ・保守サービスに特化した小型株で、原発再稼働の「純粋プレー」銘柄として知られる。電力会社本体より原発稼働への感応度がより直接的。</td><td class="fund" data-code="6492"></td></tr>
-    <tr><td class="code">7711</td><td class="name">助川電気工業<span class="en">Sukegawa Electric</span></td><td class="why">原子力用温度センサーが主力だが、近年は政府の核融合開発予算(1,000億円超)を材料に核融合関連銘柄として思惑買いされている。</td><td class="fund" data-code="7711"></td></tr>
-    <tr><td class="code">224A</td><td class="name">GXウラニウムETF<span class="en">Global X Uranium ETF</span></td><td class="why">個別企業ではなく、世界のウラン鉱山・原子力燃料関連企業に分散投資するETF。個別銘柄固有のリスクを避けつつ原子力テーマに投資する手段。<span class="badge b-flag">ETF</span></td><td class="fund" data-code="224A"></td></tr>
-    <tr class="sub-listed"><td class="code">7011</td><td class="name">三菱重工業<span class="badge b-sub">副</span><span class="en">Mitsubishi Heavy</span></td><td class="why">原子炉メーカー（PWR）・次世代炉。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">7013</td><td class="name">IHI<span class="badge b-sub">副</span><span class="en">IHI</span></td><td class="why">原子炉格納容器・核融合機器。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">05</span>
+<h2>エネルギー・電力<em>Energy / Utilities</em></h2>
+<span class="count">主13 ＋ 副2</span></div>
+<div class="sec-note">「DC電力需要増」と「原発再稼働」の2軸。</div>
+<h3>5-1　電力会社<em>Electric Utilities</em></h3>
+<table>
+<tr><td class="code">9501</td><td class="name">東京電力HD<span class="en">TEPCO</span></td><td class="why">福島第一原発事故の当事者で、柏崎刈羽原発の再稼働(2026年4月に6号機が営業運転開始、事故後初)が収益改善の最大のカタリスト。電力9社の中でも原発再稼働への感応度が最も高い。</td><td class="fund" data-code="9501"></td></tr>
+<tr><td class="code">9502</td><td class="name">中部電力<span class="en">Chubu Electric</span></td><td class="why">JERA(東京電力と共同出資する火力発電最大手)への持分を持つ点が他の電力会社との違い。浜岡原発は再稼働時期未定。</td><td class="fund" data-code="9502"></td></tr>
+<tr><td class="code">9503</td><td class="name">関西電力<span class="en">Kansai Electric</span></td><td class="why">美浜・大飯・高浜の3原発サイトが稼働しており、電力9社の中で原発稼働率が最も高く収益が安定。</td><td class="fund" data-code="9503"></td></tr>
+<tr><td class="code">9506</td><td class="name">東北電力<span class="en">Tohoku Electric</span></td><td class="why">女川原発2号機の再稼働により原子力比率が上昇中で、電力9社の中では再稼働の進捗が比較的早い部類。</td><td class="fund" data-code="9506"></td></tr>
+<tr><td class="code">9508</td><td class="name">九州電力<span class="en">Kyushu Electric</span></td><td class="why">玄海・川内の両原発が稼働し、半導体工場(TSMC熊本工場等)の集積による電力需要増も追い風で、電力大手の中でもROEが高水準。</td><td class="fund" data-code="9508"></td></tr>
+<tr><td class="code">9509</td><td class="name">北海道電力<span class="en">Hokkaido Electric</span></td><td class="why">泊原発の再稼働目標は2027年12月に後ろ倒しされたが、次世代半導体ラピダスの千歳工場稼働に伴う道内電力需要増が中長期の成長期待。</td><td class="fund" data-code="9509"></td></tr>
+<tr><td class="code">9513</td><td class="name">電源開発（Jパワー）<span class="en">J-Power</span></td><td class="why">発電した電気を電力会社に卸売りする「卸電力」専業で、地域独占の小売電力9社とはビジネスモデルが異なる。大間原発を建設中。</td><td class="fund" data-code="9513"></td></tr>
+</table>
+<h3>5-2　石油・資源開発<em>Oil &amp; Gas</em></h3>
+<table>
+<tr><td class="code">1605</td><td class="name">INPEX<span class="en">INPEX</span></td><td class="why">石油・天然ガスの上流開発(採掘)専業で、原油価格・為替(円安)に直接連動。ENEOS・コスモ石油が精製・小売り中心なのに対し、INPEXは資源開発に特化する点で差別化される。</td><td class="fund" data-code="1605"></td></tr>
+<tr><td class="code">5020</td><td class="name">ENEOS HD<span class="en">ENEOS</span></td><td class="why">石油元売り(精製・販売)最大手。上流開発専業のINPEXとは異なり、精製・小売りのダウンストリームに強み。子会社JX金属の上場・資本再編が経営再編の焦点。</td><td class="fund" data-code="5020"></td></tr>
+<tr><td class="code">5021</td><td class="name">コスモエネルギーHD<span class="en">Cosmo Energy</span></td><td class="why">石油元売り3位で、風力発電事業も展開し石油以外の収益源を持つ点でENEOSと差別化。高配当利回りも特徴。</td><td class="fund" data-code="5021"></td></tr>
+</table>
+<h3>5-3　原子力関連・ウラン<em>Nuclear &amp; Uranium</em></h3>
+<table>
+<tr><td class="code">6492</td><td class="name">岡野バルブ製造<span class="en">Okano Valve</span></td><td class="why">原子力発電所向けバルブ・保守サービスに特化した小型株で、原発再稼働の「純粋プレー」銘柄として知られる。電力会社本体より原発稼働への感応度がより直接的。</td><td class="fund" data-code="6492"></td></tr>
+<tr><td class="code">7711</td><td class="name">助川電気工業<span class="en">Sukegawa Electric</span></td><td class="why">原子力用温度センサーが主力だが、近年は政府の核融合開発予算(1,000億円超)を材料に核融合関連銘柄として思惑買いされている。</td><td class="fund" data-code="7711"></td></tr>
+<tr><td class="code">224A</td><td class="name">GXウラニウムETF<span class="en">Global X Uranium ETF</span></td><td class="why">個別企業ではなく、世界のウラン鉱山・原子力燃料関連企業に分散投資するETF。個別銘柄固有のリスクを避けつつ原子力テーマに投資する手段。<span class="badge b-flag">ETF</span></td><td class="fund" data-code="224A"></td></tr>
+<tr class="sub-listed"><td class="code">7011</td><td class="name">三菱重工業<span class="badge b-sub">副</span><span class="en">Mitsubishi Heavy</span></td><td class="why">原子炉メーカー（PWR）・次世代炉。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
+<tr class="sub-listed"><td class="code">7013</td><td class="name">IHI<span class="badge b-sub">副</span><span class="en">IHI</span></td><td class="why">原子炉格納容器・核融合機器。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
+</table>
 </section>
-
 <!-- 6 -->
 <section id="s6" style="--c:var(--mat)">
-  <div class="sec-head"><span class="sec-num">06</span>
-    <h2>素材・非鉄・鉄鋼<em>Materials / Non-ferrous</em></h2>
-    <span class="count">主6 ＋ 副1</span></div>
-  <div class="sec-note">銅・金価格と半導体材料需要の二重ドライバー。</div>
-
-  <h3>6-1　非鉄・鉱山<em>Non-ferrous &amp; Mining</em></h3>
-  <table>
-    <tr><td class="code">5713</td><td class="name">住友金属鉱山<span class="en">Sumitomo Metal Mining</span></td><td class="why">金・銅鉱山を保有する非鉄大手で、車載電池の正極材事業も持つ。2026年3月の金・銅急騰時に上場来高値をつけたが、その後の反落で株価変動が大きい。副掲載 1-7（電池正極材）。</td><td class="fund" data-code="5713"></td></tr>
-    <tr><td class="code">5711</td><td class="name">三菱マテリアル<span class="en">Mitsubishi Materials</span></td><td class="why">銅製錬に加え、切削工具(超硬工具)事業も持つ。非鉄大手の中では今期減益見込みの企業が多い中、銅高騰の恩恵を受ける「割安修正期待」銘柄として紹介されることがある。副掲載 1-3。</td><td class="fund" data-code="5711"></td></tr>
-    <tr><td class="code">5706</td><td class="name">三井金属鉱業<span class="en">Mitsui Mining &amp; Smelting</span></td><td class="why">亜鉛製錬が祖業だが、AI半導体パッケージ向け「極薄銅箔」で世界シェア9割超という高付加価値ニッチを確立し、非鉄大手の中でも際立った成長株的評価(高PER・高PBR)を受けている。副掲載 1-4（極薄銅箔）。</td><td class="fund" data-code="5706"></td></tr>
-    <tr class="sub-listed"><td class="code">5016</td><td class="name">JX金属<span class="badge b-sub">副</span><span class="en">JX Advanced Metals</span></td><td class="why">銅製錬・チリ鉱山権益。主掲載は 1-3。</td><td class="fund"><span class="xref-note">→1-3参照</span></td></tr>
-  </table>
-
-  <h3>6-2　鉄鋼・鋼管<em>Steel</em></h3>
-  <table>
-    <tr><td class="code">5463</td><td class="name">丸一鋼管<span class="en">Maruichi Steel Tube</span></td><td class="why">溶接鋼管国内首位。無借金経営・自己資本比率82%という財務健全性の高さが特徴で、値動きの荒い他の非鉄・素材株とは対照的なバリュー株。</td><td class="fund" data-code="5463"></td></tr>
-  </table>
-
-  <h3>6-3　化学（機能材料）<em>Specialty Chemicals</em></h3>
-  <table>
-    <tr><td class="code">4107</td><td class="name">伊勢化学工業<span class="en">Ise Chemicals</span></td><td class="why">ヨウ素で世界シェア上位という特殊なニッチ市場のプレーヤー。天然ガス採掘に伴い産出するヨウ素を医薬・液晶材料向けに供給し、米国でのヨウ素抽出権取得など資源確保を進める。</td><td class="fund" data-code="4107"></td></tr>
-  </table>
-
-  <h3>6-4　貴金属リサイクル<em>Precious Metal Recycling</em></h3>
-  <table>
-    <tr><td class="code">5857</td><td class="name">AREホールディングス<span class="en">ARE Holdings</span></td><td class="why">使用済み電子基板(電子スクラップ)から金・銀等の貴金属を回収するリサイクル専業。いわゆる「都市鉱山」ビジネスとして金価格上昇の恩恵を直接的に受ける。</td><td class="fund" data-code="5857"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">06</span>
+<h2>素材・非鉄・鉄鋼<em>Materials / Non-ferrous</em></h2>
+<span class="count">主6 ＋ 副1</span></div>
+<div class="sec-note">銅・金価格と半導体材料需要の二重ドライバー。</div>
+<h3>6-1　非鉄・鉱山<em>Non-ferrous &amp; Mining</em></h3>
+<table>
+<tr><td class="code">5713</td><td class="name">住友金属鉱山<span class="en">Sumitomo Metal Mining</span></td><td class="why">金・銅鉱山を保有する非鉄大手で、車載電池の正極材事業も持つ。2026年3月の金・銅急騰時に上場来高値をつけたが、その後の反落で株価変動が大きい。副掲載 1-7（電池正極材）。</td><td class="fund" data-code="5713"></td></tr>
+<tr><td class="code">5711</td><td class="name">三菱マテリアル<span class="en">Mitsubishi Materials</span></td><td class="why">銅製錬に加え、切削工具(超硬工具)事業も持つ。非鉄大手の中では今期減益見込みの企業が多い中、銅高騰の恩恵を受ける「割安修正期待」銘柄として紹介されることがある。副掲載 1-3。</td><td class="fund" data-code="5711"></td></tr>
+<tr><td class="code">5706</td><td class="name">三井金属鉱業<span class="en">Mitsui Mining &amp; Smelting</span></td><td class="why">亜鉛製錬が祖業だが、AI半導体パッケージ向け「極薄銅箔」で世界シェア9割超という高付加価値ニッチを確立し、非鉄大手の中でも際立った成長株的評価(高PER・高PBR)を受けている。副掲載 1-4（極薄銅箔）。</td><td class="fund" data-code="5706"></td></tr>
+<tr class="sub-listed"><td class="code">5016</td><td class="name">JX金属<span class="badge b-sub">副</span><span class="en">JX Advanced Metals</span></td><td class="why">銅製錬・チリ鉱山権益。主掲載は 1-3。</td><td class="fund"><span class="xref-note">→1-3参照</span></td></tr>
+</table>
+<h3>6-2　鉄鋼・鋼管<em>Steel</em></h3>
+<table>
+<tr><td class="code">5463</td><td class="name">丸一鋼管<span class="en">Maruichi Steel Tube</span></td><td class="why">溶接鋼管国内首位。無借金経営・自己資本比率82%という財務健全性の高さが特徴で、値動きの荒い他の非鉄・素材株とは対照的なバリュー株。</td><td class="fund" data-code="5463"></td></tr>
+</table>
+<h3>6-3　化学（機能材料）<em>Specialty Chemicals</em></h3>
+<table>
+<tr><td class="code">4107</td><td class="name">伊勢化学工業<span class="en">Ise Chemicals</span></td><td class="why">ヨウ素で世界シェア上位という特殊なニッチ市場のプレーヤー。天然ガス採掘に伴い産出するヨウ素を医薬・液晶材料向けに供給し、米国でのヨウ素抽出権取得など資源確保を進める。</td><td class="fund" data-code="4107"></td></tr>
+</table>
+<h3>6-4　貴金属リサイクル<em>Precious Metal Recycling</em></h3>
+<table>
+<tr><td class="code">5857</td><td class="name">AREホールディングス<span class="en">ARE Holdings</span></td><td class="why">使用済み電子基板(電子スクラップ)から金・銀等の貴金属を回収するリサイクル専業。いわゆる「都市鉱山」ビジネスとして金価格上昇の恩恵を直接的に受ける。</td><td class="fund" data-code="5857"></td></tr>
+</table>
 </section>
-
 <!-- 7 -->
 <section id="s7" style="--c:var(--fin)">
-  <div class="sec-head"><span class="sec-num">07</span>
-    <h2>金融<em>Financials</em></h2>
-    <span class="count">主6 ＋ 副2</span></div>
-  <div class="sec-note">共通ドライバーは日銀の政策金利と長期金利カーブ。</div>
-
-  <h3>7-1　メガバンク・大手行<em>Megabanks</em></h3>
-  <table>
-    <tr><td class="code">8306</td><td class="name">三菱UFJ FG<span class="en">MUFG</span></td><td class="why">国内最大の銀行グループ。日銀の利上げ局面では貸出金利上昇による利ざや改善が期待され、メガバンク3行の中でも指数寄与度が最も大きい代表銘柄。</td><td class="fund" data-code="8306"></td></tr>
-    <tr><td class="code">8316</td><td class="name">三井住友FG<span class="en">SMFG</span></td><td class="why">メガバンク3行の中でROE(自己資本利益率)が最も高く収益性で先行。2026年7月に株式分割を発表し流動性向上を図る。</td><td class="fund" data-code="8316"></td></tr>
-    <tr><td class="code">8411</td><td class="name">みずほFG<span class="en">Mizuho FG</span></td><td class="why">法人金融・市場部門(トレーディング等)の比重が3メガの中で相対的に高く、金利変動や市場環境への感応度がやや異なる。2026年7月に年初来高値を更新するなど3行の中で最も株価が強い。</td><td class="fund" data-code="8411"></td></tr>
-    <tr><td class="code">8303</td><td class="name">SBI新生銀行<span class="en">SBI Shinsei Bank</span></td><td class="why">SBIホールディングス傘下の銀行で、公的資金の返済(かつての経営破綻・国有化の名残)が経営課題として残る。</td><td class="fund" data-code="8303"></td></tr>
-  </table>
-
-  <h3>7-2　証券・ネット金融・投資会社<em>Securities &amp; Investment</em></h3>
-  <table>
-    <tr><td class="code">8473</td><td class="name">SBIホールディングス<span class="en">SBI Holdings</span></td><td class="why">ネット証券最大手を中核に、銀行・ベンチャーキャピタル等を傘下に持つ金融コングロマリット。株式市況の良し悪しが手数料収入に直結する。</td><td class="fund" data-code="8473"></td></tr>
-    <tr class="sub-listed"><td class="code">9984</td><td class="name">ソフトバンクグループ<span class="badge b-sub">副</span><span class="en">SoftBank Group</span></td><td class="why">実態は投資会社。NAVディスカウントと有利子負債が評価軸。主掲載は 1-9。</td><td class="fund"><span class="xref-note">→1-9参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">4755</td><td class="name">楽天グループ<span class="badge b-sub">副</span><span class="en">Rakuten Group</span></td><td class="why">楽天銀行・証券・カード。金融が実質的な利益源。主掲載は 3-3。</td><td class="fund"><span class="xref-note">→3-3参照</span></td></tr>
-  </table>
-
-  <h3>7-3　保険<em>Insurance</em></h3>
-  <table>
-    <tr><td class="code">8725</td><td class="name">MS&amp;AD<span class="en">MS&amp;AD Insurance</span></td><td class="why">損害保険大手で、政策保有株式(持ち合い株)の売却を進め、その売却益を自社株買い等の株主還元原資に充てる資本効率改善が進行中。</td><td class="fund" data-code="8725"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">07</span>
+<h2>金融<em>Financials</em></h2>
+<span class="count">主6 ＋ 副2</span></div>
+<div class="sec-note">共通ドライバーは日銀の政策金利と長期金利カーブ。</div>
+<h3>7-1　メガバンク・大手行<em>Megabanks</em></h3>
+<table>
+<tr><td class="code">8306</td><td class="name">三菱UFJ FG<span class="en">MUFG</span></td><td class="why">国内最大の銀行グループ。日銀の利上げ局面では貸出金利上昇による利ざや改善が期待され、メガバンク3行の中でも指数寄与度が最も大きい代表銘柄。</td><td class="fund" data-code="8306"></td></tr>
+<tr><td class="code">8316</td><td class="name">三井住友FG<span class="en">SMFG</span></td><td class="why">メガバンク3行の中でROE(自己資本利益率)が最も高く収益性で先行。2026年7月に株式分割を発表し流動性向上を図る。</td><td class="fund" data-code="8316"></td></tr>
+<tr><td class="code">8411</td><td class="name">みずほFG<span class="en">Mizuho FG</span></td><td class="why">法人金融・市場部門(トレーディング等)の比重が3メガの中で相対的に高く、金利変動や市場環境への感応度がやや異なる。2026年7月に年初来高値を更新するなど3行の中で最も株価が強い。</td><td class="fund" data-code="8411"></td></tr>
+<tr><td class="code">8303</td><td class="name">SBI新生銀行<span class="en">SBI Shinsei Bank</span></td><td class="why">SBIホールディングス傘下の銀行で、公的資金の返済(かつての経営破綻・国有化の名残)が経営課題として残る。</td><td class="fund" data-code="8303"></td></tr>
+</table>
+<h3>7-2　証券・ネット金融・投資会社<em>Securities &amp; Investment</em></h3>
+<table>
+<tr><td class="code">8473</td><td class="name">SBIホールディングス<span class="en">SBI Holdings</span></td><td class="why">ネット証券最大手を中核に、銀行・ベンチャーキャピタル等を傘下に持つ金融コングロマリット。株式市況の良し悪しが手数料収入に直結する。</td><td class="fund" data-code="8473"></td></tr>
+<tr class="sub-listed"><td class="code">9984</td><td class="name">ソフトバンクグループ<span class="badge b-sub">副</span><span class="en">SoftBank Group</span></td><td class="why">実態は投資会社。NAVディスカウントと有利子負債が評価軸。主掲載は 1-9。</td><td class="fund"><span class="xref-note">→1-9参照</span></td></tr>
+<tr class="sub-listed"><td class="code">4755</td><td class="name">楽天グループ<span class="badge b-sub">副</span><span class="en">Rakuten Group</span></td><td class="why">楽天銀行・証券・カード。金融が実質的な利益源。主掲載は 3-3。</td><td class="fund"><span class="xref-note">→3-3参照</span></td></tr>
+</table>
+<h3>7-3　保険<em>Insurance</em></h3>
+<table>
+<tr><td class="code">8725</td><td class="name">MS&amp;AD<span class="en">MS&amp;AD Insurance</span></td><td class="why">損害保険大手で、政策保有株式(持ち合い株)の売却を進め、その売却益を自社株買い等の株主還元原資に充てる資本効率改善が進行中。</td><td class="fund" data-code="8725"></td></tr>
+</table>
 </section>
-
 <!-- 8 -->
 <section id="s8" style="--c:var(--trd)">
-  <div class="sec-head"><span class="sec-num">08</span>
-    <h2>商社<em>Trading Houses</em></h2>
-    <span class="count">主5</span></div>
-  <div class="sec-note">資源市況＋バフェット銘柄としての需給。</div>
-
-  <h3>8-1　総合商社<em>General Trading</em></h3>
-  <table>
-    <tr><td class="code">8058</td><td class="name">三菱商事<span class="en">Mitsubishi Corp</span></td><td class="why">総合商社最大手。資源(金属・エネルギー)に加えローソン(コンビニ)等の非資源事業も持つバランス型。著名投資家ウォーレン・バフェットが日本の5大商社に出資したことでも知られる。</td><td class="fund" data-code="8058"></td></tr>
-    <tr><td class="code">8031</td><td class="name">三井物産<span class="en">Mitsui &amp; Co</span></td><td class="why">総合商社の中でも鉄鉱石・LNG(液化天然ガス)など資源分野の比重が最も高く、三菱商事より資源への感応度が強い。</td><td class="fund" data-code="8031"></td></tr>
-    <tr><td class="code">8053</td><td class="name">住友商事<span class="en">Sumitomo Corp</span></td><td class="why">総合商社の中では非資源寄りの事業構成で、データセンター・電力インフラ投資にも進出。2026年7月に株式分割を実施し流動性を向上。</td><td class="fund" data-code="8053"></td></tr>
-    <tr><td class="code">2768</td><td class="name">双日<span class="en">Sojitz</span></td><td class="why">総合商社では5大商社に次ぐ中堅規模で、航空機・化学品(肥料)・自動車といったニッチ分野に強み。</td><td class="fund" data-code="2768"></td></tr>
-  </table>
-
-  <h3>8-2　専門商社<em>Specialized Trading</em></h3>
-  <table>
-    <tr><td class="code">8074</td><td class="name">ユアサ商事<span class="en">Yuasa Trading</span></td><td class="why">機械・工具を扱う専門商社で、資源・非資源に分散する総合商社とは異なり製造業の設備投資動向に業績が直結する。</td><td class="fund" data-code="8074"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">08</span>
+<h2>商社<em>Trading Houses</em></h2>
+<span class="count">主5</span></div>
+<div class="sec-note">資源市況＋バフェット銘柄としての需給。</div>
+<h3>8-1　総合商社<em>General Trading</em></h3>
+<table>
+<tr><td class="code">8058</td><td class="name">三菱商事<span class="en">Mitsubishi Corp</span></td><td class="why">総合商社最大手。資源(金属・エネルギー)に加えローソン(コンビニ)等の非資源事業も持つバランス型。著名投資家ウォーレン・バフェットが日本の5大商社に出資したことでも知られる。</td><td class="fund" data-code="8058"></td></tr>
+<tr><td class="code">8031</td><td class="name">三井物産<span class="en">Mitsui &amp; Co</span></td><td class="why">総合商社の中でも鉄鉱石・LNG(液化天然ガス)など資源分野の比重が最も高く、三菱商事より資源への感応度が強い。</td><td class="fund" data-code="8031"></td></tr>
+<tr><td class="code">8053</td><td class="name">住友商事<span class="en">Sumitomo Corp</span></td><td class="why">総合商社の中では非資源寄りの事業構成で、データセンター・電力インフラ投資にも進出。2026年7月に株式分割を実施し流動性を向上。</td><td class="fund" data-code="8053"></td></tr>
+<tr><td class="code">2768</td><td class="name">双日<span class="en">Sojitz</span></td><td class="why">総合商社では5大商社に次ぐ中堅規模で、航空機・化学品(肥料)・自動車といったニッチ分野に強み。</td><td class="fund" data-code="2768"></td></tr>
+</table>
+<h3>8-2　専門商社<em>Specialized Trading</em></h3>
+<table>
+<tr><td class="code">8074</td><td class="name">ユアサ商事<span class="en">Yuasa Trading</span></td><td class="why">機械・工具を扱う専門商社で、資源・非資源に分散する総合商社とは異なり製造業の設備投資動向に業績が直結する。</td><td class="fund" data-code="8074"></td></tr>
+</table>
 </section>
-
 <!-- 9 -->
 <section id="s9" style="--c:var(--mch)">
-  <div class="sec-head"><span class="sec-num">09</span>
-    <h2>機械・重工（民需）<em>Machinery (Civil)</em></h2>
-    <span class="count">主5 ＋ 副5</span></div>
-
-  <h3>9-1　プラント・海洋<em>Plant &amp; Offshore</em></h3>
-  <table>
-    <tr><td class="code">6269</td><td class="name">三井海洋開発<span class="en">MODEC</span></td><td class="why">FPSO(浮体式海洋石油・ガス生産設備)の設計・建造で世界大手。ブラジル沖の大水深油田開発案件が主戦場。</td><td class="fund" data-code="6269"></td></tr>
-    <tr><td class="code">7003</td><td class="name">三井E&amp;S<span class="en">Mitsui E&amp;S</span></td><td class="why">港湾クレーンを手掛け、米中対立を背景に「非中国製」港湾機器への需要シフトが追い風。</td><td class="fund" data-code="7003"></td></tr>
-  </table>
-
-  <h3>9-2　ベアリング・機械部品<em>Bearings</em></h3>
-  <table>
-    <tr><td class="code">6471</td><td class="name">日本精工（NSK）<span class="en">NSK</span></td><td class="why">ベアリング(軸受)国内首位級。自動車向け軸受・ステアリング部品も手掛け、NTNと並ぶ2強として自動車生産動向に業績が連動する。副掲載 10-2。</td><td class="fund" data-code="6471"></td></tr>
-    <tr><td class="code">6472</td><td class="name">NTN<span class="en">NTN</span></td><td class="why">NSKと並ぶベアリング大手で、財務改善(構造改革)が進行中の低位株。ハブベアリング(車輪部品)での自動車向け比率が特に高い。副掲載 10-2。</td><td class="fund" data-code="6472"></td></tr>
-  </table>
-
-  <h3>9-3　農業・建設機械<em>Agri &amp; Construction Machinery</em></h3>
-  <table>
-    <tr><td class="code">6326</td><td class="name">クボタ<span class="en">Kubota</span></td><td class="why">農業機械・小型建設機械の国内最大手。北米市場での農機需要と為替(円安)が業績を左右する。</td><td class="fund" data-code="6326"></td></tr>
-  </table>
-
-  <h3>9-4　FA・ロボット（再掲）<em>FA / Robotics</em></h3>
-  <table>
-    <tr class="sub-listed"><td class="code">6954</td><td class="name">ファナック<span class="badge b-sub">副</span><span class="en">Fanuc</span></td><td class="why">工作機械・自動車設備投資の代表指標。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6506</td><td class="name">安川電機<span class="badge b-sub">副</span><span class="en">Yaskawa Electric</span></td><td class="why">同上。中国需要の影響が大きい。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6861</td><td class="name">キーエンス<span class="badge b-sub">副</span><span class="en">Keyence</span></td><td class="why">全製造業向け。景気先行指標として見られる。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
-  </table>
-
-  <h3>9-5　総合重工（民需部門）<em>Diversified Heavy Industry</em></h3>
-  <table>
-    <tr class="sub-listed"><td class="code">7012</td><td class="name">川崎重工業<span class="badge b-sub">副</span><span class="en">Kawasaki Heavy</span></td><td class="why">二輪・水素サプライチェーン・ガスタービン。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6361</td><td class="name">荏原製作所<span class="badge b-sub">副</span><span class="en">Ebara</span></td><td class="why">標準ポンプ・カスタムポンプが売上の柱。主掲載は 1-2。</td><td class="fund"><span class="xref-note">→1-2参照</span></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">09</span>
+<h2>機械・重工（民需）<em>Machinery (Civil)</em></h2>
+<span class="count">主5 ＋ 副5</span></div>
+<h3>9-1　プラント・海洋<em>Plant &amp; Offshore</em></h3>
+<table>
+<tr><td class="code">6269</td><td class="name">三井海洋開発<span class="en">MODEC</span></td><td class="why">FPSO(浮体式海洋石油・ガス生産設備)の設計・建造で世界大手。ブラジル沖の大水深油田開発案件が主戦場。</td><td class="fund" data-code="6269"></td></tr>
+<tr><td class="code">7003</td><td class="name">三井E&amp;S<span class="en">Mitsui E&amp;S</span></td><td class="why">港湾クレーンを手掛け、米中対立を背景に「非中国製」港湾機器への需要シフトが追い風。</td><td class="fund" data-code="7003"></td></tr>
+</table>
+<h3>9-2　ベアリング・機械部品<em>Bearings</em></h3>
+<table>
+<tr><td class="code">6471</td><td class="name">日本精工（NSK）<span class="en">NSK</span></td><td class="why">ベアリング(軸受)国内首位級。自動車向け軸受・ステアリング部品も手掛け、NTNと並ぶ2強として自動車生産動向に業績が連動する。副掲載 10-2。</td><td class="fund" data-code="6471"></td></tr>
+<tr><td class="code">6472</td><td class="name">NTN<span class="en">NTN</span></td><td class="why">NSKと並ぶベアリング大手で、財務改善(構造改革)が進行中の低位株。ハブベアリング(車輪部品)での自動車向け比率が特に高い。副掲載 10-2。</td><td class="fund" data-code="6472"></td></tr>
+</table>
+<h3>9-3　農業・建設機械<em>Agri &amp; Construction Machinery</em></h3>
+<table>
+<tr><td class="code">6326</td><td class="name">クボタ<span class="en">Kubota</span></td><td class="why">農業機械・小型建設機械の国内最大手。北米市場での農機需要と為替(円安)が業績を左右する。</td><td class="fund" data-code="6326"></td></tr>
+</table>
+<h3>9-4　FA・ロボット（再掲）<em>FA / Robotics</em></h3>
+<table>
+<tr class="sub-listed"><td class="code">6954</td><td class="name">ファナック<span class="badge b-sub">副</span><span class="en">Fanuc</span></td><td class="why">工作機械・自動車設備投資の代表指標。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6506</td><td class="name">安川電機<span class="badge b-sub">副</span><span class="en">Yaskawa Electric</span></td><td class="why">同上。中国需要の影響が大きい。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6861</td><td class="name">キーエンス<span class="badge b-sub">副</span><span class="en">Keyence</span></td><td class="why">全製造業向け。景気先行指標として見られる。主掲載は 1-11。</td><td class="fund"><span class="xref-note">→1-11参照</span></td></tr>
+</table>
+<h3>9-5　総合重工（民需部門）<em>Diversified Heavy Industry</em></h3>
+<table>
+<tr class="sub-listed"><td class="code">7012</td><td class="name">川崎重工業<span class="badge b-sub">副</span><span class="en">Kawasaki Heavy</span></td><td class="why">二輪・水素サプライチェーン・ガスタービン。主掲載は 4-1。</td><td class="fund"><span class="xref-note">→4-1参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6361</td><td class="name">荏原製作所<span class="badge b-sub">副</span><span class="en">Ebara</span></td><td class="why">標準ポンプ・カスタムポンプが売上の柱。主掲載は 1-2。</td><td class="fund"><span class="xref-note">→1-2参照</span></td></tr>
+</table>
 </section>
-
 <!-- 10 -->
 <section id="s10" style="--c:var(--auto)">
-  <div class="sec-head"><span class="sec-num">10</span>
-    <h2>自動車・運輸<em>Autos / Transport</em></h2>
-    <span class="count">主5 ＋ 副5</span></div>
-
-  <h3>10-1　完成車<em>Automakers</em></h3>
-  <table>
-    <tr><td class="code">7203</td><td class="name">トヨタ自動車<span class="en">Toyota</span></td><td class="why">世界最大級の自動車メーカーで、日経平均への寄与度も最大級。ハイブリッド車で先行し、EVシフトは他社より慎重な「全方位戦略」を取る。</td><td class="fund" data-code="7203"></td></tr>
-    <tr><td class="code">7267</td><td class="name">本田技研工業<span class="en">Honda</span></td><td class="why">二輪車事業の収益比率が四輪より高いのが特徴で、東南アジア等での二輪シェアの高さが強み。EV戦略見直しに伴う大規模損失計上で2026年3月期は上場来初の最終赤字。北米関税も論点。</td><td class="fund" data-code="7267"></td></tr>
-  </table>
-
-  <h3>10-2　自動車部品（再掲）<em>Auto Components</em></h3>
-  <table>
-    <tr class="sub-listed"><td class="code">5802</td><td class="name">住友電工<span class="badge b-sub">副</span><span class="en">Sumitomo Electric</span></td><td class="why">ワイヤハーネス世界首位。売上の過半が自動車。主掲載は 2-1。</td><td class="fund"><span class="xref-note">→2-1参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6723</td><td class="name">ルネサス<span class="badge b-sub">副</span><span class="en">Renesas</span></td><td class="why">車載マイコン。自動車生産台数に直結。主掲載は 1-5。</td><td class="fund"><span class="xref-note">→1-5参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6584</td><td class="name">三桜工業<span class="badge b-sub">副</span><span class="en">Sanoh Industrial</span></td><td class="why">自動車用配管が本業。主掲載は 2-2。</td><td class="fund"><span class="xref-note">→2-2参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6471</td><td class="name">日本精工<span class="badge b-sub">副</span><span class="en">NSK</span></td><td class="why">自動車用軸受・ステアリング。主掲載は 9-2。</td><td class="fund"><span class="xref-note">→9-2参照</span></td></tr>
-    <tr class="sub-listed"><td class="code">6472</td><td class="name">NTN<span class="badge b-sub">副</span><span class="en">NTN</span></td><td class="why">ハブベアリング。自動車比率が非常に高い。主掲載は 9-2。</td><td class="fund"><span class="xref-note">→9-2参照</span></td></tr>
-  </table>
-
-  <h3>10-3　空運<em>Airlines</em></h3>
-  <table>
-    <tr><td class="code">9201</td><td class="name">日本航空（JAL）<span class="en">Japan Airlines</span></td><td class="why">ANAと並ぶ国内2大航空会社の一角で、経営破綻・再上場という経緯を持つ。国際線のインバウンド需要が業績のけん引役。インバウンド・燃油・為替の三変数。</td><td class="fund" data-code="9201"></td></tr>
-    <tr><td class="code">9202</td><td class="name">ANA HD<span class="en">ANA Holdings</span></td><td class="why">JALより国際線比率が高く、為替(円安・円高)の業績への影響がより大きい。</td><td class="fund" data-code="9202"></td></tr>
-  </table>
-
-  <h3>10-4　モビリティサービス<em>Mobility Services</em></h3>
-  <table>
-    <tr><td class="code">581A</td><td class="name">GO<span class="en">GO Inc.</span></td><td class="why">タクシー配車アプリ「GO」で国内最大手。ライドシェア解禁の議論の中、既存タクシー会社とプラットフォーム事業者を繋ぐポジションで急成長中。高ベータ。</td><td class="fund" data-code="581A"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">10</span>
+<h2>自動車・運輸<em>Autos / Transport</em></h2>
+<span class="count">主5 ＋ 副5</span></div>
+<h3>10-1　完成車<em>Automakers</em></h3>
+<table>
+<tr><td class="code">7203</td><td class="name">トヨタ自動車<span class="en">Toyota</span></td><td class="why">世界最大級の自動車メーカーで、日経平均への寄与度も最大級。ハイブリッド車で先行し、EVシフトは他社より慎重な「全方位戦略」を取る。</td><td class="fund" data-code="7203"></td></tr>
+<tr><td class="code">7267</td><td class="name">本田技研工業<span class="en">Honda</span></td><td class="why">二輪車事業の収益比率が四輪より高いのが特徴で、東南アジア等での二輪シェアの高さが強み。EV戦略見直しに伴う大規模損失計上で2026年3月期は上場来初の最終赤字。北米関税も論点。</td><td class="fund" data-code="7267"></td></tr>
+</table>
+<h3>10-2　自動車部品（再掲）<em>Auto Components</em></h3>
+<table>
+<tr class="sub-listed"><td class="code">5802</td><td class="name">住友電工<span class="badge b-sub">副</span><span class="en">Sumitomo Electric</span></td><td class="why">ワイヤハーネス世界首位。売上の過半が自動車。主掲載は 2-1。</td><td class="fund"><span class="xref-note">→2-1参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6723</td><td class="name">ルネサス<span class="badge b-sub">副</span><span class="en">Renesas</span></td><td class="why">車載マイコン。自動車生産台数に直結。主掲載は 1-5。</td><td class="fund"><span class="xref-note">→1-5参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6584</td><td class="name">三桜工業<span class="badge b-sub">副</span><span class="en">Sanoh Industrial</span></td><td class="why">自動車用配管が本業。主掲載は 2-2。</td><td class="fund"><span class="xref-note">→2-2参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6471</td><td class="name">日本精工<span class="badge b-sub">副</span><span class="en">NSK</span></td><td class="why">自動車用軸受・ステアリング。主掲載は 9-2。</td><td class="fund"><span class="xref-note">→9-2参照</span></td></tr>
+<tr class="sub-listed"><td class="code">6472</td><td class="name">NTN<span class="badge b-sub">副</span><span class="en">NTN</span></td><td class="why">ハブベアリング。自動車比率が非常に高い。主掲載は 9-2。</td><td class="fund"><span class="xref-note">→9-2参照</span></td></tr>
+</table>
+<h3>10-3　空運<em>Airlines</em></h3>
+<table>
+<tr><td class="code">9201</td><td class="name">日本航空（JAL）<span class="en">Japan Airlines</span></td><td class="why">ANAと並ぶ国内2大航空会社の一角で、経営破綻・再上場という経緯を持つ。国際線のインバウンド需要が業績のけん引役。インバウンド・燃油・為替の三変数。</td><td class="fund" data-code="9201"></td></tr>
+<tr><td class="code">9202</td><td class="name">ANA HD<span class="en">ANA Holdings</span></td><td class="why">JALより国際線比率が高く、為替(円安・円高)の業績への影響がより大きい。</td><td class="fund" data-code="9202"></td></tr>
+</table>
+<h3>10-4　モビリティサービス<em>Mobility Services</em></h3>
+<table>
+<tr><td class="code">581A</td><td class="name">GO<span class="en">GO Inc.</span></td><td class="why">タクシー配車アプリ「GO」で国内最大手。ライドシェア解禁の議論の中、既存タクシー会社とプラットフォーム事業者を繋ぐポジションで急成長中。高ベータ。</td><td class="fund" data-code="581A"></td></tr>
+</table>
 </section>
-
 <!-- 11 -->
 <section id="s11" style="--c:var(--cons)">
-  <div class="sec-head"><span class="sec-num">11</span>
-    <h2>内需・消費<em>Domestic &amp; Consumer</em></h2>
-    <span class="count">主8 ＋ 副2</span></div>
-  <div class="sec-note">中国インバウンド・実質賃金・国内不動産が共通変数。</div>
-
-  <h3>11-1　化粧品・日用品<em>Cosmetics &amp; Household</em></h3>
-  <table>
-    <tr><td class="code">4911</td><td class="name">資生堂<span class="en">Shiseido</span></td><td class="why">化粧品国内最大手で、中国本土・トラベルリテール(免税店)への依存度が高く、中国の消費動向やインバウンド需要に業績が大きく左右される。</td><td class="fund" data-code="4911"></td></tr>
-    <tr><td class="code">4922</td><td class="name">コーセー<span class="en">Kose</span></td><td class="why">資生堂と同様に中国関連の感応度が高い化粧品メーカーだが、資生堂より規模は小さく、近年は北米・アジアでの成長にシフト中。構造改革途上。</td><td class="fund" data-code="4922"></td></tr>
-    <tr><td class="code">4452</td><td class="name">花王<span class="en">Kao</span></td><td class="why">日用品・化粧品の国内最大手で、30年以上の連続増配を続けるディフェンシブ銘柄の代表格。原材料コスト(石油化学製品由来)の変動が利益率に影響。</td><td class="fund" data-code="4452"></td></tr>
-  </table>
-
-  <h3>11-2　エンタメ・IP<em>Entertainment &amp; IP</em></h3>
-  <table>
-    <tr><td class="code">7974</td><td class="name">任天堂<span class="en">Nintendo</span></td><td class="why">ゲーム機・ソフトの世界的大手で、Nintendo Switch後継機の販売サイクルが業績を左右する。2026年6月の本体値上げ発表を機に、普及ペース鈍化への懸念から株価が調整。円安メリット。</td><td class="fund" data-code="7974"></td></tr>
-    <tr><td class="code">8136</td><td class="name">サンリオ<span class="en">Sanrio</span></td><td class="why">ハローキティ等のキャラクターIPライセンス事業が主力で、海外(特にアジア)でのロイヤリティ収入が成長源。2026年に発覚した役員の不適切報酬受領問題というガバナンス課題も抱える。</td><td class="fund" data-code="8136"></td></tr>
-    <tr><td class="code">7951</td><td class="name">ヤマハ<span class="en">Yamaha Corp</span></td><td class="why">楽器(ピアノ・ギター等)と音響機器(スピーカー等)の世界的大手。中国のピアノ需要減退が近年の業績の重しで、その回復待ちの局面。</td><td class="fund" data-code="7951"></td></tr>
-    <tr class="sub-listed"><td class="code">6758</td><td class="name">ソニーグループ<span class="badge b-sub">副</span><span class="en">Sony Group</span></td><td class="why">ゲーム・音楽・映画が利益の過半。主掲載は 1-5。</td><td class="fund"><span class="xref-note">→1-5参照</span></td></tr>
-  </table>
-
-  <h3>11-3　住宅・不動産<em>Housing</em></h3>
-  <table>
-    <tr><td class="code">1928</td><td class="name">積水ハウス<span class="en">Sekisui House</span></td><td class="why">国内最大手の住宅メーカーだが、近年は米国住宅事業が利益の柱に成長しており、米国金利動向への感応度も高まっている。</td><td class="fund" data-code="1928"></td></tr>
-  </table>
-
-  <h3>11-4　食品<em>Food</em></h3>
-  <table>
-    <tr class="sub-listed"><td class="code">2802</td><td class="name">味の素<span class="badge b-sub">副</span><span class="en">Ajinomoto</span></td><td class="why">調味料・アミノ酸が本業。売上の大半は食品。主掲載は 1-4。</td><td class="fund"><span class="xref-note">→1-4参照</span></td></tr>
-  </table>
-
-  <h3>11-5　外食<em>Restaurants</em></h3>
-  <table>
-    <tr><td class="code">3063</td><td class="name">ジェイグループHD<span class="en">J-Group Holdings</span></td><td class="why">居酒屋等の外食チェーンを運営する中小型株。自己資本比率が低く財務基盤は相対的に薄いが、新規出店・店舗再編を積極展開。<span class="badge b-flag">要確認</span></td><td class="fund" data-code="3063"></td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">11</span>
+<h2>内需・消費<em>Domestic &amp; Consumer</em></h2>
+<span class="count">主8 ＋ 副2</span></div>
+<div class="sec-note">中国インバウンド・実質賃金・国内不動産が共通変数。</div>
+<h3>11-1　化粧品・日用品<em>Cosmetics &amp; Household</em></h3>
+<table>
+<tr><td class="code">4911</td><td class="name">資生堂<span class="en">Shiseido</span></td><td class="why">化粧品国内最大手で、中国本土・トラベルリテール(免税店)への依存度が高く、中国の消費動向やインバウンド需要に業績が大きく左右される。</td><td class="fund" data-code="4911"></td></tr>
+<tr><td class="code">4922</td><td class="name">コーセー<span class="en">Kose</span></td><td class="why">資生堂と同様に中国関連の感応度が高い化粧品メーカーだが、資生堂より規模は小さく、近年は北米・アジアでの成長にシフト中。構造改革途上。</td><td class="fund" data-code="4922"></td></tr>
+<tr><td class="code">4452</td><td class="name">花王<span class="en">Kao</span></td><td class="why">日用品・化粧品の国内最大手で、30年以上の連続増配を続けるディフェンシブ銘柄の代表格。原材料コスト(石油化学製品由来)の変動が利益率に影響。</td><td class="fund" data-code="4452"></td></tr>
+</table>
+<h3>11-2　エンタメ・IP<em>Entertainment &amp; IP</em></h3>
+<table>
+<tr><td class="code">7974</td><td class="name">任天堂<span class="en">Nintendo</span></td><td class="why">ゲーム機・ソフトの世界的大手で、Nintendo Switch後継機の販売サイクルが業績を左右する。2026年6月の本体値上げ発表を機に、普及ペース鈍化への懸念から株価が調整。円安メリット。</td><td class="fund" data-code="7974"></td></tr>
+<tr><td class="code">8136</td><td class="name">サンリオ<span class="en">Sanrio</span></td><td class="why">ハローキティ等のキャラクターIPライセンス事業が主力で、海外(特にアジア)でのロイヤリティ収入が成長源。2026年に発覚した役員の不適切報酬受領問題というガバナンス課題も抱える。</td><td class="fund" data-code="8136"></td></tr>
+<tr><td class="code">7951</td><td class="name">ヤマハ<span class="en">Yamaha Corp</span></td><td class="why">楽器(ピアノ・ギター等)と音響機器(スピーカー等)の世界的大手。中国のピアノ需要減退が近年の業績の重しで、その回復待ちの局面。</td><td class="fund" data-code="7951"></td></tr>
+<tr class="sub-listed"><td class="code">6758</td><td class="name">ソニーグループ<span class="badge b-sub">副</span><span class="en">Sony Group</span></td><td class="why">ゲーム・音楽・映画が利益の過半。主掲載は 1-5。</td><td class="fund"><span class="xref-note">→1-5参照</span></td></tr>
+</table>
+<h3>11-3　住宅・不動産<em>Housing</em></h3>
+<table>
+<tr><td class="code">1928</td><td class="name">積水ハウス<span class="en">Sekisui House</span></td><td class="why">国内最大手の住宅メーカーだが、近年は米国住宅事業が利益の柱に成長しており、米国金利動向への感応度も高まっている。</td><td class="fund" data-code="1928"></td></tr>
+</table>
+<h3>11-4　食品<em>Food</em></h3>
+<table>
+<tr class="sub-listed"><td class="code">2802</td><td class="name">味の素<span class="badge b-sub">副</span><span class="en">Ajinomoto</span></td><td class="why">調味料・アミノ酸が本業。売上の大半は食品。主掲載は 1-4。</td><td class="fund"><span class="xref-note">→1-4参照</span></td></tr>
+</table>
+<h3>11-5　外食<em>Restaurants</em></h3>
+<table>
+<tr><td class="code">3063</td><td class="name">ジェイグループHD<span class="en">J-Group Holdings</span></td><td class="why">居酒屋等の外食チェーンを運営する中小型株。自己資本比率が低く財務基盤は相対的に薄いが、新規出店・店舗再編を積極展開。<span class="badge b-flag">要確認</span></td><td class="fund" data-code="3063"></td></tr>
+</table>
 </section>
-
 <!-- xref -->
 <section id="xref" style="--c:var(--new)">
-  <div class="sec-head"><span class="sec-num">◆</span>
-    <h2>複数カテゴリー掲載銘柄 一覧<em>Cross-listed Tickers</em></h2>
-    <span class="count">21銘柄 / 25件</span></div>
-  <div class="sec-note">1銘柄で複数テーマを持つため、どのニュースでも動き得る銘柄群。</div>
-  <table class="xref">
-    <tr><td class="code">7011</td><td class="name">三菱重工業</td><td class="why"><b>4-1 防衛</b>／2-2 DC冷却・GT／5-3 原子力　← 3カテゴリー</td></tr>
-    <tr><td class="code">6758</td><td class="name">ソニーG</td><td class="why"><b>1-5 半導体</b>／11-2 エンタメ</td></tr>
-    <tr><td class="code">6501</td><td class="name">日立</td><td class="why"><b>3-2 IT</b>／2-4 送配電</td></tr>
-    <tr><td class="code">6702</td><td class="name">富士通</td><td class="why"><b>3-2 IT</b>／2-3 サーバ</td></tr>
-    <tr><td class="code">6701</td><td class="name">NEC</td><td class="why"><b>3-2 IT</b>／4-2 防衛電子</td></tr>
-    <tr><td class="code">9984</td><td class="name">ソフトバンクG</td><td class="why"><b>1-9 AI</b>／7-2 投資会社</td></tr>
-    <tr><td class="code">4755</td><td class="name">楽天G</td><td class="why"><b>3-3 ネット</b>／7-2 金融</td></tr>
-    <tr><td class="code">5016</td><td class="name">JX金属</td><td class="why"><b>1-3 半導体材料</b>／6-1 非鉄</td></tr>
-    <tr><td class="code">5713</td><td class="name">住友鉱</td><td class="why"><b>6-1 非鉄</b>／1-7 電池材料</td></tr>
-    <tr><td class="code">5711</td><td class="name">三菱マテリアル</td><td class="why"><b>6-1 非鉄</b>／1-3 半導体材料</td></tr>
-    <tr><td class="code">5706</td><td class="name">三井金属</td><td class="why"><b>6-1 非鉄</b>／1-4 極薄銅箔</td></tr>
-    <tr><td class="code">2802</td><td class="name">味の素</td><td class="why"><b>1-4 ABF</b>／11-4 食品</td></tr>
-    <tr><td class="code">6504</td><td class="name">富士電機</td><td class="why"><b>1-10 パワー半導体</b>／2-4 DC電源</td></tr>
-    <tr><td class="code">6752</td><td class="name">パナソニックHD</td><td class="why"><b>1-7 電池</b>／2-2 空質空調</td></tr>
-    <tr><td class="code">6762</td><td class="name">TDK</td><td class="why"><b>1-6 受動部品</b>／1-7 電池</td></tr>
-    <tr><td class="code">6981</td><td class="name">村田製作所</td><td class="why"><b>1-6 MLCC</b>／1-7 電池</td></tr>
-    <tr><td class="code">6674</td><td class="name">GSユアサ</td><td class="why"><b>1-7 電池</b>／4-2 潜水艦電池</td></tr>
-    <tr><td class="code">6367</td><td class="name">ダイキン</td><td class="why"><b>2-2 空調</b>／1-3 フッ素化学</td></tr>
-    <tr><td class="code">6383</td><td class="name">ダイフク</td><td class="why"><b>2-4 搬送</b>／1-1 クリーン搬送</td></tr>
-    <tr><td class="code">3778</td><td class="name">さくらインターネット</td><td class="why"><b>2-3 DC運営</b>／1-9 AI</td></tr>
-    <tr><td class="code">6361</td><td class="name">荏原製作所</td><td class="why"><b>1-2 CMP</b>／9-5 ポンプ</td></tr>
-    <tr><td class="code">7012</td><td class="name">川崎重工</td><td class="why"><b>4-1 防衛</b>／9-5 水素・二輪</td></tr>
-    <tr><td class="code">7013</td><td class="name">IHI</td><td class="why"><b>4-1 防衛</b>／5-3 原子力</td></tr>
-    <tr><td class="code">5802</td><td class="name">住友電工</td><td class="why"><b>2-1 光ファイバ</b>／10-2 ワイヤハーネス</td></tr>
-    <tr><td class="code">6584</td><td class="name">三桜工業</td><td class="why"><b>2-2 液冷配管</b>／10-2 自動車配管</td></tr>
-    <tr><td class="code">6471 / 6472</td><td class="name">NSK・NTN</td><td class="why"><b>9-2 ベアリング</b>／10-2 自動車部品</td></tr>
-    <tr><td class="code">6954 / 6506 / 6861</td><td class="name">ファナック・安川・キーエンス</td><td class="why"><b>1-11 FA</b>／9-4 機械（景気敏感）</td></tr>
-  </table>
+<div class="sec-head"><span class="sec-num">◆</span>
+<h2>複数カテゴリー掲載銘柄 一覧<em>Cross-listed Tickers</em></h2>
+<span class="count">21銘柄 / 25件</span></div>
+<div class="sec-note">1銘柄で複数テーマを持つため、どのニュースでも動き得る銘柄群。</div>
+<table class="xref">
+<tr><td class="code">7011</td><td class="name">三菱重工業</td><td class="why"><b>4-1 防衛</b>／2-2 DC冷却・GT／5-3 原子力　← 3カテゴリー</td></tr>
+<tr><td class="code">6758</td><td class="name">ソニーG</td><td class="why"><b>1-5 半導体</b>／11-2 エンタメ</td></tr>
+<tr><td class="code">6501</td><td class="name">日立</td><td class="why"><b>3-2 IT</b>／2-4 送配電</td></tr>
+<tr><td class="code">6702</td><td class="name">富士通</td><td class="why"><b>3-2 IT</b>／2-3 サーバ</td></tr>
+<tr><td class="code">6701</td><td class="name">NEC</td><td class="why"><b>3-2 IT</b>／4-2 防衛電子</td></tr>
+<tr><td class="code">9984</td><td class="name">ソフトバンクG</td><td class="why"><b>1-9 AI</b>／7-2 投資会社</td></tr>
+<tr><td class="code">4755</td><td class="name">楽天G</td><td class="why"><b>3-3 ネット</b>／7-2 金融</td></tr>
+<tr><td class="code">5016</td><td class="name">JX金属</td><td class="why"><b>1-3 半導体材料</b>／6-1 非鉄</td></tr>
+<tr><td class="code">5713</td><td class="name">住友鉱</td><td class="why"><b>6-1 非鉄</b>／1-7 電池材料</td></tr>
+<tr><td class="code">5711</td><td class="name">三菱マテリアル</td><td class="why"><b>6-1 非鉄</b>／1-3 半導体材料</td></tr>
+<tr><td class="code">5706</td><td class="name">三井金属</td><td class="why"><b>6-1 非鉄</b>／1-4 極薄銅箔</td></tr>
+<tr><td class="code">2802</td><td class="name">味の素</td><td class="why"><b>1-4 ABF</b>／11-4 食品</td></tr>
+<tr><td class="code">6504</td><td class="name">富士電機</td><td class="why"><b>1-10 パワー半導体</b>／2-4 DC電源</td></tr>
+<tr><td class="code">6752</td><td class="name">パナソニックHD</td><td class="why"><b>1-7 電池</b>／2-2 空質空調</td></tr>
+<tr><td class="code">6762</td><td class="name">TDK</td><td class="why"><b>1-6 受動部品</b>／1-7 電池</td></tr>
+<tr><td class="code">6981</td><td class="name">村田製作所</td><td class="why"><b>1-6 MLCC</b>／1-7 電池</td></tr>
+<tr><td class="code">6674</td><td class="name">GSユアサ</td><td class="why"><b>1-7 電池</b>／4-2 潜水艦電池</td></tr>
+<tr><td class="code">6367</td><td class="name">ダイキン</td><td class="why"><b>2-2 空調</b>／1-3 フッ素化学</td></tr>
+<tr><td class="code">6383</td><td class="name">ダイフク</td><td class="why"><b>2-4 搬送</b>／1-1 クリーン搬送</td></tr>
+<tr><td class="code">3778</td><td class="name">さくらインターネット</td><td class="why"><b>2-3 DC運営</b>／1-9 AI</td></tr>
+<tr><td class="code">6361</td><td class="name">荏原製作所</td><td class="why"><b>1-2 CMP</b>／9-5 ポンプ</td></tr>
+<tr><td class="code">7012</td><td class="name">川崎重工</td><td class="why"><b>4-1 防衛</b>／9-5 水素・二輪</td></tr>
+<tr><td class="code">7013</td><td class="name">IHI</td><td class="why"><b>4-1 防衛</b>／5-3 原子力</td></tr>
+<tr><td class="code">5802</td><td class="name">住友電工</td><td class="why"><b>2-1 光ファイバ</b>／10-2 ワイヤハーネス</td></tr>
+<tr><td class="code">6584</td><td class="name">三桜工業</td><td class="why"><b>2-2 液冷配管</b>／10-2 自動車配管</td></tr>
+<tr><td class="code">6471 / 6472</td><td class="name">NSK・NTN</td><td class="why"><b>9-2 ベアリング</b>／10-2 自動車部品</td></tr>
+<tr><td class="code">6954 / 6506 / 6861</td><td class="name">ファナック・安川・キーエンス</td><td class="why"><b>1-11 FA</b>／9-4 機械（景気敏感）</td></tr>
+</table>
 </section>
-
 <!-- newslog -->
 <section id="newslog" style="--c:var(--new)">
-  <div class="sec-head"><span class="sec-num">📰</span>
-    <h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em></h2>
-    <span class="count">17日分</span></div>
-  <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-17（朝更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>【申し送り事項・解消】8/12〜8/14の3営業日連続で朝ルーティーンが機能していなかった件(直近のnewslog参照)について、本日8/17の朝ルーティーンは実行・コミットまで完了した。ただし本セッションもWebFetchが日米中韓すべての金融サイト(finance.yahoo.co.jp/nikkei.com/stockanalysis.com/eastmoney.com/finance.naver.com等)で全面的に「EGRESS_BLOCKED」となり、WebSearchスニペットのみに依存。加えてJP+US×2+CN×2+KR×2の7並列バッチがセッション共有のWebSearch予算(200回)を実質着手直後に食い合う形となり、CN(92銘柄中2銘柄のみ更新)・KR(77銘柄中16銘柄のみ)は特に深刻な予算枯渇に見舞われた→関連: 全銘柄(データ鮮度全般)。</li>
-      <li><span class="nl-code">7974</span>任天堂: Switch/Switch2のインドネシア12月発売との報道を受け8/14終値にかけて前日比+6.91%(8,900円前後)まで急伸、約4カ月ぶりの高値水準→関連: なし(単独材料)。</li>
-      <li><span class="nl-code">8136</span>サンリオ: 8/12決算失望売り(-18.12%)からの反発で8/14終値+4.52%(1,282.5円前後)→関連: 4452 花王 等内需・消費セクション(グループ11)。</li>
-      <li><span class="nl-macro">セクター</span>半導体・AI(グループ1)は8/14正午時点の急伸(285Aキオクシア+8.64%等)から終値にかけて利益確定売りが優勢となり伸び悩んだ(285A終値+3.75%・6857アドバンテスト+2.59%・8035東京エレクトロン-0.57%)。米国側でも半導体前工程装置大手AMAT(8035・6361の対応銘柄)が-5.12%と軟調な一方、メモリ大手Micron(285Aの対応銘柄)は+2.30%と底堅く、装置とメモリで方向性が分かれている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアホールディングス。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-14（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本日は続伸。前引け(前場終値)は日経平均68,889.01円(前日比+580.42円,+0.85%)で、取引時間中は約1ヶ月ぶり高値水準の69,600円台に乗せる場面も。前日8/13の米国株高(NYダウ+0.13%・ナスダック+0.81%)、7月米PPI(生産者物価指数)の予想下振れによるインフレ懸念後退、日銀9月追加利上げ観測(織り込み8割に迫る報道)を材料に半導体・金融株が買われた→関連: 全銘柄(指数全体)。</li>
-      <li><span class="nl-code">285A</span>キオクシアHD: 米サンディスク(共同NAND開発先)の好業績連想買いで前場一時+8.64%(5万6280円)急伸。2027年3月期1Q(4-6月)は生成AI需要拡大で売上収益+415.5%・営業利益1兆2,700億円と急拡大した業績の裏付けもある→関連: 8035 東京エレクトロン(+2.13%), 6857 アドバンテスト(+6.01%) 等半導体セクション全般。</li>
-      <li><span class="nl-macro">セクター</span>日銀9月追加利上げ観測(日米協調為替介入が背景)を受け、メガバンク・地銀株に買いが波及。8306三菱UFJ+2.86%・8316三井住友FG+3.44%・8411みずほFG+3.13%とそろって大幅高→関連: 8306 三菱UFJフィナンシャル・グループ, 8316 三井住友フィナンシャルグループ, 8411 みずほフィナンシャルグループ 等金融セクション全般。</li>
-      <li><span class="nl-macro">全体</span>韓国KOSPIは本日+2.67%高で寄り付き7,000ポイント接近(6,995.14)。SKハイニックス・サムスン電子等半導体・メモリ株が牽引しており、日本のキオクシア急伸と同じAI・NAND需要拡大テーマを共有しているとみられる→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>【申し送り事項】本日朝(6:00JST)の日次ルーティーンによる更新が見当たらず(daily/2026-08-14.md未作成、DEEPDIVEもnullのまま)。前日8/13は朝・正午とも更新の記録がなく(daily/2026-08-13*.md不在)、8/12朝も同様に未実行だった形跡がある。3営業日連続で朝ルーティーンが機能していない可能性が高く、ユーザーへの確認・手動再実行を推奨する事項として記録する。本セッション(正午)はSECTOR_REPS33銘柄中32銘柄を新値に更新できたが、WebFetchは金融サイト全面的に「EGRESS_BLOCKED」でWebSearchスニペットのみに依存(6383・5706・8306は情報源間で数値がやや食い違うため参考値扱い)。米国・中国・韓国の個別銘柄・DEEPDIVE.reviewは方針通り/DEEPDIVEがnullのため本日は対象外。詳細は<a href="daily/2026-08-14_正午.md">本日正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-12（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本日は8/11(山の日)休場明けの東証。日経平均は前引け67,040.18円(前日比+69.96円,+0.10%)、TOPIXは前引け4,114.41(+13.80pt,+0.34%、7/6の終値高値を上回る)と、寄り付きの買い先行から戻り待ちの売りに押される一進一退の展開。本日夜(日本時間)発表の米7月CPIを見極めたい様子見ムードが上値を抑えたとみられる→関連: 全銘柄(指数全体)。</li>
-      <li><span class="nl-code">8136</span>サンリオ: 8/10発表の1Q決算(営業利益224億円、四半期として過去最高だが市場予想232〜234億円に届かず)を受け、本日前場に一時前日比-18〜20%安(1,163〜1,188円)と約12年ぶりの下落率を記録。決算発表当日に年初来高値を更新するなど先回り買いが入っていた反動とみられる→関連: 4452 花王 等内需・消費セクション(グループ11)。</li>
-      <li><span class="nl-macro">セクター</span>東京エレクトロン(8035)・アドバンテスト(6857)・キオクシアHD(285A)の半導体主力3銘柄が本日の日経平均押し上げ寄与度上位に報じられる。前日までの米国半導体株高、および本日の韓国KOSPI(+1.28%、SKハイニックス+1.68%・サムスン電子+1.98%)の堅調と方向性が一致→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>米国株は8/11(火)に3指数そろって続落(NYダウ-0.34%・S&P500-0.32%・ナスダック-0.60%)、翌8/12発表の米CPI(予想: 総合+3.4%y/y、コア+2.5%y/y、いずれも鈍化見込み)を控えた様子見が背景とみられる→関連: 為替敏感株・輸出関連セクション全般。</li>
-      <li><span class="nl-macro">全体</span>本セッションもWebFetchが金融サイト全面的に「EGRESS_BLOCKED」となり、WebSearchのスニペットのみに依存。SECTOR_REPS33銘柄中、本日値として確度をもって採用できたのは3銘柄(6501日立製作所+0.28%・7011三菱重工業+0.72%・8136サンリオ-17.61%)のみで、残り30銘柄は前回値(主に8/10終値)を維持した。また本日朝(6:00JST)の日次ルーティーンによる更新が見当たらず(daily/2026-08-12.mdが未作成、DEEPDIVEも前日以前の状態)、朝ルーティーンが未実行または失敗した可能性がある点をユーザーへの申し送り事項として記録する。米国・中国・韓国の個別銘柄は方針通り本日調査対象外。詳細は<a href="daily/2026-08-12_正午.md">本日正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-11（朝ルーティーン・大幅遅延実行、東証休場）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本日2026-08-11は「山の日」の祝日で東証は休場。日経平均・TOPIXともに本日分の取引は発生せず、DAILY(SECTOR_REPS33銘柄)・PICKS.jp・FLOW.jp・DEEPDIVEはいずれも前回値(8/10正午時点)を意図的に据え置いた(正午ルーティーンの2026-08-11分と同じ判断)→関連銘柄なし(全銘柄据え置き)。</li>
-      <li><span class="nl-code">285A</span>キオクシアHD: 8/10、自己株式の取得状況及び取得終了に関するお知らせを適時開示(TDnet)。株価影響は本日休場のため未反映→関連: 半導体セクション全般(グループ1)。</li>
-      <li><span class="nl-macro">全体</span>米国とイラン間のホルムズ海峡を巡る協議難航・イエメン親イラン武装組織による攻撃報道を受け、WTI原油先物が一時+5%の82ドル台まで急伸(6日ぶりの80ドル台回復)。8/10の米国株はエヌビディア等ハイテク株が上値重く、S&P500・ナスダック・NYダウがそろって小幅安(-0.1〜-0.3%程度)で引けた→関連: 5020 ENEOSホールディングス, 1605 INPEX 等エネルギー・電力セクション、8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション。</li>
-      <li><span class="nl-macro">全体</span>韓国KOSPIは本日8/11、前日比-0.92%安の6,241.86で寄り付き続落。SKハイニックス一時-2.32%・サムスン電子-0.22%と半導体大手が軟調→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>本セッションもWebFetchは金融サイト(stockanalysis.com等)へのアクセスが「EGRESS_BLOCKED」で全面遮断されており、WebSearchのスニペットのみに依存。米国・中国・韓国の個別対応銘柄(計約268件)の株価再取得は、WebSearch予算(セッション共有・約200回)が268銘柄には構造的に不足すること、および前回(8/7朝)以降ほぼ全銘柄が未更新で推奨バッチ運用も要することを踏まえ、本セッションでは見送った(米国・中国・韓国側のUS_PRICE/CN_PRICE/KR_PRICE/US_CHG/CN_CHG/KR_CHG・PICKS.us/cn/kr・FLOW.us/cn/krはいずれも前回値のまま)。世界情勢(WORLD)・イベントカレンダー(EVENTS)は本日分に更新済み。詳細は<a href="daily/2026-08-11.md">本日の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-10（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>日経平均は本日前引け(前場終値)66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、TOPIXも前引け4,107.14(+0.79%)。週末8/7の米国株が半導体中心に大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX)+2%超を好感してAI・半導体関連に買いが先行→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般(38銘柄)。</li>
-      <li><span class="nl-code">6857</span>アドバンテスト: 本日10:18時点33,840円(+5.13%)、<span class="nl-code">8035</span>東京エレクトロンも56,280円(+3.27%)と、本日確認できたSECTOR_REPS中で最も明確な上昇を記録し、日経平均の大幅反発をけん引したとみられる→関連: 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-macro">セクター</span>自動車・運輸セクター(グループ10)はトヨタ(7203)-0.13%・ホンダ(7267)-0.68%とほぼ横ばい〜小幅安で、指数全体の強い上昇に対して出遅れが目立つ→関連: 7203 トヨタ自動車, 7267 本田技研工業, 9202 ANA HD。</li>
-      <li><span class="nl-code">5713</span>住友金属鉱山, <span class="nl-code">4755</span>楽天グループ: 本日決算発表予定(住友鉱は終日中、楽天は15:30発表予定)。本更新時点(13:00台JST)ではいずれも発表未確認→関連: SECTOR_REPS(素材・非鉄, IT・サイバー)。</li>
-      <li><span class="nl-macro">全体</span>本セッションも朝と同様WebFetchが金融サイト全面的に「EGRESS_BLOCKED」となり、WebSearchのスニペットのみで調査。SECTOR_REPS33銘柄中20銘柄は更新(うち今日時点データは3銘柄、残りは8/7終値)できたが、9銘柄は日付未確認・数値矛盾等のため前回値を維持。米国・中国・韓国の個別銘柄(計268件)は方針通り本日は調査対象外。詳細は<a href="daily/2026-08-10_正午.md">本日正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-10（朝ルーティーン）</div>
-    <ul>
-      <li><span class="nl-code">5711</span>三菱マテリアル: 8/6発表の1Q決算で黒字転換・通期上方修正を好感し8/7終値は前日比+15.71%(700円高の5,157円、一時ストップ高)と急伸→関連: 5713 住友金属鉱山, 5706 三井金属鉱業 等素材・非鉄セクション。</li>
-      <li><span class="nl-code">5803</span>フジクラ: 8/7、今期2度目となる業績上方修正を発表し午後急騰→関連: データセンター・光通信関連セクション全般。</li>
-      <li><span class="nl-macro">全体</span>米国7月雇用統計(8/7発表)は非農業部門雇用者数-2.3万人と市場予想(+8万人程度)に反し減少に転じ、過去2ヶ月分も下方修正。一方、失業率は4.1%(予想4.2%)に改善する解釈の分かれる内容。市場はこれをFRBの9月利下げ観測強化と受け止め、S&P500・ナスダックが最高値更新(週間ではS&P+3.58%・ナスダック+5.19%)する株高につながったとみられる(推測)→関連: 為替敏感株(輸出関連)・自動車セクション全般。</li>
-      <li><span class="nl-code">5713</span>住友金属鉱山, <span class="nl-code">4755</span>楽天グループ: 本日2026-08-10に決算発表予定(住友鉱は確定・楽天は15:30発表予定、株探「来週の決算発表予定」記事で★注目決算として掲載)→関連: SECTOR_REPS(素材・非鉄, IT・サイバー)。</li>
-      <li><span class="nl-macro">全体</span>本セッションはWebFetchがfinance.yahoo.co.jp等の金融サイトのみならずja.wikipedia.org等も含め全面的に「EGRESS_BLOCKED」(過去の一部サイト遮断より広範)となり、WebSearchのみに依存。個別銘柄の確定終値の取得率が低く、SECTOR_REPS33銘柄中5銘柄・米国/中国/韓国の対応銘柄268件は今回は調査を全面的に見送った(誤データ反映より安全側に倒す既定方針)。詳細は<a href="daily/2026-08-10.md">本日朝の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-07（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>日経平均は本日前引け(11:30)時点65,039.16円(前日比-644.10円,-0.98%)と続落。ソフトバンクグループの4-6月期純利益-17.7%(8/6引け後発表)への嫌気売り、レーザーテックの通期利益見通し未達(一時-10%超)、これらを受けた半導体関連株への連想売りが主因と報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD, 9984 ソフトバンクグループ 等。</li>
-      <li><span class="nl-code">7012</span>川崎重工業: 本日8/7発表のQ1決算で純利益が前年同期比3.7倍の156億円、通期純利益予想を110億円→115億円(+6.3%)に上方修正し3期連続最高益更新見通し。本日の株価反応は情報源不一致のため未確認(要確認)→関連: 7011 三菱重工業, 7013 IHI 等防衛・宇宙セクション。</li>
-      <li><span class="nl-macro">全体</span>韓国KOSPIは本日8/7午前、寄り付き+1.09%高から一時+1.9%まで上昇したが上げ幅を維持できず11:05時点で前日比-0.81%まで反落、前日(8/6、-4.58%・サーキットブレーカー発動)の急落からの反発が定着しない不安定な展開→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>本セッションではWebFetchが金融サイト(finance.yahoo.co.jp・irbank.net・nikkei.com等)にほぼ全面的に「EGRESS_BLOCKED」となりアクセス不可であったため、WebSearchのスニペットのみで33銘柄を調査。既存データとの整合性チェックに通った2銘柄(7011三菱重工業-0.13%・8058三菱商事+3.03%)のみ採用し、残り31銘柄は前回値を維持(誤データ反映より安全側に倒す既定方針)。詳細は<a href="daily/2026-08-07_正午.md">本日正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-07（朝ルーティーン）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>韓国KOSPIが8/6に独立した2ソースで-4.58%〜-4.86%(サイドカー発動)という近い水準の急落を確認。サムスン電子-7.52%・SKハイニックス-6.90%と半導体2大巨頭がそろって急落し、外国人投資家の大量売り(純売り約1.48兆ウォン)が主因と報じられている。日経平均先物(大阪夜間)も63,820円(現物終値比-2,850円、-4.3%)まで下落して終了しており、8/7の東京市場は寄り付きから下振れリスクが高いと考えられる(推測)→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般(38銘柄)。</li>
-      <li><span class="nl-code">8035</span>東京エレクトロン、<span class="nl-code">6857</span>アドバンテスト、<span class="nl-code">285A</span>キオクシアHD: 8/6終値でそれぞれ-5.50%・-2.34%・-11.45%と半導体セクションが軒並み下落。米国半導体株安・韓国KOSPI急落からの連れ安とみられる(推測)。</li>
-      <li><span class="nl-code">4452</span>花王: 8/5決算発表を受け8/6終値+12.83%(3,597円)と急伸。30年以上の連続増配銘柄で決算好感の動きとみられる。</li>
-      <li><span class="nl-macro">全体</span>JP・US・CN・KR合計8バッチ(JP1、US2、CN2、KR2、市況調査1)で並列調査を実施したが、市況調査完了前にセッション共有WebSearch予算(200回)が完全枯渇(0/200)。JPはSECTOR_REPS33銘柄中12銘柄のみ複数ソースでの整合が取れ反映、米国・中国・韓国の個別銘柄データ(US_PRICE/CN_PRICE/KR_PRICE等)は担当エージェント全員が「情報源間で20〜50%以上の矛盾、または日付特定不能」と報告したため、本日は更新を全面的に見送り前回値を維持。詳細は<a href="daily/2026-08-07.md">本日朝の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-06（朝ルーティーン）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>セッション開始時、2026-08-04〜08-05の8コミット(DEEPDIVE機能統合・全11業種ヒートマップ追加等)がローカルには存在するがGitHub(origin/main)へ未反映と見える状態を確認し、まずfast-forward pushで解消(実際にはpush自体は既に成功しておりローカルの追跡ブランチが古かっただけと判明、データ損失なし)。</li>
-      <li><span class="nl-macro">全体</span>JP専用1バッチ(33銘柄中26銘柄で8/5終値を再確認)、米中韓は各2バッチ(計6バッチ)体制で調査。セッション共有のWebSearch予算(200回)は本調査の途中(市況調査中)で完全枯渇し、中国の指数レベルデータ(上海総合等)・日経平均先物(夜間取引)・「本日の日本株総合分析」(DEEPDIVE、一次情報調査が必要なため特に予算消費が大きい)は本日も実施見送り。米国113銘柄中20コード・中国105銘柄中12コード・韓国93銘柄中19コードのみ確度medium以上で更新。詳細は<a href="daily/2026-08-06.md">本日朝の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">5706</span>三井金属鉱業: 8/5終値+10.91%(35,380円、情報源間で34,610円/+8.50%との差異あり)とSECTOR_REPS33銘柄中最大の上昇率→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体・非鉄金属セクション全般。</li>
-      <li><span class="nl-code">5803</span>フジクラ: 8/5終値+9.62%(5,073円)。8/7決算発表を控え、上方修正+47%との観測(未確認)が先行して物色されている可能性(推測)→関連: 5333 住友電気工業(米国対応銘柄Corningも8/5+9.19%)。</li>
-      <li><span class="nl-code">9432</span>日本電信電話(NTT): 本日8/6に4-6月期決算発表を予定(確定)。8/5終値時点+0.40%(151.0円)で決算発表前の株価反応は限定的→関連: データセンター関連セクション全般。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-05（朝ルーティーン、実行が14時台まで遅延）</div>
-    <ul>
-      <li><span class="nl-code">4062</span>イビデン: 8/4発表の通期業績予想の上方修正を受け、8/5にストップ高。日経平均の押し上げ要因の一つと報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
-      <li><span class="nl-code">9984</span>ソフトバンクグループ: 出資先Arm Holdings(ARM)が8/4終値+14.76%と急伸(7/29決算のロイヤリティ収入最高値更新が材料)。NAV(保有資産価値)を通じ同社株への間接的な追い風の可能性(推測)→関連: 285A キオクシアHD。</li>
-      <li><span class="nl-macro">全体</span>米国市場でCorning(GLW)+9.19%・onsemi(ON)+5.65%が急伸する一方、AeroVironment(防衛関連)-9.04%・Vistra(電力)-8.15%が急落するなど、8/4の米国株高の裏で業種選別色の強い値動きが見られた→関連: 5803 フジクラ, 5333 住友電気工業, 6758 ソニーグループ, 9501 東京電力HD。</li>
-      <li><span class="nl-macro">全体</span>セッション共有のWebSearch予算(約200回)がJP/US/CN/KR計7バッチの調査中に完全枯渇。日本33銘柄中24銘柄・米国113銘柄中26銘柄・中国105銘柄中17銘柄は本日データへ更新できたが、韓国は93銘柄中サムスン電子・SKハイニックス経由の4銘柄のみ確度高く確認。「本日の日本株総合分析」(DEEPDIVE)は予算切れのため本日実施見送り。詳細は<a href="daily/2026-08-05.md">本日朝の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-05（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本日(8/5)朝の日次ルーティーンの実行記録が見当たらず(daily/2026-08-05.md不在、DEEPDIVEオブジェクトも前回のnullのまま)、本正午更新が本日最初の反映となった。日経平均は前引け時点で+2.98%(65,861.00円)の大幅続伸。米国株の連日最高値更新(S&amp;P500 7,737・過去最高)、ホルムズ海峡の緊張緩和による原油安、韓国KOSPIの急反発(サムスン電子・SKハイニックス+4〜7%)が重なった全面高。詳細は<a href="daily/2026-08-05_正午.md">本日正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">6857</span>アドバンテスト: 本日前場、日経平均の上げ幅(+1,903.47円)に単独で+504円分寄与したと報じられている。個別の前日比%は情報源間で矛盾したため未確認・DAILY未更新→関連: 8035 東京エレクトロン, 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-code">8306</span>三菱UFJフィナンシャル・グループ: 8/3発表のQ1(4-6月期)決算で純利益+48.2%(8,094億円)・上場来高値更新と報じられる。SMFG(8316)・みずほFG(8411)も2月以来の高値水準、日銀利上げ期待が支援材料との報道→関連: 8316 三井住友FG, 8411 みずほFG。</li>
-      <li><span class="nl-code">7203</span>トヨタ自動車: 8/4発表のQ1決算で通期営業利益予想が前年比-9%(1兆628億円)。中東情勢の混乱・熊本地震の影響が押し下げ要因、円安・HV好調が下支えと報じられている。</li>
-      <li><span class="nl-code">6674</span>GSユアサ: 本日15:00に決算発表予定。事前情報(未確認)ではQ1経常利益が市場予想を+36.7%上振れる一方、通期経常利益見通しは市場予想を-4.4%下回るとの観測がある(要確認、PICKS参照)。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-08-04（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>8/1(土)〜8/3(月)は本ルーティーンの実行記録がなく(コミットなし)、8/4朝更新も未実行のまま本日正午が実質4日ぶりの更新。JPのみ4バッチ(各28〜29銘柄)でWebSearchのみ調査した結果、confidence=high/mediumと判定できたのは51/113銘柄。WebFetchはfinance.yahoo.co.jp・irbank.net・nikkei.com・kabuyoho.ifis.co.jp・minkabu.jp・finance.matsui.co.jp等ほぼ全ての金融サイトで403エラーとなり、agent proxyの通信ポリシーによる意図的な拒否(組織のegressポリシー)と判明した。WebSearchのスニペットも日付不明・情報源間の符号逆転や30%超の乖離が多数あり、疑わしい62銘柄は既存値(7/31以前)を維持。詳細は<a href="daily/2026-08-04_正午.md">本日正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-macro">全体</span>8/4前引けの日経平均は-421.55円(63,333.35円)と続落。日米財務相の協調為替介入示唆でドル円が155円台前半へ急伸(円高)後157円台へ戻す乱高下、および韓国KOSPIの急反落(サムスン電子・SKハイニックス-3%超)が重石になったと報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6920 レーザーテック 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>8/3(月)の米国株は大幅高。S&amp;P500+1.48%(終値ベース初の7,600台)、ナスダック+2.13%、ダウ+693ドル(53,178ドル)。トランプ大統領のイラン攻撃計画撤回報道で原油が約5%急落したことが好感された。</li>
-      <li><span class="nl-code">6723</span>ルネサスエレクトロニクス: 8/3時点+13.45%(3,905円)。7/31決算好感の上昇が継続中とみられる(確度medium)→関連: 285A キオクシアHD, 8035 東京エレクトロン 等半導体セクション全般。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-31（朝更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>JP4・US2・CN2・KR2の合計10バッチ(市場ごと独立・並列実行)で株価調査を実施したが、合計クエリ数がセッション共有のWebSearch予算(200回)を使い切り、confidence=highで更新できたのはJP68/113・US4/113(WOLFは閾値超過で不採用)・CN1/105・KR3/93銘柄にとどまった。さらに、この予算枯渇により本来ステップ3で行うマクロ市況調査(日経平均・TOPIX・米国株式市場・為替・金融政策等)が一切実施できず、世界情勢サマリー(WORLD)は「本日分未調査」として前日値を暫定維持している。過去6回のインシデントより影響範囲が広い今回の失敗パターンについて詳細は<a href="daily/2026-07-31.md">本日の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">6723</span>ルネサスエレクトロニクス: 7/30終値-8.43%。7/31決算発表を控えた持ち高調整・思惑売りとみられる(出典URL未確認・要確認)→関連: 285A キオクシアHD, 8035 東京エレクトロン 等半導体セクション全般。</li>
-      <li><span class="nl-code">6594</span>ニデック: 7/30終値-3.39%。第三者委員会による会計不正調査が継続中と報じられている(出典URL未確認・要確認)。</li>
-      <li><span class="nl-code">8035</span>東京エレクトロン: 7/31朝時点+4.48%で推移。本日引け後に決算発表予定(出典URL未確認・要確認)→関連: 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-30（朝更新、当初予定JST 6:00より約8時間半遅延起動）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本来6:00 JST開始予定の朝ルーティーンが約8時間半遅延して起動(実行時点で市場は前場終盤〜後場)。JP113銘柄をWebFetch(金融サイト全面403のため不使用)を避けWebSearchのみ・4バッチ(各28〜29銘柄・検索15回上限)で調査した結果、confidence=highと判定できたのは20銘柄のみ。米国・中国・韓国も同様に市場ごと独立バッチ(US3・CN2・KR2)で調査し、それぞれ31/113・5/105・7/93銘柄のみ確度高いデータを取得。残りは情報源間の数値不整合・日付不明・参考値との偶然一致(キャッシュ疑い)等のため既存値を維持(要確認)。詳細は<a href="daily/2026-07-30.md">本日朝の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">6857</span>アドバンテスト: 7/29発表の4-6月期決算で営業利益+53.3%(市場予想1,550億円→実績1,900億円)、通期見通しを6,275億円→8,460億円(+34.8%)へ上方修正。AI推論向け半導体テスト需要の想定超過が要因→関連: 8035 東京エレクトロン(本日引け後決算), 285A キオクシアHD(7/31決算) 等半導体セクション全般。</li>
-      <li><span class="nl-code">6501</span>日立製作所: 7/29引け後発表の4-6月期決算は純利益-1.4%(1,894億円)も、通期純利益見通しを8,500億円→9,000億円へ再上方修正(2期連続最高益予想)→関連: 半導体・重電セクション。</li>
-      <li><span class="nl-code">6701</span>NEC: 7/29発表の4-6月期決算は増収増益(売上高+14.5%・営業利益+66.1%・純利益+157.4%)とIFIS市場予想を大幅に上回る内容→関連: 6702 富士通, 6501 日立製作所 等ITサービスセクション。</li>
-      <li><span class="nl-macro">全体</span>7/29(現地時間)の米国市場はS&amp;P500-1.52%・ナスダック-1.74%・NYダウ-2.19%(2025年4月以来の下げ幅)とトリプル安。FOMCタカ派的据え置き(3委員が利上げ主張)による長期金利上昇、中東情勢緊迫化による原油高、半導体株の続落(テラダイン-13.63%・マイクロン-9.94%・NXP-7.00%)が重なった→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD, 6723 ルネサス 等半導体セクション全般。</li>
-      <li><span class="nl-macro">セクター</span>中国・創業板(ChiNext)は7/30日中-5.89%、深セン成分指数-3.79%、上海総合-1.15%と、グロース・ハイテク株中心に急落。SKハイニックスは7/29決算過去最高益にもかかわらず-8.00%と急落し「好決算でも株安」の逆行現象→関連: 285A キオクシアHD, 6920 レーザーテック 等半導体セクション全般。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-30（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>本日朝6:00実行予定の日次ルーティーンが未完了（<code>daily/2026-07-30.md</code>が存在せず、CLAUDE.mdに記録済みの既知のハング障害パターンの可能性）。このためDAILYは正午実行開始時点でも7/29終値のまま据え置かれていた。正午実行では個別銘柄調査を試みたが、WebSearchの多くが実際には7/29時点のキャッシュ済みスニペットを返す状態(例: 7203トヨタの「+7.18%」は7/29終値の数値)で、本日(7/30)時点と確度をもって判別・複数ソースで整合したのはアドバンテスト(6857)のみのため、同銘柄以外のDAILYは更新を見送り既存値を維持(要確認)→関連: 8035 東京エレクトロン(本日決算発表), 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-30_正午.md">正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-macro">全体</span>日経平均は前引け+784.22円(62,218.41円、一時+1,300円超)と3日ぶり反発。アドバンテスト(6857)の通期上方修正・キオクシアHD(285A)の前場急伸(一時+9.58%)など半導体主力の自律反発が牽引した一方、東証プライム全体では値下がり銘柄(976)が値上がり(545)を大きく上回る「まだら」な内容だった→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>韓国KOSPIは7/30午前、サムスン電子・SKハイニックスが売られ-1.10%程度で推移と報じられ、日本の上昇とは対照的な展開。前日(7/29)はSKハイニックス好決算で寄り付き+3.4%まで急伸するも終値-5.98%に転落しており、3営業日連続の乱高下が続く。韓国当局はレバレッジETFへの個人投資家参加を制限する規制強化を発表。SKハイニックスは最大約294億ドル規模のナスダック上場を申請したと報じられている→関連: 半導体セクター全般。中国・上海総合指数は本日分のデータを確認できず、直近値(7/29 13:37時点+0.60%)のまま(要確認)。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-29（正午更新、実際の起動16:17 JSTで約4時間弱遅延）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>日経平均は寄り付き+369.76円(62,734.68円)まで自律反発するも、フィッチ・レーティングスが同日発表した「グローバル・リスク・アウトルック」でAI関連投資の急拡大が金融市場全体の信用リスクになり得ると警告したことを受け半導体・AI関連株に売りが波及、寄り付き後まもなくマイナス転換。一時-1,800円超まで下げ幅を拡大した後、大引けにかけて下げ渋り、終値は<b>-930.73円(-1.49%)の61,434.19円と3日続落</b>。TOPIXは-4.03(-0.10%)の3,959.56とほぼ横ばいで踏みとどまり、値上がり銘柄数が値下がりを上回るなど下落は半導体・AI関連に集中→関連: 8035 東京エレクトロン(単独で指数を約559円押し下げ), 9984 ソフトバンクG, 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-29_正午.md">正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">6857</span>アドバンテスト: 本日15:30、2027年3月期通期純利益予想を76%上方修正(465.5億円→660億円、市場予想518億円超)。AI推論向け半導体テスト需要が想定を上回ったことが要因。発表が引け後のため株価への完全な反映は明日以降の見込み(要確認)→関連: 8035 東京エレクトロン(明日7/30決算), 285A キオクシアHD(7/31決算) 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>韓国KOSPIはSKハイニックス好決算を好感し寄り付き+3.4%高まで急伸するも10時頃から急落に転じ、10:55サイドカー・正午サーキットブレーカー発動(2日連続)。好決算にもかかわらず下げ止まらない展開で、AI投資全体への懐疑が優勢な地合いを示唆→関連: 半導体セクター全般。中国・上海総合指数は13:37時点で+0.60%と小幅反発、CXMT関連の極端な振れは一旦落ち着いた様子(関連銘柄なし)。株価データ更新は113銘柄中46銘柄のみ(情報源間で日付・数値が矛盾しない確度の高いもののみ採用、残り67銘柄は既存値維持)。詳細は<a href="daily/2026-07-29_正午.md">正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-29（朝更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>7/28（現地時間）の米国市場はS&amp;P500+0.21%・NYダウ+1.03%と上昇した一方、ナスダック総合-0.22%・半導体ETF(SMH)-3%超(4営業日続落)と半導体だけ軟調な「まちまち」の展開。本日7/29はFOMC(米金融政策決定会合)結果発表日で、ドル円は約40年ぶり高値圏(162円台後半〜165円台前半のレンジ予想)。日銀会合は7/31→関連: 半導体セクター全般(8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等)、輸出関連銘柄。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>参照。</li>
-      <li><span class="nl-macro">全体</span>個別銘柄の株価データ更新は本日見送り。WebFetchがfinance.yahoo.co.jp/irbank.net/stockanalysis.com/eastmoney.com等ほぼ全ての金融サイトで403(プロキシの組織ポリシーによる意図的ブロック、kabutan.jp限定だった従来の既知問題より範囲が拡大)、代替のWebSearchもセッション共有予算(200回)を10並列バッチの調査開始から15〜20分で使い切り、以降取得不能に。取得できたわずかな値も情報源間で数値が20〜50%以上食い違うものが多く、データ品質が信頼できないため全件棄却し既存値(7/24〜28混在)を維持(要確認)。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>およびCLAUDE.mdの障害記録参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-28（正午更新・2回目、20:18 JST起動で当初予定より8時間超遅延）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>日経平均は前場-4.44%(62,046.46円)まで急落した後、後場でやや下げ渋り**終値は-3.95%(62,364.92円)**、TOPIXは-2.52%(3,963.59)。キオクシアHD(285A)は終値でも-18.33%(44,550円)とストップ安圏で着地、東京エレクトロン(8035)-10.89%・アドバンテスト(6857)-10.31%と半導体主力が終値でも二桁安。韓国KOSPIは終日悪化が続き終値で-10%超(一部報道)、サムスン電子-13.4%・SKハイニックス-14.7%前後。米ナスダック安・信用取引の追証発生・韓国市場からの連想売りが要因として報じられている→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック 等半導体セクション全般。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-macro">全体</span>本日2回目の正午実行(1回目は14/113銘柄のみ反映の部分版、本更新で追加35銘柄・計49/113銘柄が7/28データを反映)。WebFetchが本日も主要金融サイトのほぼ全てで403エラーとなり、WebSearchスニペット経由の取得に限定。<span class="nl-code">6361</span>荏原製作所は取得データの前日比%から逆算した前日終値が旧基準値と約51%乖離し、株式分割等の未反映の可能性を排除できないため採用を見送り(要確認)。中国・韓国の対応銘柄株価(USBASE/CNBASE/KRBASE)は2026-07-28の方針転換により正午実行では調査対象外(朝の値のまま)。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-27（正午更新）</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>正午更新は本日3回目の試行。10バッチ(JP4・US2・CN2・KR2)に分割して並列実行したが、セッション共有のWebSearch予算(約200回)が実行中盤で枯渇し、113銘柄中32銘柄(JP)・99ティッカー中49(US)のみ本日データを反映。中国・韓国は信頼できるデータが得られず更新見送り。詳細は<a href="daily/2026-07-27_正午.md">正午の相場観コメント</a>参照。</li>
-      <li><span class="nl-code">4063</span>信越化学: 大引け15:30時点で-8.30%。7/24発表の通期経常-14.7%決算の影響が続いている可能性→関連: 8035 東京エレクトロン, 4186 東京応化工業 等半導体材料セクション。</li>
-      <li><span class="nl-code">8136</span>サンリオ: 大引け15:00時点で+7.42%。<span class="nl-code">7974</span>任天堂も+6.63%と消費者向けIP関連が堅調→関連銘柄なし(セクター内他銘柄は本日データ未取得)。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-26</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>週末(7/25-26)は東証・米国市場とも休場のため新規約定なし。DAILYは7/24終値のまま据え置き。月曜(7/27)朝時点の大阪取引所夜間先物の最新水準は情報源が不確実なため未確認（要確認）。CNBCの週間展望では米国市場は月曜「横ばい〜やや軟調」の始まりが見込まれる（<a href="daily/2026-07-26.md">日次相場観コメント参照</a>）。</li>
-      <li><span class="nl-macro">セクター</span>中国メモリメーカーCXMT（長鑫存儲）が7/27に上海市場でIPO予定（調達額約86億ドル、評価額約850億ドル、DRAM世界4位）。アジア系ヘッジファンドがサムスン電子・SKハイニックスからCXMTへ資金シフトとの報道もあり、韓国半導体株への新たな下押し材料→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック, 4063 信越化学工業, 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-macro">全体</span>決算スケジュール補足: 7203トヨタ自動車の次回決算は8/4頃、9984ソフトバンクグループは8/6頃で、いずれも今週(7/28-31)の決算集中には含まれない（前日ログの「来週決算集中」対象外として訂正）。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-25</div>
-    <ul>
-      <li><span class="nl-macro">全体</span>7/24の日経平均は前日比-838円で寄り付き、前場一時-1,700円まで下落。米国の原油高（WTI約93ドル）・長期金利上昇（10年債4.66%）が背景。半導体・AI関連が全面安の一方、メガバンク・商社は堅調（<a href="daily/2026-07-24.md">日次相場観コメント参照</a>）。</li>
-      <li><span class="nl-code">全銘柄</span>ダッシュボード改良: 各行にPER/PBR/信用倍率のミニバーチャートを追加。7120（新光電気工業として登録）はコード不一致・上場廃止のためウォッチリストから除外（113銘柄に更新）。</li>
-      <li><span class="nl-macro">全体</span>7/24終値確定: 日経平均64,611.15円(-1,811.45円,-2.73%)、TOPIX 4,011.31(-42.57,-1.05%)。7/25(土)は東証休場のためDAILYは据え置き。大阪取引所夜間先物(9月限)は7/25朝時点でさらに-270円の64,290円で終了、来週月曜(7/27)はやや軟調な始まりが示唆される（<a href="daily/2026-07-25.md">日次相場観コメント参照</a>）。</li>
-      <li><span class="nl-macro">セクター</span>韓国KOSPIは6月高値から約25%下落、サムスン電子・SKハイニックスは高値比30%超安。KIS証券がHBM4出荷遅延を理由にSKハイニックスの4-6月期利益予想を下方修正、米メモリ株(マイクロン・サンディスク等)も連日安→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック, 285A キオクシアHD 等半導体セクション全般。</li>
-      <li><span class="nl-code">7203</span>トヨタ自動車: FY2026/3実績で純利益予想を前期比-44%の2.66兆円に下方修正。米関税影響は総額1.4兆円（車両1.0兆円・部品等0.4兆円）。世界生産計画は過去最高の1,000万台を維持。</li>
-      <li><span class="nl-code">9984</span>ソフトバンクグループ: OpenAIへの追加出資「第2弾」を7/1に実行済み。WIPO調査で生成AI特許出願数世界1位と7/14発表。</li>
-      <li><span class="nl-code">1605</span>INPEX: 中東情勢による原油高（WTI週間+約10%）を受け7/21に+4.35%→関連: 5020 ENEOS（原油高は川下の精製マージン圧迫要因として逆方向に作用しうる）。</li>
-      <li><span class="nl-macro">全体</span>来週(7/28〜31)は決算発表とBOJ・FOMCが重なる特に重い週。決算: 8035東京エレクトロン(7/30)、6857アドバンテスト(7/29確定)、6861キーエンス(7/28頃)、8316三井住友FG(7/31確定)、8411みずほFG(7/30)、6501日立(7/29予定)、6701NEC(7/29予定)、6702富士通(7/30予定)、8053住友商事(7/31確定)ほか計20銘柄超が集中。金融政策: FOMC(7/28-29、政策金利3.50-3.75%据え置き観測)、日銀金融政策決定会合(7/30-31、6/16に1.0%へ利上げ後の次回判断)。</li>
-    </ul>
-  </div>
-
-  <div class="newslog-day">
-    <div class="newslog-date">2026-07-24</div>
-    <ul>
-      <li><span class="nl-code">9984</span>ソフトバンクグループ: OpenAI IPO 2027年延期報道(NYT 6/25)が重しで-7.2%急落。5,400〜6,000円で乱高下。</li>
-      <li><span class="nl-code">6506</span>安川電機: 7/10発表のQ1が基幹システム移行の生産遅延で市場予想を大幅未達、通期を下方修正（営業利益600→430億円）。7/13にストップ安。</li>
-      <li><span class="nl-code">6594</span>ニデック: 会計不正・品質問題で本決算延期中。有報提出期限を2026-09-30まで延長申請、中間無配・期末配当未定。</li>
-      <li><span class="nl-code">8136</span>サンリオ: 元常務の不適切報酬受領問題（総額約2.5億円）。6/23に延期していた決算を発表済み（過去最高益）、決算後急反発。</li>
-      <li><span class="nl-code">8053</span>住友商事: 2026-07-01付で1株→4株の株式分割を実施。分割未調整の指標に注意。</li>
-      <li><span class="nl-code">8316</span>三井住友FG: 7/6に株式分割を開示（比率は要確認）。</li>
-      <li><span class="nl-code">6890</span>フェローテックHD: 7/22に通期経常を+61.1%上方修正。</li>
-      <li><span class="nl-code">5803</span>フジクラ: 6/18にハイパースケーラーからの受注を理由に営業利益予想を約47%上方修正。</li>
-      <li><span class="nl-code">5706</span>三井金属鉱業: AI半導体向け極薄銅箔（世界シェア9割超）を材料に最高値圏。</li>
-      <li><span class="nl-code">9501</span>東京電力HD: 柏崎刈羽6号機が2026/4に営業運転開始（福島事故後、東電原発の再稼働は初）。</li>
-      <li><span class="nl-code">4063</span>信越化学工業: 本日1Q決算発表。経常-17.4%、通期-14.7%の減益見通し、配当106円。</li>
-      <li><span class="nl-code">6146</span>ディスコ: 7/23に1Q決算発表（上期経常+32%、3期連続最高益・増配）も、翌日は材料出尽くしとセクター安で場中-14%急落。</li>
-      <li><span class="nl-code">464A</span>QPS研究所: 7/14に本決算発表。防衛省の衛星コンステレーション事業（Trisat経由・5年で約697億円）が最大の材料でFY27/5は黒字転換見通し。</li>
-      <li><span class="nl-code">581A</span>GOホールディングス: 7/14に本決算発表。経常利益が前期比2.5倍、3期連続最高益見込み。</li>
-      <li><span class="nl-code">7012</span>川崎重工業: 7/1に約2,000億円規模の資金調達報道で希薄化懸念から急落する場面。</li>
-      <li><span class="nl-code">285A</span>キオクシアHD: 7/17に賠償問題でストップ安。7/24も-9.9%と急落、信用取引で追証発生と報道。</li>
-      <li><span class="nl-macro">セクター</span>東京エレクトロン・アドバンテスト等、韓国株安・SOX指数下落を受け半導体セクターが全面安（-4〜-10%超）。</li>
-      <li><span class="nl-macro">セクター</span>三菱UFJ・三井住友・みずほのメガバンク3行は日銀の追加利上げ観測を背景に年初来高値圏（みずほは7/23に年初来高値更新）。</li>
-      <li><span class="nl-code">7120</span>⚠新光電気工業（除外済）: ウォッチリスト上のコードと実際の上場企業が不一致と判明。半導体基板大手の新光電気工業の実際のコードは6967で、JICのTOB成立（2025-03-19成立）により既に上場廃止。現コード7120は無関係の卸売業「SHINKO」。新光電気工業自体は投資対象として存在しないため、2026-07-25にウォッチリストから除外（114→113銘柄）。</li>
-    </ul>
-  </div>
+<div class="sec-head"><span class="sec-num">📰</span>
+<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em></h2>
+<span class="count">17日分</span></div>
+<div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-17（朝更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>【申し送り事項・解消】8/12〜8/14の3営業日連続で朝ルーティーンが機能していなかった件(直近のnewslog参照)について、本日8/17の朝ルーティーンは実行・コミットまで完了した。ただし本セッションもWebFetchが日米中韓すべての金融サイト(finance.yahoo.co.jp/nikkei.com/stockanalysis.com/eastmoney.com/finance.naver.com等)で全面的に「EGRESS_BLOCKED」となり、WebSearchスニペットのみに依存。加えてJP+US×2+CN×2+KR×2の7並列バッチがセッション共有のWebSearch予算(200回)を実質着手直後に食い合う形となり、CN(92銘柄中2銘柄のみ更新)・KR(77銘柄中16銘柄のみ)は特に深刻な予算枯渇に見舞われた→関連: 全銘柄(データ鮮度全般)。</li>
+<li><span class="nl-code">7974</span>任天堂: Switch/Switch2のインドネシア12月発売との報道を受け8/14終値にかけて前日比+6.91%(8,900円前後)まで急伸、約4カ月ぶりの高値水準→関連: なし(単独材料)。</li>
+<li><span class="nl-code">8136</span>サンリオ: 8/12決算失望売り(-18.12%)からの反発で8/14終値+4.52%(1,282.5円前後)→関連: 4452 花王 等内需・消費セクション(グループ11)。</li>
+<li><span class="nl-macro">セクター</span>半導体・AI(グループ1)は8/14正午時点の急伸(285Aキオクシア+8.64%等)から終値にかけて利益確定売りが優勢となり伸び悩んだ(285A終値+3.75%・6857アドバンテスト+2.59%・8035東京エレクトロン-0.57%)。米国側でも半導体前工程装置大手AMAT(8035・6361の対応銘柄)が-5.12%と軟調な一方、メモリ大手Micron(285Aの対応銘柄)は+2.30%と底堅く、装置とメモリで方向性が分かれている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアホールディングス。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-14（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本日は続伸。前引け(前場終値)は日経平均68,889.01円(前日比+580.42円,+0.85%)で、取引時間中は約1ヶ月ぶり高値水準の69,600円台に乗せる場面も。前日8/13の米国株高(NYダウ+0.13%・ナスダック+0.81%)、7月米PPI(生産者物価指数)の予想下振れによるインフレ懸念後退、日銀9月追加利上げ観測(織り込み8割に迫る報道)を材料に半導体・金融株が買われた→関連: 全銘柄(指数全体)。</li>
+<li><span class="nl-code">285A</span>キオクシアHD: 米サンディスク(共同NAND開発先)の好業績連想買いで前場一時+8.64%(5万6280円)急伸。2027年3月期1Q(4-6月)は生成AI需要拡大で売上収益+415.5%・営業利益1兆2,700億円と急拡大した業績の裏付けもある→関連: 8035 東京エレクトロン(+2.13%), 6857 アドバンテスト(+6.01%) 等半導体セクション全般。</li>
+<li><span class="nl-macro">セクター</span>日銀9月追加利上げ観測(日米協調為替介入が背景)を受け、メガバンク・地銀株に買いが波及。8306三菱UFJ+2.86%・8316三井住友FG+3.44%・8411みずほFG+3.13%とそろって大幅高→関連: 8306 三菱UFJフィナンシャル・グループ, 8316 三井住友フィナンシャルグループ, 8411 みずほフィナンシャルグループ 等金融セクション全般。</li>
+<li><span class="nl-macro">全体</span>韓国KOSPIは本日+2.67%高で寄り付き7,000ポイント接近(6,995.14)。SKハイニックス・サムスン電子等半導体・メモリ株が牽引しており、日本のキオクシア急伸と同じAI・NAND需要拡大テーマを共有しているとみられる→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>【申し送り事項】本日朝(6:00JST)の日次ルーティーンによる更新が見当たらず(daily/2026-08-14.md未作成、DEEPDIVEもnullのまま)。前日8/13は朝・正午とも更新の記録がなく(daily/2026-08-13*.md不在)、8/12朝も同様に未実行だった形跡がある。3営業日連続で朝ルーティーンが機能していない可能性が高く、ユーザーへの確認・手動再実行を推奨する事項として記録する。本セッション(正午)はSECTOR_REPS33銘柄中32銘柄を新値に更新できたが、WebFetchは金融サイト全面的に「EGRESS_BLOCKED」でWebSearchスニペットのみに依存(6383・5706・8306は情報源間で数値がやや食い違うため参考値扱い)。米国・中国・韓国の個別銘柄・DEEPDIVE.reviewは方針通り/DEEPDIVEがnullのため本日は対象外。詳細は<a href="daily/2026-08-14_正午.md">本日正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-12（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本日は8/11(山の日)休場明けの東証。日経平均は前引け67,040.18円(前日比+69.96円,+0.10%)、TOPIXは前引け4,114.41(+13.80pt,+0.34%、7/6の終値高値を上回る)と、寄り付きの買い先行から戻り待ちの売りに押される一進一退の展開。本日夜(日本時間)発表の米7月CPIを見極めたい様子見ムードが上値を抑えたとみられる→関連: 全銘柄(指数全体)。</li>
+<li><span class="nl-code">8136</span>サンリオ: 8/10発表の1Q決算(営業利益224億円、四半期として過去最高だが市場予想232〜234億円に届かず)を受け、本日前場に一時前日比-18〜20%安(1,163〜1,188円)と約12年ぶりの下落率を記録。決算発表当日に年初来高値を更新するなど先回り買いが入っていた反動とみられる→関連: 4452 花王 等内需・消費セクション(グループ11)。</li>
+<li><span class="nl-macro">セクター</span>東京エレクトロン(8035)・アドバンテスト(6857)・キオクシアHD(285A)の半導体主力3銘柄が本日の日経平均押し上げ寄与度上位に報じられる。前日までの米国半導体株高、および本日の韓国KOSPI(+1.28%、SKハイニックス+1.68%・サムスン電子+1.98%)の堅調と方向性が一致→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>米国株は8/11(火)に3指数そろって続落(NYダウ-0.34%・S&amp;P500-0.32%・ナスダック-0.60%)、翌8/12発表の米CPI(予想: 総合+3.4%y/y、コア+2.5%y/y、いずれも鈍化見込み)を控えた様子見が背景とみられる→関連: 為替敏感株・輸出関連セクション全般。</li>
+<li><span class="nl-macro">全体</span>本セッションもWebFetchが金融サイト全面的に「EGRESS_BLOCKED」となり、WebSearchのスニペットのみに依存。SECTOR_REPS33銘柄中、本日値として確度をもって採用できたのは3銘柄(6501日立製作所+0.28%・7011三菱重工業+0.72%・8136サンリオ-17.61%)のみで、残り30銘柄は前回値(主に8/10終値)を維持した。また本日朝(6:00JST)の日次ルーティーンによる更新が見当たらず(daily/2026-08-12.mdが未作成、DEEPDIVEも前日以前の状態)、朝ルーティーンが未実行または失敗した可能性がある点をユーザーへの申し送り事項として記録する。米国・中国・韓国の個別銘柄は方針通り本日調査対象外。詳細は<a href="daily/2026-08-12_正午.md">本日正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-11（朝ルーティーン・大幅遅延実行、東証休場）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本日2026-08-11は「山の日」の祝日で東証は休場。日経平均・TOPIXともに本日分の取引は発生せず、DAILY(SECTOR_REPS33銘柄)・PICKS.jp・FLOW.jp・DEEPDIVEはいずれも前回値(8/10正午時点)を意図的に据え置いた(正午ルーティーンの2026-08-11分と同じ判断)→関連銘柄なし(全銘柄据え置き)。</li>
+<li><span class="nl-code">285A</span>キオクシアHD: 8/10、自己株式の取得状況及び取得終了に関するお知らせを適時開示(TDnet)。株価影響は本日休場のため未反映→関連: 半導体セクション全般(グループ1)。</li>
+<li><span class="nl-macro">全体</span>米国とイラン間のホルムズ海峡を巡る協議難航・イエメン親イラン武装組織による攻撃報道を受け、WTI原油先物が一時+5%の82ドル台まで急伸(6日ぶりの80ドル台回復)。8/10の米国株はエヌビディア等ハイテク株が上値重く、S&amp;P500・ナスダック・NYダウがそろって小幅安(-0.1〜-0.3%程度)で引けた→関連: 5020 ENEOSホールディングス, 1605 INPEX 等エネルギー・電力セクション、8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション。</li>
+<li><span class="nl-macro">全体</span>韓国KOSPIは本日8/11、前日比-0.92%安の6,241.86で寄り付き続落。SKハイニックス一時-2.32%・サムスン電子-0.22%と半導体大手が軟調→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>本セッションもWebFetchは金融サイト(stockanalysis.com等)へのアクセスが「EGRESS_BLOCKED」で全面遮断されており、WebSearchのスニペットのみに依存。米国・中国・韓国の個別対応銘柄(計約268件)の株価再取得は、WebSearch予算(セッション共有・約200回)が268銘柄には構造的に不足すること、および前回(8/7朝)以降ほぼ全銘柄が未更新で推奨バッチ運用も要することを踏まえ、本セッションでは見送った(米国・中国・韓国側のUS_PRICE/CN_PRICE/KR_PRICE/US_CHG/CN_CHG/KR_CHG・PICKS.us/cn/kr・FLOW.us/cn/krはいずれも前回値のまま)。世界情勢(WORLD)・イベントカレンダー(EVENTS)は本日分に更新済み。詳細は<a href="daily/2026-08-11.md">本日の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-10（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>日経平均は本日前引け(前場終値)66,931.48円(前日比+1,324.77円,+2.02%)と大幅反発、TOPIXも前引け4,107.14(+0.79%)。週末8/7の米国株が半導体中心に大幅高・最高値更新した流れを引き継ぎ、フィラデルフィア半導体株指数(SOX)+2%超を好感してAI・半導体関連に買いが先行→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般(38銘柄)。</li>
+<li><span class="nl-code">6857</span>アドバンテスト: 本日10:18時点33,840円(+5.13%)、<span class="nl-code">8035</span>東京エレクトロンも56,280円(+3.27%)と、本日確認できたSECTOR_REPS中で最も明確な上昇を記録し、日経平均の大幅反発をけん引したとみられる→関連: 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-macro">セクター</span>自動車・運輸セクター(グループ10)はトヨタ(7203)-0.13%・ホンダ(7267)-0.68%とほぼ横ばい〜小幅安で、指数全体の強い上昇に対して出遅れが目立つ→関連: 7203 トヨタ自動車, 7267 本田技研工業, 9202 ANA HD。</li>
+<li><span class="nl-code">5713</span>住友金属鉱山, <span class="nl-code">4755</span>楽天グループ: 本日決算発表予定(住友鉱は終日中、楽天は15:30発表予定)。本更新時点(13:00台JST)ではいずれも発表未確認→関連: SECTOR_REPS(素材・非鉄, IT・サイバー)。</li>
+<li><span class="nl-macro">全体</span>本セッションも朝と同様WebFetchが金融サイト全面的に「EGRESS_BLOCKED」となり、WebSearchのスニペットのみで調査。SECTOR_REPS33銘柄中20銘柄は更新(うち今日時点データは3銘柄、残りは8/7終値)できたが、9銘柄は日付未確認・数値矛盾等のため前回値を維持。米国・中国・韓国の個別銘柄(計268件)は方針通り本日は調査対象外。詳細は<a href="daily/2026-08-10_正午.md">本日正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-10（朝ルーティーン）</div>
+<ul>
+<li><span class="nl-code">5711</span>三菱マテリアル: 8/6発表の1Q決算で黒字転換・通期上方修正を好感し8/7終値は前日比+15.71%(700円高の5,157円、一時ストップ高)と急伸→関連: 5713 住友金属鉱山, 5706 三井金属鉱業 等素材・非鉄セクション。</li>
+<li><span class="nl-code">5803</span>フジクラ: 8/7、今期2度目となる業績上方修正を発表し午後急騰→関連: データセンター・光通信関連セクション全般。</li>
+<li><span class="nl-macro">全体</span>米国7月雇用統計(8/7発表)は非農業部門雇用者数-2.3万人と市場予想(+8万人程度)に反し減少に転じ、過去2ヶ月分も下方修正。一方、失業率は4.1%(予想4.2%)に改善する解釈の分かれる内容。市場はこれをFRBの9月利下げ観測強化と受け止め、S&amp;P500・ナスダックが最高値更新(週間ではS&amp;P+3.58%・ナスダック+5.19%)する株高につながったとみられる(推測)→関連: 為替敏感株(輸出関連)・自動車セクション全般。</li>
+<li><span class="nl-code">5713</span>住友金属鉱山, <span class="nl-code">4755</span>楽天グループ: 本日2026-08-10に決算発表予定(住友鉱は確定・楽天は15:30発表予定、株探「来週の決算発表予定」記事で★注目決算として掲載)→関連: SECTOR_REPS(素材・非鉄, IT・サイバー)。</li>
+<li><span class="nl-macro">全体</span>本セッションはWebFetchがfinance.yahoo.co.jp等の金融サイトのみならずja.wikipedia.org等も含め全面的に「EGRESS_BLOCKED」(過去の一部サイト遮断より広範)となり、WebSearchのみに依存。個別銘柄の確定終値の取得率が低く、SECTOR_REPS33銘柄中5銘柄・米国/中国/韓国の対応銘柄268件は今回は調査を全面的に見送った(誤データ反映より安全側に倒す既定方針)。詳細は<a href="daily/2026-08-10.md">本日朝の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-07（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>日経平均は本日前引け(11:30)時点65,039.16円(前日比-644.10円,-0.98%)と続落。ソフトバンクグループの4-6月期純利益-17.7%(8/6引け後発表)への嫌気売り、レーザーテックの通期利益見通し未達(一時-10%超)、これらを受けた半導体関連株への連想売りが主因と報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD, 9984 ソフトバンクグループ 等。</li>
+<li><span class="nl-code">7012</span>川崎重工業: 本日8/7発表のQ1決算で純利益が前年同期比3.7倍の156億円、通期純利益予想を110億円→115億円(+6.3%)に上方修正し3期連続最高益更新見通し。本日の株価反応は情報源不一致のため未確認(要確認)→関連: 7011 三菱重工業, 7013 IHI 等防衛・宇宙セクション。</li>
+<li><span class="nl-macro">全体</span>韓国KOSPIは本日8/7午前、寄り付き+1.09%高から一時+1.9%まで上昇したが上げ幅を維持できず11:05時点で前日比-0.81%まで反落、前日(8/6、-4.58%・サーキットブレーカー発動)の急落からの反発が定着しない不安定な展開→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>本セッションではWebFetchが金融サイト(finance.yahoo.co.jp・irbank.net・nikkei.com等)にほぼ全面的に「EGRESS_BLOCKED」となりアクセス不可であったため、WebSearchのスニペットのみで33銘柄を調査。既存データとの整合性チェックに通った2銘柄(7011三菱重工業-0.13%・8058三菱商事+3.03%)のみ採用し、残り31銘柄は前回値を維持(誤データ反映より安全側に倒す既定方針)。詳細は<a href="daily/2026-08-07_正午.md">本日正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-07（朝ルーティーン）</div>
+<ul>
+<li><span class="nl-macro">全体</span>韓国KOSPIが8/6に独立した2ソースで-4.58%〜-4.86%(サイドカー発動)という近い水準の急落を確認。サムスン電子-7.52%・SKハイニックス-6.90%と半導体2大巨頭がそろって急落し、外国人投資家の大量売り(純売り約1.48兆ウォン)が主因と報じられている。日経平均先物(大阪夜間)も63,820円(現物終値比-2,850円、-4.3%)まで下落して終了しており、8/7の東京市場は寄り付きから下振れリスクが高いと考えられる(推測)→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般(38銘柄)。</li>
+<li><span class="nl-code">8035</span>東京エレクトロン、<span class="nl-code">6857</span>アドバンテスト、<span class="nl-code">285A</span>キオクシアHD: 8/6終値でそれぞれ-5.50%・-2.34%・-11.45%と半導体セクションが軒並み下落。米国半導体株安・韓国KOSPI急落からの連れ安とみられる(推測)。</li>
+<li><span class="nl-code">4452</span>花王: 8/5決算発表を受け8/6終値+12.83%(3,597円)と急伸。30年以上の連続増配銘柄で決算好感の動きとみられる。</li>
+<li><span class="nl-macro">全体</span>JP・US・CN・KR合計8バッチ(JP1、US2、CN2、KR2、市況調査1)で並列調査を実施したが、市況調査完了前にセッション共有WebSearch予算(200回)が完全枯渇(0/200)。JPはSECTOR_REPS33銘柄中12銘柄のみ複数ソースでの整合が取れ反映、米国・中国・韓国の個別銘柄データ(US_PRICE/CN_PRICE/KR_PRICE等)は担当エージェント全員が「情報源間で20〜50%以上の矛盾、または日付特定不能」と報告したため、本日は更新を全面的に見送り前回値を維持。詳細は<a href="daily/2026-08-07.md">本日朝の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-06（朝ルーティーン）</div>
+<ul>
+<li><span class="nl-macro">全体</span>セッション開始時、2026-08-04〜08-05の8コミット(DEEPDIVE機能統合・全11業種ヒートマップ追加等)がローカルには存在するがGitHub(origin/main)へ未反映と見える状態を確認し、まずfast-forward pushで解消(実際にはpush自体は既に成功しておりローカルの追跡ブランチが古かっただけと判明、データ損失なし)。</li>
+<li><span class="nl-macro">全体</span>JP専用1バッチ(33銘柄中26銘柄で8/5終値を再確認)、米中韓は各2バッチ(計6バッチ)体制で調査。セッション共有のWebSearch予算(200回)は本調査の途中(市況調査中)で完全枯渇し、中国の指数レベルデータ(上海総合等)・日経平均先物(夜間取引)・「本日の日本株総合分析」(DEEPDIVE、一次情報調査が必要なため特に予算消費が大きい)は本日も実施見送り。米国113銘柄中20コード・中国105銘柄中12コード・韓国93銘柄中19コードのみ確度medium以上で更新。詳細は<a href="daily/2026-08-06.md">本日朝の相場観コメント</a>参照。</li>
+<li><span class="nl-code">5706</span>三井金属鉱業: 8/5終値+10.91%(35,380円、情報源間で34,610円/+8.50%との差異あり)とSECTOR_REPS33銘柄中最大の上昇率→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体・非鉄金属セクション全般。</li>
+<li><span class="nl-code">5803</span>フジクラ: 8/5終値+9.62%(5,073円)。8/7決算発表を控え、上方修正+47%との観測(未確認)が先行して物色されている可能性(推測)→関連: 5333 住友電気工業(米国対応銘柄Corningも8/5+9.19%)。</li>
+<li><span class="nl-code">9432</span>日本電信電話(NTT): 本日8/6に4-6月期決算発表を予定(確定)。8/5終値時点+0.40%(151.0円)で決算発表前の株価反応は限定的→関連: データセンター関連セクション全般。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-05（朝ルーティーン、実行が14時台まで遅延）</div>
+<ul>
+<li><span class="nl-code">4062</span>イビデン: 8/4発表の通期業績予想の上方修正を受け、8/5にストップ高。日経平均の押し上げ要因の一つと報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト 等半導体セクション全般。</li>
+<li><span class="nl-code">9984</span>ソフトバンクグループ: 出資先Arm Holdings(ARM)が8/4終値+14.76%と急伸(7/29決算のロイヤリティ収入最高値更新が材料)。NAV(保有資産価値)を通じ同社株への間接的な追い風の可能性(推測)→関連: 285A キオクシアHD。</li>
+<li><span class="nl-macro">全体</span>米国市場でCorning(GLW)+9.19%・onsemi(ON)+5.65%が急伸する一方、AeroVironment(防衛関連)-9.04%・Vistra(電力)-8.15%が急落するなど、8/4の米国株高の裏で業種選別色の強い値動きが見られた→関連: 5803 フジクラ, 5333 住友電気工業, 6758 ソニーグループ, 9501 東京電力HD。</li>
+<li><span class="nl-macro">全体</span>セッション共有のWebSearch予算(約200回)がJP/US/CN/KR計7バッチの調査中に完全枯渇。日本33銘柄中24銘柄・米国113銘柄中26銘柄・中国105銘柄中17銘柄は本日データへ更新できたが、韓国は93銘柄中サムスン電子・SKハイニックス経由の4銘柄のみ確度高く確認。「本日の日本株総合分析」(DEEPDIVE)は予算切れのため本日実施見送り。詳細は<a href="daily/2026-08-05.md">本日朝の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-05（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本日(8/5)朝の日次ルーティーンの実行記録が見当たらず(daily/2026-08-05.md不在、DEEPDIVEオブジェクトも前回のnullのまま)、本正午更新が本日最初の反映となった。日経平均は前引け時点で+2.98%(65,861.00円)の大幅続伸。米国株の連日最高値更新(S&amp;P500 7,737・過去最高)、ホルムズ海峡の緊張緩和による原油安、韓国KOSPIの急反発(サムスン電子・SKハイニックス+4〜7%)が重なった全面高。詳細は<a href="daily/2026-08-05_正午.md">本日正午の相場観コメント</a>参照。</li>
+<li><span class="nl-code">6857</span>アドバンテスト: 本日前場、日経平均の上げ幅(+1,903.47円)に単独で+504円分寄与したと報じられている。個別の前日比%は情報源間で矛盾したため未確認・DAILY未更新→関連: 8035 東京エレクトロン, 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-code">8306</span>三菱UFJフィナンシャル・グループ: 8/3発表のQ1(4-6月期)決算で純利益+48.2%(8,094億円)・上場来高値更新と報じられる。SMFG(8316)・みずほFG(8411)も2月以来の高値水準、日銀利上げ期待が支援材料との報道→関連: 8316 三井住友FG, 8411 みずほFG。</li>
+<li><span class="nl-code">7203</span>トヨタ自動車: 8/4発表のQ1決算で通期営業利益予想が前年比-9%(1兆628億円)。中東情勢の混乱・熊本地震の影響が押し下げ要因、円安・HV好調が下支えと報じられている。</li>
+<li><span class="nl-code">6674</span>GSユアサ: 本日15:00に決算発表予定。事前情報(未確認)ではQ1経常利益が市場予想を+36.7%上振れる一方、通期経常利益見通しは市場予想を-4.4%下回るとの観測がある(要確認、PICKS参照)。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-08-04（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>8/1(土)〜8/3(月)は本ルーティーンの実行記録がなく(コミットなし)、8/4朝更新も未実行のまま本日正午が実質4日ぶりの更新。JPのみ4バッチ(各28〜29銘柄)でWebSearchのみ調査した結果、confidence=high/mediumと判定できたのは51/113銘柄。WebFetchはfinance.yahoo.co.jp・irbank.net・nikkei.com・kabuyoho.ifis.co.jp・minkabu.jp・finance.matsui.co.jp等ほぼ全ての金融サイトで403エラーとなり、agent proxyの通信ポリシーによる意図的な拒否(組織のegressポリシー)と判明した。WebSearchのスニペットも日付不明・情報源間の符号逆転や30%超の乖離が多数あり、疑わしい62銘柄は既存値(7/31以前)を維持。詳細は<a href="daily/2026-08-04_正午.md">本日正午の相場観コメント</a>参照。</li>
+<li><span class="nl-macro">全体</span>8/4前引けの日経平均は-421.55円(63,333.35円)と続落。日米財務相の協調為替介入示唆でドル円が155円台前半へ急伸(円高)後157円台へ戻す乱高下、および韓国KOSPIの急反落(サムスン電子・SKハイニックス-3%超)が重石になったと報じられている→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6920 レーザーテック 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>8/3(月)の米国株は大幅高。S&amp;P500+1.48%(終値ベース初の7,600台)、ナスダック+2.13%、ダウ+693ドル(53,178ドル)。トランプ大統領のイラン攻撃計画撤回報道で原油が約5%急落したことが好感された。</li>
+<li><span class="nl-code">6723</span>ルネサスエレクトロニクス: 8/3時点+13.45%(3,905円)。7/31決算好感の上昇が継続中とみられる(確度medium)→関連: 285A キオクシアHD, 8035 東京エレクトロン 等半導体セクション全般。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-31（朝更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>JP4・US2・CN2・KR2の合計10バッチ(市場ごと独立・並列実行)で株価調査を実施したが、合計クエリ数がセッション共有のWebSearch予算(200回)を使い切り、confidence=highで更新できたのはJP68/113・US4/113(WOLFは閾値超過で不採用)・CN1/105・KR3/93銘柄にとどまった。さらに、この予算枯渇により本来ステップ3で行うマクロ市況調査(日経平均・TOPIX・米国株式市場・為替・金融政策等)が一切実施できず、世界情勢サマリー(WORLD)は「本日分未調査」として前日値を暫定維持している。過去6回のインシデントより影響範囲が広い今回の失敗パターンについて詳細は<a href="daily/2026-07-31.md">本日の相場観コメント</a>参照。</li>
+<li><span class="nl-code">6723</span>ルネサスエレクトロニクス: 7/30終値-8.43%。7/31決算発表を控えた持ち高調整・思惑売りとみられる(出典URL未確認・要確認)→関連: 285A キオクシアHD, 8035 東京エレクトロン 等半導体セクション全般。</li>
+<li><span class="nl-code">6594</span>ニデック: 7/30終値-3.39%。第三者委員会による会計不正調査が継続中と報じられている(出典URL未確認・要確認)。</li>
+<li><span class="nl-code">8035</span>東京エレクトロン: 7/31朝時点+4.48%で推移。本日引け後に決算発表予定(出典URL未確認・要確認)→関連: 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-30（朝更新、当初予定JST 6:00より約8時間半遅延起動）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本来6:00 JST開始予定の朝ルーティーンが約8時間半遅延して起動(実行時点で市場は前場終盤〜後場)。JP113銘柄をWebFetch(金融サイト全面403のため不使用)を避けWebSearchのみ・4バッチ(各28〜29銘柄・検索15回上限)で調査した結果、confidence=highと判定できたのは20銘柄のみ。米国・中国・韓国も同様に市場ごと独立バッチ(US3・CN2・KR2)で調査し、それぞれ31/113・5/105・7/93銘柄のみ確度高いデータを取得。残りは情報源間の数値不整合・日付不明・参考値との偶然一致(キャッシュ疑い)等のため既存値を維持(要確認)。詳細は<a href="daily/2026-07-30.md">本日朝の相場観コメント</a>参照。</li>
+<li><span class="nl-code">6857</span>アドバンテスト: 7/29発表の4-6月期決算で営業利益+53.3%(市場予想1,550億円→実績1,900億円)、通期見通しを6,275億円→8,460億円(+34.8%)へ上方修正。AI推論向け半導体テスト需要の想定超過が要因→関連: 8035 東京エレクトロン(本日引け後決算), 285A キオクシアHD(7/31決算) 等半導体セクション全般。</li>
+<li><span class="nl-code">6501</span>日立製作所: 7/29引け後発表の4-6月期決算は純利益-1.4%(1,894億円)も、通期純利益見通しを8,500億円→9,000億円へ再上方修正(2期連続最高益予想)→関連: 半導体・重電セクション。</li>
+<li><span class="nl-code">6701</span>NEC: 7/29発表の4-6月期決算は増収増益(売上高+14.5%・営業利益+66.1%・純利益+157.4%)とIFIS市場予想を大幅に上回る内容→関連: 6702 富士通, 6501 日立製作所 等ITサービスセクション。</li>
+<li><span class="nl-macro">全体</span>7/29(現地時間)の米国市場はS&amp;P500-1.52%・ナスダック-1.74%・NYダウ-2.19%(2025年4月以来の下げ幅)とトリプル安。FOMCタカ派的据え置き(3委員が利上げ主張)による長期金利上昇、中東情勢緊迫化による原油高、半導体株の続落(テラダイン-13.63%・マイクロン-9.94%・NXP-7.00%)が重なった→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD, 6723 ルネサス 等半導体セクション全般。</li>
+<li><span class="nl-macro">セクター</span>中国・創業板(ChiNext)は7/30日中-5.89%、深セン成分指数-3.79%、上海総合-1.15%と、グロース・ハイテク株中心に急落。SKハイニックスは7/29決算過去最高益にもかかわらず-8.00%と急落し「好決算でも株安」の逆行現象→関連: 285A キオクシアHD, 6920 レーザーテック 等半導体セクション全般。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-30（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>本日朝6:00実行予定の日次ルーティーンが未完了（<code>daily/2026-07-30.md</code>が存在せず、CLAUDE.mdに記録済みの既知のハング障害パターンの可能性）。このためDAILYは正午実行開始時点でも7/29終値のまま据え置かれていた。正午実行では個別銘柄調査を試みたが、WebSearchの多くが実際には7/29時点のキャッシュ済みスニペットを返す状態(例: 7203トヨタの「+7.18%」は7/29終値の数値)で、本日(7/30)時点と確度をもって判別・複数ソースで整合したのはアドバンテスト(6857)のみのため、同銘柄以外のDAILYは更新を見送り既存値を維持(要確認)→関連: 8035 東京エレクトロン(本日決算発表), 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-30_正午.md">正午の相場観コメント</a>参照。</li>
+<li><span class="nl-macro">全体</span>日経平均は前引け+784.22円(62,218.41円、一時+1,300円超)と3日ぶり反発。アドバンテスト(6857)の通期上方修正・キオクシアHD(285A)の前場急伸(一時+9.58%)など半導体主力の自律反発が牽引した一方、東証プライム全体では値下がり銘柄(976)が値上がり(545)を大きく上回る「まだら」な内容だった→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>韓国KOSPIは7/30午前、サムスン電子・SKハイニックスが売られ-1.10%程度で推移と報じられ、日本の上昇とは対照的な展開。前日(7/29)はSKハイニックス好決算で寄り付き+3.4%まで急伸するも終値-5.98%に転落しており、3営業日連続の乱高下が続く。韓国当局はレバレッジETFへの個人投資家参加を制限する規制強化を発表。SKハイニックスは最大約294億ドル規模のナスダック上場を申請したと報じられている→関連: 半導体セクター全般。中国・上海総合指数は本日分のデータを確認できず、直近値(7/29 13:37時点+0.60%)のまま(要確認)。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-29（正午更新、実際の起動16:17 JSTで約4時間弱遅延）</div>
+<ul>
+<li><span class="nl-macro">全体</span>日経平均は寄り付き+369.76円(62,734.68円)まで自律反発するも、フィッチ・レーティングスが同日発表した「グローバル・リスク・アウトルック」でAI関連投資の急拡大が金融市場全体の信用リスクになり得ると警告したことを受け半導体・AI関連株に売りが波及、寄り付き後まもなくマイナス転換。一時-1,800円超まで下げ幅を拡大した後、大引けにかけて下げ渋り、終値は<b>-930.73円(-1.49%)の61,434.19円と3日続落</b>。TOPIXは-4.03(-0.10%)の3,959.56とほぼ横ばいで踏みとどまり、値上がり銘柄数が値下がりを上回るなど下落は半導体・AI関連に集中→関連: 8035 東京エレクトロン(単独で指数を約559円押し下げ), 9984 ソフトバンクG, 285A キオクシアHD 等半導体セクション全般。詳細は<a href="daily/2026-07-29_正午.md">正午の相場観コメント</a>参照。</li>
+<li><span class="nl-code">6857</span>アドバンテスト: 本日15:30、2027年3月期通期純利益予想を76%上方修正(465.5億円→660億円、市場予想518億円超)。AI推論向け半導体テスト需要が想定を上回ったことが要因。発表が引け後のため株価への完全な反映は明日以降の見込み(要確認)→関連: 8035 東京エレクトロン(明日7/30決算), 285A キオクシアHD(7/31決算) 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>韓国KOSPIはSKハイニックス好決算を好感し寄り付き+3.4%高まで急伸するも10時頃から急落に転じ、10:55サイドカー・正午サーキットブレーカー発動(2日連続)。好決算にもかかわらず下げ止まらない展開で、AI投資全体への懐疑が優勢な地合いを示唆→関連: 半導体セクター全般。中国・上海総合指数は13:37時点で+0.60%と小幅反発、CXMT関連の極端な振れは一旦落ち着いた様子(関連銘柄なし)。株価データ更新は113銘柄中46銘柄のみ(情報源間で日付・数値が矛盾しない確度の高いもののみ採用、残り67銘柄は既存値維持)。詳細は<a href="daily/2026-07-29_正午.md">正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-29（朝更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>7/28（現地時間）の米国市場はS&amp;P500+0.21%・NYダウ+1.03%と上昇した一方、ナスダック総合-0.22%・半導体ETF(SMH)-3%超(4営業日続落)と半導体だけ軟調な「まちまち」の展開。本日7/29はFOMC(米金融政策決定会合)結果発表日で、ドル円は約40年ぶり高値圏(162円台後半〜165円台前半のレンジ予想)。日銀会合は7/31→関連: 半導体セクター全般(8035 東京エレクトロン, 6857 アドバンテスト, 285A キオクシアHD 等)、輸出関連銘柄。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>参照。</li>
+<li><span class="nl-macro">全体</span>個別銘柄の株価データ更新は本日見送り。WebFetchがfinance.yahoo.co.jp/irbank.net/stockanalysis.com/eastmoney.com等ほぼ全ての金融サイトで403(プロキシの組織ポリシーによる意図的ブロック、kabutan.jp限定だった従来の既知問題より範囲が拡大)、代替のWebSearchもセッション共有予算(200回)を10並列バッチの調査開始から15〜20分で使い切り、以降取得不能に。取得できたわずかな値も情報源間で数値が20〜50%以上食い違うものが多く、データ品質が信頼できないため全件棄却し既存値(7/24〜28混在)を維持(要確認)。詳細は<a href="daily/2026-07-29.md">本日の相場観コメント</a>およびCLAUDE.mdの障害記録参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-28（正午更新・2回目、20:18 JST起動で当初予定より8時間超遅延）</div>
+<ul>
+<li><span class="nl-macro">全体</span>日経平均は前場-4.44%(62,046.46円)まで急落した後、後場でやや下げ渋り**終値は-3.95%(62,364.92円)**、TOPIXは-2.52%(3,963.59)。キオクシアHD(285A)は終値でも-18.33%(44,550円)とストップ安圏で着地、東京エレクトロン(8035)-10.89%・アドバンテスト(6857)-10.31%と半導体主力が終値でも二桁安。韓国KOSPIは終日悪化が続き終値で-10%超(一部報道)、サムスン電子-13.4%・SKハイニックス-14.7%前後。米ナスダック安・信用取引の追証発生・韓国市場からの連想売りが要因として報じられている→関連: 285A キオクシアHD, 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック 等半導体セクション全般。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
+<li><span class="nl-macro">全体</span>本日2回目の正午実行(1回目は14/113銘柄のみ反映の部分版、本更新で追加35銘柄・計49/113銘柄が7/28データを反映)。WebFetchが本日も主要金融サイトのほぼ全てで403エラーとなり、WebSearchスニペット経由の取得に限定。<span class="nl-code">6361</span>荏原製作所は取得データの前日比%から逆算した前日終値が旧基準値と約51%乖離し、株式分割等の未反映の可能性を排除できないため採用を見送り(要確認)。中国・韓国の対応銘柄株価(USBASE/CNBASE/KRBASE)は2026-07-28の方針転換により正午実行では調査対象外(朝の値のまま)。詳細は<a href="daily/2026-07-28_正午.md">正午の相場観コメント</a>参照。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-27（正午更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>正午更新は本日3回目の試行。10バッチ(JP4・US2・CN2・KR2)に分割して並列実行したが、セッション共有のWebSearch予算(約200回)が実行中盤で枯渇し、113銘柄中32銘柄(JP)・99ティッカー中49(US)のみ本日データを反映。中国・韓国は信頼できるデータが得られず更新見送り。詳細は<a href="daily/2026-07-27_正午.md">正午の相場観コメント</a>参照。</li>
+<li><span class="nl-code">4063</span>信越化学: 大引け15:30時点で-8.30%。7/24発表の通期経常-14.7%決算の影響が続いている可能性→関連: 8035 東京エレクトロン, 4186 東京応化工業 等半導体材料セクション。</li>
+<li><span class="nl-code">8136</span>サンリオ: 大引け15:00時点で+7.42%。<span class="nl-code">7974</span>任天堂も+6.63%と消費者向けIP関連が堅調→関連銘柄なし(セクター内他銘柄は本日データ未取得)。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-26</div>
+<ul>
+<li><span class="nl-macro">全体</span>週末(7/25-26)は東証・米国市場とも休場のため新規約定なし。DAILYは7/24終値のまま据え置き。月曜(7/27)朝時点の大阪取引所夜間先物の最新水準は情報源が不確実なため未確認（要確認）。CNBCの週間展望では米国市場は月曜「横ばい〜やや軟調」の始まりが見込まれる（<a href="daily/2026-07-26.md">日次相場観コメント参照</a>）。</li>
+<li><span class="nl-macro">セクター</span>中国メモリメーカーCXMT（長鑫存儲）が7/27に上海市場でIPO予定（調達額約86億ドル、評価額約850億ドル、DRAM世界4位）。アジア系ヘッジファンドがサムスン電子・SKハイニックスからCXMTへ資金シフトとの報道もあり、韓国半導体株への新たな下押し材料→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック, 4063 信越化学工業, 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-macro">全体</span>決算スケジュール補足: 7203トヨタ自動車の次回決算は8/4頃、9984ソフトバンクグループは8/6頃で、いずれも今週(7/28-31)の決算集中には含まれない（前日ログの「来週決算集中」対象外として訂正）。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-25</div>
+<ul>
+<li><span class="nl-macro">全体</span>7/24の日経平均は前日比-838円で寄り付き、前場一時-1,700円まで下落。米国の原油高（WTI約93ドル）・長期金利上昇（10年債4.66%）が背景。半導体・AI関連が全面安の一方、メガバンク・商社は堅調（<a href="daily/2026-07-24.md">日次相場観コメント参照</a>）。</li>
+<li><span class="nl-code">全銘柄</span>ダッシュボード改良: 各行にPER/PBR/信用倍率のミニバーチャートを追加。7120（新光電気工業として登録）はコード不一致・上場廃止のためウォッチリストから除外（113銘柄に更新）。</li>
+<li><span class="nl-macro">全体</span>7/24終値確定: 日経平均64,611.15円(-1,811.45円,-2.73%)、TOPIX 4,011.31(-42.57,-1.05%)。7/25(土)は東証休場のためDAILYは据え置き。大阪取引所夜間先物(9月限)は7/25朝時点でさらに-270円の64,290円で終了、来週月曜(7/27)はやや軟調な始まりが示唆される（<a href="daily/2026-07-25.md">日次相場観コメント参照</a>）。</li>
+<li><span class="nl-macro">セクター</span>韓国KOSPIは6月高値から約25%下落、サムスン電子・SKハイニックスは高値比30%超安。KIS証券がHBM4出荷遅延を理由にSKハイニックスの4-6月期利益予想を下方修正、米メモリ株(マイクロン・サンディスク等)も連日安→関連: 8035 東京エレクトロン, 6857 アドバンテスト, 6146 ディスコ, 6920 レーザーテック, 285A キオクシアHD 等半導体セクション全般。</li>
+<li><span class="nl-code">7203</span>トヨタ自動車: FY2026/3実績で純利益予想を前期比-44%の2.66兆円に下方修正。米関税影響は総額1.4兆円（車両1.0兆円・部品等0.4兆円）。世界生産計画は過去最高の1,000万台を維持。</li>
+<li><span class="nl-code">9984</span>ソフトバンクグループ: OpenAIへの追加出資「第2弾」を7/1に実行済み。WIPO調査で生成AI特許出願数世界1位と7/14発表。</li>
+<li><span class="nl-code">1605</span>INPEX: 中東情勢による原油高（WTI週間+約10%）を受け7/21に+4.35%→関連: 5020 ENEOS（原油高は川下の精製マージン圧迫要因として逆方向に作用しうる）。</li>
+<li><span class="nl-macro">全体</span>来週(7/28〜31)は決算発表とBOJ・FOMCが重なる特に重い週。決算: 8035東京エレクトロン(7/30)、6857アドバンテスト(7/29確定)、6861キーエンス(7/28頃)、8316三井住友FG(7/31確定)、8411みずほFG(7/30)、6501日立(7/29予定)、6701NEC(7/29予定)、6702富士通(7/30予定)、8053住友商事(7/31確定)ほか計20銘柄超が集中。金融政策: FOMC(7/28-29、政策金利3.50-3.75%据え置き観測)、日銀金融政策決定会合(7/30-31、6/16に1.0%へ利上げ後の次回判断)。</li>
+</ul>
+</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-07-24</div>
+<ul>
+<li><span class="nl-code">9984</span>ソフトバンクグループ: OpenAI IPO 2027年延期報道(NYT 6/25)が重しで-7.2%急落。5,400〜6,000円で乱高下。</li>
+<li><span class="nl-code">6506</span>安川電機: 7/10発表のQ1が基幹システム移行の生産遅延で市場予想を大幅未達、通期を下方修正（営業利益600→430億円）。7/13にストップ安。</li>
+<li><span class="nl-code">6594</span>ニデック: 会計不正・品質問題で本決算延期中。有報提出期限を2026-09-30まで延長申請、中間無配・期末配当未定。</li>
+<li><span class="nl-code">8136</span>サンリオ: 元常務の不適切報酬受領問題（総額約2.5億円）。6/23に延期していた決算を発表済み（過去最高益）、決算後急反発。</li>
+<li><span class="nl-code">8053</span>住友商事: 2026-07-01付で1株→4株の株式分割を実施。分割未調整の指標に注意。</li>
+<li><span class="nl-code">8316</span>三井住友FG: 7/6に株式分割を開示（比率は要確認）。</li>
+<li><span class="nl-code">6890</span>フェローテックHD: 7/22に通期経常を+61.1%上方修正。</li>
+<li><span class="nl-code">5803</span>フジクラ: 6/18にハイパースケーラーからの受注を理由に営業利益予想を約47%上方修正。</li>
+<li><span class="nl-code">5706</span>三井金属鉱業: AI半導体向け極薄銅箔（世界シェア9割超）を材料に最高値圏。</li>
+<li><span class="nl-code">9501</span>東京電力HD: 柏崎刈羽6号機が2026/4に営業運転開始（福島事故後、東電原発の再稼働は初）。</li>
+<li><span class="nl-code">4063</span>信越化学工業: 本日1Q決算発表。経常-17.4%、通期-14.7%の減益見通し、配当106円。</li>
+<li><span class="nl-code">6146</span>ディスコ: 7/23に1Q決算発表（上期経常+32%、3期連続最高益・増配）も、翌日は材料出尽くしとセクター安で場中-14%急落。</li>
+<li><span class="nl-code">464A</span>QPS研究所: 7/14に本決算発表。防衛省の衛星コンステレーション事業（Trisat経由・5年で約697億円）が最大の材料でFY27/5は黒字転換見通し。</li>
+<li><span class="nl-code">581A</span>GOホールディングス: 7/14に本決算発表。経常利益が前期比2.5倍、3期連続最高益見込み。</li>
+<li><span class="nl-code">7012</span>川崎重工業: 7/1に約2,000億円規模の資金調達報道で希薄化懸念から急落する場面。</li>
+<li><span class="nl-code">285A</span>キオクシアHD: 7/17に賠償問題でストップ安。7/24も-9.9%と急落、信用取引で追証発生と報道。</li>
+<li><span class="nl-macro">セクター</span>東京エレクトロン・アドバンテスト等、韓国株安・SOX指数下落を受け半導体セクターが全面安（-4〜-10%超）。</li>
+<li><span class="nl-macro">セクター</span>三菱UFJ・三井住友・みずほのメガバンク3行は日銀の追加利上げ観測を背景に年初来高値圏（みずほは7/23に年初来高値更新）。</li>
+<li><span class="nl-code">7120</span>⚠新光電気工業（除外済）: ウォッチリスト上のコードと実際の上場企業が不一致と判明。半導体基板大手の新光電気工業の実際のコードは6967で、JICのTOB成立（2025-03-19成立）により既に上場廃止。現コード7120は無関係の卸売業「SHINKO」。新光電気工業自体は投資対象として存在しないため、2026-07-25にウォッチリストから除外（114→113銘柄）。</li>
+</ul>
+</div>
 </section>
-
 <footer>
-  <h4>NOTES / 補足</h4>
-  <ul>
-    <li><b>事実（Fact）：</b>今回追加した8銘柄は 4755 楽天G、9984 ソフトバンクG、4186 東京応化工業、285A キオクシアHD、6506 安川電機、6954 ファナック、6920 レーザーテック、6861 キーエンス。当初合計114銘柄（うちETF1本）としていたが、後述の理由で113銘柄に更新。</li>
-    <li><b>事実：</b>追加8銘柄はすべて「半導体・AI・データセンター」リストからの抽出。うち6銘柄（4186 / 285A / 6920 / 6506 / 6954 / 6861）は本分類でも半導体セクションに主掲載、2銘柄（9984 / 4755）は事業実態を優先して別セクションに主掲載しています。</li>
-    <li><b>事実：</b>2026-07-24に全銘柄のファンダメンタル調査（株価・PER・PBR・信用倍率・次回決算日・IR・関連ニュース）を実施し、各行にミニバーチャートとして反映しました。詳細な出典URLは <a href="fundamentals/watchlist_fundamentals_2026-07-24.md">fundamentals/watchlist_fundamentals_2026-07-24.md</a> を参照。</li>
-    <li><b>事実：</b>調査の過程で「1-4 サブストレート」に登録されていた <b>7120（新光電気工業として登録）がコード不一致</b>であることが判明し、除外しました。半導体基板大手の新光電気工業の実際の証券コードは<b>6967</b>で、JIC（産業革新投資機構）主導のTOBが2025年3月に成立し、既に上場廃止済みです。現在のコード7120は無関係の別会社（卸売業「SHINKO」）です。ユーザーからのご指摘（古河電気工業・助川電気工業・安川電機・富士電機との混同の可能性）を受けて確認しましたが、これら4社はいずれも別の正しいコード（5801・7711・6506・6504）で本ウォッチリストの他セクションに既に掲載されており、7120との一致はありませんでした。新光電気工業自体は上場廃止のため、後継銘柄への差し替えは行わず単純に除外しています（半導体基板テーマは 4062 イビデン・6971 京セラが引き続きカバー）。</li>
-    <li><span class="opinion"><b>意見（Opinion）：</b></span>今回の見直しで<b>半導体セクションは主掲載38銘柄</b>となり、全113銘柄の約34%を占めます。副掲載を含めるとさらに増えます。ウォッチリスト全体が半導体シクリカルに強く傾いている構造で、AI関連の調整局面では分散が効きにくい点は認識しておく価値があります。2026-07-24の急落はまさにこの構造が表面化した一例と言えます。</li>
-    <li><span class="opinion"><b>意見：</b></span>重複掲載を許可したことで浮かび上がるのは、<b>7011 三菱重工が唯一3カテゴリー（防衛・DC冷却・原子力）に跨る</b>点です。防衛費・DC電力・原発再稼働のどのニュースでも反応し得る一方、裏返せば「何で上がったのか特定しにくい」銘柄でもあります。ポジション管理上は主因を切り分けて追う必要があります。</li>
-    <li><span class="opinion"><b>意見：</b></span>副掲載を見ると、<b>2-2 冷却</b>と<b>10-2 自動車部品</b>に同じ企業（6584 三桜工業）が現れます。DC液冷テーマで買われても、実態の売上は自動車配管です。テーマ買いの持続性を評価する際は、副掲載側の事業規模を確認することを推奨します。</li>
-    <li><span class="opinion"><b>意見：</b></span><b>3063 ジェイグループHD</b>は外食企業ですが「防衛・エネルギー」リストに登録されています。登録間違いの可能性が高いと考えます。</li>
-    <li>本資料は保有・監視銘柄の整理を目的とした分類であり、投資推奨ではありません。ファンダメンタル列・ニュースログも同様に、公開情報の整理であり投資助言ではありません。ミニバーチャートは上限（PER90/PBR20/信用倍率40）でクリップして表示しており、実数値は各バー右側の数字を参照してください。</li>
-  </ul>
+<h4>NOTES / 補足</h4>
+<ul>
+<li><b>事実（Fact）：</b>今回追加した8銘柄は 4755 楽天G、9984 ソフトバンクG、4186 東京応化工業、285A キオクシアHD、6506 安川電機、6954 ファナック、6920 レーザーテック、6861 キーエンス。当初合計114銘柄（うちETF1本）としていたが、後述の理由で113銘柄に更新。</li>
+<li><b>事実：</b>追加8銘柄はすべて「半導体・AI・データセンター」リストからの抽出。うち6銘柄（4186 / 285A / 6920 / 6506 / 6954 / 6861）は本分類でも半導体セクションに主掲載、2銘柄（9984 / 4755）は事業実態を優先して別セクションに主掲載しています。</li>
+<li><b>事実：</b>2026-07-24に全銘柄のファンダメンタル調査（株価・PER・PBR・信用倍率・次回決算日・IR・関連ニュース）を実施し、各行にミニバーチャートとして反映しました。詳細な出典URLは <a href="fundamentals/watchlist_fundamentals_2026-07-24.md">fundamentals/watchlist_fundamentals_2026-07-24.md</a> を参照。</li>
+<li><b>事実：</b>調査の過程で「1-4 サブストレート」に登録されていた <b>7120（新光電気工業として登録）がコード不一致</b>であることが判明し、除外しました。半導体基板大手の新光電気工業の実際の証券コードは<b>6967</b>で、JIC（産業革新投資機構）主導のTOBが2025年3月に成立し、既に上場廃止済みです。現在のコード7120は無関係の別会社（卸売業「SHINKO」）です。ユーザーからのご指摘（古河電気工業・助川電気工業・安川電機・富士電機との混同の可能性）を受けて確認しましたが、これら4社はいずれも別の正しいコード（5801・7711・6506・6504）で本ウォッチリストの他セクションに既に掲載されており、7120との一致はありませんでした。新光電気工業自体は上場廃止のため、後継銘柄への差し替えは行わず単純に除外しています（半導体基板テーマは 4062 イビデン・6971 京セラが引き続きカバー）。</li>
+<li><span class="opinion"><b>意見（Opinion）：</b></span>今回の見直しで<b>半導体セクションは主掲載38銘柄</b>となり、全113銘柄の約34%を占めます。副掲載を含めるとさらに増えます。ウォッチリスト全体が半導体シクリカルに強く傾いている構造で、AI関連の調整局面では分散が効きにくい点は認識しておく価値があります。2026-07-24の急落はまさにこの構造が表面化した一例と言えます。</li>
+<li><span class="opinion"><b>意見：</b></span>重複掲載を許可したことで浮かび上がるのは、<b>7011 三菱重工が唯一3カテゴリー（防衛・DC冷却・原子力）に跨る</b>点です。防衛費・DC電力・原発再稼働のどのニュースでも反応し得る一方、裏返せば「何で上がったのか特定しにくい」銘柄でもあります。ポジション管理上は主因を切り分けて追う必要があります。</li>
+<li><span class="opinion"><b>意見：</b></span>副掲載を見ると、<b>2-2 冷却</b>と<b>10-2 自動車部品</b>に同じ企業（6584 三桜工業）が現れます。DC液冷テーマで買われても、実態の売上は自動車配管です。テーマ買いの持続性を評価する際は、副掲載側の事業規模を確認することを推奨します。</li>
+<li><span class="opinion"><b>意見：</b></span><b>3063 ジェイグループHD</b>は外食企業ですが「防衛・エネルギー」リストに登録されています。登録間違いの可能性が高いと考えます。</li>
+<li>本資料は保有・監視銘柄の整理を目的とした分類であり、投資推奨ではありません。ファンダメンタル列・ニュースログも同様に、公開情報の整理であり投資助言ではありません。ミニバーチャートは上限（PER90/PBR20/信用倍率40）でクリップして表示しており、実数値は各バー右側の数字を参照してください。</li>
+</ul>
 </footer>
-
 </div>
 <script>
 /* ============================================================
@@ -1200,25 +1111,7 @@ const BASE = {
 
 // DAILY[code] = [当日株価, 前日比%] — 【ここだけ】を毎日差し替えれば全表が自動更新される
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
-const DAILY = {
-
-"8035":[59470,2.13],"6857":[38100,6.01],"6920":[40910,7.91],"6146":[60890,4.12],"6361":[5681,-1.23],"6327":[2939,3.27],"4063":[5829,2.44],"3436":[3140,-16.53],
-"4186":[8797,-0.96],"4901":[3866,2.96],"4631":[4424,2.86],"6890":[8190,-1.33],"5016":[3340,0.27],"4062":[13510,0.3],"6971":[3550,-1.74],"2802":[4896,-1.39],
-"285A":[56280,8.64],"6723":[3905,13.45],"6963":[4404,1.76],"6526":[2028.5,6.07],"6965":[2233,-5.68],"6758":[3589,-5.23],"6981":[6736,-5.83],"6976":[9991,-2.29],
-"6997":[2919,-8.78],"6762":[3092,2.79],"6674":[5286,2.09],"6752":[4281,-0.07],"5333":[5532,-1.11],"6594":[2656,2.51],"9984":[5393,2.53],"5586":[818,-2.15],
-"2354":[1347,6.31],"6504":[14100,-0.21],"6508":[10270,-1.63],"6954":[6687,3.47],"6506":[5117,-4.09],"6861":[70950,-4.34],"5803":[5760,-0.69],"5801":[3008,-8.21],
-"5802":[2137.5,3.64],"6367":[23850,0.44],"1969":[4255,1.5],"6584":[813,4.9],"6498":[2232,1.45],"3778":[3280,5.64],"9432":[161.4,0.56],"6383":[6322,2.13],
-"4704":[6341,-5.96],"3692":[4900,0.41],"6501":[5636,0.28],"6702":[3864,3.04],"6701":[4490,1.01],"6703":[3390,6.27],"4755":[761.4,2.20],"7011":[4241,3.59],
-"7012":[2873.0,1.95],"7013":[2879.5,3.92],"5631":[7223,-2.77],"7721":[6660,1.06],"4275":[2358,-0.51],"290A":[1018,-7.45],"464A":[1509,-6.85],"186A":[1040,2.77],
-"278A":[10380,-19.66],"9501":[520.9,0.83],"9502":[2706,-3.91],"9503":[2455.5,0.61],"9506":[1179,-1.13],"9508":[1820,-1.22],"9509":[1017.5,-1.07],"9513":[3834,0.26],
-"1605":[3700.0,-0.46],"5020":[1281.5,1.10],"5021":[3988,1.04],"6492":[12890,-7.6],"7711":[4095,-3.65],"224A":[1431,-3.31],"5713":[9823.0,1.44],"5711":[5310.0,0.38],
-"5706":[27855,-13.55],"5463":[1760,-1.62],"4107":[3445,-2.13],"5857":[3080,-2.53],"8306":[3709.0,2.86],"8316":[6857.0,3.44],"8411":[8502.0,3.13],"8303":[1432,-1.45],
-"8473":[2956.5,0.63],"8725":[5047,0.36],"8058":[4832,-0.49],"8031":[4900,0.41],"8053":[1779.5,-0.11],"2768":[5338,-0.39],"8074":[5660,0.53],"6269":[9985,0.55],
-"7003":[4281,0.42],"6471":[1178,0.13],"6472":[371.1,1.87],"6326":[2770.5,0.75],"7203":[3009.0,0.80],"7267":[1647.5,-1.02],"9201":[2979.5,1.24],"9202":[3088.0,0.32],
-"581A":[2972,-3.03],"4911":[3360,-3.48],"4922":[5999,3.52],"4452":[3557,-3.58],"7974":[8325.0,-1.92],"8136":[1198.0,-2.36],"7951":[1268.5,-1.55],"1928":[3370,-3.38],
-"3063":[1233,1.82],
-"8035":[59130,-0.57],"6857":[36870,2.59],"285A":[53740,3.75],"5803":[5665.0,-1.65],"9432":[162.7,1.37],"6501":[5767.0,1.14],"4755":[792.5,1.6],"7011":[4254.0,-0.05],"7012":[2849.5,1.12],"7013":[3021.0,1.55],"5706":[29350,-0.51],"8306":[3686,-0.62],"8411":[8620.0,-1.77],"8058":[4769.0,-1.3],"8031":[4825.0,-1.41],"8053":[1791,0.65],"6326":[2751.5,0.05],"7003":[4345.0,1.49],"7203":[3020.0,1.17],"7974":[8900,6.91],"4452":[3533,-0.67],"8136":[1282.5,4.52]
-};
+const DAILY = {};
 
 /* ---------- 世界情勢サマリー / World affairs summary ----------
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
