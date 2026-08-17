@@ -1683,21 +1683,21 @@ const DAILY = {"8035":[60090.0,1.62],"6383":[6347.0,0.7],"6857":[37780.0,2.47],"
    Updated each morning by the daily routine. score = impact on Japanese equities, -2 (strong headwind) to +2 (strong tailwind). */
 const WORLD = {
 "japan":{label:"日本 / Japan", score:1,
-  summary:"本日の日本株（8月17日）への影響としては、アメリカのインフレ懸念再燃による全体的な下値不安（やや逆風）がある一方で、半導体関連ではファウンドリ（中芯国際）が堅調な一方、装置（AMAT）は調整気味とまだら模様です。",
-  en:"For Japanese equities today (Aug 17), there is overall downside risk (headwind) due to renewed US inflation concerns, but the semiconductor sector is mixed, with foundries (SMIC) remaining firm while equipment makers (AMAT) face corrections.",
-  asOf:"2026-08-17", source:"AI Automator"},
+  summary:"【マクロ】本日8月17日発表の4-6月期GDPは前期比年率+1.1%と市場予想（+0.5%等）を下回る着地でしたが、日経平均は過去最高値の7万円の大台に迫る勢いを維持しています。7月末〜8月初の歴史的な日米協調介入（円安是正、1ドル159円台へ）により過度な通貨安懸念が後退したことに加え、AI・半導体サプライチェーンへの強力な需要が相場を力強く牽引しています。【金融政策】協調介入の効果を維持するため、9〜10月の日銀追加利上げ観測が約80%まで高まっており、金融株や内需株への波及も注視されます。",
+  en:"[Macro] Despite today's Q2 GDP missing expectations at +1.1% annualized, the Nikkei 225 remains exceptionally strong, approaching the historic 70,000 mark. The unprecedented US-Japan coordinated FX intervention in early August stabilized the yen near 159, easing currency fears. The market is heavily driven by robust AI and semiconductor supply chain demand. [Policy] Expectations for a BoJ rate hike in Sept/Oct have surged to nearly 80% to support the FX intervention, drawing attention to financial and domestic sectors.",
+  asOf:"2026-08-17", source:"AI Automator (Deep Analysis)"},
 "korea":{label:"韓国 / South Korea", score:1,
-  summary:"韓国市場ではサムスン電子などの半導体本体が堅調で、日本の半導体株にも一定の支え（追い風）になる可能性があります。",
-  en:"In the South Korean market, semiconductor core stocks like Samsung Electronics are solid, potentially providing support (tailwind) for Japanese semiconductor stocks.",
-  asOf:"2026-08-17", source:"AI Automator"},
-"us":{label:"米国 / US", score:-1,
-  summary:"米国のインフレ懸念再燃による全体的な下値不安（やや逆風）があります。",
-  en:"There is overall downside risk (slight headwind) due to renewed inflation concerns in the US.",
-  asOf:"2026-08-17", source:"AI Automator"},
+  summary:"【市場動向】7月後半にはAI・半導体関連のレバレッジ解消による急落（マッドブル相場の反動）で一時KOSPIが不安定化しましたが、8月中旬に入りSamsung ElectronicsやSK Hynixなどの半導体大手が力強く反発し、相場を牽引しています。【影響】韓国の半導体セクターの底堅い回復は、日本の半導体製造装置（東エレクやディスコなど）や部材メーカーにとって強力な追い風（ポジティブな連れ高要因）となります。",
+  en:"[Market] After a sharp late-July KOSPI plunge caused by the unwinding of leveraged AI bets (the 'Mad Bull' correction), mid-August has seen a strong rebound led by semiconductor giants like Samsung Electronics and SK Hynix. [Impact] This solid recovery in Korea's semi sector serves as a strong tailwind for Japanese semiconductor equipment and materials makers.",
+  asOf:"2026-08-17", source:"AI Automator (Deep Analysis)"},
+"us":{label:"米国 / US", score:1,
+  summary:"【マクロ】7月のCPI（消費者物価指数）は前年同月比+3.4%とインフレの落ち着きを示しており、9月のFOMCでの金利据え置き観測が優勢となっています。【市場動向】利下げ期待とAIインフラ投資への強い意欲が下支えとなり、米国株は史上最高値圏での推移を継続。トランプ大統領が日本の為替介入を「友情の証」と評価するなど日米関係も良好であり、日本株（特にグロース株やハイテク株）への外部環境は極めて良好です。",
+  en:"[Macro] July CPI cooled to +3.4% YoY, cementing expectations that the Fed will hold rates steady in September. [Market] Supported by rate hopes and relentless AI infrastructure investments, US equities remain near record highs. President Trump's positive reception of the recent FX intervention as a 'token of friendship' highlights strong US-Japan ties, creating an extremely favorable external environment for Japanese tech and growth stocks.",
+  asOf:"2026-08-17", source:"AI Automator (Deep Analysis)"},
 "china":{label:"中国 / China", score:0,
-  summary:"中国市場の影響は今日は限定的と見られます。",
-  en:"The impact from the Chinese market appears limited today.",
-  asOf:"2026-08-17", source:"AI Automator"}
+  summary:"【市場動向】不動産不況や内需低迷によるデフレ懸念といった国内の構造的な逆風は継続していますが、8月17日の上海総合指数は+1.41%と1ヶ月ぶりの高値を記録しました。【セクター】EVやグリーンエネルギー、そしてSMIC（中芯国際）などの半導体セクターが好決算を背景に相場を牽引しています。中国独自のハイテク自立化の動きは、日本の半導体関連への一部代替リスクと、成熟世代向け装置需要というプラスマイナスの両面で注視が必要です。",
+  en:"[Market] Despite ongoing structural headwinds from the property slump and weak domestic consumption, the Shanghai Composite hit a 1-month high today (+1.41%). [Sectors] The rally is led by EVs, green energy, and strong earnings from tech firms like SMIC. China's push for tech self-reliance presents a double-edged sword for Japan: a risk of substitution, but also sustained demand for mature-node semiconductor equipment.",
+  asOf:"2026-08-17", source:"AI Automator (Deep Analysis)"}
 };
 
 /* ---------- 業種別セクター名 / Sector number → name (for flow ranking) ---------- */
