@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ja">
 <head>
@@ -1704,33 +1704,45 @@ const WORLD = {
 "japan": {
   label: "日本 / Japan",
   score: 1,
+  obj: "4-6月期GDPは市場予想を下回りましたが、為替相場が落ち着きを取り戻し、米市場でのハイテク株復調も追い風となって日経平均は続伸しました。",
+  subj: "日銀の追加利上げに対する警戒感がくすぶり、国内債券利回りが上昇しているため上値は重い展開が予想されます。短期的には底堅いものの、金利動向には細心の注意が必要です。",
   summary: "4-6月期GDPは下振れも、為替安定や米ハイテク株反発を好感し日経平均は続伸。日銀の追加利上げへの警戒感が金利上昇を招いており、上値は限定的。",
   en: "Despite weak Q2 GDP, the Nikkei gained on stable FX and US tech rebound. BOJ rate hike concerns cap upside.",
   asOf: "2026-08-18",
+  updatedAt: "07:43",
   source: "https://www.nikkei.com/"
 },
 "us": {
   label: "米国 / U.S.",
   score: 2,
+  obj: "インフレ沈静化を示す指標が相次ぎ、9月の利下げ観測が強まっています。さらにNVIDIAをはじめとする半導体セクターの復調が市場全体を押し上げています。",
+  subj: "ジャクソンホール会議でのパウエルFRB議長の発言に向けた期待が先行しており、相場は強気に傾いています。ただし、期待先行で買われている分、サプライズがない場合の反落リスクも考慮すべきです。",
   summary: "インフレ沈静化による9月利下げ期待と、半導体セクターの復調（NVIDIA決算への期待）が相場を力強く牽引。ジャクソンホールに注目集まる。",
   en: "Rate cut hopes and semiconductor rebound (NVDA earnings anticipation) drive market higher.",
   asOf: "2026-08-18",
+  updatedAt: "07:43",
   source: "https://www.wsj.com/"
 },
 "china": {
   label: "中国 / China",
   score: -1,
+  obj: "7月の主要経済指標は内需の弱さを明確に示しましたが、ハイテク製造業などの特定分野は底堅い動きを見せています。",
+  subj: "景気の下振れリスクが意識される中、市場は政府の追加的な財政出動や刺激策を催促するような動きとなっています。政策発表までは様子見ムードが続くと思われます。",
   summary: "7月指標は内需の弱さを浮き彫りにしたが、ハイテク製造業は独歩高。追加の財政出動への期待が下支え。",
   en: "July data highlights weak domestic demand, though high-tech manufacturing remains strong.",
   asOf: "2026-08-18",
+  updatedAt: "07:43",
   source: "https://www.scmp.com/"
 },
 "korea": {
   label: "韓国 / S.Korea",
   score: 1,
+  obj: "サムスン電子やSKハイニックスなどのメモリ大手が、世界のAIインフラ需要への期待から急反発し、市場を牽引しています。",
+  subj: "韓国銀行（BOK）の金融政策決定会合を控えていますが、半導体サイクルの回復という強力なテーマがあるため、全体として底堅い展開が続くと予想されます。",
   summary: "メモリ大手（サムスン、SK）を中心にAI需要への期待から急反発。BOKの金融政策判断を前に底堅い展開。",
   en: "Tech stocks rebound sharply on AI demand. Market remains resilient ahead of BOK rate decision.",
   asOf: "2026-08-18",
+  updatedAt: "07:43",
   source: "https://en.yna.co.kr/"
 }
 };
@@ -2410,9 +2422,9 @@ function renderWorld(){
     var modeAttr = modeMap[k] ? ' data-mode="'+modeMap[k]+'" title="タップして'+modeName[modeMap[k]]+'モードに切替"' : '';
     html += '<div class="world-card" '+modeAttr+' style="background:'+col+';border-color:'+col+';color:'+textCol+'">'
       + '<div class="wc-label">'+w.label+'</div>'
-      + '<div class="wc-summary">'+w.summary+'</div>'
+      + '<div class="wc-summary">' + (w.obj ? '<b>客観:</b> '+w.obj+'<br><br><b>主観:</b> '+w.subj : w.summary) + '</div>'
       + (w.en ? '<div class="wc-en">'+w.en+'</div>' : '')
-      + '<div class="wc-date">基準日 '+(w.asOf||AS_OF)+'</div>'
+      + '<div class="wc-date">基準日 '+(w.asOf||AS_OF)+(w.updatedAt?' / 更新 '+w.updatedAt:'')+'</div>'
       + '</div>';
   });
   grid.innerHTML = html;
