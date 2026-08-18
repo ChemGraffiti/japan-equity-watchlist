@@ -31,10 +31,9 @@ h1 span{display:block;font-family:ui-monospace,Menlo,monospace;font-size:13px;le
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 0;font-size:12px;color:var(--muted)}
 .legend span{display:flex;align-items:center;gap:5px}
 
-nav{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 34px}
-nav a{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.04em;color:var(--muted);
-  text-decoration:none;border:1px solid var(--line);padding:5px 9px;border-radius:2px;background:var(--ink-2)}
-nav a:hover,nav a:focus{color:var(--ivory);border-color:var(--muted);outline:none}
+
+
+
 
 section{margin-bottom:38px;scroll-margin-top:14px}
 .sec-head{display:flex;align-items:baseline;gap:12px;border-left:4px solid var(--c);padding-left:12px;margin-bottom:4px}
@@ -281,6 +280,21 @@ table.xref .code{width:58px;color:var(--ivory)}
 .review-row .val{text-align:right;color:#c3d1de}
 .review-row .val.hit{color:#3ddc84}
 .review-row .val.miss{color:#ff5c5c}
+
+/* Tabs UI */
+.tab-nav { display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tab-btn { background: transparent; border: none; color: var(--muted); padding: 12px 20px; font-size: 15px; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; font-family: "Hiragino Sans","Yu Gothic",sans-serif; }
+.tab-btn:hover { color: var(--ivory); }
+.tab-btn.active { color: var(--ivory); border-bottom-color: var(--fund); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Restyle old nav as sub-nav */
+.sub-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 24px; }
+.sub-nav a { font-family: ui-monospace,Menlo,monospace; font-size: 11.5px; letter-spacing: .04em; color: var(--muted); text-decoration: none; border: 1px solid var(--line); padding: 5px 9px; border-radius: 2px; background: var(--ink-2); }
+.sub-nav a:hover, .sub-nav a:focus { color: var(--ivory); border-color: var(--muted); outline: none; }
+
 </style>
 </head>
 <body>
@@ -307,7 +321,14 @@ table.xref .code{width:58px;color:var(--ivory)}
 <span>下のセクタータブの色＝業種平均の前日比ヒートマップ（明るい赤=最も上昇、明るい緑=最も下落、基準日2026-07-24）</span>
 <span>世界情勢カードの色＝日本株への影響度（明るい赤=追い風、明るい緑=逆風）</span>
 </div>
-</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-target="tab-summary">サマリー＆市況</button>
+  <button class="tab-btn" data-target="tab-sectors">セクターマップ (11業種)</button>
+  <button class="tab-btn" data-target="tab-news">ニュース履歴＆リスト</button>
+</nav>
+
+<div id="tab-summary" class="tab-content active">
 <section class="top-movers-sec" id="topmovers">
 <div class="sec-head" style="--c:var(--new)"><span class="sec-num">??</span>
 <h2>本日の値上がり・値下がり・注目銘柄<em>Top Movers &amp; Watched Stocks</em></h2>
@@ -346,11 +367,10 @@ table.xref .code{width:58px;color:var(--ivory)}
 <div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。正午ルーティーンが🔍13:00時点で朝の予想が当たったかを振り返ります。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
 <div id="deepdive-body"></div>
 </section>
-<nav>
-<a href="#events">📅 イベントカレンダー</a>
-<a href="#pickup">📊 資金フロー＆注目銘柄</a>
-<a href="#deepdive">📈 本日の総合分析</a>
-<a href="#world">🌍 世界情勢</a>
+</div><!-- end tab-summary -->
+
+<div id="tab-sectors" class="tab-content">
+<div class="sub-nav">
 <a class="heat" data-sector="1" href="#s1">1 半導体・AI</a>
 <a class="heat" data-sector="2" href="#s2">2 データセンター</a>
 <a class="heat" data-sector="3" href="#s3">3 IT・サイバー</a>
@@ -362,9 +382,8 @@ table.xref .code{width:58px;color:var(--ivory)}
 <a class="heat" data-sector="9" href="#s9">9 機械・重工</a>
 <a class="heat" data-sector="10" href="#s10">10 自動車・運輸</a>
 <a class="heat" data-sector="11" href="#s11">11 内需・消費</a>
-<a href="#xref">◆ 重複銘柄一覧</a>
-<a href="#newslog">📰 ニュースログ</a>
-</nav>
+</div>
+
 <!-- 1 -->
 <section id="s1" style="--c:var(--semi)">
 <div class="sec-head"><span class="sec-num">01</span>
@@ -1292,6 +1311,9 @@ table.xref .code{width:58px;color:var(--ivory)}
 </table>
 </section>
 <!-- xref -->
+</div><!-- end tab-sectors -->
+
+<div id="tab-news" class="tab-content">
 <section id="xref" style="--c:var(--new)">
 <div class="sec-head"><span class="sec-num">◆</span>
 <h2>複数カテゴリー掲載銘柄 一覧<em>Cross-listed Tickers</em></h2>
@@ -1571,6 +1593,8 @@ table.xref .code{width:58px;color:var(--ivory)}
 </ul>
 </div>
 </section>
+</div><!-- end tab-news -->
+
 <footer>
 <h4>NOTES / 補足</h4>
 <ul>
@@ -2791,5 +2815,21 @@ renderTopMovers();
 applyMode('jp');
 collapseCompanySections();
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btns = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.target).classList.add('active');
+    });
+  });
+});
+</script>
+
 </body>
 </html>
