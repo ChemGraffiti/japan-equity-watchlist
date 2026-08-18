@@ -1334,6 +1334,15 @@ table.xref .code{width:58px;color:var(--ivory)}
 <span class="count">17日分</span></div>
 <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
 <div class="newslog-day">
+<div class="newslog-date">2026-08-18（夜間手動更新）</div>
+<ul>
+<li><span class="nl-macro">全体</span>米プレマーケットは下落。中東情勢の緊迫化により原油価格が上昇し、インフレ懸念から米30年国債利回りが2007年以来の高水準に到達しました。</li>
+<li><span class="nl-code">NVDA</span>NVIDIA: プレマーケットで下落。金利上昇により高バリュエーションのハイテク株全般に売り圧力がかかっています。</li>
+<li><span class="nl-code">BIDU</span>Baidu: 第2四半期の決算が市場予想を下回り、プレマーケットで大幅下落。中国内需の弱さが改めて意識されています。</li>
+<li><span class="nl-sys">システム</span>ユーザーからのリクエストにより、夜間の臨時手動更新（今更新してみて）を実行しました。最新の海外市場データを反映しています。</li>
+</ul>
+</div>
+<div class="newslog-day">
 <div class="newslog-date">2026-08-18（夕方更新）</div>
 <ul>
 <li><span class="nl-macro">全体</span>本日の東京市場は、日経平均が6営業日ぶりに急反落。これまで相場を牽引していた半導体関連や値がさ株を中心に利益確定売りが先行しました。米長期金利の上昇や日銀の追加利上げ観測が重荷となっています。</li>
@@ -1720,29 +1729,29 @@ const WORLD = {
   summary: "6営業日ぶり急反落。半導体株への利益確定売りと、日銀利上げ観測による金利上昇が重石。",
   en: "Nikkei plunges as investors lock in profits on semiconductor stocks amid BOJ rate hike concerns.",
   asOf: "2026-08-18",
-  updatedAt: "21:33",
+  updatedAt: "22:13",
   source: "https://www.nikkei.com/"
 },
 "us": {
   label: "米国 / U.S.",
-  score: -2,
-  obj: "長期金利の上昇や中東情勢の緊張による原油高を背景に、投資家心理が悪化しています。これまで上昇を牽引したハイテク株を中心に売りが広がりました。",
-  subj: "半導体セクターの高値警戒感からの利食いが優勢です。19日のFOMC議事要旨公表や、26日のNVIDIA決算を控え、ポジションを調整する動きが目立ちます。",
-  summary: "長期金利上昇と原油高で投資家心理が悪化。FOMC議事要旨やNVIDIA決算を控え利益確定売り優勢。",
-  en: "Higher yields and rising oil prices weigh on sentiment. Tech stocks face profit-taking ahead of Nvidia earnings.",
+  score: -3,
+  obj: "プレマーケットでは主要株価指数先物が下落。中東情勢の緊迫化による原油高と、それに伴うインフレ再燃・長期金利上昇（30年債利回りが2007年以来の高水準）が嫌気されています。",
+  subj: "地政学リスクの高まりが市場心理を冷やしています。NVIDIAやTeslaなどの大型ハイテク株にも売りが波及しており、19日のFOMC議事要旨公表を前にリスクオフの姿勢が強まっています。",
+  summary: "中東情勢緊迫化と原油高・金利上昇でプレマーケット下落。ハイテク株中心にリスクオフ。",
+  en: "U.S. stock futures trade lower on geopolitical tensions, rising oil prices, and inflation fears impacting tech valuations.",
   asOf: "2026-08-18",
-  updatedAt: "21:33",
+  updatedAt: "22:13",
   source: "https://www.wsj.com/"
 },
 "china": {
   label: "中国 / China",
-  score: 0,
-  obj: "7月の内需指標は弱い結果となりましたが、ハイテク製造業などの特定分野は底堅い動きを見せており、強弱入り交じる相場展開です。",
-  subj: "市場は景気下振れリスクを意識しつつも、政府の追加的な財政出動や刺激策への期待が下支えとなっています。新たな政策発表までは様子見ムードが続きそうです。",
-  summary: "内需の弱さとハイテク製造業の強さが混在。政府の追加景気刺激策への期待が相場を下支え。",
-  en: "Mixed economic data with weak domestic demand but strong high-tech manufacturing. Markets await stimulus.",
+  score: -1,
+  obj: "百度（Baidu）がプレマーケットで下落するなど、一部テクノロジー企業の決算に対する失望売りが見られます。",
+  subj: "内需の弱さが企業の広告収入などに影を落としており、政府の追加的な景気刺激策への依存度が高まっています。",
+  summary: "百度など一部企業の決算失望売り。内需の弱さが浮き彫りになり景気刺激策待ち。",
+  en: "Baidu drops in premarket on earnings miss. Weak domestic demand highlights need for stimulus.",
   asOf: "2026-08-18",
-  updatedAt: "21:33",
+  updatedAt: "22:13",
   source: "https://www.scmp.com/"
 },
 "korea": {
@@ -1753,7 +1762,7 @@ const WORLD = {
   summary: "半導体株への利益確定売りで反落。BOK金融政策会合を控え様子見も、AI需要期待は継続。",
   en: "Semiconductor stocks pull back on profit-taking. Caution ahead of BOK rate decision, but AI theme remains.",
   asOf: "2026-08-18",
-  updatedAt: "21:33",
+  updatedAt: "22:13",
   source: "https://en.yna.co.kr/"
 }
 };
@@ -1870,7 +1879,7 @@ const EVENTS = {
    null のときは「まだ生成されていない」状態として renderDeepDive() がその旨を表示する
    (実データが埋まるまでダミー数値を表示しないための安全策。他のオブジェクトと異なりデフォルトで空)。
    review は正午ルーティーンが13:00時点で追記する。朝の時点では review:null のままでよい。 */
-const DEEPDIVE = {"stats": [{"label": "日経平均", "val": "67,460.73", "unit": "円", "chg": "-1,759.52", "dir": "down"}], "picks": [], "intro": "18日の東京市場は、日経平均が6営業日ぶりに急反落しました。直近まで上昇を牽引した半導体・AI関連への利益確定売りが強まったほか、米長期金利の上昇や国内の追加利上げ観測が重荷となりました。", "factorsBull": [{"name": "押し目買いの好機", "desc": "急ピッチな上昇の反動であり、中長期的な上昇トレンドは継続しているとの見方", "stars": 3}], "factorsBear": [{"name": "米長期金利の上昇", "desc": "世界的な投資家心理を悪化させ、高PERのハイテク株を中心に売り圧力が強まる", "stars": 4}, {"name": "日銀の追加利上げ観測", "desc": "インフレ懸念を背景とした国内債券利回りの上昇", "stars": 3}], "events": [{"title": "NVIDIA決算", "demand": "real", "themes": ["AI", "半導体"], "note": "26日発表。世界のテクノロジー株の方向性を決定づける試金石。"}, {"title": "FOMC議事要旨公表", "demand": "macro", "themes": ["利下げ", "インフレ"], "note": "19日公表。今後のFRBの金融政策スタンスを確認。"}], "actionPlan": [{"term": "短期", "text": "半導体セクターはボラティリティが高まるため、26日のNVIDIA決算までポジションを縮小し押し目を探る。"}, {"term": "中長期", "text": "高配当バリュー株や、金利上昇に強い金融株などをディフェンシブ枠としてポートフォリオに組み込む。"}], "conclusion": "急ピッチな上昇に対する調整局面に入りました。今後はNVIDIA決算などのビッグイベントを控え、神経質な展開が予想されますが、底堅い需要を持つ銘柄群への押し目買いが有効です。", "risks": ["中東情勢の悪化による原油高とインフレの再燃", "NVIDIA決算でのガイダンス未達による世界的なハイテク株安"], "beginner": "今日は最近大きく上がっていた「AI」関連の株を売って利益を確定する動きが目立ち、株価全体が大きく下がりました。アメリカでも金利が上がって株が売られているため、イベントを前に少しお休みモードに入っています。"};
+const DEEPDIVE = {"stats": [{"label": "日経平均", "val": "67,460.73", "unit": "円", "chg": "-1,759.52", "dir": "down"}], "picks": [], "intro": "18日の夜間市場（米プレマーケット）では、中東情勢の緊迫化を受けた原油高と長期金利上昇により、リスクオフのムードが強まっています。", "factorsBull": [{"name": "押し目買いの好機", "desc": "急ピッチな上昇の反動であり、中長期的な上昇トレンドは継続しているとの見方", "stars": 3}], "factorsBear": [{"name": "米長期金利の上昇", "desc": "インフレ再燃懸念により米30年債利回りが2007年以来の高水準に。高PERのハイテク株を中心に売り圧力が強まる", "stars": 5}, {"name": "地政学リスクの緊迫化", "desc": "中東における停戦交渉の不透明感と原油価格の上昇", "stars": 4}], "events": [{"title": "NVIDIA決算", "demand": "real", "themes": ["AI", "半導体"], "note": "26日発表。世界のテクノロジー株の方向性を決定づける試金石。"}, {"title": "FOMC議事要旨公表", "demand": "macro", "themes": ["利下げ", "インフレ"], "note": "19日公表。今後のFRBの金融政策スタンスを確認。"}], "actionPlan": [{"term": "短期", "text": "地政学リスクと金利上昇が落ち着くまで、ハイテク・半導体セクターはポジションを縮小し様子見。"}, {"term": "中長期", "text": "インフレ耐性のあるエネルギー株（INPEX等）や、金利上昇に強い金融株などをディフェンシブ枠として厚めにする。"}], "conclusion": "日米ともに急ピッチな上昇に対する調整局面に入りました。今夜のアメリカ市場は中東情勢と金利動向に神経を尖らせており、明日の日本株もやや警戒が必要な展開が予想されます。", "risks": ["中東情勢のさらなる悪化による原油高とインフレの再燃", "NVIDIA決算でのガイダンス未達による世界的なハイテク株安"], "beginner": "今夜のアメリカ市場が始まる前の時間帯（プレマーケット）では、中東での争いやそれに伴う原油価格の値上がりを心配して、株が売られやすくなっています。明日の日本株も少し慎重な動きになりそうです。"};
 const TOP_MOVERS = {"gainers": [{"code": "3778", "name": "さくらインターネット副Sakura Internet", "price": "4,300", "chg": "+13.16%"}, {"code": "9506", "name": "東北電力Tohoku Electric", "price": "1,306.0", "chg": "+3.90%"}, {"code": "1605", "name": "INPEXINPEX", "price": "3,900", "chg": "+3.31%"}], "losers": [{"code": "6976", "name": "太陽誘電Taiyo Yuden", "price": "9,991", "chg": "-11.54%"}, {"code": "6981", "name": "村田製作所Murata", "price": "7,496", "chg": "-9.58%"}, {"code": "285A", "name": "キオクシアHDNEWKioxia Holdings", "price": "57,150", "chg": "-7.58%"}], "watched": [{"code": "3436", "name": "SUMCOSumco", "price": "3,788", "chg": "-6.72%", "reason": "客観: 本日の値動きが活発（前日比 -6.72%）\n主観: 出来高を伴って注目が集まっている可能性があります。今後のトレンド転換や材料の有無に注視が必要です。"}, {"code": "8035", "name": "東京エレクトロンTokyo Electron", "price": "56,380", "chg": "-6.17%", "reason": "客観: 本日の値動きが活発（前日比 -6.17%）\n主観: 出来高を伴って注目が集まっている可能性があります。今後のトレンド転換や材料の有無に注視が必要です。"}, {"code": "6920", "name": "レーザーテックNEWLasertec", "price": "37,020", "chg": "-5.71%", "reason": "客観: 本日の値動きが活発（前日比 -5.71%）\n主観: 出来高を伴って注目が集まっている可能性があります。今後のトレンド転換や材料の有無に注視が必要です。"}]};
 
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
