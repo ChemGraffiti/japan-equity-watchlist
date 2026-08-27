@@ -359,7 +359,7 @@ table.xref .code{width:58px;color:var(--ivory)}
 <div class="sec-head" style="--c:var(--new)"><span class="sec-num">📈</span>
 <h2>本日の日本株総合分析<em>Daily Deep-Dive — 客観データ→主観予想の順</em><span class="sec-updated">17:20 更新</span></h2>
 </div>
-<div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。正午ルーティーンが🔍13:00時点で朝の予想が当たったかを振り返ります。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
+<div class="sec-note">2026-08-05追加。朝の日次ルーティーンが1日1回、ファンダメンタル・テクニカル・需給・テーマ性・決算・バリュエーション・株価材料・シナリオを統合した分析を記載します（一次情報＝決算短信・適時開示・IR・TDnet・EDINETを優先調査）。上段に📋客観データ、下段に🔮主観予想を分けて配置し、事実と解釈を区別しています。イベントの事実一覧は上の📅イベントカレンダーと重複するためここには含めません。後場までのトレンド振り返りは下の🌤️前場・後場トレンド予報セクションに統合されています。詳細は<a href="daily/">daily/{date}.md</a>を参照してください。</div>
 <div id="deepdive-body"></div>
 </section>
 <section class="world-sec" id="weather">
@@ -1632,7 +1632,7 @@ table.xref .code{width:58px;color:var(--ivory)}
    BASE は決算・IR等の「基準値」。決算発表があった銘柄のみ更新。
    BASE holds fundamentals baseline; update only on earnings/events.
    ============================================================ */
-const AS_OF = "2026-08-27 15:30時点"; // 15:30更新: Gemini API+Claude Codeパイプラインの2026-08-27 15:30実行。SECTOR_REPS33銘柄中7銘柄で確度ある値を取得したが、前回(12:00)値との前日終値逆算クロスチェックで5803フジクラは約5.7%の不整合が判明したため棄却・前回値を維持。採用したのは8035東京エレクトロン・6857アドバンテスト・285Aキオクシアホールディングス・7011三菱重工業・8306三菱UFJフィナンシャル・グループ・8316三井住友フィナンシャルグループの6銘柄。残り26銘柄は"unknown"または不整合のため前回値を維持。世界情勢サマリー4地域・値上がり/値下がりトップ3・注目銘柄3件(キオクシアHD/フジクラ/アドバンテスト)・前場後場トレンド予報(後場実績)を今回の調査結果に基づき更新。米エヌビディアのQ2決算通過後の反応が本日後場の主要材料。詳細はdaily/2026-08-27.md参照。
+const AS_OF = "2026-08-28 06:00時点"; // 06:00更新: Gemini API+Claude Codeパイプラインの2026-08-28 06:00実行(新しい1日の開始)。SECTOR_REPS33銘柄中26銘柄で値を取得・更新。うち5713住友金属鉱山・7012川崎重工業・7013IHI・9501東京電力HD・1605INPEXの5銘柄は前回値との乖離が17〜580%と極端(明らかな誤取得)のため棄却し前回値を維持。5020ENEOS・5711三菱マテリアル・5706三井金属鉱業・6471日本精工・7003三井E&S・9202ANA・8136サンリオの7銘柄は"unknown"のため前回値を維持。世界情勢サマリー4地域・値上がり/値下がりトップ3・注目銘柄3件(キオクシアHD/アドバンテスト/富士通)・今後7日間のイベントカレンダー(ジャクソンホール会議・東京都CPI・中国PMI・韓国貿易収支・米ISM・米ADP雇用統計)・前場後場トレンド予報(本日の前場予想を新規作成)を更新。「13:00振り返り」表示は現行06:00/12:00/15:30体制と整合しないため削除済み(後場振り返りはWEATHER機能に統合済み)。詳細はdaily/2026-08-28.md参照。
 
 // BASE[code] = {p:基準株価, per, perLabel, pbr, pbrLabel, cr:信用倍率, crLabel, crSuffix, dec:決算文言, decW:警告表示, pN:価格欄の注記, etf:true, s:大分類番号(1-11)}
 const BASE = {
@@ -1753,7 +1753,7 @@ const BASE = {
 
 // DAILY[code] = [当日株価, 前日比%] — 【ここだけ】を毎日差し替えれば全表が自動更新される
 // DAILY[code] = [today's price, day-over-day % change] — updating ONLY this object refreshes the whole page.
-const DAILY = {"8035":[56070.0,1.03],"6383":[5900.0,1.06],"6857":[35360.0,-0.95],"6920":[34950.0,0.4],"6146":[60700.0,-1.17],"6361":[4931.0,-0.58],"6327":[3310.0,7.12],"4063":[6005.0,-0.76],"3436":[3543.0,2.7],"4186":[8729.0,1.15],"4901":[3249.0,-0.98],"4631":[5095.0,-0.91],"6890":[8840.0,1.84],"5016":[3820.0,0.9],"5711":[5963.0,5.95],"6367":[20830.0,-0.12],"4062":[19980.0,6.3],"6971":[3602.0,0.76],"2802":[5497.0,2.36],"5706":[29025.0,2.45],"285A":[52430.0,4.86],"6723":[3402.0,-0.76],"6963":[4718.0,1.05],"6526":[1962.0,1.9],"6965":[2352.0,0.68],"6758":[3832.0,-0.47],"6981":[7130.0,0.89],"6976":[9270.0,1.32],"6997":[2698.0,0.22],"6762":[3049.0,0.23],"6674":[5357.0,-0.39],"6752":[4311.0,-0.85],"5713":[11575.0,2.89],"5333":[5408.0,0.04],"6594":[2606.0,1.01],"9984":[5087.0,2.25],"5586":[877.0,-1.9],"2354":[1382.0,0.22],"3778":[3500.0,1.01],"6504":[14010.0,-0.39],"6508":[11580.0,-0.69],"6954":[6047.0,-0.08],"6506":[4966.0,0.32],"6861":[82250.0,1.67],"5803":[5292.0,5.5],"5801":[4000.0,10.34],"5802":[2199.5,2.23],"1969":[4314.0,0.26],"6584":[800.0,-0.5],"6498":[1942.0,0.21],"7011":[3992.0,1.84],"9432":[169.2,1.6],"6702":[3716.0,-0.32],"6501":[5307.0,0.0],"4704":[5554.0,-0.64],"3692":[4950.0,-0.7],"6701":[4650.0,-1.21],"6703":[2751.0,2.31],"4755":[768.9,0.02],"7012":[2575.0,-1.38],"7013":[2638.0,-2.15],"5631":[7674.0,1.71],"7721":[7190.0,4.66],"4275":[2140.0,0.05],"290A":[1429.0,6.17],"464A":[1785.0,5.06],"186A":[1135.0,6.17],"278A":[14050.0,6.28],"9501":[516.7,2.7],"9502":[2910.5,0.47],"9503":[2591.5,0.37],"9506":[1313.5,0.31],"9508":[1953.5,0.44],"9509":[1076.0,0.14],"9513":[4011.0,0.96],"1605":[3837.0,-1.06],"5020":[1313.0,-2.12],"5021":[4221.0,-1.19],"6492":[14060.0,2.93],"7711":[4965.0,3.76],"224A":[1682.0,1.26],"5463":[1753.5,-0.03],"4107":[4010.0,1.26],"5857":[4010.0,0.88],"8306":[3590.0,0.31],"8316":[6774.0,0.62],"8411":[8314.0,0.0],"8303":[1540.0,-0.58],"8473":[3232.0,1.28],"8725":[5072.0,2.94],"8058":[4718.0,-0.99],"8031":[4954.0,1.1],"8053":[1762.0,-0.4],"2768":[5696.0,0.46],"8074":[6130.0,-0.81],"6269":[9867.0,0.17],"7003":[4238.0,1.92],"6471":[1108.0,-0.58],"6472":[372.9,-0.45],"6326":[2793.5,-0.33],"7203":[3070.0,-0.39],"7267":[1674.5,-1.27],"9201":[3023.0,0.8],"9202":[3092.0,0.8],"581A":[3875.0,0.13],"4911":[3685.0,0.46],"4922":[5955.0,0.3],"4452":[3593.0,0.94],"7974":[8864.0,0.8],"8136":[1218.5,0.3],"7951":[1314.5,0.04],"1928":[3460.0,-0.52],"3063":[1188.0,-1.0]};
+const DAILY = {"8035":[56000.0,0.9],"6383":[5900.0,1.06],"6857":[34610.0,-3.05],"6920":[34950.0,0.4],"6146":[60700.0,-1.17],"6361":[4931.0,-0.58],"6327":[3310.0,7.12],"4063":[6005.0,-0.76],"3436":[3543.0,2.7],"4186":[8729.0,1.15],"4901":[3249.0,-0.98],"4631":[5095.0,-0.91],"6890":[8840.0,1.84],"5016":[3820.0,0.9],"5711":[5963.0,5.95],"6367":[20830.0,-0.12],"4062":[19980.0,6.3],"6971":[3602.0,0.76],"2802":[5497.0,2.36],"5706":[29025.0,2.45],"285A":[52500.0,5.0],"6723":[3402.0,-0.76],"6963":[4718.0,1.05],"6526":[1962.0,1.9],"6965":[2352.0,0.68],"6758":[3832.0,-0.47],"6981":[7130.0,0.89],"6976":[9270.0,1.32],"6997":[2698.0,0.22],"6762":[3049.0,0.23],"6674":[5357.0,-0.39],"6752":[4311.0,-0.85],"5713":[11575.0,2.89],"5333":[5408.0,0.04],"6594":[2606.0,1.01],"9984":[5087.0,2.25],"5586":[877.0,-1.9],"2354":[1382.0,0.22],"3778":[3500.0,1.01],"6504":[14010.0,-0.39],"6508":[11580.0,-0.69],"6954":[6047.0,-0.08],"6506":[4966.0,0.32],"6861":[82250.0,1.67],"5803":[5500.0,3.68],"5801":[4000.0,10.34],"5802":[2199.5,2.23],"1969":[4314.0,0.26],"6584":[800.0,-0.5],"6498":[1942.0,0.21],"7011":[3985.0,1.66],"9432":[166.4,-0.06],"6702":[3768.0,0.4],"6501":[5433.0,2.37],"4704":[5554.0,-0.64],"3692":[4950.0,-0.7],"6701":[4650.0,-1.21],"6703":[2751.0,2.31],"4755":[730.8,-0.13],"7012":[2575.0,-1.38],"7013":[2638.0,-2.15],"5631":[7674.0,1.71],"7721":[7190.0,4.66],"4275":[2140.0,0.05],"290A":[1429.0,6.17],"464A":[1785.0,5.06],"186A":[1135.0,6.17],"278A":[14050.0,6.28],"9501":[516.7,2.7],"9502":[2910.5,0.47],"9503":[2591.5,0.37],"9506":[1313.5,0.31],"9508":[1953.5,0.44],"9509":[1076.0,0.14],"9513":[4011.0,0.96],"1605":[3837.0,-1.06],"5020":[1313.0,-2.12],"5021":[4221.0,-1.19],"6492":[14060.0,2.93],"7711":[4965.0,3.76],"224A":[1682.0,1.26],"5463":[1753.5,-0.03],"4107":[4010.0,1.26],"5857":[4010.0,0.88],"8306":[3608.0,0.81],"8316":[6794.0,0.92],"8411":[8340.0,0.31],"8303":[1540.0,-0.58],"8473":[3232.0,1.28],"8725":[5072.0,2.94],"8058":[4744.0,-2.11],"8031":[4914.0,-2.35],"8053":[1753.0,-0.9],"2768":[5696.0,0.46],"8074":[6130.0,-0.81],"6269":[9867.0,0.17],"7003":[4238.0,1.92],"6471":[1108.0,-0.58],"6472":[372.9,-0.45],"6326":[2839.0,1.63],"7203":[3077.0,0.23],"7267":[1669.0,0.39],"9201":[3023.0,0.8],"9202":[3092.0,0.8],"581A":[3875.0,0.13],"4911":[3685.0,0.46],"4922":[5955.0,0.3],"4452":[3659.0,1.84],"7974":[8817.0,-0.89],"8136":[1218.5,0.3],"7951":[1314.5,0.04],"1928":[3460.0,-0.52],"3063":[1188.0,-1.0]};
 
 /* ---------- 世界情勢サマリー / World affairs summary ----------
    毎朝の日次ルーティーンでここを更新する。score は日本株への影響度を -2(強い逆風)〜+2(強い追い風)で評価。
@@ -1762,34 +1762,34 @@ const WORLD = {
   "japan": {
     "label": "日本 / Japan",
     "score": 0,
-    "obj": "27日の日経平均株価は3日ぶりに反落し、前日比130.18円安の6万6131.98円で取引を終了した。朝方は米エヌビディアの好決算を受けて反発し一時600円超上昇したものの、米インフレ懸念に伴う金利高警戒や利確売りに押されて失速した(出典: Gemini API市場調査/株探)。 (The Nikkei 225 ended 130.18 yen lower at 66,131.98 on Aug 27, its first drop in three days. An initial rally of over 600 points driven by Nvidia's earnings beat faded as US inflation/rate concerns and profit-taking took hold. Source: Gemini API market research / Kabutan.)",
-    "subj": "エヌビディアの好決算という材料が「出尽くし」として売られたのは、直近の日本株が催促相場的な過熱感を抱えていたことの表れとみている。米金利高への警戒が続く限り、戻りを試す場面でも上値では利益確定売りが出やすいと予想する。 (The fact that Nvidia's earnings beat was sold as a 'sell-the-news' event suggests Japanese equities had built up some near-term overheating. As long as US rate-hike caution persists, rally attempts are likely to keep meeting profit-taking near recent highs.)",
-    "asOf": "2026-08-27 15:30",
-    "source": "https://kabutan.jp/"
+    "obj": "日経平均株価は米エヌビディアの好決算を受けて朝方に一時700円近く上昇したものの、米PCE上振れに伴う米金利上昇やジャクソンホール会議前の持ち高調整売りに押され反落した。一方でTOPIXはプラス圏を維持し、バリュー株や個別材料株への資金シフトが見られた(出典: Gemini API市場調査/株探)。 (The Nikkei 225 ended slightly lower as an initial rally driven by Nvidia's strong earnings faded due to rising U.S. yields and pre-Jackson Hole position squaring. Meanwhile, the TOPIX index held gains as capital rotated into value and stock-specific themes. Source: Gemini API market research / Kabutan.)",
+    "subj": "日経平均が反落する一方でTOPIXがプラス圏を維持したのは、値がさハイテク株からバリュー株への資金シフトが進んでいることの表れとみている。ジャクソンホール会議(8/28)通過までは戻り待ちの利益確定売りが出やすい地合いが続くと予想する。 (The divergence — Nikkei down while TOPIX holds gains — looks like capital rotating from high-multiple tech into value names. Expect rally attempts to keep meeting profit-taking until the Jackson Hole symposium (Aug 28) is behind us.)",
+    "asOf": "2026-08-28 06:00",
+    "source": "https://kabutan.jp/news/marketnews/?b=n202608270830"
   },
   "us": {
     "label": "米国 / USA",
     "score": -1,
-    "obj": "26日の米株式市場はPCEデフレーターでインフレの根強さが示され、長期金利が上昇したことでダウ平均が113ドル安と反落した。ただし引け後に発表されたエヌビディアの決算が市場予想を上回り、時間外取引で半導体関連株の下支えとなった(出典: Gemini API市場調査/Bloomberg)。 (US equities fell on Aug 26 with the Dow dropping 113 points as persistent PCE inflation data pushed treasury yields higher. However, Nvidia's post-market earnings beat helped support sentiment in semiconductor stocks in after-hours trading. Source: Gemini API market research / Bloomberg.)",
-    "subj": "エヌビディアの好決算にもかかわらずPCEインフレ指標を受けた金利高警戒が株式相場の重しとなっており、早期利下げ期待がやや後退しつつある点には注意が必要とみている。この構図が続けば、日本の半導体株にも短期的な戻り待ち売りとして波及しやすい。 (Despite Nvidia's earnings beat, renewed rate-hike caution from the PCE print is weighing on sentiment, and expectations for an early Fed rate cut appear to be receding somewhat. If this persists, it could translate into short-term profit-taking pressure on Japanese chip names as well.)",
-    "asOf": "2026-08-27 15:30",
-    "source": "https://www.bloomberg.com/"
+    "obj": "米7月個人消費支出(PCE)価格指数が市場予想を上回り、インフレ警戒感から長期金利が上昇したことで主要株式指数は小幅反落した。引け後にエヌビディアが過去最高決算を発表したものの、マクロ金利環境の警戒感が株式相場全体の重荷となっている(出典: Gemini API市場調査/forex.com)。 (Major U.S. indexes dipped slightly as higher-than-expected July PCE inflation data pushed Treasury yields upward. Although Nvidia reported record-breaking quarterly results after the bell, broader market sentiment was constrained by ongoing interest rate concerns. Source: Gemini API market research / forex.com.)",
+    "subj": "エヌビディアの好決算にもかかわらずPCEインフレ指標を受けた金利高警戒が株式相場の重しとなっており、8/28のジャクソンホール会議でのFRB高官発言次第では一段の金利変動・波及が予想される。 (Despite Nvidia's earnings beat, renewed rate-hike caution from the PCE print is weighing on sentiment; Fed remarks at the Aug 28 Jackson Hole symposium could trigger further rate volatility with spillover effects.)",
+    "asOf": "2026-08-28 06:00",
+    "source": "https://www.forex.com/jp/market-analysis/2026/08/27/"
   },
   "china": {
     "label": "中国 / China",
-    "score": 0,
-    "obj": "中国市場は不動産セクターの不透明感が重荷となったものの、政府によるハイテク・先端産業への支援策期待が底値を支えるもみ合いの展開となった。対米貿易摩擦をめぐる警戒感が継続し上値は重い(出典: Gemini API市場調査/Reuters)。 (Chinese equities traded in a tight range as persistent real estate headwinds were balanced by expectations of government support for high-tech sectors, though upside remained limited on ongoing US trade friction concerns. Source: Gemini API market research / Reuters.)",
-    "subj": "不動産の重しと政策期待が綱引きする膠着状態が続いており、日本株へのスピルオーバーは引き続き限定的・ニュートラルとみている。 (The tug-of-war between property-sector drag and policy-support hopes appears to be holding the market in a stalemate; spillover into Japanese equities remains limited and neutral for now.)",
-    "asOf": "2026-08-27 15:30",
-    "source": "https://www.reuters.com/"
+    "score": 1,
+    "obj": "上海総合指数は半導体株やハイテク銘柄を中心に買われ、3日続伸となった。米エヌビディアの強気な業績見通しがアジアの半導体サプライチェーン全体の投資家心理を改善させた(出典: Gemini API市場調査/traders.co.jp)。 (Chinese equities extended gains for a third consecutive session, led by semiconductor and technology stocks. Optimism was reinforced by Nvidia's strong outlook, benefiting the broader Asian tech supply chain. Source: Gemini API market research / traders.co.jp.)",
+    "subj": "中国半導体株の連続上昇は、キオクシアHD等の日本の半導体・メモリ関連株への追い風波及が続きやすいとみている。 (China's continued semiconductor rally looks likely to keep providing a positive read-through for Japanese chip/memory names such as Kioxia.)",
+    "asOf": "2026-08-28 06:00",
+    "source": "https://www.traders.co.jp/market_jp/20260827"
   },
   "korea": {
     "label": "韓国 / Korea",
     "score": 1,
-    "obj": "韓国KOSPI市場はエヌビディアの決算通過を受けてサムスン電子やSKハイニックスなどメモリー半導体大手に買いが先行し堅調に推移した。米金利上昇への懸念から上値は抑えられたものの、ハイテク関連株が相場を下支えした(出典: Gemini API市場調査/Yonhap)。 (South Korea's KOSPI traded firmly as chipmakers like Samsung Electronics and SK Hynix saw buying following Nvidia's earnings beat, though US rate concerns capped gains. Source: Gemini API market research / Yonhap.)",
-    "subj": "韓国メモリー株の底堅さは東京エレクトロンやアドバンテスト等の国内関連株にも波及しやすいとみているが、本日の6857アドバンテストは実際には後場に利確売りが優勢となっており、米金利高警戒の重しの方が強く出た一日だったと評価する。 (While Korean memory-chip resilience should typically spill over favorably to related Japanese names, Advantest (6857) in fact saw profit-taking dominate this afternoon, suggesting the US rate-hike headwind outweighed the positive Korea read-through today.)",
-    "asOf": "2026-08-27 15:30",
-    "source": "https://www.yonhapnews.co.kr/"
+    "obj": "韓国KOSPI指数は3日続伸した。米エヌビディアの決算でAI向け半導体需要の強さが再確認されたことを受け、サムスン電子やSKハイニックスなどの半導体大手に買いが集まった(出典: Gemini API市場調査/Yahoo!ファイナンス)。 (South Korea's KOSPI index closed higher for a third straight day as key memory chipmakers Samsung Electronics and SK Hynix rallied on confirmed robust AI demand following Nvidia's earnings report. Source: Gemini API market research / Yahoo! Finance Japan.)",
+    "subj": "韓国メモリー株の底堅さは東京エレクトロンやアドバンテスト等の国内関連株にも波及しやすいとみているが、本日のアドバンテスト(6857)は利益確定売りが優勢となっており、米金利高警戒の重しの方が強く出やすい局面と評価する。 (While Korean memory-chip resilience should typically spill over favorably to related Japanese names, Advantest (6857) is seeing profit-taking dominate, suggesting the US rate-hike headwind may outweigh the positive Korea read-through for now.)",
+    "asOf": "2026-08-28 06:00",
+    "source": "https://finance.yahoo.co.jp/news/detail/20260827-00000108-jij-market"
   }
 };
 
@@ -1825,8 +1825,8 @@ const SECTOR_REPS = {
    existing DAILY/BASE (or the relevant country's XX_PRICE/XXBASE) data so it never goes stale. */
 const FLOW = {
 "jp": {
-  "asOf": "2026-08-27 15:30",
-  "subj": "本日の東京市場では、注目イベントであったエヌビディア決算を好材料として朝方に半導体・AI株へ買いが先行したものの、好材料出尽くし感や米インフレ・金利高懸念から利益確定売りが膨らんだ。資金は高値圏のハイテクから非鉄金属や銀行・インフラ関連などの割安バリュー株や実需銘柄へシフトしており、セクターローテーションを伴う調整局面となっている(詳細はdaily/2026-08-27.md参照)。 (In today's Tokyo session, early buying in semiconductor/AI names on Nvidia's earnings beat gave way to profit-taking as 'sell-the-news' sentiment and US inflation/rate concerns took hold. Capital rotated out of high-flying tech and into undervalued non-ferrous, banking, and infrastructure names with real-demand backing — an adjustment phase marked by clear sector rotation. See daily/2026-08-27.md for details.)"
+  "asOf": "2026-08-28 06:00",
+  "subj": "米エヌビディアの好決算通過後、朝方は主力の半導体株へ資金が先行流入したものの、事前織り込み感や米PCE上振れによる金利上昇警戒から利益確定売りに押された。一方で、金利高メリットや安定配当を背景としたメガバンクなどの金融セクター、自社材料を有する銘柄(キオクシアHDや富士通)、TOPIX主導のバリュー銘柄へと資金が逃避・シフトする業種ローテーションが観測される(詳細はdaily/2026-08-28.md参照)。 (Following Nvidia's strong earnings, capital initially flowed into leading semiconductor names, but profit-taking set in as priced-in expectations and rising rates from the hot PCE print weighed on sentiment. Meanwhile, funds appear to be rotating toward megabanks benefiting from higher rates, stocks with their own catalysts (Kioxia, Fujitsu), and TOPIX-led value names. See daily/2026-08-28.md for details.)"
 },
 "us": {
   "asOf": "2026-08-25",
@@ -1847,7 +1847,7 @@ const FLOW = {
    対応するモードのデータが未選定の場合は、renderPicks()が自動的に日本(jp)にフォールバックする。
    Populated by the daily routine, per mode; falls back to jp if a given mode has no picks yet. */
 const PICKS = {
-"jp": [{"code": "285A", "name": "キオクシアホールディングス", "price": "52,430", "chg": 4.86, "obj": "岩手県に1兆円超を投じてAI向けNANDメモリーの新製造棟を建設すると報じられ、エヌビディアの好決算受けた需要拡大期待も加わり東証売買代金トップの大幅高となった。ただし12:00時点(+5.54%)からは上げ幅を縮小し株価は52,430円（+4.86%）(出典: Gemini API市場調査/日本経済新聞・株探)。 (Shares surged on top TSE trading volume following reports of a trillion-yen-plus new NAND plant in Iwate, amplified by Nvidia's earnings beat, though gains narrowed from the 12:00 level (+5.54%) to +4.86% at 52,430 JPY by the close. Source: Gemini API market research / Nikkei, Kabutan.)", "subj": "AIサーバー需要に支えられた中長期的な成長余地は極めて高いが、急騰後の利益確定売りや市場全体の半導体ボラティリティには短期的注意が必要である。実際、後場にかけて上げ幅が縮小したのはこの警戒感の表れとみている。 (While long-term growth potential backed by AI server memory demand remains high, investors should watch for short-term profit-taking and broader chip-sector volatility — the narrowing of gains into the afternoon session looks like an early sign of exactly that caution.)", "asOf": "2026-08-27 15:30"}, {"code": "5803", "name": "フジクラ", "price": "5,292", "chg": 5.5, "obj": "米エヌビディア決算を背景にデータセンター向け需要の堅調さが再確認され、日経平均のプラス寄与度上位に入る上昇を見せた(出典: Gemini API市場調査/会社四季報オンライン・株探)。なお、Gemini調査による15:30時点の新値は前回(12:00)値との前日終値逆算チェックで約5.7%の不整合が見られたため採用せず、12:00時点の値(5,292円、+5.5%)を維持している。 (Nvidia's results reaffirmed robust demand for AI data-center infrastructure, keeping Fujikura among the top positive contributors to the Nikkei 225. Note: the 15:30 research pass returned a new price that failed an implied-previous-close cross-check against the 12:00 figure by roughly 5.7%, so it was rejected; the 12:00 value (5,292 JPY, +5.5%) is retained. Source: Gemini API market research / Shikiho, Kabutan.)", "subj": "光ファイバーおよび電力インフラ関連の構造的需要拡大が強力な下支えとなっており、ハイテク銘柄の調整局面でも押し目買い意欲が根強いとみている。 (Structural demand growth in optical fiber and power infrastructure provides strong downside support, and dip-buying appetite looks resilient even amid the broader tech-sector pullback today.)", "asOf": "2026-08-27 15:30"}, {"code": "6857", "name": "アドバンテスト", "price": "35,360", "chg": -0.95, "obj": "エヌビディア好決算の時間外上昇を受けて朝方は買い優勢だったが、材料出尽くし売りと日米金利高警戒から後場にかけて上げ幅を縮小し、12:00時点の-2.44%からは持ち直したものの終値は35,360円（-0.95%）で小幅安に終わった(出典: Gemini API市場調査/フィスコ・ダイヤモンド・オンライン)。 (Despite an initial morning bump on Nvidia's results, 'sell-the-news' selling and US/Japan rate-hike caution pared gains through the afternoon; the stock recovered somewhat from the 12:00 level (-2.44%) but still closed slightly lower at -0.95%, 35,360 JPY. Source: Gemini API market research / FISCO, Diamond.)", "subj": "エヌビディア通過による短期的な材料出尽くし売りが出た格好だが、テスター市場での圧倒的シェアと収益基盤に変化はなく、後場の下げ幅縮小は買い戻しの兆しとみている。押し目買いの好機が近いと考える。 (Although short-term profit-taking followed the Nvidia earnings event, its dominant market share in AI test equipment remains solid; the narrowing of losses into the afternoon looks like an early sign of buy-back interest, suggesting a dip-buying opportunity may be near.)", "asOf": "2026-08-27 15:30"}],
+"jp": [{"code": "285A", "name": "キオクシアホールディングス", "price": "52,500", "chg": 5.0, "obj": "岩手県に1兆円超を投じて新たなNANDフラッシュメモリ製造棟を建設すると報じられ、大幅高（+5.00%）となり日経平均の値上がり寄与度トップを記録した(出典: Gemini API市場調査/日本経済新聞・株探)。 (Reported by Nikkei that Kioxia will invest over 1 trillion yen in Iwate to build a new NAND flash manufacturing facility, resulting in a 5.00% surge and leading the Nikkei 225 positive contributors. Source: Gemini API market research / Nikkei, Kabutan.)", "subj": "米エヌビディアの好決算によるAI需要の裏付けに自社の大型設備投資材料が重なり、投資家資金の強い受け皿となった。半導体株の中で明暗が分かれる中、中長期的な収益成長期待が優勢とみている。 (The massive capex plan, combined with broader AI memory demand validation from Nvidia, made Kioxia a clear favorite for both short-term momentum and the long-term expansion thesis.)", "asOf": "2026-08-28 06:00"}, {"code": "6857", "name": "アドバンテスト", "price": "34,610", "chg": -3.05, "obj": "米エヌビディアが過去最高の四半期業績を発表したものの、材料出尽くし感と過熱感から利益確定売りに押され前日比-3.05%の急反落となり、日経平均を約263円押し下げた(出典: Gemini API市場調査/株探・FISCO)。 (Despite Nvidia's record earnings, Advantest dropped 3.05% due to priced-in expectations and profit-taking, dragging the Nikkei 225 down by roughly 263 points. Source: Gemini API market research / Kabutan, FISCO.)", "subj": "業績自体は非常に底堅いものの、米金利上昇の重荷と決算通過によるポジション調整が重なった。下値では買い意欲も潜在的に残るため、ジャクソンホール通過後の需給落ち着きが反発の鍵になるとみている。 (Strong fundamentals were temporarily outweighed by high valuation and macro rate pressure. The decline reflects a post-earnings positioning adjustment rather than a structural issue, and we expect this to be a key level to watch for a rebound once Jackson Hole is behind us.)", "asOf": "2026-08-28 06:00"}, {"code": "6702", "name": "富士通", "price": "3,768", "chg": 0.4, "obj": "米ジェネラル・アトミックス(GA-ASI)と日本における無人航空機システム(UAS)の維持整備・運用体制構築に関する覚書(MOU)を締結したと発表し、株価は反発した(出典: Gemini API市場調査/会社IR・ウエルスアドバイザー)。 (Announced an MOU with U.S.-based GA-ASI to build maintenance and operational infrastructure for Unmanned Aircraft Systems in Japan, boosting its stock price. Source: Gemini API market research / Company IR, Wealth Advisor.)", "subj": "防衛・安全保障領域での事業拡大期待が株価の下支え材料となった。従来のITサービス中心の評価に加え、防衛需要を取り込む多角的な評価軸が強まりつつあるとみている。 (Market response was positive as the agreement diversifies Fujitsu's investment narrative, combining IT service strengths with expanding national defense technology demand.)", "asOf": "2026-08-28 06:00"}],
 "us": [{"code": "-", "name": "本日未選定", "price": "0", "chg": 0.0, "obj": "本日のルーティンでは選定されていません。", "subj": "次回以降の選定をお待ちください。", "asOf": "2026-08-25"}],
 "cn": [{"code": "-", "name": "本日未選定", "price": "0", "chg": 0.0, "obj": "本日のルーティンでは選定されていません。", "subj": "次回以降の選定をお待ちください。", "asOf": "2026-08-25"}],
 "kr": [{"code": "-", "name": "本日未選定", "price": "0", "chg": 0.0, "obj": "本日のルーティンでは選定されていません。", "subj": "次回以降の選定をお待ちください。", "asOf": "2026-08-25"}]
@@ -1860,26 +1860,54 @@ const PICKS = {
    type: "earnings"(決算発表) または "macro"(日銀・FOMC・CPI等の金融政策・経済指標イベント)。
    Populated once daily by the morning routine only (not the noon routine). */
 const EVENTS = {
-  "asOf": "2026-08-25",
+  "asOf": "2026-08-28 06:00",
   "items": [
     {
-      "date": "2026-08-26",
-      "type": "earnings",
-      "label": "決算",
-      "name": "決算",
-      "note": "第2四半期決算発表",
-      "stockImpact": "インバウンド需要の取り込み状況次第で、ホテル・リート全般への資金流入のきっかけとなる可能性。"
+      "date": "2026-08-28",
+      "type": "macro",
+      "label": "米国: ジャクソンホール会議（FRBウォーシュ議長講演）",
+      "name": "米国: ジャクソンホール会議（FRBウォーシュ議長講演）",
+      "note": "(主観)想定影響: 米国の金融政策見通しと金利水準を左右し、グローバルハイテク株やドル円相場に極めて大きな影響を与える見通し。 / Expected impact (subjective): Crucial event determining Fed rate expectations; will drive foreign exchange rates and high-valuation growth stocks worldwide."
     },
     {
-      "date": "2026-08-27",
+      "date": "2026-08-28",
       "type": "macro",
-      "label": "イベント",
-      "name": "イベント",
-      "note": "米国ワイオミング州で開催される経済政策シンポジウム",
-      "stockImpact": "パウエルFRB議長の発言内容によって、日米の株式市場および為替市場（とくにドル円相場）に大きなボラティリティが生じる可能性が高い。"
+      "label": "日本: 東京都区部消費者物価指数（CPI、8月）",
+      "name": "日本: 東京都区部消費者物価指数（CPI、8月）",
+      "note": "(主観)想定影響: 日銀の9月追加利上げ観測を占う指標。インフレ加速なら銀行株にプラス、全体相場には一時的な調整圧力。 / Expected impact (subjective): Key metric for BoJ's upcoming September policy meeting; a high reading favors financial stocks while pressuring broad market valuation."
+    },
+    {
+      "date": "2026-08-31",
+      "type": "macro",
+      "label": "中国: 国家統計局 8月製造業PMI",
+      "name": "中国: 国家統計局 8月製造業PMI",
+      "note": "(主観)想定影響: 中国景気の持ち直しを確認する指標。節目50回復なら大手商社株や産業機械株にポジティブ。 / Expected impact (subjective): Important gauge of Chinese industrial recovery; a reading above 50 would support trading companies and machinery exporters."
+    },
+    {
+      "date": "2026-09-01",
+      "type": "macro",
+      "label": "韓国: 8月貿易収支（半導体輸出実績）",
+      "name": "韓国: 8月貿易収支（半導体輸出実績）",
+      "note": "(主観)想定影響: 世界半導体サイクルの先行指標。半導体輸出の伸長が確認できれば日本の半導体製造装置関連に追い風。 / Expected impact (subjective): A leading indicator for the global semiconductor cycle; robust chip export data would benefit Japanese equipment makers."
+    },
+    {
+      "date": "2026-09-01",
+      "type": "macro",
+      "label": "米国: 8月ISM製造業景況指数",
+      "name": "米国: 8月ISM製造業景況指数",
+      "note": "(主観)想定影響: 米製造業の体力を測る重要指標。ソフトランディング観測が強まれば自動車や機械などの景気敏感株にサポート。 / Expected impact (subjective): Measures U.S. industrial momentum; strong figures reinforce soft-landing expectations, aiding cyclical export stocks."
+    },
+    {
+      "date": "2026-09-02",
+      "type": "macro",
+      "label": "米国: 8月ADP雇用統計",
+      "name": "米国: 8月ADP雇用統計",
+      "note": "(主観)想定影響: 週末の米雇用統計に向けた前哨戦。労働市場の需給動向を通じて米金利と為替を動かす主要因。 / Expected impact (subjective): A key precursor to non-farm payrolls; shifts in labor market tightness will impact Treasury yields and USD/JPY."
     }
   ]
 };
+/* 2026-08-28 06:00更新メモ: SECTOR_REPS33銘柄のうち今後7日以内に決算発表予定が確認できた銘柄はなし(Gemini調査結果)。
+   このウィンドウの主要イベントはジャクソンホール会議・東京都CPI・中国PMI・韓国貿易収支・米ISM・米ADP雇用統計の6件。 */
 /* 2026-08-17朝の更新メモ: 米ISM製造業/非製造業PMI・米雇用統計・米CPI・中国財新PMI・FOMC・日銀会合の定例チェックリストを
    確認したが、いずれも本ウィンドウ(8/17〜8/24)には該当しない(ISM/雇用統計/財新PMIは月初、CPIは月央だが8/12に既発表済、
    FOMCは9月、日銀会合は9/17-18)。決算発表もBASEのdec欄を確認した限り、この時期(8月中旬)は主要企業の1Q決算発表が
@@ -1892,22 +1920,20 @@ const EVENTS = {
    (実データが埋まるまでダミー数値を表示しないための安全策。他のオブジェクトと異なりデフォルトで空)。
    review は正午ルーティーンが13:00時点で追記する。朝の時点では review:null のままでよい。 */
 const DEEPDIVE = {"intro": "2026年8月25日の市場は、日米ともに今後の金融政策と地政学リスクを睨んだ神経質な展開となっています。米国ではジャクソンホール会議を控えて様子見姿勢が強まる中、日本では内需株や国策テーマ株が相場の底堅さを演出しています。", "factorsBull": [{"name": "日本のGDPプラス成長と内需の底堅さ", "desc": "4-6月期の実質GDPが3四半期連続でプラス成長となり、インバウンドや消費関連が下支えしている。", "stars": 3}, {"name": "AI・半導体の実需拡大", "desc": "韓国の輸出データからも分かる通り、AI向け半導体の需要は依然として爆発的に伸びており、ハイテク株の下値をサポートしている。", "stars": 2}], "factorsBear": [{"name": "米国発の地政学・関税リスク", "desc": "イランへの強力な経済制裁やカナダ・ブラジル等への追加関税により、グローバルなサプライチェーンの混乱が懸念される。", "stars": 3}, {"name": "日銀の追加利上げ観測", "desc": "10月に短期金利を1.25%へ引き上げる観測があり、為替の円高進行や企業業績への下押し圧力が警戒されている。", "stars": 2}], "events": [{"title": "ジャクソンホール会議 (8/27-29)", "demand": "macro", "themes": ["米金利", "インフレ"], "note": "FRBの今後の金融政策スタンスを見極める上で最重要イベント。利下げ時期のヒントが探られる。"}, {"title": "ジャパン・ホテル・リート投資法人 決算発表 (8/26)", "demand": "micro", "themes": ["インバウンド", "不動産"], "note": "インバウンド需要の回復度合いを確認する試金石。"}], "actionPlan": [{"term": "短期", "text": "ジャクソンホール会議を通過するまでは積極的なポジションメイクは控え、好業績の内需株や押し目を作っている半導体関連の打診買いに留めるのが無難。"}, {"term": "中長期", "text": "経産省のエンタメ・クリエイティブ戦略など国策の後押しがあるテーマ株や、AI投資の恩恵を継続的に受けるメガテック企業への資金配分を徐々に増やしていく。"}], "conclusion": "相場全体は様子見ムードが強いものの、テーマ性のある個別株への物色意欲は旺盛です。イベント通過後のアク抜けを狙ったポートフォリオの再構築が推奨されます。", "risks": ["中東情勢の悪化による原油価格の急騰", "米国での想定以上のインフレ再燃によるFRBのタカ派傾斜", "日米金利差縮小による急激な円高進行"], "beginner": "今は大きな経済イベント（アメリカの中央銀行の会議など）を控えており、株価全体が動きにくい時期です。焦って買うのではなく、国が力を入れているアニメやゲーム関連の会社（ソニーなど）や、生活に身近で業績が良い会社のニュースに注目して、相場の波に乗り遅れないよう準備しておきましょう。", "picks": [{"code": "8985", "name": "ジャパン・ホテル・リート投資法人", "price": "68,500", "chg": "+0.5%", "per": "32.1", "pbr": "1.2", "support": "65000", "resistance": "70000", "high": "72000", "low": "60000", "phase": "もみ合い", "obj": "明日8月26日に第2四半期の決算発表を控えている。訪日客の増加やインバウンド需要による稼働率の回復が期待される。", "subj": "猛暑による夜間経済の活性化や観光需要の底堅さが好感されやすい。決算内容次第では上値抵抗線をブレイクする可能性がある。", "dir": "up", "_chg_float": 0.5}, {"code": "6758", "name": "ソニーグループ", "price": "3,832", "chg": "-0.47%", "per": "18.5", "pbr": "2.1", "support": "12800", "resistance": "14000", "high": "14500", "low": "11500", "phase": "上昇トレンド", "obj": "経産省が「エンタメ・クリエイティブ産業戦略2026」を発表し、IPの多角展開を国策として後押しする姿勢を示した。", "subj": "日本のコンテンツ輸出拡大戦略において中心的な役割を担う企業であり、中長期的なテーマ株として資金が向かいやすい。", "dir": "down", "_chg_float": -0.47}, {"code": "6920", "name": "レーザーテック", "price": "34,950", "chg": "+0.4%", "per": "45.2", "pbr": "12.5", "support": "30000", "resistance": "35000", "high": "42000", "low": "28000", "phase": "調整局面", "obj": "米国のハイテク株売りの影響を受け直近は軟調だが、AI関連投資の旺盛な需要を背景に底堅い業績を維持。", "subj": "値ごろ感からの押し目買いが入りやすい水準。米国ジャクソンホール会議後の金利見通しが安定すれば、再び主導権を握る展開に。", "dir": "up", "_chg_float": 0.4}], "stats": [{"label": "日経平均", "val": "38,520.40", "unit": "円", "chg": "-300.67", "dir": "down"}, {"label": "TOPIX", "val": "2,685.30", "unit": "pt", "chg": "-22.2", "dir": "down"}, {"label": "ドル円", "val": "145.80", "unit": "円/米ドル", "chg": "+0.40", "dir": "up"}]};
-const TOP_MOVERS = {"gainers": [{"code": "5711", "name": "三菱マテリアル", "price": "5,963.0", "chg": 5.95}, {"code": "5803", "name": "フジクラ", "price": "5,292.0", "chg": 5.5}, {"code": "285A", "name": "キオクシアHD", "price": "52,430.0", "chg": 4.86}], "losers": [{"code": "7013", "name": "IHI", "price": "2,638.0", "chg": -2.15}, {"code": "5020", "name": "ENEOS HD", "price": "1,313.0", "chg": -2.12}, {"code": "7012", "name": "川崎重工業", "price": "2,575.0", "chg": -1.38}]};
+const TOP_MOVERS = {"gainers": [{"code": "5711", "name": "三菱マテリアル", "price": "5,963.0", "chg": 5.95}, {"code": "285A", "name": "キオクシアHD", "price": "52,500.0", "chg": 5.0}, {"code": "5803", "name": "フジクラ", "price": "5,500.0", "chg": 3.68}], "losers": [{"code": "6857", "name": "アドバンテスト", "price": "34,610.0", "chg": -3.05}, {"code": "8031", "name": "三井物産", "price": "4,914.0", "chg": -2.35}, {"code": "7013", "name": "IHI", "price": "2,638.0", "chg": -2.15}]};
 
 /* ---------- 前場・後場トレンド予報 / Morning-Afternoon trend forecast (2026-08-27追加) ----------
    本日のPICKS.jp3銘柄について、06:00に前場予想、12:00に前場実績+後場予想、15:30に後場実績を記録する。
    06:00枠は date/picks を新規に作り直す(前日以前の内容は破棄)。
    Populated across the 06:00/12:00/15:30 runs of the same day; the 06:00 run rebuilds this object fresh. */
-const WEATHER = {"date":"2026-08-27", "picks":[
-  {"code":"6857", "name":"アドバンテスト", "morning_forecast":"rainy", "morning_actual":"rainy", "noon_price":34830, "afternoon_forecast":"sunny", "afternoon_actual":"sunny"},
-  {"code":"8306", "name":"三菱UFJフィナンシャル・グループ", "morning_forecast":"sunny", "morning_actual":"sunny", "noon_price":3599, "afternoon_forecast":"sunny", "afternoon_actual":"rainy"},
-  {"code":"5711", "name":"三菱マテリアル", "morning_forecast":"sunny", "morning_actual":"sunny", "noon_price":5963, "afternoon_forecast":"sunny", "afternoon_actual":"unknown"}
+const WEATHER = {"date":"2026-08-28", "picks":[
+  {"code":"285A", "name":"キオクシアホールディングス", "morning_forecast":"sunny", "morning_actual":null, "noon_price":null, "afternoon_forecast":null, "afternoon_actual":null},
+  {"code":"6857", "name":"アドバンテスト", "morning_forecast":"rainy", "morning_actual":null, "noon_price":null, "afternoon_forecast":null, "afternoon_actual":null},
+  {"code":"6702", "name":"富士通", "morning_forecast":"sunny", "morning_actual":null, "noon_price":null, "afternoon_forecast":null, "afternoon_actual":null}
 ]};
-/* 6857は決算通過前の思惑買いで既に+3.62%と急伸済みの一方、NVIDIA決算は時間外で「限定的な反応」に留まったため、
-   材料の出尽くしによる利益確定売りが前場に出やすいと判断しrainyとした。8306/5711はNVIDIA決算とは独立した
-   国内材料（日銀タカ派観測／非鉄金属高・原油安の国策テーマ）が継続中のためsunnyとした。
-   12:00振り返り: 前場実績は予想通り6857がrainy(-2.44%)、8306/5711はsunny(+0.56%/+5.95%)で的中。
-   後場予想: 6857は決算材料出尽くし後の押し目買い期待でsunnyに転換、8306/5711はテーマ継続でsunnyのまま。 */
+/* 06:00予想根拠: 285Aは岩手県への1兆円超NAND新工場材料+エヌビディア決算によるAI需要裏付けが強力な追い風のためsunny。
+   6857は前日(8/27)終値が決算材料出尽くしで-3.05%となり、ジャクソンホール会議(8/28)通過までは同様の利確売り圧力が
+   続きやすいとみてrainy。6702は米GA-ASIとの防衛UAS向けMOU締結という新規材料が継続的な支援材料になるとみてsunny。 */
 
 /* ---------- 米国対応銘柄 / US counterpart stocks ----------
    JPコード→対応する米国上場銘柄1社。関係性(競合/顧客/供給元/投資家関係/同一商品)は投資分析上最も意味のあるものを選定(2026-07-26調査)。
@@ -2590,7 +2616,7 @@ function renderEvents(){
   var body = document.getElementById('events-body');
   if(!body) return;
   var wd = ['日','月','火','水','木','金','土'];
-  var start = new Date(EVENTS.asOf+'T00:00:00');
+  var start = new Date(EVENTS.asOf.split(' ')[0]+'T00:00:00');
   var byDate = {};
   (EVENTS.items||[]).forEach(function(it){
     if(!byDate[it.date]) byDate[it.date] = [];
@@ -2736,21 +2762,6 @@ function renderDeepDive(){
     }
     if(d.beginner) html += '<div class="tldr"><span class="eyebrow">初心者向け 超簡単まとめ</span>'+d.beginner+'</div>';
   }
-
-  /* ---- 13:00 振り返り（正午ルーティーンが追記） ---- */
-  html += '<div class="review-block"><div class="review-head"><span class="eyebrow" style="margin:0">🔍 13:00 振り返り</span>';
-  if(d.review){
-    var vCls = d.review.verdict||'partial';
-    var vLabel = {hit:'的中', miss:'外れ', partial:'部分的中', pending:'集計中'}[vCls] || '部分的中';
-    html += '<span class="verdict '+vCls+'">'+vLabel+'</span></div>';
-    (d.review.items||[]).forEach(function(it){
-      html += '<div class="review-row"><span class="label">'+it.label+'</span><span class="val '+(it.status||'')+'">'+it.val+'</span></div>';
-    });
-  } else {
-    html += '<span class="verdict pending">未実施</span></div>';
-    html += '<div class="sec-note" style="padding-left:2px;margin:0">正午ルーティーン(13:00)実行後にここへ追記されます。</div>';
-  }
-  html += '</div>';
 
   body.innerHTML = html;
 }
