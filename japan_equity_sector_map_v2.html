@@ -1351,9 +1351,15 @@ table.xref .code{width:58px;color:var(--ivory)}
 <!-- newslog -->
 <section id="newslog" style="--c:var(--new)">
 <div class="sec-head"><span class="sec-num">📰</span>
-<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">17:20 更新</span></h2>
-<span class="count">25日分</span></div>
+<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">2026-09-09 06:00 更新</span></h2>
+<span class="count">26日分</span></div>
 <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-09-09（06:00更新）</div>
+<ul>
+<li><span class="nl-sys">システム</span>本日06:00枠は、Gemini APIのgoogle_search機能が実質的に機能していないことが判明したため、全ての価格・信用倍率・世界情勢・イベント・注目銘柄データの反映を見送り、前回(9/8 15:30)確定値を全て維持した。診断: (1)113銘柄+米中韓対応銘柄+信用倍率33銘柄+世界情勢を1回で依頼した初回リクエストはgroundingMetadataが皆無で、113銘柄中95銘柄(84%)が前日確定値との内部整合性チェック(乖離8%超)で不採用という異常事態だった。(2)「不明な場合はunknownと答えてよい」と明記した再依頼では113銘柄中91銘柄が正直に"unknown"となり残り22銘柄中19銘柄はチェックを通過したが、groundingMetadataは依然皆無で実際の検索が行われた証跡がない。(3)同条件で米国・中国・韓国対応銘柄33銘柄・信用倍率33銘柄を再依頼した結果も同様にgroundingMetadata皆無で、報告された数値(例: AMAT 471.48ドル・前回確定215.4ドルから+118.8%、7203の信用倍率7.19倍・前回確定23.5倍から-69.4%)はいずれも前回値と大きく矛盾し全件不採用とした。(4)一方、無関係の単発検証リクエスト（「本日のテスラ関連ニュース見出しを検索して」）では正常にgroundingMetadataと実URLの引用が返り、ツール自体は本環境で機能することを確認した。以上より、株価等の構造化データ取得に特化した依頼でのみgoogle_searchが呼び出されず、モデルが検索結果を経由しない数値を生成している可能性が高いという技術的な問題を検出した。ダッシュボードのデータは一切書き換えていない（安全側に倒し、誤データより「前回値維持」を選択）。詳細は<a href="daily/2026-09-09.md">本日06:00の相場観コメント（データ未更新の経緯）</a>参照。ユーザーへ状況報告のメール下書きを作成済み。 (This 06:00 run found that the Gemini API's google_search grounding is effectively non-functional for structured price-research requests: the initial full request returned zero groundingMetadata and 84% of the 113 JP stock prices failed an 8% consistency check against yesterday's confirmed values; a follow-up that explicitly allowed "unknown" answers improved JP price quality but still showed zero grounding evidence; a similarly-framed request for US/CN/KR counterpart prices and the 33-stock credit-ratio trial again returned zero grounding and wildly inconsistent numbers (e.g. AMAT reported at $471.48 vs. the prior confirmed $215.4, a +118.8% jump). A separate, unrelated one-off test request ["search for today's Tesla news headline"] DID return real groundingMetadata and a genuine citation, confirming the search tool itself works in this environment -- the issue appears specific to structured/bulk price-lookup prompts. No dashboard values were changed this run; all prior confirmed data was preserved. A status email draft was created for the user.)</li>
+</ul>
+</div>
 <div class="newslog-day">
 <div class="newslog-date">2026-08-28（12:00更新）</div>
 <ul>
