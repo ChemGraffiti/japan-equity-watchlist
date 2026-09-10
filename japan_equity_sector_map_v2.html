@@ -1351,9 +1351,15 @@ table.xref .code{width:58px;color:var(--ivory)}
 <!-- newslog -->
 <section id="newslog" style="--c:var(--new)">
 <div class="sec-head"><span class="sec-num">📰</span>
-<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">2026-09-10 15:30(グラウンディング失敗継続・本日3枠とも更新見送り) 更新</span></h2>
-<span class="count">27日分</span></div>
+<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">2026-09-11 06:00(グラウンディング失敗8回連続再現・本枠も更新見送り) 更新</span></h2>
+<span class="count">28日分</span></div>
 <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-09-11（06:00枠更新見送り）</div>
+<ul>
+<li><span class="nl-sys">システム</span>本日06:00枠を実行し、8回連続で同一のGemini APIグラウンディング不具合が再現した。(1)診断(単発ニュース検索)は正常にグラウンディング、ツール自体は機能している。(2)世界情勢4地域リクエストは初回HTTP 503、1回リトライ後HTTP 200を得たがgroundingMetadataは皆無。(3)規定通り半分に分割した再試行(日本+米国のみ)も同様にgroundingMetadata皆無。<strong>ただしこの呼び出しのレスポンス本文には、本物のGemini groundingリダイレクト形式URL(vertexaisearch.cloud.google.com/grounding-api-redirect/...)が2件含まれていたにもかかわらずgroundingMetadataキー自体は欠落しているという、これまでの7回にはなかった新しいパターンが見られた。</strong>モデルによる巧妙な模倣か、API側のメタデータ・シリアライズ不具合の可能性があり断定はできないが、規定の検証基準(groundingMetadataキーの有無)に従い不採用とした。(4)113銘柄中最初の28銘柄価格バッチもgroundingMetadata皆無。非診断呼び出し3回中3回(100%)が失敗したため、規定に従い残りのバッチ・イベント・米中韓対応銘柄・信用倍率・注目銘柄トップ3は実行せずこの時点で更新見送りとした。ダッシュボードのDAILY/WORLD/FLOW/PICKS/TOP_MOVERS/WEATHER/EVENTS/BASEはいずれも書き換えず、前回確定値(2026-09-08 15:30)を維持している。データは4日目に入った。9/9夜からの判断依頼メール(a:Anthropicサポート相談/b:別モデル切替/c:パイプライン一時停止/d:現状継続)を追記6として更新し、プッシュ通知でも改めて報告した。本枠の費用は約$0.064(異常値しきい値未満)、当月累計は約$1.32。詳細は<a href="daily/2026-09-11.md">daily/2026-09-11.md</a>参照。 (The 06:00 slot reproduced the identical grounding failure an 8th consecutive time. Diagnostic grounded normally; the 4-region world call [after one HTTP 503 retry], a halved JP+US retry, and the first 28-stock JP price batch [3 of 3 non-diagnostic calls] all came back with zero groundingMetadata. Notably, the halved world retry's response text contained genuine-looking Gemini grounding-redirect URLs despite the groundingMetadata key itself being absent -- a new wrinkle not seen in the prior 7 occurrences, suggesting either sophisticated model confabulation of the citation format or a metadata-serialization bug on the API side. Per policy the remaining batches were skipped; no dashboard data changed. Data is now on its 4th day unrefreshed. The pending decision-request email was updated and a push notification sent again.)</li>
+</ul>
+</div>
 <div class="newslog-day">
 <div class="newslog-date">2026-09-10（06:00・12:00・15:30すべて更新見送り＝本日終日更新なし）</div>
 <ul>
