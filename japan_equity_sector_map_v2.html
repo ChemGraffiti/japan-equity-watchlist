@@ -1351,9 +1351,15 @@ table.xref .code{width:58px;color:var(--ivory)}
 <!-- newslog -->
 <section id="newslog" style="--c:var(--new)">
 <div class="sec-head"><span class="sec-num">📰</span>
-<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">2026-09-09 06:00(分割リクエスト再試験) 更新</span></h2>
-<span class="count">26日分</span></div>
+<h2>デイリーニュースログ<em>Daily News Log — accumulates day by day</em><span class="sec-updated">2026-09-10 12:00(グラウンディング失敗継続・更新見送り) 更新</span></h2>
+<span class="count">27日分</span></div>
 <div class="sec-note">研究・日次相場観コメント作成の過程で見つかった、ウォッチリスト銘柄固有の材料・決算・ガバナンス問題等を日付ごとに蓄積する。新しい日を上に追加していく。個別の相場観コメントは <a href="daily/">daily/</a> フォルダ、出典URLは各コメント本文を参照。</div>
+<div class="newslog-day">
+<div class="newslog-date">2026-09-10（06:00・12:00更新見送り）</div>
+<ul>
+<li><span class="nl-sys">システム</span>本日06:00枠(実行は2026-09-10 06:25 JST、前日夜の分割方式再試験の直後実行につき記録は<a href="daily/2026-09-09.md">daily/2026-09-09.md</a>末尾に残る)に続き、12:00枠でも同一のGemini APIグラウンディング不具合が再現した。今回は本格実行前に、113銘柄・4バッチ分割の価格取得と世界情勢サマリーの一部を実際に発行して検証: (1)世界情勢4地域リクエストはgroundingMetadataなし。地域数を絞った再試行(日本のみ)でも同様に不在。(2)113銘柄中最初の28銘柄バッチは初回HTTP 503(高負荷)で1回リトライ後にHTTP 200を得たが、これもgroundingMetadataは皆無だった。過去5回(9/9の06:00・12:00・15:30・分割方式再試験、および今回)にわたり同一パターンが再現し、9/9分割方式再試験では銘柄数を半分に減らしても改善しないことまで確認済みのため、今回は残りのバッチ(価格2〜4・注目銘柄)を追加実行せずこの時点で「本日12:00枠は更新見送り」と判断した。ダッシュボードのDAILY/WORLD/FLOW/PICKS/TOP_MOVERS/WEATHER/EVENTSはいずれも書き換えず、前回確定値(2026-09-08 15:30)を維持している。本件はすでに9/9夜の時点でユーザーへ根拠となる調査結果とともに判断依頼のメール下書き(a:Anthropicサポートへの相談/b:別モデルへの切替/c:パイプライン一時停止/d:現状の安全策を継続)を送っているが、未対応のまま本日も同じ障害が継続しているため、追記の上でユーザーに改めて通知する。本枠の費用は診断・実試行あわせて約$0.07（$0.25の異常値しきい値未満）。詳細は<a href="daily/2026-09-10.md">daily/2026-09-10.md</a>参照。 (Following the same-pattern grounding failure at today's 06:00 slot [run recorded at the tail of daily/2026-09-09.md], the 12:00 slot reproduced the identical issue: the 4-region world-affairs call and the first 28-stock price batch [which needed one retry after an initial HTTP 503] both came back with zero groundingMetadata despite the google_search tool being declared. This is the 5th-6th consecutive reproduction of the same failure across 2026-09-09's three slots, the split-request retest, and today, with batch-size already ruled out as the cause in the prior test. Given that established pattern, the remaining batches were not attempted and this slot's update was skipped outright; all dashboard objects retain their 2026-09-08 15:30 confirmed values. A decision-request email was already sent to the user the night before and remains unanswered; this run's findings have been appended to that thread and the user has been notified again. Cost for this slot's diagnostic + real attempts was about $0.07, within normal range.)</li>
+</ul>
+</div>
 <div class="newslog-day">
 <div class="newslog-date">2026-09-09（06:00・12:00・15:30・06:00分割方式再試験更新）</div>
 <ul>
