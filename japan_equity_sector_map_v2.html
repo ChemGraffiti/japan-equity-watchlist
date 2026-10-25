@@ -204,6 +204,9 @@ table.xref .code{width:58px;color:var(--ivory)}
 .dd-h4-plain{font-size:13.5px;color:var(--ivory);font-weight:700;margin:26px 0 10px}
 .dd-h4-plain em{font-weight:400;font-size:11px;color:var(--muted);margin-left:6px}
 .dd-divider{border:none;border-top:1px solid var(--line);margin:26px 0}
+.dd-stale{padding-left:2px;color:#f0b35a;margin:0 0 12px}
+.dd-sources{padding-left:2px;margin-top:16px;line-height:1.7}
+.dd-sources a{color:var(--muted);text-decoration:underline}
 .dd-lede{font-size:13.5px;color:#c3d1de;line-height:1.65;margin:0 0 18px}
 
 .dd-stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:16px}
@@ -1802,7 +1805,7 @@ const EVENTS = {"asOf": "2026-10-23", "items": [{"date": "2026-10-23", "type": "
    null のときは「まだ生成されていない」状態として renderDeepDive() がその旨を表示する
    (実データが埋まるまでダミー数値を表示しないための安全策。他のオブジェクトと異なりデフォルトで空)。
    review は正午ルーティーンが13:00時点で追記する。朝の時点では review:null のままでよい。 */
-const DEEPDIVE = {"intro": "2026年8月25日の市場は、日米ともに今後の金融政策と地政学リスクを睨んだ神経質な展開となっています。米国ではジャクソンホール会議を控えて様子見姿勢が強まる中、日本では内需株や国策テーマ株が相場の底堅さを演出しています。", "factorsBull": [{"name": "日本のGDPプラス成長と内需の底堅さ", "desc": "4-6月期の実質GDPが3四半期連続でプラス成長となり、インバウンドや消費関連が下支えしている。", "stars": 3}, {"name": "AI・半導体の実需拡大", "desc": "韓国の輸出データからも分かる通り、AI向け半導体の需要は依然として爆発的に伸びており、ハイテク株の下値をサポートしている。", "stars": 2}], "factorsBear": [{"name": "米国発の地政学・関税リスク", "desc": "イランへの強力な経済制裁やカナダ・ブラジル等への追加関税により、グローバルなサプライチェーンの混乱が懸念される。", "stars": 3}, {"name": "日銀の追加利上げ観測", "desc": "10月に短期金利を1.25%へ引き上げる観測があり、為替の円高進行や企業業績への下押し圧力が警戒されている。", "stars": 2}], "events": [{"title": "ジャクソンホール会議 (8/27-29)", "demand": "macro", "themes": ["米金利", "インフレ"], "note": "FRBの今後の金融政策スタンスを見極める上で最重要イベント。利下げ時期のヒントが探られる。"}, {"title": "ジャパン・ホテル・リート投資法人 決算発表 (8/26)", "demand": "micro", "themes": ["インバウンド", "不動産"], "note": "インバウンド需要の回復度合いを確認する試金石。"}], "actionPlan": [{"term": "短期", "text": "ジャクソンホール会議を通過するまでは積極的なポジションメイクは控え、好業績の内需株や押し目を作っている半導体関連の打診買いに留めるのが無難。"}, {"term": "中長期", "text": "経産省のエンタメ・クリエイティブ戦略など国策の後押しがあるテーマ株や、AI投資の恩恵を継続的に受けるメガテック企業への資金配分を徐々に増やしていく。"}], "conclusion": "相場全体は様子見ムードが強いものの、テーマ性のある個別株への物色意欲は旺盛です。イベント通過後のアク抜けを狙ったポートフォリオの再構築が推奨されます。", "risks": ["中東情勢の悪化による原油価格の急騰", "米国での想定以上のインフレ再燃によるFRBのタカ派傾斜", "日米金利差縮小による急激な円高進行"], "beginner": "今は大きな経済イベント（アメリカの中央銀行の会議など）を控えており、株価全体が動きにくい時期です。焦って買うのではなく、国が力を入れているアニメやゲーム関連の会社（ソニーなど）や、生活に身近で業績が良い会社のニュースに注目して、相場の波に乗り遅れないよう準備しておきましょう。", "picks": [{"code": "8985", "name": "ジャパン・ホテル・リート投資法人", "price": "68,500", "chg": "+0.5%", "per": "32.1", "pbr": "1.2", "support": "65000", "resistance": "70000", "high": "72000", "low": "60000", "phase": "もみ合い", "obj": "明日8月26日に第2四半期の決算発表を控えている。訪日客の増加やインバウンド需要による稼働率の回復が期待される。", "subj": "猛暑による夜間経済の活性化や観光需要の底堅さが好感されやすい。決算内容次第では上値抵抗線をブレイクする可能性がある。", "dir": "up", "_chg_float": 0.5}, {"code": "6758", "name": "ソニーグループ", "price": "3,832", "chg": "-0.47%", "per": "18.5", "pbr": "2.1", "support": "12800", "resistance": "14000", "high": "14500", "low": "11500", "phase": "上昇トレンド", "obj": "経産省が「エンタメ・クリエイティブ産業戦略2026」を発表し、IPの多角展開を国策として後押しする姿勢を示した。", "subj": "日本のコンテンツ輸出拡大戦略において中心的な役割を担う企業であり、中長期的なテーマ株として資金が向かいやすい。", "dir": "down", "_chg_float": -0.47}, {"code": "6920", "name": "レーザーテック", "price": "34,950", "chg": "+0.4%", "per": "45.2", "pbr": "12.5", "support": "30000", "resistance": "35000", "high": "42000", "low": "28000", "phase": "調整局面", "obj": "米国のハイテク株売りの影響を受け直近は軟調だが、AI関連投資の旺盛な需要を背景に底堅い業績を維持。", "subj": "値ごろ感からの押し目買いが入りやすい水準。米国ジャクソンホール会議後の金利見通しが安定すれば、再び主導権を握る展開に。", "dir": "up", "_chg_float": 0.4}], "stats": [{"label": "日経平均", "val": "38,520.40", "unit": "円", "chg": "-300.67", "dir": "down"}, {"label": "TOPIX", "val": "2,685.30", "unit": "pt", "chg": "-22.2", "dir": "down"}, {"label": "ドル円", "val": "145.80", "unit": "円/米ドル", "chg": "+0.40", "dir": "up"}]};
+const DEEPDIVE = {"asOf": "2026-10-26 07:30", "intro": "先週(10/19-23)の東京市場は、米メタ決算を発端とする「AI投資の採算性」への警戒から半導体・AI関連株が急落し、日経平均は2週間で2,631円下落、23日には約3か月ぶりの安値(62,693円)で取引を終えました。ただし23日は日中に62,000円を一時割り込んだ後、半導体株への押し目買いで下げ渋っており、売りの勢いにはやや鈍化の兆しもあります。今週(10/26-30)はFOMC(27-28日)、米ハイパースケーラー決算(28-29日)、日銀会合(29-30日)、国内半導体決算(28日・30日)が一気に重なる「イベント集中週」で、AI投資への懸念が和らぐか深まるかの分岐点になるとみます(推定)。", "stats": [{"label": "日経平均(10/23)", "val": "62,693.16", "unit": "円", "chg": "-214.68 (-0.34%)", "dir": "down"}, {"label": "TOPIX(10/23)", "val": "3,965.81", "unit": "pt", "chg": "-31.69 (-0.79%)", "dir": "down"}, {"label": "ドル円", "val": "156.86", "unit": "円/米ドル", "chg": "", "dir": ""}, {"label": "NYダウ(10/23)", "val": "52,215.16", "unit": "ドル", "chg": "-652.82 (-1.23%)", "dir": "down"}, {"label": "米10年債利回り", "val": "4.999", "unit": "%", "chg": "+0.044", "dir": "up"}, {"label": "WTI原油", "val": "103.27", "unit": "ドル/バレル", "chg": "", "dir": ""}], "factorsBull": [{"name": "短期急落後の自律反発", "desc": "2週間で約2,600円下落し、23日は日中62,000円割れから下げ渋った。売られ過ぎ感からの買い戻しが入りやすい水準(推定)。", "stars": 3}, {"name": "米ハイパースケーラー決算でのAI収益化確認", "desc": "マイクロソフト・アルファベット(28日)、アマゾン(29日)の決算でAI関連の売上成長が示されれば、半導体・データセンター関連の買い戻し材料になる。", "stars": 3}, {"name": "日米金融政策は据え置き予想が大勢", "desc": "FOMC・日銀会合ともに現状維持が市場予想の中心で、政策面のサプライズは限定的とみられる。", "stars": 2}], "factorsBear": [{"name": "AI投資の採算性懸念", "desc": "メタ決算でAIインフラ投資によるフリーキャッシュフロー悪化が嫌気され、AI関連全体に「投資過剰」の警戒が広がっている。", "stars": 4}, {"name": "原油高と米金利上昇", "desc": "WTIは100ドル超、米10年債利回りは5%目前。インフレ再燃懸念でFRBのタカ派姿勢が意識されやすい。", "stars": 3}, {"name": "10/30のイベント集中", "desc": "日銀会合の結果発表・植田総裁会見と、東京エレクトロン・キオクシアの決算が同日に重なり、週末にかけて値動きが荒くなりやすい。", "stars": 3}, {"name": "仏国債など海外の財政不安", "desc": "フランス財政への不安がリスクオフの一因となっており、欧州発の金利・為替変動に注意。", "stars": 2}], "events": [{"title": "米FOMC (10/27-28)", "demand": "thin", "themes": ["米金利", "ドル円", "グロース株"], "note": "据え置き予想が9割超。焦点は12月の追加利上げ示唆の有無で、タカ派なら日米ハイテク株に逆風。"}, {"title": "米ハイパースケーラー決算 (MSFT・GOOGL 10/28、AMZN 10/29)", "demand": "real", "themes": ["AIデータセンター", "半導体製造装置", "電線・光通信"], "note": "設備投資計画とAI売上の伸びが、日本の半導体・データセンター関連(東エレ・アドバンテスト・フジクラ等)の受注見通しに直結する。"}, {"title": "アドバンテスト・日立 決算 (10/28)", "demand": "real", "themes": ["半導体テスタ", "AIインフラ", "電力・送配電"], "note": "AI向けテスタ需要とエナジー/Lumada受注の進捗を確認する場。地合いが悪い中での決算は反応が大きくなりやすい。"}, {"title": "日銀会合・展望レポート (10/29-30) ＋ 東京エレクトロン・キオクシア決算 (10/30)", "demand": "real", "themes": ["円金利", "銀行", "半導体メモリ"], "note": "政策金利は据え置き予想。物価見通しと総裁会見のトーンが円相場を通じて輸出株・銀行株に波及。同日の半導体決算と重なりボラティリティ上昇に注意。"}], "picks": [{"code": "6857", "name": "アドバンテスト", "price": "32,340", "chg": "-0.09%", "dir": "down", "per": "35.5", "pbr": "22.5", "support": "30,000", "resistance": "34,450", "high": "41,990", "low": "19,720", "phase": "調整局面", "subj": "年初来高値(10/7)から約23%下落した調整局面。28日の決算でAI向けテスタ需要の強さが再確認できれば、34,450円(5営業日前の終値)の回復を試す展開もありうる。逆に慎重なガイダンスなら30,000円の節目が試されるとみる(推定)。"}, {"code": "8035", "name": "東京エレクトロン", "price": "9,458", "chg": "+0.08%", "dir": "up", "per": "—", "pbr": "10.2", "support": "9,000", "resistance": "10,630", "high": "16,252", "low": "7,144", "phase": "下落トレンド", "subj": "7月の高値から4割超下落した下落トレンドだが、23日は半導体株の中で底堅かった。米ラムリサーチの弱いガイダンスで警戒が先行しており、30日の自社決算で受注回復の道筋が示されるかが焦点(推定)。"}, {"code": "6501", "name": "日立製作所", "price": "5,562", "chg": "-4.37%", "dir": "down", "per": "27.7", "pbr": "3.8", "support": "5,000", "resistance": "5,816", "high": "6,039", "low": "4,388", "phase": "高値圏からの反落", "subj": "直前まで5日続伸しており、23日はAI関連全面安の中で利益確定売りが出た格好。半導体ほどAI投資の採算懸念を直接受けにくく、28日の決算でエナジー・データセンター向け受注が確認されれば相対的な押し目買い候補になりうる(推定)。"}], "actionPlan": [{"term": "短期", "text": "イベントが集中する今週は、新規の大きなポジションは決算・会合の結果を見てからにする。買うなら23日の安値圏(日経62,000円前後)を割り込まないことを確認したうえで、決算を通過した銘柄に絞って小さく打診するのが無難。"}, {"term": "中期", "text": "AI関連は「投資過剰」懸念の一巡待ち。ハイパースケーラーの設備投資計画が維持されるなら、調整した半導体製造装置・テスタ株を段階的に買い戻す余地がある。"}, {"term": "長期", "text": "AIインフラ需要そのものは継続するとの見方は変えず、電力・送配電・データセンター関連など、半導体よりも需要の裏付けが分散した銘柄で長期の資金配分を組む。"}], "conclusion": "相場はAI投資の採算性をめぐる不安で調整局面にあり、今週は日米の金融政策と内外の決算が集中する分岐点です。決算でAI需要の底堅さが確認できれば自律反発、確認できなければ6万円台前半での下値模索が続くとみます(推定)。", "risks": ["ハイパースケーラーの設備投資削減やAI売上の鈍化", "原油高によるインフレ再燃とFRBのタカ派化(米10年債5%超え)", "日銀会合をきっかけとした急な円高", "中東情勢の緊迫化"], "beginner": "AI関連の会社が「お金をかけすぎでは？」と心配されて、株価が大きく下がった1週間でした。今週は日本とアメリカの中央銀行の会議や、大きな会社の決算発表(成績発表)が集中します。結果を見るまでは慌てて買わず、決算で良い数字が出た会社をゆっくり選ぶのが安全です。", "sources": [{"label": "株探ニュース: 日経平均大引け(10/23)", "url": "https://finance.yahoo.co.jp/news/detail/0ef454d698737d5f34e7afeb76f657cc490649e7"}, {"label": "世界一やさしい投資の学校: 週間展望(10/26-30)", "url": "https://tbladvisory.com/2026102630weekly/"}, {"label": "外為どっとコム: 来週の日経平均見通し", "url": "https://www.gaitame.com/media/entry/2026/10/23/173727"}, {"label": "ザイ・オンライン: 来週の予想レンジ", "url": "https://diamond.jp/zai/articles/-/1074381"}, {"label": "株探: 今週の重要イベント", "url": "https://s.kabutan.jp/news/n202610250060/"}, {"label": "Yahoo!ファイナンス: アドバンテスト", "url": "https://finance.yahoo.co.jp/quote/6857.T"}, {"label": "Yahoo!ファイナンス: 東京エレクトロン", "url": "https://finance.yahoo.co.jp/quote/8035.T"}, {"label": "Yahoo!ファイナンス: 日立製作所", "url": "https://finance.yahoo.co.jp/quote/6501.T"}], "techNote": "株価・前日比は10/23終値、PER(予想)/PBR(実績)・直近高値/安値(年初来)はYahoo!ファイナンス(10/23時点)。支持線は心理的節目、抵抗線は直近の終値ベースの戻り目安で、いずれも機械的な目安です。"};
 const TOP_MOVERS = {"gainers": [{"code": "3692", "name": "FFRIセキュリティ", "price": "8850", "chg": 9.1}, {"code": "4704", "name": "トレンドマイクロ", "price": "7130", "chg": 6.0}, {"code": "186A", "name": "アストロスケール", "price": "1064", "chg": 5.1}], "losers": [{"code": "6492", "name": "岡野バルブ製造", "price": "12000", "chg": -9.09}, {"code": "6508", "name": "明電舎", "price": "9870", "chg": -7.5}, {"code": "8035", "name": "東京エレクトロン", "price": "9450", "chg": -6.99}]};
 /* ---------- 前場・後場トレンド予報 / Morning-Afternoon trend forecast (2026-08-27追加) ----------
    本日のPICKS.jp3銘柄について、06:00に前場予想、12:00に前場実績+後場予想、15:30に後場実績を記録する。
@@ -2568,6 +2571,14 @@ function renderDeepDive(){
   }
   var d = DEEPDIVE;
   var html = '';
+  /* 2026-10-26追加: DEEPDIVEは現行パイプラインの更新対象外のため、AS_OFより古い場合は明示する */
+  var ddDate = (d.asOf || '').split(' ')[0];
+  var asOfDate = (AS_OF || '').split(' ')[0];
+  if(!ddDate){
+    html += '<div class="sec-note dd-stale">⚠️ この分析の作成日時が記録されていません。内容が古い可能性があります。</div>';
+  } else if(ddDate < asOfDate){
+    html += '<div class="sec-note dd-stale">⚠️ この分析は '+d.asOf+' 時点のものです（他セクションの最終更新 '+AS_OF+' より古い）。</div>';
+  }
 
   /* ---- 客観データ一覧(先) ---- */
   html += '<h3 class="dd-h3">📋 客観データ一覧<em>Objective Data</em></h3>';
@@ -2591,7 +2602,7 @@ function renderDeepDive(){
         + '<td class="num">'+(p.high||'—')+'</td><td class="num">'+(p.low||'—')+'</td></tr>';
     });
     html += '</table>';
-    html += '<div class="sec-note" style="margin-top:0">上表はピックアップ銘柄の客観データ(株価・PER/PBR・テクニカル節目)のみ。局面の解釈・売買判断は下の主観予想セクションに記載します。</div>';
+    html += '<div class="sec-note" style="margin-top:0">上表はピックアップ銘柄の客観データ(株価・PER/PBR・テクニカル節目)のみ。局面の解釈・売買判断は下の主観予想セクションに記載します。'+(d.techNote?'<br>'+d.techNote:'')+'</div>';
   }
 
   html += '<hr class="dd-divider">';
@@ -2659,6 +2670,11 @@ function renderDeepDive(){
       html += '</ul>';
     }
     if(d.beginner) html += '<div class="tldr"><span class="eyebrow">初心者向け 超簡単まとめ</span>'+d.beginner+'</div>';
+  }
+  if(d.sources && d.sources.length){
+    html += '<div class="sec-note dd-sources">出典: '+d.sources.map(function(x){
+      return '<a href="'+x.url+'" target="_blank" rel="noopener">'+x.label+'</a>';
+    }).join(' ／ ')+'</div>';
   }
 
   body.innerHTML = html;
@@ -2754,7 +2770,7 @@ function renderSectionTimestamps(){
   setTs('topmovers', AS_OF);
   setTs('world', latestAsOf(WORLD) || AS_OF);
   setTs('pickup', latestAsOf(FLOW) || AS_OF);
-  setTs('deepdive', (typeof DEEPDIVE !== 'undefined' && DEEPDIVE && DEEPDIVE.asOf) || AS_OF);
+  setTs('deepdive', (typeof DEEPDIVE !== 'undefined' && DEEPDIVE && DEEPDIVE.asOf) || '不明');
   setTs('events', (typeof EVENTS !== 'undefined' && EVENTS && EVENTS.asOf) || AS_OF);
   setTs('weather', (typeof WEATHER !== 'undefined' && WEATHER && WEATHER.date) || AS_OF);
   for(var s=1; s<=11; s++){ setTs('s'+s, AS_OF); }
